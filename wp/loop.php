@@ -12,9 +12,13 @@
         <a href="#">Photography</a>
       </span>
     </div>
-    
-    <h1 class="entry-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h1>
-    
+
+    <h1 class="entry-title">
+      <a href="<?php the_permalink(); ?>">
+        <?php the_title(); ?>
+      </a>
+    </h1>
+
   </div>
   <div class="entry-excerpt">
     <?php the_excerpt(); ?>

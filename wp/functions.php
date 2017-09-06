@@ -14,10 +14,16 @@
 */
 function abs_setup(){
 if (function_exists('add_theme_support')){
-  add_theme_support('menus');
   add_theme_support('post-thumbnails');
   add_theme_support('automatic-feed-links');
   add_theme_support('title-tag');
+  add_theme_support('custom-logo',array(
+    "width"=>400,
+    "height"=>100,
+    "flex-width"=>true,
+    "flex-height"=>true,
+    "header-text"=>array("site-title"),
+  ));
 }
 }
 add_action('after_setup_theme','abs_setup');
@@ -37,5 +43,11 @@ function abs_scripts(){
 }
 add_action('wp_enqueue_scripts','abs_scripts');
 
+function abs_nav_menu_register(){
+  register_nav_menus(array(
+    'top-menu'=>__('Top Menu')
+  ))
+}
+add_action('init','abs_nav_menu_register')
 
 ?>
