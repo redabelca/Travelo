@@ -1,0 +1,73 @@
+mixin loop(limit)
+  -var a=0,l=limit;
+  -for (;a<l;a++){
+    block
+  -}
+
+-function bk(imgUrl,centerOpacity,sidesOpacity){
+  - var x=centerOpacity||0.46,y=sidesOpacity||0.88;
+  -return 'background-image:radial-gradient(circle at 50% 50%,rgba(0,0,0,'+x+'),rgba(0,0,0,'+y+'))'+', url(\''+imgUrl+'\');';
+-}
+
+//- ---------------------------MENU
+//- var obj={
+//-   nav:{
+//-     marginbottomClass:''
+//-   },
+//-   home:{
+//-     clas:'',
+//-     iconclas:''
+//-   },
+//-   links:{
+//-     linksArray:[],
+//-     liClass:''
+//-    },
+//-   classOfLast:''
+//- }
+mixin menu(obj)
+  nav#menu(class= obj[nav][marginbottomClass])
+    ul.row.relative
+  
+      li.left
+        a(class= obj[home][clas], href="#")
+          i.icon(class= obj[home][iconClas])
+
+      .menu-links.right#right-links
+        each val in obj[links][linksArray]
+          li.menu_center(class= obj[links][liClass])
+            a.menu-anchor(href="#")= val
+
+        li.menu_center
+          a.menu-anchor(href="#")
+            i.icon(class= obj[classOfLast])
+
+      .humb.absolute#humb
+        .humb-child
+          span
+          span
+          span
+  //- -------------------dropDown  
+  mixin liDrp(lisInDrpItem)
+    li#drp
+      a(href="#")
+      ul#drp-item
+        +loop(lisInDrpItem)
+          li
+            a(href="#")
+
+//- -----------------------media
+//- var obj={
+//-   item:{
+//-     clas:''
+//-    },
+//-    img:{
+//-      imgClass:'',
+//-      src:''
+//-    }
+//-  }
+mixin media (obj)
+  .row(class= obj[item][clas])
+    .media-img.left
+      img.img(class= obj[img][imgClass], src= obj[img][src])
+    .media-txt.right
+      block

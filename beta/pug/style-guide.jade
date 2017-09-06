@@ -1,0 +1,191 @@
+//
+  content
+  ==================================================
+#content-wrap.styles
+  .row.narrow.add-bottom.text-center
+    .col-twelve.tab-full
+      h1 Style Guide Page.
+      p.lead Lorem ipsum Officia elit ad tempor dolore est ex incididunt incididunt occaecat culpa deserunt sunt labore in cillum ullamco magna in Excepteur consequat in reprehenderit proident mollit incididunt officia commodo. Duis ea officia sed dolor pariatur enim dolore dolore quis incididunt nulla exercitation commodo veniam et ea incididunt.
+  .row
+    .col-six.tab-full
+      h3 Paragraph and Image
+      p
+        a(href='#')
+          img.pull-left(width='120', height='120', alt='sample-image', src='images/sample-image.jpg')  Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec libero. Suspendisse bibendum.Cras id urna. Morbi tincidunt, orci ac convallis aliquam, lectus turpis varius lorem, eu posuere nunc justo tempus leo. Donec mattis, purus nec placerat bibendum, dui pede condimentum odio, ac blandit ante orci ut diam. Cras fringilla magna. Phasellus suscipit, leo a pharetra condimentum, lorem tellus eleifend magna, eget fringilla velit magna id neque posuere nunc justo tempus leo.
+      p Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec libero. Suspendisse bibendum. Cras id urna. Morbi tincidunt, orci ac convallis aliquam, lectus turpis varius lorem, eu posuere nunc justo tempus leo. Donec mattis, purus nec placerat bibendum, dui pede condimentumodio, ac blandit ante orci ut diam.
+      p A 
+        a(href='#') link ,  
+        abbr(title="this really isn't a very good description") abbrebation ,  
+        strong strong text ,  
+        em em text ,  
+        del deleted text , and  
+        mark this is a mark text.  
+        code .code  
+    .col-six.tab-full
+      h3 Drop Caps
+      p.drop-cap Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean. A small river named Duden flows by their place and supplies it with the necessary regelialia. Morbi tincidunt, orci ac convallis aliquam, lectus turpis varius lorem, eu posuere nunc justo tempus leo. Donec mattis, purus nec placerat bibendum, dui pede condimentum odio, ac blandit ante orci ut diam. Cras fringilla magna. Phasellus suscipit, leo a pharetra 
+      h3 Small Print
+      p Buy one widget, get one free!
+        small (While supplies last. Offer expires on the vernal equinox. Not valid in Ohio.)
+  // end row
+  .row
+    .col-six.tab-full
+      h3 Pull Quotes
+      aside.pull-quote
+        blockquote
+          p It is a paradisematic country, in which roasted parts of sentences fly into your mouth. Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum   
+    .col-six.tab-full
+      h3 Block Quotes
+      blockquote(cite='http://where-i-got-my-info-from.com')
+        p Your work is going to fill a large part of your life, and the only way to be truly satisfied is to do what you believe is great work. And the only way to do great work is to love what you do. If you haven&apos;t found it yet, keep looking. Don&apos;t settle. As with all matters of   
+        cite
+          a(href='#') Steve Jobs
+      blockquote
+        p Good design is as little design as possible.  
+        cite Dieter Rams
+  // end row
+  .row.half-bottom
+    .col-six.tab-full
+      h3 Example Lists
+      ol
+        li Here is an example  
+        li of an ordered list.  
+        li A parent list item.
+          ul
+            li one      
+            li two      
+            li three  
+        li A list item.
+      ul.disc
+        li Here is an example  
+        li of an unordered list.
+      h3 Definition Lists
+      h5 a) Multi-line Definitions (default)
+      dl
+        dt
+          strong This is a term  
+        dd this is the definition of that term, which both live in a 
+          code dl .  
+        dt
+          strong Another Term  
+        dd And it gets a definition too, which is this line  
+        dd This is a 2
+          sup nd  definition for a single term. A 
+          code dt  may be followed by multiple 
+          code dd s.  
+    .col-six.tab-full
+      h3 Headers
+      h1 H1 Heading
+      h2 H2 Heading
+      h3 H3 Heading
+      h4 H4 Heading
+      h5 H5 Heading
+      h6 H6 Heading
+      h3 Buttons
+      p
+        a.button.button-primary.full-width(href='#') Primary Button  
+        a.button.full-width(href='#') Default Button
+  // end row
+  .row.half-bottom
+    .col-twelve
+      h3 Stats Tabs
+      ul.stats-tabs
+        li
+          a(href='#') 1,234 
+            em Sasuke  
+        li
+          a(href='#') 567 
+            em Hinata  
+        li
+          a(href='#') 23,456 
+            em Naruto  
+        li
+          a(href='#') 3,456 
+            em Kiba  
+        li
+          a(href='#') 456 
+            em Shikamaru  
+        li
+          a(href='#') 26 
+            em Sakura
+  // end row
+  .row.half-bottom
+    .col-six.tab-full
+      h3 Responsive Image
+      p
+        img(src='images/shutterbug.jpg')  
+    .col-six.tab-full
+      h3 Responsive video
+      .fluid-video-wrapper
+        iframe(src='http://player.vimeo.com/video/14592941?title=0&byline=0&portrait=0&color=F64B39', width='500', height='281', frameborder='0', webkitallowfullscreen='', mozallowfullscreen='', allowfullscreen='')
+  // end row
+  .row.add-bottom
+    .col-twelve
+      h3 Tables
+      p Be sure to use properly formed table markup with 
+        code &lt;thead&gt;  and 
+        code &lt;tbody&gt;  when building a 
+        code table .
+      .table-responsive
+        table
+          thead
+            tr
+              th Name        
+              th Age        
+              th Sex        
+              th Location    
+          tbody
+            tr
+              td Naruto Uzumaki        
+              td 16        
+              td Male        
+              td Konoha      
+            tr
+              td Sakura Haruno        
+              td 16        
+              td Female        
+              td Konoha
+  // end row
+  .row
+    .col-six.tab-full
+      h3 Form Styles
+      form
+        div
+          label(for='sampleInput') Your email    
+          input#sampleInput.full-width(type='email', placeholder='test@mailbox.com')  
+        div
+          label(for='sampleRecipientInput') Reason for contacting    
+          .ss-custom-select
+            select#sampleRecipientInput.full-width
+              option(value='Option 1') Questions &#x9;&#x9;&#x9;&#x9;        &#x9;&#x9;
+              option(value='Option 2') Report &#x9;&#x9;&#x9;&#x9;        &#x9;&#x9;
+              option(value='Option 3') Others  
+        label(for='exampleMessage') Message  
+        textarea#exampleMessage.full-width(placeholder='Your message')  
+        label.add-bottom
+          input(type='checkbox') &#x9;&#x9;&#x9;        &#x9;
+          span.label-text Send a copy to yourself  
+        input.button-primary.full-width-on-mobile(type='submit', value='Submit')  
+    .col-six.tab-full
+      h3 Code Block
+      pre.
+
+      h3 Alert Boxes
+      .alert-box.ss-error.hideit
+        p Error Message. Your Message Goes Here.  
+        i.fa.fa-times.close
+      // /error
+      .alert-box.ss-success.hideit
+        p Success Message. Your Message Goes Here.  
+        i.fa.fa-times.close
+      // /success
+      .alert-box.ss-info.hideit
+        p Info Message. Your Message Goes Here.  
+        i.fa.fa-times.close
+      // /info
+      .alert-box.ss-notice.hideit
+        p Notice Message. Your Message Goes Here.  
+        i.fa.fa-times.close
+      // /notice
+  // end row
+// end styles

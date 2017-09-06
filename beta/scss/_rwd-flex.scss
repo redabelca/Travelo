@@ -1,0 +1,77 @@
+@import 'vars';
+//flex-grid
+.flex-row{
+  width:100%;
+  display:flex;
+  flex-direction:row;
+  flex-wrap:wrap;
+}
+[class*='flex-clm-']{
+  flex-basis:100%;
+  }
+
+@mixin flex-clm-min(){
+  .flex-row{
+    flex-wrap:no-wrap;
+  }
+  .flex-clm-min{
+      flex:1;
+    }
+  ._50-min{
+      flex:5;
+    }
+  ._25-min{
+      flex:2.5;
+    }
+  ._75-min{
+      flex:7.5;
+    }
+}
+@mixin flex-clm-l(){
+  .flex-row{
+    flex-wrap:no-wrap;
+  }
+  .flex-clm-l{
+      flex:1;
+    }
+  ._50-l{
+      flex:5;
+    }
+  ._25-l{
+      flex:2.5;
+    }
+  ._75-l{
+      flex:7.5;
+    }}
+@mixin flex-clm(){
+  .flex-row{
+    flex-wrap:no-wrap;
+  }
+  .flex-clm{
+      flex:1;
+    }
+  ._50{
+      flex:5;
+    }
+  ._25{
+      flex:2.5;
+    }
+  ._75{
+      flex:7.5;
+    }}
+@mixin flex-clm-xl(){
+  .flex-row{
+    flex-wrap:no-wrap;
+  }
+  .flex-clm-xl{
+      flex:1;
+    }
+  ._50-xl{
+      flex:5;
+    }
+  ._25-xl{
+      flex:2.5;
+    }
+  ._75-xl{
+      flex:7.5;
+    }}

@@ -1,0 +1,332 @@
+*,
+*:after,
+*:before {
+  box-sizing: border-box;
+  font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+//Border
+.border {
+  border: 1px solid;
+}
+//Float right and left
+.right {
+  float: right;
+}
+.left {
+  float: left;
+}
+//Position
+.absolute {
+  position: absolute;
+}
+.relative {
+  position: relative;
+}
+.fixed {
+  position: fixed;
+}
+//Display
+.inline {
+  display: inline-block;
+}
+.block {
+  display: block;
+}
+.none {
+  display: none;
+}
+//opacity
+.op1 {
+  opacity: 1;
+}
+.op0 {
+  opacity: 0;
+}
+//txt_center
+.txt_center {
+  text-align: center;
+}
+//element center
+.center {
+  margin-left: auto;
+  margin-right: auto;
+}
+//clm padding
+.clm_pad {
+  padding: $ms-2 $ms1;
+}
+//background to be centered
+.bg-center {
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.blue-gradient {
+  background: radial-gradient(farthest-corner at 100% 100%, #070c36, #010113);
+}
+//Imgs
+img {
+  vertical-align: bottom;
+}
+.img {
+  max-width: 100%;
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+  display: block;
+}
+//section padding for top and bottom
+.section_pad {
+  padding-top: $ms7;
+  padding-bottom: $ms8;
+}
+//rounded icon
+.rounded-icon {
+  height: 30px;
+  width: 30px;
+  color: $c19;
+  font-size: $ms0;
+  border-radius: 100%;
+}
+//hero header
+.header-inner-center {
+  bottom: 10%;
+  width: 100%;
+  padding: 0 $ms2;
+}
+@media screen and (min-width:480px) {
+  .header-inner-center {
+    bottom: 30%;
+  }
+}
+//centering known height and width element like icon
+@mixin center($w, $h) {
+  height: $w;
+  width: $h;
+  top: 50%;
+  margin-top: -($h/2);
+  left: 50%;
+  margin-left: -($w/2);
+} //when it's abs
+//simple Header
+.inner-header {
+  width: 95%;
+  padding: 0 $ms2;
+}
+@media screen and (min-width:1024px) {
+  .inner-header {
+    width: 70%;
+    padding: 0 $ms7;
+  }
+}
+//Wrap Class
+.wrap_70 {
+  width: 80%;
+}
+@media screen and (min-width:480px) {
+  .wrap_70 {
+    width: 70%;
+  }
+}
+.wrap_75 {
+  width: 85%;
+}
+@media screen and (min-width:480px) {
+  .wrap_75 {
+    width: 75%;
+  }
+}
+.wrap_80 {
+  width: 97%;
+}
+@media screen and (min-width:480px) {
+  .wrap_80 {
+    width: 80%;
+  }
+}
+.wrap_85 {
+  width: 100%;
+}
+@media screen and (min-width:480px) {
+  .wrap_85 {
+    width: 85%;
+  }
+}
+.wrap_90 {
+  width: 95%;
+}
+@media screen and (min-width:480px) {
+  .wrap_90 {
+    width: 85%;
+  }
+}
+//margin-bottom
+.margin_btm_2 {
+  margin-bottom: $ms2;
+}
+.margin_btm_3 {
+  margin-bottom: $ms3;
+}
+.margin_btm_4 {
+  margin-bottom: $ms4;
+}
+.margin_btm_5 {
+  margin-bottom: $ms5;
+}
+.margin_btm_6 {
+  margin-bottom: $ms6;
+}
+.margin_btm_7 {
+  margin-bottom: $ms7;
+}
+.margin_btm_8 {
+  margin-bottom: $ms8;
+}
+.margin_btm_9 {
+  margin-bottom: $ms9;
+}
+.margin_btm_10 {
+  margin-bottom: $ms10;
+}
+.margin_btm_11 {
+  margin-bottom: $ms11;
+}
+//media
+.media-img {
+  width: 85px;
+  height: 85px;
+  margin-top: $ms4;
+}
+.media-txt {
+  width: 65%;
+  padding: $ms-1;
+}
+@media screen and (min-width:480px) {
+  .media-img {
+    width: 134px;
+    height: 135px;
+  }
+}
+@media screen and (min-width:768px) {
+  .media-img {
+    width: 150px;
+    height: 150px;
+    margin-top: $ms3;
+    margin-left: $ms5;
+  }
+}
+@media screen and (min-width:1024px) {
+  .media-img {
+    width: 100px;
+    height: 100px;
+    margin-top: $ms4;
+    margin-left: 0;
+  }
+}
+//----------Btn-----------
+//Block
+.btn {
+  display: inline-block;
+  padding: $ms-2 $ms-1;
+  font-weight: bold;
+  transition: all .3s;
+}
+//Modifier
+.btn_small {
+  padding: $ms0 $ms1;
+}
+.btn_medium {
+  padding: $ms1 $ms2;
+}
+.btn_big {
+  padding: $ms2 $ms3;
+}
+.btn_rounded_small {
+  border-radius: 5px;
+}
+.btn_rounded_medium {
+  border-radius: 10px;
+}
+.btn_rounded_big {
+  border-radius: 25px;
+}
+//---------MENU---------
+nav {
+  box-shadow: 0px 3px 10px $c12;
+}
+.menu-links {
+  width: 100%;
+  overflow: hidden;
+  transition: all .7s;
+  height: 0;
+}
+.humb {
+  top: 4px;
+  right: 4px;
+  height: 60px;
+  width: 60px;
+  padding: 0 14px;
+  cursor: pointer;
+} //must be abs and the .row must be rel
+.humb-child {
+  margin-top: 11px;
+  span {
+    height: 5px;
+    margin-bottom: 5px;
+    border-radius: 5px;
+  }
+}
+//in li
+.menu_center {
+  display: block;
+  text-align: center;
+}
+//in a
+.menu-anchor {
+  padding: $ms0;
+}
+@media screen and (min-width:1024px) {
+  .menu-links {
+    width: auto;
+    height: auto;
+  }
+  .humb {
+    display: none;
+  }
+  .menu_center {
+    display: inline-block;
+  }
+}
+//---------SVG CIRCULAR LPROGRESS-------
+//TO BE MIXIN ::::::::::::::::::::::::::::::::
+//<svg><circle r="100" cx="101" cy="101"></circle></svg>
+$height:202px;
+$width:202px;
+$r:100px;
+$line-length:2*3.14*$r;
+.circle {
+  width: $height;
+  height: $width;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-left: -($height/2);
+  margin-top: -($width/2);
+} //<svg>
+.circle circle {
+  stroke-dasharray: $line-length;
+  stroke-dashoffset: 0px;
+  stroke-linecap: round;
+  stroke-width: 2px;
+  stroke: white;
+  fill: none;
+  animation: countdown 5s linear 5 forwards;
+}// <circle>
+@keyframes countdown {
+  to {
+    stroke-dashoffset: $line-length;
+  }
+}
+//btn khawi mn lwst w 3ndo 2 barrat fjnab
+//:before and :after

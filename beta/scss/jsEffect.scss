@@ -1,0 +1,38 @@
+/**/
+.menu-fix {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1;
+}
+.capability-child-anim {
+  animation: boom .7s forwards;
+}
+.client-fade {
+  animation: fade-in 1s forwards;
+}
+.boom {
+  animation: boom .7s forwards;
+}
+@keyframes boom {
+  87% {
+    transform: scale(1.07);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+@keyframes fade-out {
+  to {
+    opacity: 0;
+  }
+}
+@keyframes fade-in {
+  to {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
