@@ -1,10 +1,5 @@
-function lg(t){
-  console.log(t);
-}
-function al(t){
-  alert(t);
-}
-
+var l = console.log,
+  al = alert;
 var data = {
   //initial
   windowWidth: 0,
@@ -17,3 +12,7 @@ var view = {
   init: function () {}
 };
 lib.ready(view.init);
+
+window.addEventListener('mousemove',lib.debounce(function(){
+  l(1);
+},1000));

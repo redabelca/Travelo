@@ -27,31 +27,12 @@ var lib = {
   },
 
   //Menu
-  slideToggle: function (affected) {
-    data.menuHeight = affected.scrollHeight;
-    if (!data.isMenuSlidedDown) {
-      affected.style.height = data.menuHeight + 'px';
-      data.isMenuSlidedDown = 1;
-    } else {
-      affected.style.height = 0;
-      data.isMenuSlidedDown = 0;
-    }
-  },
   menuLinksHeightFx: function (menu) {
     if (data.windowWidth > data.bk) {
       menu.style.height = 'auto';
       data.isMenuSlidedDown = 1;
     } else {
       data.isMenuSlidedDown = 0;
-    }
-  },
-  fixedMenu: function (el, clas, elementClassName) {
-    if (data.scrollTop >= data.menutop && lib.hasClass(el, clas)) {
-      controller.giveSpaceToMenuAfterFix(el);
-      el.className += ' ' + clas;
-    } else if (data.scrollTop < data.menutop && !lib.hasClass(el, clas)) {
-      controller.removeSpaceToMenuAfterFix(el);
-      el.className = el.className.replace(clas, '');
     }
   },
   giveSpaceToMenuAfterFix: function (el) {
@@ -63,6 +44,8 @@ var lib = {
   removeSpaceToMenuAfterFix: function (el) {
     el.previousElementSibling.style.marginBottom = 0;
   },
+  //these both last functions can be merged
+  //actually alot of funcs here can b mrgd
 
   //Css
   itContainsCSS: function (el, clasParentObjName, css) {
@@ -149,7 +132,7 @@ var lib = {
   CSSPropertyNumber: function (el, CSSProperty) {
     return Number(w.getComputedStyle(el)[CSSProperty].replace('px', ''));
   },
-  distanceToWatchOnScroll: function (baseName, percentageOfHeight/*optional*/) {
+  distanceToWatchOnScroll: function (baseName, percentageOfHeight /*optional*/ ) {
     var per = percentageOfHeight || 0.5;
     data[baseName + 'Distance'] = data[baseName + 'Top'] + (data[baseName + 'Height'] / per) - data.windowHeight;
   },
@@ -163,7 +146,7 @@ var lib = {
   isHisTopAppears: function (basename) {
     return data.scrollTop >= data[basename + 'Top'] - data.windowHeight;
   },
-  prepareElForAnimation: function (el, baseName, percentageOfHeight/*optional*/) {
+  prepareElForAnimation: function (el, baseName, percentageOfHeight /*optional*/ ) {
     var per = percentageOfHeight || 0.5;
     controller.updateData(baseName + 'Top', lib.top(el));
     controller.updateData(baseName + 'Height', lib.getOffsetHeight(el));
@@ -184,7 +167,7 @@ var lib = {
       }
     });
   },
-  registerForMonitor: function (distancesArrayName/*optional*/, baseName, fn) {
+  registerForMonitor: function (distancesArrayName /*optional*/ , baseName, fn) {
     if (typeof data[distancesArrayName] !== "object") {
       data[distancesArrayName] = [];
     }
@@ -193,7 +176,7 @@ var lib = {
       distance: data[baseName + 'Distance'],
       fn: fn
     });
-  },//el must be prepaired for anim
+  }, //el must be prepaired for anim
 
   //Data
   updateData: function (nameOfData, value) {
@@ -241,6 +224,74 @@ var lib = {
       }, stepTime);
   },
 
+  //Optimization
+
+  now: Date.now || function () {
+    return new Date().getTime();
+  },
+  throttle: function (func, wait, options) {
+    var context, args, result;
+    var timeout = null;
+    var previous = 0;
+    if (!options) options = {};
+    var later = function () {
+      previous = options.leading === false ? 0 : lib.now();
+      timeout = null;
+      result = func.apply(context, args);
+      if (!timeout) context = args = null;
+    };
+    return function () {
+      var now = lib.now();
+      if (!previous && options.leading === false) previous = now;
+      var remaining = wait - (now - previous);
+      context = this;
+      args = arguments;
+      if (remaining <= 0 || remaining > wait) {
+        if (timeout) {
+          clearTimeout(timeout);
+          timeout = null;
+        }
+        previous = now;
+        result = func.apply(context, args);
+        if (!timeout) context = args = null;
+      } else if (!timeout && options.trailing !== false) {
+        timeout = setTimeout(later, remaining);
+      }
+      return result;
+    };
+  },
+  debounce: function (func, wait, immediate) {
+    var timeout, args, context, timestamp, result;
+
+    var later = function () {
+      var last = lib.now() - timestamp;
+
+      if (last < wait && last >= 0) {
+        timeout = setTimeout(later, wait - last);
+      } else {
+        timeout = null;
+        if (!immediate) {
+          result = func.apply(context, args);
+          if (!timeout) context = args = null;
+        }
+      }
+    };
+
+    return function () {
+      context = this;
+      args = arguments;
+      timestamp = lib.now();
+      var callNow = immediate && !timeout;
+      if (!timeout) timeout = setTimeout(later, wait);
+      if (callNow) {
+        result = func.apply(context, args);
+        context = args = null;
+      }
+
+      return result;
+    };
+  },
+
   //Ready
   ready: function (fn) {
     if (document.addEventListener) {
@@ -252,7 +303,7 @@ var lib = {
         }
       });
     }
-  },
+  }
 };
 
 //Intro Animation

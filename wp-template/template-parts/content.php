@@ -9,9 +9,9 @@
 
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-	<header class="entry-header">
-		<?php
+  <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+    <header class="entry-header">
+      <?php
 		if ( is_singular() ) :
 			the_title( '<h1 class="entry-title">', '</h1>' );
 		else :
@@ -19,15 +19,17 @@
 		endif;
 
 		if ( 'post' === get_post_type() ) : ?>
-		<div class="entry-meta">
-			<?php theme_name_posted_on(); ?>
-		</div><!-- .entry-meta -->
-		<?php
+        <div class="entry-meta">
+          <?php theme_name_posted_on(); ?>
+        </div>
+        <!-- .entry-meta -->
+        <?php
 		endif; ?>
-	</header><!-- .entry-header -->
+    </header>
+    <!-- .entry-header -->
 
-	<div class="entry-content">
-		<?php
+    <div class="entry-content">
+      <?php
 			the_content( sprintf(
 				wp_kses(
 					/* translators: %s: Name of current post. Only visible to screen readers */
@@ -46,9 +48,12 @@
 				'after'  => '</div>',
 			) );
 		?>
-	</div><!-- .entry-content -->
+    </div>
+    <!-- .entry-content -->
 
-	<footer class="entry-footer">
-		<?php theme_name_entry_footer(); ?>
-	</footer><!-- .entry-footer -->
-</article><!-- #post-<?php the_ID(); ?> -->
+    <footer class="entry-footer">
+      <?php theme_name_entry_footer(); ?>
+    </footer>
+    <!-- .entry-footer -->
+  </article>
+  <!-- #post-<?php the_ID(); ?> -->

@@ -1,9 +1,15 @@
 "use strict";
-let r = require,
-  gulp = r('gulp'),
-  browserSync = r('browser-sync').create();
-let plumber, rename, pug, sass, sourcemaps, autoprefixer, uncss, csso, combineMq, concatCss, uglify, concat, order, autopolyfiller, merge, svgmin, tinypng, imageResize, l = console.log;
+let r = require,gulp = r('gulp'),browserSync = r('browser-sync').create(),plumber, rename, pug, sass, sourcemaps, autoprefixer, uncss, csso, combineMq, concatCss, uglify, concat, order, autopolyfiller, merge, svgmin, imgmin, imageResize, l = console.log, paths = {
+  pug: './beta/pug/**/*.pug',
+  html: './beta/',
+  htmlServed: 'index.html',
 
+  sass: './beta/scss/**/style.scss',
+  css: './beta/styles/',
+
+  factoryjs: './beta/factoryjs/',
+  js: './beta/js/'
+};
 setTimeout(function () {
   l('let\'s begin loading modules');
   plumber = r('gulp-plumber');
@@ -26,21 +32,10 @@ setTimeout(function () {
   merge = r('event-stream').merge;
   l('js stuff loaded');
   //svgmin = r('gulp-svgmin');
-  //tinypng = r('gulp-tinypng');
+  //imgmin = r('gulp-imagemin');
   //imageResize = r('gulp-image-resize');
   l('all are loaded');
 }, 7000);
-var paths = {
-  pug: './beta/pug/**/*.pug',
-  html: './beta/',
-  htmlServed: 'index.html',
-
-  sass: './beta/scss/**/style.scss',
-  css: './beta/styles/',
-
-  factoryjs: './beta/factoryjs/',
-  js: './beta/js/'
-};
 
 gulp.task('default', function () {
   browserSync.init({
@@ -70,7 +65,7 @@ gulp.task('default', function () {
   gulp.watch(paths.factoryjs + '*.js', ['js']);
   //gulp.watch(paths.js + 'main.js', ['uglify']); //to optimize speed
 
-  gulp.watch(['./beta/index.html']).on('change', browserSync.reload);
+  gulp.watch(['*.html']).on('change', browserSync.reload);
 });
 //--------------------------------------
 gulp.task('pug', function () {
@@ -124,7 +119,7 @@ gulp.task('finalCss', function () {
       debug: true
     }))
     .pipe(autoprefixer({
-      browsers: ['last 40 versions', 'ie >= 5','safari 5', 'opera 12.1', 'ios 6', 'android 4'],
+      browsers: ['last 40 versions', 'ie >= 5', 'safari 5', 'opera 12.1', 'ios 6', 'android 4'],
       cascade: false,
       remove: false
     }))
@@ -133,23 +128,20 @@ gulp.task('finalCss', function () {
 });
 
 gulp.task('js', function () {
-  let all = gulp.src([paths.factoryjs + 'lib.js', paths.factoryjs + 'main.js'])
-    .pipe(plumber())
+  let all = gulp.src([paths.factoryjs + 'lib.js', paths.factoryjs + 'main.js']).pipe(plumber({errorHandler: onError}))
     .pipe(concat('main.js'));
   let polyfills = all
-    .pipe(plumber())
     .pipe(autopolyfiller('poly.js', {
       browsers: ['last 40 versions', 'ie >= 5']
     }));
   return merge(polyfills, all)
-    .pipe(plumber())
     .pipe(order([
             'poly.js',
             'main.js'
         ]))
     .pipe(concat('main.js'))
-    .pipe(plumber())
-    .pipe(gulp.dest(paths.js));
+    .pipe(gulp.dest(paths.js))
+    .pipe(browserSync.stream());
 });
 gulp.task('uglify', function () {
   gulp.src(paths.js + 'main.js')
@@ -165,8 +157,8 @@ gulp.task('svgmin', function () {
     .pipe(gulp.dest('./beta/img'));
 });
 //--------------------------------------
-gulp.task('img-resize', ["img-resize-150", "img-resize-300", "img-resize-640", "img-resize-768", "img-resize-1024", "img-resize-2000"]);
-gulp.task("img-resize-150", function () {
+gulp.task("img-resize-all", function () {
+  //all sizes of wp thumbnails
   gulp.src("./beta/factoryimg/*.{jpg,jpeg,png}")
     .pipe(imageResize({
       width: 150
@@ -176,58 +168,15 @@ gulp.task("img-resize-150", function () {
     }))
     .pipe(gulp.dest("./beta/factoryimg"));
 });
-gulp.task("img-resize-300", function () {
-  gulp.src("./beta/factoryimg/*.{jpg,jpeg,png}")
-    .pipe(imageResize({
-      width: 300
-    }))
-    .pipe(rename(function (path) {
-      path.basename += "-300";
-    }))
-    .pipe(gulp.dest("./beta/factoryimg"));
-});
-gulp.task("img-resize-640", function () {
-  gulp.src("./beta/factoryimg/*.{jpg,jpeg,png}")
-    .pipe(imageResize({
-      width: 640
-    }))
-    .pipe(rename(function (path) {
-      path.basename += "-640";
-    }))
-    .pipe(gulp.dest("./beta/factoryimg"));
-});
-gulp.task("img-resize-768", function () {
-  gulp.src("./beta/factoryimg/*.{jpg,jpeg,png}")
-    .pipe(imageResize({
-      width: 768
-    }))
-    .pipe(rename(function (path) {
-      path.basename += "-768";
-    }))
-    .pipe(gulp.dest("./beta/factoryimg"));
-});
-gulp.task("img-resize-1024", function () {
-  gulp.src("./beta/factoryimg/*.{jpg,jpeg,png}")
-    .pipe(imageResize({
-      width: 1024
-    }))
-    .pipe(rename(function (path) {
-      path.basename += "-1024";
-    }))
-    .pipe(gulp.dest("./beta/factoryimg"));
-});
-gulp.task("img-resize-2000", function () {
-  gulp.src("./beta/factoryimg/*.{jpg,jpeg,png}")
-    .pipe(imageResize({
-      width: 2000
-    }))
-    .pipe(rename(function (path) {
-      path.basename += "-2000";
-    }))
-    .pipe(gulp.dest("./beta/factoryimg"));
-});
-gulp.task('tinypng', function () {
-  gulp.src('./beta/factoryimg/*.*')
-    .pipe(tinypng('9esmu4Fj0pKzlDbPaqTpsOvKIHSA47gX'))
+gulp.task('imgmin', function () {
+  gulp.src('./beta/factoryimg/*')
+    .pipe(imgmin({
+    progressive: true,
+    interlaced: true,
+    optimizationLevel: 7,
+    svgoPlugins: [{removeViewBox: false}],
+    verbose: true,
+    use: []
+  }))
     .pipe(gulp.dest('./beta/img'));
 });
