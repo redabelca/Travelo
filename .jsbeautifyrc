@@ -42,9 +42,9 @@
         "newline_between_rules": false
     },
     "html": {
-        "eol": "\n",
+        "eol": "",
         "end_with_newline": true,
-        "preserve_newlines": true,
+        "preserve_newlines": false,
         "max_preserve_newlines": 10,
         "indent_inner_html": false,
         "brace_style": "collapse",

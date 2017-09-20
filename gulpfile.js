@@ -1,17 +1,20 @@
 "use strict";
-let r = require,gulp = r('gulp'),browserSync = r('browser-sync').create(),plumber, rename, pug, sass, sourcemaps, autoprefixer, uncss, csso, combineMq, concatCss, uglify, concat, order, autopolyfiller, merge, svgmin, imgmin, imageResize, l = console.log, paths = {
-  pug: './beta/pug/**/*.pug',
-  html: './beta/',
-  htmlServed: 'index.html',
+let r = require,
+  gulp = r('gulp'),
+  browserSync = r('browser-sync').create(),
+  plumber, rename, pug, sass, sourcemaps, autoprefixer, uncss, csso, combineMq, concatCss, uglify, concat, order, autopolyfiller, merge, svgmin, imgmin, imageResize, l = console.log,
+  paths = {
+    pug: './beta/pug/**/*.pug',
+    html: './beta/',
+    htmlServed: 'index.html',
 
-  sass: './beta/scss/**/style.scss',
-  css: './beta/styles/',
+    sass: './beta/scss/**/style.scss',
+    css: './beta/styles/',
 
-  factoryjs: './beta/factoryjs/',
-  js: './beta/js/'
-};
+    factoryjs: './beta/factoryjs/',
+    js: './beta/js/'
+  };
 setTimeout(function () {
-  l('let\'s begin loading modules');
   plumber = r('gulp-plumber');
   rename = r("gulp-rename");
   l('general modules loaded');
@@ -33,8 +36,7 @@ setTimeout(function () {
   l('js stuff loaded');
   //svgmin = r('gulp-svgmin');
   //imgmin = r('gulp-imagemin');
-  //imageResize = r('gulp-image-resize');
-  l('all are loaded');
+  imageResize = r('gulp-image-resize');
 }, 7000);
 
 gulp.task('default', function () {
@@ -119,7 +121,7 @@ gulp.task('finalCss', function () {
       debug: true
     }))
     .pipe(autoprefixer({
-      browsers: ['last 40 versions', 'ie >= 5', 'safari 5', 'opera 12.1', 'ios 6', 'android 4'],
+      browsers: ['last 40 versions', 'iOS >= 6', 'android >= 2'],
       cascade: false,
       remove: false
     }))
@@ -128,11 +130,13 @@ gulp.task('finalCss', function () {
 });
 
 gulp.task('js', function () {
-  let all = gulp.src([paths.factoryjs + 'lib.js', paths.factoryjs + 'main.js']).pipe(plumber({errorHandler: onError}))
+  let all = gulp.src([paths.factoryjs + 'lib.js', paths.factoryjs + 'main.js']).pipe(plumber({
+      errorHandler: onError
+    }))
     .pipe(concat('main.js'));
   let polyfills = all
     .pipe(autopolyfiller('poly.js', {
-      browsers: ['last 40 versions', 'ie >= 5']
+      browsers: ['last 10 versions', 'iOS >= 6']
     }));
   return merge(polyfills, all)
     .pipe(order([
@@ -156,7 +160,6 @@ gulp.task('svgmin', function () {
     .pipe(svgmin())
     .pipe(gulp.dest('./beta/img'));
 });
-//--------------------------------------
 gulp.task("img-resize-all", function () {
   //all sizes of wp thumbnails
   gulp.src("./beta/factoryimg/*.{jpg,jpeg,png}")
@@ -171,12 +174,41 @@ gulp.task("img-resize-all", function () {
 gulp.task('imgmin', function () {
   gulp.src('./beta/factoryimg/*')
     .pipe(imgmin({
-    progressive: true,
-    interlaced: true,
-    optimizationLevel: 7,
-    svgoPlugins: [{removeViewBox: false}],
-    verbose: true,
-    use: []
-  }))
+      progressive: true,
+      interlaced: true,
+      optimizationLevel: 7,
+      svgoPlugins: [{
+        removeViewBox: false
+      }],
+      verbose: true,
+      use: []
+    }))
     .pipe(gulp.dest('./beta/img'));
 });
+//---------------------------------------
+gulp.task('critical', function () {
+  var critical = r('critical'),
+    gulp = r('gulp');
+  critical.generate({
+    inline: true,
+    base: './beta/',
+    src: 'index.html',
+    dest: 'index-critical.html',
+    dimensions: [
+      {
+        width: 320,
+        height: 480
+      }, {
+        width: 768,
+        height: 1024
+      }, {
+        width: 1280,
+        height: 960
+    }],
+    minify: true,
+    extract: false,
+    ignore: ['font-face']
+  });
+});
+
+gulp.task('build',['critical','uglify','finalCss']);
