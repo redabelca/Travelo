@@ -1,45 +1,38 @@
-/*
-	Theme Name: HTML5 Blank
-	Theme URI: http://html5blank.com
-	Description: HTML5 Blank WordPress Theme
-	Version: 1.4.3
-	Author: Todd Motto (@toddmotto)
-	Author URI: http://toddmotto.com
-	Tags: Blank, HTML5, CSS3
+@import 'vars','menu-model','rwd-float','_normalize','_type','mixins';
+body{
+  height: 2000px;
+}
+.side-nav{
+  background:$c3;
+  width:200px;
+  height:100%;
+  transition: all .7s;
+  overflow:auto;
+}
+.side-title{
+  padding:$ms2;
+  color:$c18;
+  text-shadow: 1px 1px 1px $c20;
+  font-size:$ms2;
+}
 
-	License: MIT
-	License URI: http://opensource.org/licenses/mit-license.php
-*/
-
-@import '_inall';
-/*------------------------------------*\
-    MAIN
-\*------------------------------------*/
-
-
-/*------------------------------------*\
-    STRUCTURE
-\*------------------------------------*/
-
-
-/*------------------------------------*\
-    PAGES
-\*------------------------------------*/
-
-
-/*------------------------------------*\
-    IMAGES
-\*------------------------------------*/
-
-
-/*------------------------------------*\
-	TYPOGRAPHY
-\*------------------------------------*/
-
-
-/*------------------------------------*\
-    RESPONSIVE
-\*------------------------------------*/
+.side-a{
+  color:$c13;
+  font-family:'Roboto';
+  font-weight:400;
+  font-size:17px;
+  padding:$ms0+5px;
+  box-shadow: 0 5px 3px -5px $c10;
+}
+.side-a:hover{
+  transform: translateX(10px);
+  font-family: 20px;
+  box-shadow:0px 1px 3px 0px $c10;
+  color:$c20;
+}
+//must be able to slide or push content by clicking on humb menu
+//when clicking on link that has submenu it triggers animation and hides all sible links and display only submenu
+//this side menu needs a custom scrollbar
 
 @media screen and (min-width:320px) {}
 @media screen and (min-width:360px) {}
@@ -55,7 +48,3 @@
 @media screen and (min-width:1680px) {}
 @media screen and (min-width:1920px) {}
 @media screen and (min-width:2560px) {}
-
-/*------------------------------------*\
-    MISC
-\*------------------------------------*/

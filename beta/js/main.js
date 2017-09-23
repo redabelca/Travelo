@@ -19,8 +19,7 @@ Date.now = function now() {
 
 }
 
-var d = document,
-  w = window;
+var l = console.log,al = alert, d = document, w = window;
 var lib = {
   //Get and event
   getId: function (id) {
@@ -46,27 +45,6 @@ var lib = {
       el['on' + eventWithoutOn] = fn;
     }
   },
-
-  //Menu
-  menuLinksHeightFx: function (menu) {
-    if (data.windowWidth > data.bk) {
-      menu.style.height = 'auto';
-      data.isMenuSlidedDown = 1;
-    } else {
-      data.isMenuSlidedDown = 0;
-    }
-  },
-  giveSpaceToMenuAfterFix: function (el) {
-    if (!data.menuPlaceSize) {
-      data.menuPlaceSize = lib.CSSPropertyNumber(el.previousElementSibling, 'margin-bottom') + lib.getOffsetHeight(el) + lib.CSSPropertyNumber(el, 'margin-bottom');
-    }
-    el.previousElementSibling.style.marginBottom = data.menuPlaceSize + 'px';
-  },
-  removeSpaceToMenuAfterFix: function (el) {
-    el.previousElementSibling.style.marginBottom = 0;
-  },
-  //these both last functions can be merged
-  //actually alot of funcs here can b mrgd
 
   //Css
   itContainsCSS: function (el, clasParentObjName, css) {
@@ -143,96 +121,7 @@ var lib = {
     }
   },
 
-  //Layout
-  getWindowScrollY: function () {
-    return w.scrollY || w.pageYOffset || d.body.scrollTop;
-  },
-  getOffsetHeight: function (el) {
-    return el.offsetHeight || el.getBoundingClientRect().height || lib.CSSPropertyNumber(el, 'height');
-  },
-  CSSPropertyNumber: function (el, CSSProperty) {
-    return Number(w.getComputedStyle(el)[CSSProperty].replace('px', ''));
-  },
-  distanceToWatchOnScroll: function (baseName, percentageOfHeight /*optional*/ ) {
-    var per = percentageOfHeight || 0.5;
-    data[baseName + 'Distance'] = data[baseName + 'Top'] + (data[baseName + 'Height'] / per) - data.windowHeight;
-  },
-  isItAppears: function (baseName) {
-    if (data[baseName + 'Distance']) {
-      return data.scrollTop >= data[baseName + 'Distance'];
-    } else {
-      alert('error in isItAppears');
-    }
-  },
-  isHisTopAppears: function (basename) {
-    return data.scrollTop >= data[basename + 'Top'] - data.windowHeight;
-  },
-  prepareElForAnimation: function (el, baseName, percentageOfHeight /*optional*/ ) {
-    var per = percentageOfHeight || 0.5;
-    controller.updateData(baseName + 'Top', lib.top(el));
-    controller.updateData(baseName + 'Height', lib.getOffsetHeight(el));
-    controller.distanceToWatchOnScroll(baseName, per);
-  },
-
-  //Animation
-  animationMonitor: function (distancesArrayName) {
-    data[distancesArrayName].sort(function (a, b) {
-      return a.distance - b.distance;
-    });
-    lib.addEvent(w, 'scroll', function () {
-      if (lib.isItAppears(data[distancesArrayName][0].basename)) {
-        data[distancesArrayName][0].fn();
-        data[distancesArrayName].shift();
-        //if it doesn't work make a var that hold the index
-        //and i++ when .fn() done
-      }
-    });
-  },
-  registerForMonitor: function (distancesArrayName /*optional*/ , baseName, fn) {
-    if (typeof data[distancesArrayName] !== "object") {
-      data[distancesArrayName] = [];
-    }
-    data[distancesArrayName].push({
-      basename: baseName,
-      distance: data[baseName + 'Distance'],
-      fn: fn
-    });
-  }, //el must be prepaired for anim
-
-  //Data
-  updateData: function (nameOfData, value) {
-    data[nameOfData] = value;
-  },
-  top: function (el) {
-    return el.getBoundingClientRect().top + lib.getWindowScrollY();
-  },
-
   //Snipets
-  circleInCSS: function (step, startAngle, r) {
-    var percentageStep = 100 / step,
-      i = percentageStep,
-      j = startAngle,
-      angleStep = 360 / step,
-      rStep = (r / step),
-      x, y;
-    for (; i <= 100; i += percentageStep) {
-      j += angleStep;
-      r -= rStep;
-      x = Math.cos((j * Math.PI) / 180) * r;
-      y = Math.sin((j * Math.PI) / 180) * r;
-      console.log(i + '%{transform:translate(' + x.toFixed(1) + 'px,' + y.toFixed(1) + 'px);}');
-    }
-  },
-  startCount: function (number, el, time) {
-    var toAdd = time / 0.05,
-      start = ((number - toAdd) >= 0) ? (number - toAdd) : 0,
-      i = 0;
-    el.innerHTML = start + '%';
-    lib.loop(toAdd, 50, function () {
-      i++;
-      el.innerHTML = (start + i) + '%';
-    });
-  },
   loop: function (limit, stepTime, fn) {
     var i = -1,
       inter = setInterval(function () {
@@ -246,7 +135,6 @@ var lib = {
   },
 
   //Optimization
-
   now: Date.now || function () {
     return new Date().getTime();
   },
@@ -327,29 +215,13 @@ var lib = {
   }
 };
 
-//Intro Animation
-/*setTimeout(function () {
-  el.className += ' ' + 'fade-out';
-}, 4000);
-setTimeout(function () {
-el.parentElement.removeChild(el);
-}, 6000);*/
-
-var l = console.log,
-  al = alert;
 var data = {
-  //initial
   windowWidth: 0,
   windowHeight: 0,
-  scrollTop: 0,
-  bk: 1024,
+  scrollTop: 0
 };
 var controller = {};
 var view = {
   init: function () {}
 };
 lib.ready(view.init);
-
-window.addEventListener('mousemove',lib.debounce(function(){
-  l(1);
-},1000));

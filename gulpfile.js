@@ -7,8 +7,8 @@ let r = require,
     pug: './beta/pug/**/*.pug',
     html: './beta/',
     htmlServed: 'index.html',
-
-    sass: './beta/scss/**/style.scss',
+    
+    sass: './beta/scss/**/*.scss',
     css: './beta/styles/',
 
     factoryjs: './beta/factoryjs/',
@@ -36,8 +36,8 @@ setTimeout(function () {
   l('js stuff loaded');
   //svgmin = r('gulp-svgmin');
   //imgmin = r('gulp-imagemin');
-  imageResize = r('gulp-image-resize');
-}, 7000);
+  //imageResize = r('gulp-image-resize');
+}, 2000);
 
 gulp.task('default', function () {
   browserSync.init({
@@ -80,7 +80,7 @@ gulp.task('pug', function () {
 });
 
 gulp.task('sass', function () {
-  gulp.src(paths.sass)
+  gulp.src('./beta/scss/style.scss')
     .pipe(sourcemaps.init())
     .pipe(sass().on('error', sass.logError))
     /*.pipe(combineMq({
@@ -130,10 +130,8 @@ gulp.task('finalCss', function () {
 });
 
 gulp.task('js', function () {
-  let all = gulp.src([paths.factoryjs + 'lib.js', paths.factoryjs + 'main.js']).pipe(plumber({
-      errorHandler: onError
-    }))
-    .pipe(concat('main.js'));
+  let all = gulp.src([paths.factoryjs + 'main.js']).pipe(plumber())
+    /*.pipe(concat('main.js'))*/;
   let polyfills = all
     .pipe(autopolyfiller('poly.js', {
       browsers: ['last 10 versions', 'iOS >= 6']
@@ -187,8 +185,7 @@ gulp.task('imgmin', function () {
 });
 //---------------------------------------
 gulp.task('critical', function () {
-  var critical = r('critical'),
-    gulp = r('gulp');
+  var critical = r('critical');
   critical.generate({
     inline: true,
     base: './beta/',

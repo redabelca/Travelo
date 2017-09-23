@@ -1,17 +1,19 @@
 @import 'vars';
-.row:after, .row:before{
+.row:after,
+.row:before {
   content: '';
   clear: both;
   display: table;
 }
 [class*='clm-'] {
-	float: left;
-	width:100%;
+  float: left;
+  width: 100%;
 }
 
 //smallest width 320px and minus scrollbar 310px
 //biggest number of breakpoints used in sites is 5 bk
 //three main bk 480 / 1024
+
 /*
 1024
 1280
@@ -22,7 +24,9 @@
 1680
 1920
 2560*/
+
 //phones
+
 /*
 320
 360
@@ -31,8 +35,8 @@
 768*/
 
 //grid 12 clm
-@mixin rwd-min(){
-  $v:8.33%;
+@mixin rwd-min() {
+  $v: 8.33%;
   .clm-1-min {
     width: $v;
   }
@@ -70,8 +74,9 @@
     width: $v*12;
   }
 }
-@mixin rwd-mdm(){
-  $v:8.33%;
+
+@mixin rwd-mdm() {
+  $v: 8.33%;
   .clm-1-mdm {
     width: $v;
   }
@@ -81,35 +86,37 @@
   .clm-3-mdm {
     width: $v*3;
   }
-  .clm-4-mdm  {
+  .clm-4-mdm {
     width: $v*4;
   }
-  .clm-5-mdm  {
+  .clm-5-mdm {
     width: $v*5;
   }
-  .clm-6-mdm  {
+  .clm-6-mdm {
     width: $v*6;
   }
-  .clm-7-mdm  {
+  .clm-7-mdm {
     width: $v*7;
   }
-  .clm-8-mdm  {
+  .clm-8-mdm {
     width: $v*8;
   }
-  .clm-9-mdm  {
+  .clm-9-mdm {
     width: $v*9;
   }
-  .clm-10-mdm  {
+  .clm-10-mdm {
     width: $v*10;
   }
-  .clm-11-mdm  {
+  .clm-11-mdm {
     width: $v*11;
   }
-  .clm-12-mdm  {
+  .clm-12-mdm {
     width: $v*12;
-  }}
-@mixin rwd(){
-  $v:8.33%;
+  }
+}
+
+@mixin rwd() {
+  $v: 8.33%;
   .clm-1 {
     width: $v;
   }
@@ -119,42 +126,44 @@
   .clm-3 {
     width: $v*3;
   }
-  .clm-4  {
+  .clm-4 {
     width: $v*4;
   }
-  .clm-5  {
+  .clm-5 {
     width: $v*5;
   }
-  .clm-6  {
+  .clm-6 {
     width: $v*6;
   }
-  .clm-7  {
+  .clm-7 {
     width: $v*7;
   }
-  .clm-8  {
+  .clm-8 {
     width: $v*8;
   }
-  .clm-9  {
+  .clm-9 {
     width: $v*9;
   }
-  .clm-10  {
+  .clm-10 {
     width: $v*10;
   }
-  .clm-11  {
+  .clm-11 {
     width: $v*11;
   }
-  .clm-12  {
+  .clm-12 {
     width: $v*12;
-  }}
-@mixin rwd-l(){
-  $v:8.33%;
+  }
+}
+
+@mixin rwd-l() {
+  $v: 8.33%;
   .clm-1-l {
     width: $v;
   }
-  .clm-2-l  {
+  .clm-2-l {
     width: $v*2;
   }
-  .clm-3-l  {
+  .clm-3-l {
     width: $v*3;
   }
   .clm-4-l {
@@ -185,8 +194,9 @@
     width: $v*12;
   }
 }
-@mixin rwd-xl(){
-  $v:8.33%;
+
+@mixin rwd-xl() {
+  $v: 8.33%;
   .clm-1-xl {
     width: $v;
   }
@@ -226,8 +236,8 @@
 }
 
 //grid 10 clm
-@mixin rwd-10(){
-  $v:10%;
+@mixin rwd-10() {
+  $v: 10%;
   .grid10-clm-1 {
     width: $v;
   }

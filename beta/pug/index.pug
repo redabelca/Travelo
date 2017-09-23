@@ -4,6 +4,19 @@ html(lang='')
   include head
   link(href="./styles/style.css" type="text/css" rel="stylesheet")
   body
-    main
-      
+    main.relative
+      nav.side-nav.fixed.border
+        span.side-title.txt_center Gamy
+        ul.side-side-ul.relative
+          - var arr=['Home','Themes','Nick','Flow'],i=0;
+          +loop(4)
+            li.side-li.block
+              a.side-a(href="#")= arr[i]
+              -i++
+          li.side-li.block
+            a.side-a(href="#") Games
+            ul.side-sub-ul.absolute
+              +loop(4)
+                li.side-sub-li
+                  a.side-a.side-sub-a(href="#") Sub-Menu
     script(src= './js/main.js')

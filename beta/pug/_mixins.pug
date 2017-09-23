@@ -32,7 +32,7 @@ mixin menu(obj)
         a(class= obj.home.clas, href="#")
           i.icon(class= obj.home.iconClas)
 
-      .menu-links.right#right-links
+      .menu-links.right
         each val in obj.links.linksArray
           li.menu_center(class= obj.links.liClass)
             a.menu-anchor(href="#")= val
@@ -43,15 +43,15 @@ mixin menu(obj)
 
       .humb.absolute#humb
         .humb-child
-          span
-          span
-          span
+          span.humb-spn.block
+          span.humb-spn.block
+          span.humb-spn.block
 //- -------------------dropDown--//mazal improvments here khass i3tini wach kin chi li 3ndha submenu ola lla and khasso i3tini lista dial le contenu
-mixin liDrp(lisInDrpItem)
+mixin liDrp()
   li#drp
     a(href="#")
     ul#drp-item
-      +loop(lisInDrpItem)
+      +loop()
         li
           a(href="#")
 
