@@ -1,0 +1,65 @@
+@import 'vars';
+html {
+  font-size: 16px;
+  font-family: sans-serif;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", "Helvetica", "Tahoma", "Verdana", sans-serif;
+  margin: 0;
+  padding: 0;
+  color: $c3;
+  background: $c19;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Raleway", "Helvetica", "Tahoma", "Verdana", sans-serif;
+  margin: 16px 0 19.2px;
+}
+h1 {
+  font-size: 47.776px;
+}
+h2 {
+  font-size: 39.813px;
+}
+h3 {
+  font-size: 33.178px;
+}
+h4 {
+  font-size: 27.648px;
+}
+h5 {
+  font-size: 23.04px;
+}
+h6 {
+  font-size: 19.2px;
+}
+h1.small {
+  font-size: 43.7945px;
+}
+h2.small {
+  font-size: 40.477px;
+}
+h3.small {
+  font-size: 33.7305px;
+}
+h4.small {
+  font-size: 28.109px;
+}
+h5.small {
+  font-size: 23.424px;
+}
+h6.small {
+  font-size: 17px;
+}
+p {
+  line-height: 24.8px;
+  margin-bottom: 19.2px;
+}
+
+/*# sourceMappingURL=type.css.map */
