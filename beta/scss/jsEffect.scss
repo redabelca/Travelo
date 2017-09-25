@@ -22,3 +22,11 @@
     transform: translate(0);
   }
 }
+
+//-----Side-Nav
+.slide-nav-forward{
+  transform: translateX(100%);
+}
+.slide-nav-backward{
+  transform: translateX(-120%);
+}

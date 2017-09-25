@@ -1,137 +1,100 @@
 "use strict";
-let r = require,
-  gulp = r('gulp'),
-  browserSync = r('browser-sync').create(),
-  plumber, rename, pug, sass, sourcemaps, autoprefixer, uncss, csso, combineMq, concatCss, uglify, concat, order, autopolyfiller, merge, svgmin, imgmin, imageResize, l = console.log,
-  paths = {
-    pug: './beta/pug/**/*.pug',
-    html: './beta/',
-    htmlServed: 'index.html',
-    
-    sass: './beta/scss/**/*.scss',
-    css: './beta/styles/',
-
-    factoryjs: './beta/factoryjs/',
-    js: './beta/js/'
+let r = require,gulp = r('gulp'),browserSync = r('browser-sync').create(),plumber, rename, pug, sass, autoprefixer, uncss, csso, combineMq, concatCss, uglify, concat, order, autopolyfiller, merge, svgmin, imgmin, imageResize, l = console.log,paths = {
+    base: './beta/'
   };
-setTimeout(function () {
-  plumber = r('gulp-plumber');
-  rename = r("gulp-rename");
-  l('general modules loaded');
-  pug = r('gulp-pug');
-  l('pug loaded');
-  sass = r('gulp-sass');
-  sourcemaps = r('gulp-sourcemaps');
-  autoprefixer = r('gulp-autoprefixer');
-  uncss = r('gulp-uncss');
-  csso = r('gulp-csso');
-  combineMq = r('gulp-combine-mq');
-  concatCss = r('gulp-concat-css');
-  l('css stuff loaded');
-  uglify = r('gulp-uglify');
-  concat = r('gulp-concat');
-  order = r('gulp-order');
-  autopolyfiller = r('gulp-autopolyfiller');
-  merge = r('event-stream').merge;
-  l('js stuff loaded');
-  //svgmin = r('gulp-svgmin');
-  //imgmin = r('gulp-imagemin');
-  //imageResize = r('gulp-image-resize');
-}, 2000);
-
+//svgmin = r('gulp-svgmin'); //imgmin = r('gulp-imagemin'); //imageResize = r('gulp-image-resize');
 gulp.task('default', function () {
   browserSync.init({
     server: {
-      baseDir: "./beta/",
-      index: paths.htmlServed
+      baseDir: "./",
+      index: "./beta/index.html"
     }
   });
-  gulp.watch(paths.pug, function (e) {
+  gulp.watch(paths.base + 'pug/', function (e) {
     if (e.type === 'added' || e.type === 'changed') {
       l(e.path + ' ' + e.type);
+      !plumber && plumber = r('gulp-plumber');
+      !pug && pug = r('gulp-pug');
+      l('pug and plumber loaded !');
+
       gulp.src([e.path, './beta/pug/index.pug'])
         .pipe(plumber())
         .pipe(pug({
           pretty: true
         }))
-        .pipe(gulp.dest(paths.html))
+        .pipe(gulp.dest(paths.base))
         .pipe(browserSync.stream());
     }
   });
 
   //scss
-  gulp.watch(paths.sass, ['sass']);
+  gulp.watch(paths.base + 'scss/**/*.scss', ['sass']);
   gulp.watch('./beta/scss/jsEffect.scss', ['jsSass']);
 
   //js
-  gulp.watch(paths.factoryjs + '*.js', ['js']);
-  //gulp.watch(paths.js + 'main.js', ['uglify']); //to optimize speed
+  gulp.watch(paths.base + 'js/*.js', ['js']);
 
   gulp.watch(['*.html']).on('change', browserSync.reload);
 });
 //--------------------------------------
-gulp.task('pug', function () {
-  gulp.src(paths.pug)
-    .pipe(plumber())
-    .pipe(pug({
-      pretty: true
-    }))
-    .pipe(gulp.dest(paths.html));
-});
-
 gulp.task('sass', function () {
+  !sass && sass = r('gulp-sass');
+  !uncss && uncss = r('gulp-uncss');
+  l('sass and uncss loaded !');
   gulp.src('./beta/scss/style.scss')
-    .pipe(sourcemaps.init())
     .pipe(sass().on('error', sass.logError))
-    /*.pipe(combineMq({
-      beautify: true
-    }))
-    .pipe(csso({
-      restructure: true,
-      debug: true
-    }))
-    .pipe(autoprefixer({
-      browsers: ['last 40 versions', 'ie >= 5'],
-      cascade: false,
-      remove: false
-    }))*/
-    .pipe(uncss({
-      html: [paths.html + '*.html']
-    }))
-    .pipe(sourcemaps.write('./'))
-    .pipe(gulp.dest(paths.css))
+    .pipe(gulp.dest('./final/'))
     .pipe(browserSync.stream());
 });
 gulp.task('jsSass', function () {
+  !sass && sass = r('gulp-sass');
+  l('sass loaded !');
   gulp.src('./beta/scss/jsEffect.scss')
-    .pipe(sourcemaps.init())
     .pipe(sass().on('error', sass.logError))
-    .pipe(sourcemaps.write('./'))
-    .pipe(gulp.dest(paths.css))
+    .pipe(gulp.dest('./final/'))
     .pipe(browserSync.stream());
 });
 gulp.task('finalCss', function () {
-  gulp.src([paths.css + '/normalize.css', paths.css + '/type.css', paths.css + '/jsEffect.css', paths.css + '/style.css'])
-    .pipe(concatCss('style.min.css'))
-    .pipe(combineMq({
-      beautify: true
+  !autoprefixer && autoprefixer = r('gulp-autoprefixer');
+  !csso && csso = r('gulp-csso');
+  !combineMq && combineMq = r('gulp-combine-mq');
+  !concatCss && concatCss = r('gulp-concat-css');
+  !sass && sass = r('gulp-sass');
+  !uncss && uncss = r('gulp-uncss');
+  l('sass and uncss loaded !');
+  gulp.src('./beta/scss/style.scss')
+    .pipe(sass().on('error', sass.logError))
+    .pipe(uncss({
+      html: [paths.base + '*.html']
     }))
-    .pipe(csso({
-      restructure: true,
-      debug: true
-    }))
-    .pipe(autoprefixer({
-      browsers: ['last 40 versions', 'iOS >= 6', 'android >= 2'],
-      cascade: false,
-      remove: false
-    }))
-    .pipe(gulp.dest(paths.css))
-    .pipe(browserSync.stream());
+    .pipe(gulp.dest('./final/styles'));
+  setTimeout(function () {
+    gulp.src(['./final/styles/normalize.css', './final/styles/type.css', './final/styles/jsEffect.css', './final/styles/style.css'])
+      .pipe(concatCss('style.min.css'))
+      .pipe(combineMq({
+        beautify: true
+      }))
+      .pipe(csso({
+        restructure: true,
+        debug: true
+      }))
+      .pipe(autoprefixer({
+        browsers: ['last 40 versions', 'iOS >= 6', 'android >= 2'],
+        cascade: false,
+        remove: false
+      }))
+      .pipe(gulp.dest('./final/styles'))
+      .pipe(browserSync.stream());
+  }, 10000);
 });
 
 gulp.task('js', function () {
-  let all = gulp.src([paths.factoryjs + 'main.js']).pipe(plumber())
-    /*.pipe(concat('main.js'))*/;
+  !concat && concat = r('gulp-concat');
+  !order && order = r('gulp-order');
+  !autopolyfiller && autopolyfiller = r('gulp-autopolyfiller');
+  !merge && merge = r('event-stream').merge;l('all loaded');
+  
+  let all = gulp.src([paths.base + '/js/main.js']).pipe(plumber()) /*.pipe(concat('main.js'))*/ ;
   let polyfills = all
     .pipe(autopolyfiller('poly.js', {
       browsers: ['last 10 versions', 'iOS >= 6']
@@ -142,14 +105,16 @@ gulp.task('js', function () {
             'main.js'
         ]))
     .pipe(concat('main.js'))
-    .pipe(gulp.dest(paths.js))
+    .pipe(gulp.dest('./final/js'))
     .pipe(browserSync.stream());
 });
 gulp.task('uglify', function () {
-  gulp.src(paths.js + 'main.js')
+  !uglify && uglify = r('gulp-uglify');
+  !rename && rename = r("gulp-rename");l('loaded');
+  gulp.src(paths.base + 'js/main.js')
     .pipe(uglify())
     .pipe(rename('main.min.js'))
-    .pipe(gulp.dest(paths.js))
+    .pipe(gulp.dest('./final/js'))
     .pipe(browserSync.stream());
 });
 //--------------------------------------
@@ -185,7 +150,7 @@ gulp.task('imgmin', function () {
 });
 //---------------------------------------
 gulp.task('critical', function () {
-  var critical = r('critical');
+  !critical && var critical = r('critical');
   critical.generate({
     inline: true,
     base: './beta/',
@@ -207,5 +172,4 @@ gulp.task('critical', function () {
     ignore: ['font-face']
   });
 });
-
-gulp.task('build',['critical','uglify','finalCss']);
+gulp.task('build', ['critical', 'uglify', 'finalCss']);

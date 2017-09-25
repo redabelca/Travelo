@@ -1,26 +1,5 @@
-if (!Array.prototype.indexOf) {
-// Array.prototype.indexOf
-Array.prototype.indexOf = function indexOf(searchElement) {
-	for (var array = this, index = 0, length = array.length; index < length; ++index) {
-		if (array[index] === searchElement) {
-			return index;
-		}
-	}
-
-	return -1;
-};
-
-}
-if (typeof Date !== "undefined" && !Date.now) {
-// Date.now
-Date.now = function now() {
-	return new Date().getTime();
-};
-
-}
-
-var l = console.log,al = alert, d = document, w = window;
-var lib = {
+var l = console.log,al = alert, d = document, w = window,
+lib = {
   //Get and event
   getId: function (id) {
     if (d.getElementById) {
@@ -106,7 +85,7 @@ var lib = {
     } else if (lib.hasClass(el, css2)) {
       el.className = el.className.replace(css2, css1);
     } else {
-      alert('error in lib.toggle2Css');
+      el.className += ' '+css1;
     }
   },
   toggleCss: function (el, css) {
@@ -203,11 +182,11 @@ var lib = {
 
   //Ready
   ready: function (fn) {
-    if (document.addEventListener) {
-      document.addEventListener("DOMContentLoaded", fn);
+    if (d.addEventListener) {
+      d.addEventListener("DOMContentLoaded", fn);
     } else {
-      document.attachEvent("onreadystatechange", function () {
-        if (document.readyState === "interactive" || document.readyState === "complete") {
+      d.attachEvent("onreadystatechange", function () {
+        if (d.readyState === "interactive" || d.readyState === "complete") {
           fn();
         }
       });
@@ -215,11 +194,7 @@ var lib = {
   }
 };
 
-var data = {
-  windowWidth: 0,
-  windowHeight: 0,
-  scrollTop: 0
-};
+var data = {};
 var controller = {};
 var view = {
   init: function () {}
