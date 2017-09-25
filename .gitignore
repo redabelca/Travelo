@@ -1,0 +1,4 @@
+/node_modules/**
+/beta/styles/*
+/beta/js/*
+/beta/pug/*
