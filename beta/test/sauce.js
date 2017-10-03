@@ -3,9 +3,10 @@ var l = console.log,
   wd = r('selenium-webdriver'),
   fs = r('fs'),
   mkdirp = r('mkdirp'),
+  request = r('request'),
   getDirName = r('path').dirname,
-  username = "mklkh",
-  accessKey = "5f287d5c-3d84-4cd3-951b-cd8a41bc51a2",
+  username = "wlad",
+  accessKey = "6d46c450-71c8-455a-a844-894b3524cd15",
   By = wd.By,
   until = wd.until,
   prefs = new wd.logging.Preferences().setLevel(wd.logging.Type.BROWSER, wd.logging.Level.SEVERE),
@@ -83,7 +84,8 @@ function test(iOftest) {
   var args = {
       browserName: current[iOftest].b,
       platform: current[iOftest].p,
-      version: current[iOftest].v
+      version: current[iOftest].v,
+      recordScreenshots: false
     },
     driver = new wd.Builder().withCapabilities(args).
   setLoggingPrefs(prefs).
@@ -93,34 +95,49 @@ function test(iOftest) {
   driver.get("https://redabelca.github.io/First/")
     .then(() => driver.manage().logs().get(wd.logging.Type.BROWSER), reason => {})
     .then(logs => {
-      fs.writeFileSync('errors.json', logs);
+      writeFileSync('OS/' + args.platform + '/' + args.browserName + '/v' + args.version + '/errors.json', JSON.stringify(logs));
     }, reason => {});
+  driver.wait(until.elementLocated(By.css('body'))).then(() => {
+    l('found');
+  });
 
   driver.executeScript("var div=document.createElement('div');div.className='for-test';div.innerHTML=Math.ceil(document.body.scrollHeight/window.innerHeight);document.body.appendChild(div);");
 
-  //IMGs and VIDEO
-  var numberOfScrolling;
+  //VIDEO
   driver.findElement(By.className('for-test')).getText().then(txt => {
-    numberOfScrolling = Number(txt);
-  });
-  
-  for(i=0;i< numberOfScrolling ;i++){
-    driver.takeScreenshot().then((data) => {
-      writeFileSync('OS/' + args.platform + '/' + args.browserName + '/v' + args.version + '/' + i + '.png', data, 'base64');
-    })
-      .then(() => {
-      driver.executeScript("window.scrollBy(0,window.innerHeight-5)");
+    loop(Number(txt)+1, 800, () => {
+      driver.executeScript("window.scrollBy(0,(window.innerHeight-100))");
+    }, () => {
+      driver.executeScript("window.scrollTo(0,0)")
+        .then(() => {
+          
+        //UR SCRIPT HERE
+        
+        }).then(driver.quit());
     });
-  }
-
-  driver.session_.then(data => {
-    l(data.id_);
   });
-  driver.quit();
 }
-
-test(3);
 
 /*
 loop(current.length,1000,(i)=>{wd.promise.createFlow(()=> {test(i);l('Test number : '+i);} );});
-*/
+
+
+        .then(() => {
+          driver.session_.then(data => {
+            l(current.length);
+            request({
+              uri: 'https://saucelabs.com/rest/v1/'+username+'/jobs/'+data.id_+'/assets',
+'https://saucelabs.com/rest/v1/' + username + '/jobs?limit=' + current.length,
+  gzip: true,
+  'auth': {
+    'user': username,
+    'pass': accessKey
+  }
+},
+function (er, res, body) {
+  er && l(er);
+  l(JSON.parse(body).length);
+  //writeFileSync('OS/' + args.platform + '/' + args.browserName + '/v' + args.version + '/v.flv',body);
+});
+});
+});*/
