@@ -1,0 +1,46 @@
+MENU
+products - portfolio - blog - features - purchase - items
+
+H1
+Pre-Build Home Demos
+Flexible Shop Layouts
+Unique Product Page Layouts
+Professional Blogging With Style
+CORE FEATURES
+
+
+H2
+-Our state-of-the-art websites will jumpstart your website by giving it a professional 
+look. Install with just a single click. Features can be combined at will.
+-Fluent offers almost every layout you may need to build your dream website. You are 
+free to customize the look of pre-built layouts.
+-Fluent is designed to make your life easier. Every product layout has been optimized to fit perfectly with your needs.
+-Fluent offers almost every layout you may need to build your dream website. You are 
+free to customize the look of pre-built layouts
+-Fluent come with a lot of features. We given to you quick list of the main features, 
+check the pages to see the features in action
+
+
+H6
+-RESPONSIVE
+Fully Responsive Design
+-FULL COMPATIBLE
+Woocommerce Platform Compatible
+-PRODUCT VIDEO
+Product With Video Player Included
+-AJAX SUPPORT
+Powerful Ajax Support
+-INSTAGRAM
+Experience Trend Shopping On Instagram
+-QUICK VIEW
+Beautiful Quick View Popup Design
+-ONE CLICK INSTALL
+All Contents Imported With Just One Click
+-SEO OPTIMIZED
+Topping The Rank For Search Result
+
+P
+THIS THEME is a Technology, Web Hosting and WHMCS WordPress Theme, designed for All kinds of Technology, Domain and Hosting Business. WHMCS Integration and Fully Compatible with WHMCS Bridge. Also included WHMCS Template separately based on WHMCS v7.2.2. The theme has all the required functionality for a hosting services company, including domain search and registration functionality with WHMCS. Fancy pricing tables let you display hosting prices for different server configurations and hosting packages. If you need to create a website for a hosting company, a technology blog or a software review blog, Hosting Business Technology WP Theme is a great choice.
+-Hostlab ideal for web hosting, business, multi purpose, domain sale websites, online business, personal blogs and similar sites. 
+We built this theme on Visual Composer, a very convenient drag-n-drop PageBuilder for WordPress. It should provide you with the smoothest experience while creating your website with our theme. The WordPress theme is responsive, you can view it also in the mobile/tablets devices and it looks very in more devices.
+-Simply is One Page App Landing WordPress Theme with modern, and clean design suitable for app marketing websites. Theme is fully editable and powerful admin panel. You can easily change everything easily with visual composer
