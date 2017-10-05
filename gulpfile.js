@@ -1,5 +1,9 @@
 "use strict";
-let r = require,gulp = r('gulp'),browserSync = r('browser-sync').create(),plumber, rename, pug, sass, autoprefixer, uncss, csso, combineMq, concatCss, uglify, concat, order, autopolyfiller, merge, svgmin, imgmin, imageResize, l = console.log,paths = {
+let r = require,
+  gulp = r('gulp'),
+  browserSync = r('browser-sync').create(),
+  plumber, rename, pug, sass, autoprefixer, uncss, csso, combineMq, concatCss, uglify, concat, order, autopolyfiller, merge, svgmin, imgmin, imageResize, l = console.log,
+  paths = {
     base: './beta/'
   };
 //svgmin = r('gulp-svgmin'); //imgmin = r('gulp-imagemin'); //imageResize = r('gulp-image-resize');
@@ -10,11 +14,15 @@ gulp.task('default', function () {
       index: "./beta/index.html"
     }
   });
-  gulp.watch(paths.base + 'pug/', function (e) {
+  gulp.watch('./beta/pug/*', function (e) {
     if (e.type === 'added' || e.type === 'changed') {
       l(e.path + ' ' + e.type);
-      !plumber && plumber = r('gulp-plumber');
-      !pug && pug = r('gulp-pug');
+      if (!plumber) {
+        plumber = r('gulp-plumber');
+      }
+      if (!pug) {
+        pug = r('gulp-pug');
+      }
       l('pug and plumber loaded !');
 
       gulp.src([e.path, './beta/pug/index.pug'])
@@ -26,11 +34,9 @@ gulp.task('default', function () {
         .pipe(browserSync.stream());
     }
   });
-
   //scss
   gulp.watch(paths.base + 'scss/**/*.scss', ['sass']);
   gulp.watch('./beta/scss/jsEffect.scss', ['jsSass']);
-
   //js
   gulp.watch(paths.base + 'js/*.js', ['js']);
 
@@ -38,29 +44,47 @@ gulp.task('default', function () {
 });
 //--------------------------------------
 gulp.task('sass', function () {
-  !sass && sass = r('gulp-sass');
-  !uncss && uncss = r('gulp-uncss');
+  if (!sass) {
+    sass = r('gulp-sass');
+  }
+  if (!uncss) {
+    uncss = r('gulp-uncss');
+  }
   l('sass and uncss loaded !');
   gulp.src('./beta/scss/style.scss')
     .pipe(sass().on('error', sass.logError))
-    .pipe(gulp.dest('./final/'))
+    .pipe(gulp.dest('./final/styles'))
     .pipe(browserSync.stream());
 });
 gulp.task('jsSass', function () {
-  !sass && sass = r('gulp-sass');
+  if (!sass) {
+    sass = r('gulp-sass');
+  }
   l('sass loaded !');
   gulp.src('./beta/scss/jsEffect.scss')
     .pipe(sass().on('error', sass.logError))
-    .pipe(gulp.dest('./final/'))
+    .pipe(gulp.dest('./final/styles'))
     .pipe(browserSync.stream());
 });
 gulp.task('finalCss', function () {
-  !autoprefixer && autoprefixer = r('gulp-autoprefixer');
-  !csso && csso = r('gulp-csso');
-  !combineMq && combineMq = r('gulp-combine-mq');
-  !concatCss && concatCss = r('gulp-concat-css');
-  !sass && sass = r('gulp-sass');
-  !uncss && uncss = r('gulp-uncss');
+  if (!autoprefixer) {
+    autoprefixer = r('gulp-autoprefixer');
+  }
+  if (!csso) {
+    csso = r('gulp-csso');
+  }
+  if (!combineMq) {
+    combineMq = r('gulp-combine-mq');
+  }
+  if (!concatCss) {
+    concatCss = r('gulp-concat-css');
+  }
+  if (!sass) {
+    sass = r('gulp-sass');
+  }
+  if (!uncss) {
+    uncss = r('gulp-uncss');
+  }
   l('sass and uncss loaded !');
   gulp.src('./beta/scss/style.scss')
     .pipe(sass().on('error', sass.logError))
@@ -89,11 +113,20 @@ gulp.task('finalCss', function () {
 });
 
 gulp.task('js', function () {
-  !concat && concat = r('gulp-concat');
-  !order && order = r('gulp-order');
-  !autopolyfiller && autopolyfiller = r('gulp-autopolyfiller');
-  !merge && merge = r('event-stream').merge;l('all loaded');
-  
+  if (!concat) {
+    concat = r('gulp-concat');
+  }
+  if (!order) {
+    order = r('gulp-order');
+  }
+  if (!autopolyfiller) {
+    autopolyfiller = r('gulp-autopolyfiller');
+  }
+  if (!merge) {
+    merge = r('event-stream').merge;
+    l('all loaded');
+  }
+
   let all = gulp.src([paths.base + '/js/main.js']).pipe(plumber()) /*.pipe(concat('main.js'))*/ ;
   let polyfills = all
     .pipe(autopolyfiller('poly.js', {
@@ -109,8 +142,13 @@ gulp.task('js', function () {
     .pipe(browserSync.stream());
 });
 gulp.task('uglify', function () {
-  !uglify && uglify = r('gulp-uglify');
-  !rename && rename = r("gulp-rename");l('loaded');
+  if (!uglify) {
+    uglify = r('gulp-uglify');
+  }
+  if (!rename) {
+    rename = r("gulp-rename");
+    l('loaded');
+  }
   gulp.src(paths.base + 'js/main.js')
     .pipe(uglify())
     .pipe(rename('main.min.js'))
@@ -150,7 +188,9 @@ gulp.task('imgmin', function () {
 });
 //---------------------------------------
 gulp.task('critical', function () {
-  !critical && var critical = r('critical');
+  if (!critical) {
+    var critical = r('critical');
+  }
   critical.generate({
     inline: true,
     base: './beta/',

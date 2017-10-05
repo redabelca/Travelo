@@ -2,17 +2,7 @@ include _mixins
 doctype html
 html(lang='')
   include head
-  link(href="./styles/style.css" type="text/css" rel="stylesheet")
+    link(href="./final/styles/style.css" type="text/css" rel="stylesheet")
   body
     main
-      nav.pagination-wrapper.center
-        ul.row
-          a.previous.page-numbers.border(href="#")= "< Previous"
-          span.page-numbers.current.border 1
-          -var i=2;
-          +loop(5)
-            a.page-numbers.border(href="#")= i
-            -i++;
-          a.page-numbers.border(href="#")= "..."
-          a.next.page-numbers.border(href="#")= "Next >"
     script(src= './js/main.js')

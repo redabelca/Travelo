@@ -223,8 +223,7 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", "Helvetica", "Tahoma", "Verdana", sans-serif;
   margin: 0;
   padding: 0;
-  color: #262626;
-  background: #f2f2f2; }
+  color: #262626; }
 
 h1,
 h2,
@@ -304,6 +303,9 @@ p {
 
 .block {
   display: block; }
+
+.table {
+  display: table; }
 
 .none {
   display: none; }
@@ -469,24 +471,12 @@ img {
   padding: 11.111px 13.333px;
   font-weight: bold;
   transition: all .3s; }
-
-.btn_small {
-  padding: 16px 19.2px; }
-
-.btn_medium {
-  padding: 19.2px 23.04px; }
-
-.btn_big {
-  padding: 23.04px 27.648px; }
-
-.btn_rounded_small {
-  border-radius: 5px; }
-
-.btn_rounded_medium {
-  border-radius: 10px; }
-
-.btn_rounded_big {
-  border-radius: 25px; }
+  .btn_small {
+    padding: 16px 19.2px; }
+  .btn_medium {
+    padding: 19.2px 23.04px; }
+  .btn_big {
+    padding: 23.04px 27.648px; }
 
 .menu_center {
   display: block;
@@ -552,6 +542,35 @@ img {
   box-shadow: 0px 1px 3px 0px gray;
   color: white; }
 
+.page-numbers {
+  float: left;
+  padding: 11.111px;
+  font-weight: 700;
+  margin: 5px;
+  border-radius: 4px;
+  transition: all .7s;
+  text-shadow: 1px 1px 4px #1d455d; }
+  .page-numbers-design {
+    background: #5a70c8;
+    color: #f1f3f8; }
+
+.next, .previous {
+  display: block;
+  width: 95%;
+  text-align: center; }
+
+.current {
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: 5px solid #5a70c8;
+  padding-bottom: 6.43px;
+  border-radius: 4px; }
+
+@media screen and (min-width: 480px) {
+  .next, .previous {
+    width: auto; } }
+
 .circle {
   width: 202px;
   height: 202px;
@@ -573,33 +592,3 @@ img {
 @keyframes countdown {
   to {
     stroke-dashoffset: 628px; } }
-
-.pagination-wrapper {
-  width: auto;
-  display: table; }
-
-.current {
-  box-shadow: -2px 2px 6px 1px #333333;
-  border: none; }
-
-.page-numbers {
-  float: left;
-  padding: 13.333px;
-  font-weight: 700;
-  color: #333333;
-  margin: 5px;
-  border-radius: 4px;
-  transition: all .7s; }
-
-.next, .previous {
-  display: block;
-  width: 95%;
-  text-align: center; }
-
-.page-numbers:hover:not(.current) {
-  background: #333333;
-  color: #cccccc; }
-
-@media screen and (min-width: 480px) {
-  a.next, a.previous {
-    width: auto; } }

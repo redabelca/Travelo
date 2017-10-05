@@ -1,4 +1,4 @@
-*,*:after,*:before {
+*, *:after, *:before {
   box-sizing: border-box;
   font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
@@ -7,14 +7,12 @@
 .border {
   border: 1px solid;
 }
-//Float right and left
 .right {
   float: right;
 }
 .left {
   float: left;
 }
-//Position
 .abs {
   position: absolute;
 }
@@ -24,28 +22,27 @@
 .fixed {
   position: fixed;
 }
-//Display
 .inline {
   display: inline-block;
 }
 .block {
   display: block;
 }
+.table {
+  display: table;
+}
 .none {
   display: none;
 }
-//opacity
 .op1 {
   opacity: 1;
 }
 .op0 {
   opacity: 0;
 }
-//txt_center
 .txt_center {
   text-align: center;
 }
-//element center
 .center {
   margin-left: auto;
   margin-right: auto;
@@ -160,35 +157,37 @@ img {
   }
 }
 //margin-bottom
-.margin_btm_2 {
-  margin-bottom: $ms2;
-}
-.margin_btm_3 {
-  margin-bottom: $ms3;
-}
-.margin_btm_4 {
-  margin-bottom: $ms4;
-}
-.margin_btm_5 {
-  margin-bottom: $ms5;
-}
-.margin_btm_6 {
-  margin-bottom: $ms6;
-}
-.margin_btm_7 {
-  margin-bottom: $ms7;
-}
-.margin_btm_8 {
-  margin-bottom: $ms8;
-}
-.margin_btm_9 {
-  margin-bottom: $ms9;
-}
-.margin_btm_10 {
-  margin-bottom: $ms10;
-}
-.margin_btm_11 {
-  margin-bottom: $ms11;
+.margin {
+  &_btm_2 {
+    margin-bottom: $ms2;
+  }
+  &_btm_3 {
+    margin-bottom: $ms3;
+  }
+  &_btm_4 {
+    margin-bottom: $ms4;
+  }
+  &_btm_5 {
+    margin-bottom: $ms5;
+  }
+  &_btm_6 {
+    margin-bottom: $ms6;
+  }
+  &_btm_7 {
+    margin-bottom: $ms7;
+  }
+  &_btm_8 {
+    margin-bottom: $ms8;
+  }
+  &_btm_9 {
+    margin-bottom: $ms9;
+  }
+  &_btm_10 {
+    margin-bottom: $ms10;
+  }
+  &_btm_11 {
+    margin-bottom: $ms11;
+  }
 }
 //media
 .media-img {
@@ -223,31 +222,20 @@ img {
   }
 }
 //----------Btn-----------
-//Block
 .btn {
   display: inline-block;
   padding: $ms-2 $ms-1;
   font-weight: bold;
   transition: all .3s;
-}
-//Modifier
-.btn_small {
-  padding: $ms0 $ms1;
-}
-.btn_medium {
-  padding: $ms1 $ms2;
-}
-.btn_big {
-  padding: $ms2 $ms3;
-}
-.btn_rounded_small {
-  border-radius: 5px;
-}
-.btn_rounded_medium {
-  border-radius: 10px;
-}
-.btn_rounded_big {
-  border-radius: 25px;
+  &_small {
+    padding: $ms0 $ms1;
+  }
+  &_medium {
+    padding: $ms1 $ms2;
+  }
+  &_big {
+    padding: $ms2 $ms3;
+  }
 }
 //---------MENU---------
 //in li
@@ -276,7 +264,7 @@ img {
 .humb-child {
   margin-top: 11px;
 }
-.humb-spn{
+.humb-spn {
   height: 5px;
   margin-bottom: 5px;
   border-radius: 5px;
@@ -288,37 +276,73 @@ img {
   .menu_center {
     display: inline-block;
   }
-  .menu-links{
-    display:inline-block;
+  .menu-links {
+    display: inline-block;
   }
 }
 //------------------Side-Nav
-.side-nav{
-  background:$c3;
-  width:250px;
-  height:100%;
-  overflow-y:auto;
-  overflow-x: hidden;
+.side {
+  &-nav {
+    background: $c3;
+    width: 250px;
+    height: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+  &-title {
+    padding: $ms2;
+    color: $c17;
+    text-shadow: 1px 1px 1px $c20;
+    font-size: $ms2;
+  }
+  &-a {
+    color: $c13;
+    font-family: 'Roboto';
+    font-weight: 400;
+    font-size: 17px;
+    padding: $ms0+5px;
+    box-shadow: 0 5px 3px -5px $c10;
+  }
+  &-a:hover {
+    transform: translateX(10px);
+    font-family: 20px;
+    box-shadow: 0px 1px 3px 0px $c10;
+    color: $c20;
+  }
 }
-.side-title{
-  padding:$ms2;
-  color:$c17;
-  text-shadow: 1px 1px 1px $c20;
-  font-size:$ms2;
+//--------------------Pagination
+.page-numbers {
+  float: left;
+  padding: $ms-2;
+  font-weight: 700;
+  margin: 5px;
+  border-radius: 4px;
+  transition: all .7s;
+  text-shadow: 1px 1px 4px #1d455d;
+  &-design {
+    background: #5a70c8;
+    color: #f1f3f8;
+  }
 }
-.side-a{
-  color:$c13;
-  font-family:'Roboto';
-  font-weight:400;
-  font-size:17px;
-  padding:$ms0+5px;
-  box-shadow: 0 5px 3px -5px $c10;
+.next, .previous {
+  display: block;
+  width: 95%;
+  text-align: center;
 }
-.side-a:hover{
-  transform: translateX(10px);
-  font-family: 20px;
-  box-shadow:0px 1px 3px 0px $c10;
-  color:$c20;
+.current {
+  border: {
+    top: none;
+    left: none;
+    right: none;
+    bottom: 5px solid #5a70c8;
+  }
+  padding-bottom:$ms-5;
+  border-radius:4px;
+}
+@media screen and (min-width:480px) {
+  .next, .previous {
+    width: auto;
+  }
 }
 //---------SVG CIRCULAR LPROGRESS-------
 //TO BE MIXIN ::::::::::::::::::::::::::::::::
@@ -344,11 +368,9 @@ $line-length:2*3.14*$r;
   stroke: white;
   fill: none;
   animation: countdown 5s linear 5 forwards;
-}// <circle>
+} // <circle>
 @keyframes countdown {
   to {
     stroke-dashoffset: $line-length;
   }
 }
-//btn khawi mn lwst w 3ndo 2 barrat fjnab
-//:before and :after

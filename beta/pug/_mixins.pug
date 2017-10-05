@@ -125,3 +125,14 @@ mixin media(obj)
       img.img(class= obj['img']['imgClass'], src= obj['img']['src'])
     .media-txt.right
       block
+      
+//- ----------------------Pagination
+//- nav.table.center.row
+//-   a.previous.page-numbers.page-numbers-design(href="#")= "< Previous"
+//-   span.page-numbers.current 1
+//-   -var i=2;
+//-   +loop(5)
+//-     a.page-numbers.page-numbers-design(href="#")= i
+//-     -i++;
+//-   a.page-numbers.page-numbers-design(href="#")= "..."
+//-   a.next.page-numbers.page-numbers-design(href="#")= "Next >"
