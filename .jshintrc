@@ -1,0 +1,13 @@
+{
+    "eqeqeq": true,         // Require triple equals, e.g. `===`
+    "forin": true,          // Requires all for in loops to filter object's items
+    "latedef": "nofunc",    // Prohibits the use of a variable before it was defined
+    "noarg": true,          // Prohibit use of `arguments.caller` and `arguments.callee`
+    "undef": true,          // Require all non-global variables be declared before they are use
+    "plusplus": false,      // Allow the use of unary increment and decrement operators
+    // Environments - Let JSHint know about pre-defined global variables
+    "browser": true,        // Browser globals, e.g. `window`, `document`
+    "esversion": 6,
+    "esnext":true,
+    "node":true
+}
