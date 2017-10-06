@@ -6,15 +6,14 @@ let r = require,
   paths = {
     base: './beta/'
   };
-/*svgmin = r('gulp-svgmin'); //imgmin = r('gulp-imagemin'); //imageResize = r('gulp-image-resize');*/
-gulp.task('default', function () {
+gulp.task('default', () => {
   browserSync.init({
     server: {
       baseDir: "./",
       index: "./beta/index.html"
     }
   });
-  gulp.watch('./beta/pug/*', function (e) {
+  gulp.watch('./beta/pug/*', (e) => {
     if (e.type === 'added' || e.type === 'changed') {
       l(e.path + ' ' + e.type);
       if (!plumber) {
@@ -23,7 +22,6 @@ gulp.task('default', function () {
       if (!pug) {
         pug = r('gulp-pug');
       }
-      l('pug and plumber loaded !');
 
       gulp.src([e.path, './beta/pug/index.pug'])
         .pipe(plumber())
@@ -36,14 +34,13 @@ gulp.task('default', function () {
   });
   //scss
   gulp.watch(paths.base + 'scss/**/*.scss', ['sass']);
-  gulp.watch('./beta/scss/jsEffect.scss', ['jsSass']);
   //js
   gulp.watch(paths.base + 'js/*.js', ['js']);
 
   gulp.watch(['*.html']).on('change', browserSync.reload);
 });
 //--------------------------------------
-gulp.task('sass', function () {
+gulp.task('sass', () => {
   if (!sass) {
     sass = r('gulp-sass');
   }
@@ -56,17 +53,7 @@ gulp.task('sass', function () {
     .pipe(gulp.dest('./final/styles'))
     .pipe(browserSync.stream());
 });
-gulp.task('jsSass', function () {
-  if (!sass) {
-    sass = r('gulp-sass');
-  }
-  l('sass loaded !');
-  gulp.src('./beta/scss/jsEffect.scss')
-    .pipe(sass().on('error', sass.logError))
-    .pipe(gulp.dest('./final/styles'))
-    .pipe(browserSync.stream());
-});
-gulp.task('finalCss', function () {
+gulp.task('finalCss', () => {
   if (!autoprefixer) {
     autoprefixer = r('gulp-autoprefixer');
   }
@@ -92,7 +79,7 @@ gulp.task('finalCss', function () {
       html: [paths.base + '*.html']
     }))
     .pipe(gulp.dest('./final/styles'));
-  setTimeout(function () {
+  setTimeout(() => {
     gulp.src(['./final/styles/normalize.css', './final/styles/type.css', './final/styles/jsEffect.css', './final/styles/style.css'])
       .pipe(concatCss('style.min.css'))
       .pipe(combineMq({
@@ -112,7 +99,7 @@ gulp.task('finalCss', function () {
   }, 10000);
 });
 
-gulp.task('js', function () {
+gulp.task('js', () => {
   if (!concat) {
     concat = r('gulp-concat');
   }
@@ -126,8 +113,11 @@ gulp.task('js', function () {
     merge = r('event-stream').merge;
     l('all loaded');
   }
+  if (!plumber) {
+    plumber = r('gulp-plumber');
+  }
 
-  let all = gulp.src([paths.base + '/js/main.js']).pipe(plumber()) /*.pipe(concat('main.js'))*/ ;
+  let all = gulp.src(paths.base + 'js/main.js').pipe(plumber()) /*.pipe(concat('main.js'))*/ ;
   let polyfills = all
     .pipe(autopolyfiller('poly.js', {
       browsers: ['last 10 versions', 'iOS >= 6']
@@ -141,7 +131,7 @@ gulp.task('js', function () {
     .pipe(gulp.dest('./final/js'))
     .pipe(browserSync.stream());
 });
-gulp.task('uglify', function () {
+gulp.task('uglify', () => {
   if (!uglify) {
     uglify = r('gulp-uglify');
   }
@@ -149,45 +139,48 @@ gulp.task('uglify', function () {
     rename = r("gulp-rename");
     l('loaded');
   }
-  gulp.src(paths.base + 'js/main.js')
+  gulp.src('./final/js/main.js')
     .pipe(uglify())
     .pipe(rename('main.min.js'))
     .pipe(gulp.dest('./final/js'))
     .pipe(browserSync.stream());
 });
 //--------------------------------------
-gulp.task('svgmin', function () {
-  gulp.src('./beta/factoryimg/**/*.svg')
+gulp.task('svgmin', () => {
+  gulp.src('./beta/img/**/*.svg')
     .pipe(svgmin())
     .pipe(gulp.dest('./beta/img'));
 });
-gulp.task("img-resize-all", function () {
-  //all sizes of wp thumbnails
-  gulp.src("./beta/factoryimg/*.{jpg,jpeg,png}")
-    .pipe(imageResize({
-      width: 150
-    }))
-    .pipe(rename(function (path) {
-      path.basename += "-150";
-    }))
-    .pipe(gulp.dest("./beta/factoryimg"));
-});
-gulp.task('imgmin', function () {
-  gulp.src('./beta/factoryimg/*')
-    .pipe(imgmin({
-      progressive: true,
-      interlaced: true,
-      optimizationLevel: 7,
-      svgoPlugins: [{
-        removeViewBox: false
+gulp.task("imgmin", () => {
+  //makhasekch tbqa tpromptini dirict dir task l ga3 les sizes dial wp
+  if(!svgmin){svgmin = r('gulp-svgmin');}
+  if(!rename){rename = r('gulp-rename');}
+  if(!imgmin){imgmin = r('gulp-imagemin');}
+  if(!imageResize){imageResize = r('gulp-image-resize');}
+  var prompt = r('prompt');
+  prompt.start();
+  prompt.get(['sizes'], (er, res) => {
+    gulp.src("./beta/img/*.{jpg,jpeg,png}")
+      .pipe(imageResize({
+        width: res.sizes
+      }))
+      .pipe(rename((path) => {
+        path.basename += "-" + res.sizes;
+      }))
+      .pipe(imgmin({
+        progressive: true,
+        interlaced: true,
+        optimizationLevel: 7,
+        svgoPlugins: [{
+          removeViewBox: false
       }],
-      verbose: true,
-      use: []
-    }))
-    .pipe(gulp.dest('./beta/img'));
+        verbose: true,
+      }))
+      .pipe(gulp.dest("./beta/img"));
+  });
 });
 //---------------------------------------
-gulp.task('critical', function () {
+gulp.task('critical', () => {
   if (!critical) {
     var critical = r('critical');
   }

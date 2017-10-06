@@ -137,11 +137,7 @@ var lib = {
     data[baseName + 'Distance'] = data[baseName + 'Top'] + (data[baseName + 'Height'] / per) - data.windowHeight;
   },
   isItAppears: function (baseName) {
-    if (data[baseName + 'Distance']) {
       return data.scrollTop >= data[baseName + 'Distance'];
-    } else {
-      alert('error in isItAppears');
-    }
   },
   isHisTopAppears: function (basename) {
     return data.scrollTop >= data[basename + 'Top'] - data.windowHeight;
@@ -177,6 +173,42 @@ var lib = {
       fn: fn
     });
   }, //el must be prepaired for anim
+  whichActionEvent: function (action /*either animation or transition*/ ) {
+    var t, el = document.body,
+      transitions = {
+        'transition': 'transitionend',
+        'OTransition': 'oTransitionEnd',
+        'MozTransition': 'transitionend',
+        'WebkitTransition': 'webkitTransitionEnd'
+      },
+      animations = {
+        'animation': 'animationend',
+        'OAnimation': 'oAnimationEnd',
+        'MozAnimation': 'animationend',
+        'WebkitAnimation': 'webkitAnimationEnd'
+      };
+
+    if (action == 'animation') {
+      for (t in animations) {
+        if (el.style[t] !== undefined) {
+          data[action + 'Event'] = animations[t];
+          return animations[t];
+        }
+      }
+    } else {
+      for (t in transitions) {
+        if (el.style[t] !== undefined) {
+          data[action + 'Event'] = transitions[t];
+          return transitions[t];
+        }
+      }
+    }
+  },
+  onActionEnd: function (elem, action, fn, cb) {
+    var actionEvent = data[action + 'Event'] || lib.whichActionEvent();
+    lib.addEvent(elem, actionEvent, fn(elem));
+    cb(elem);
+  },
 
   //Data
   updateData: function (nameOfData, value) {
@@ -225,7 +257,6 @@ var lib = {
   },
 
   //Optimization
-
   now: Date.now || function () {
     return new Date().getTime();
   },

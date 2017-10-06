@@ -590,3 +590,6 @@ img {
 @keyframes countdown {
   to {
     stroke-dashoffset: 628px; } }
+
+body {
+  height: 2000px; }
