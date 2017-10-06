@@ -6,7 +6,7 @@ let r = require,
   paths = {
     base: './beta/'
   };
-//svgmin = r('gulp-svgmin'); //imgmin = r('gulp-imagemin'); //imageResize = r('gulp-image-resize');
+/*svgmin = r('gulp-svgmin'); //imgmin = r('gulp-imagemin'); //imageResize = r('gulp-image-resize');*/
 gulp.task('default', function () {
   browserSync.init({
     server: {

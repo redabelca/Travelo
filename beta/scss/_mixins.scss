@@ -260,14 +260,15 @@ img {
   width: 60px;
   padding: 0 14px;
   cursor: pointer;
-} //must be abs and the ul.row must be rel
-.humb-child {
-  margin-top: 11px;
-}
-.humb-spn {
-  height: 5px;
-  margin-bottom: 5px;
-  border-radius: 5px;
+  //must be abs and the ul.row must be rel
+  &-child {
+    margin-top: 11px;
+  }
+  &-spn {
+    height: 5px;
+    margin-bottom: 5px;
+    border-radius: 5px;
+  }
 }
 @media screen and (min-width:1024px) {
   .humb {
@@ -311,7 +312,7 @@ img {
   }
 }
 //--------------------Pagination
-.page-numbers {
+.pag-numbers {
   float: left;
   padding: $ms-2;
   font-weight: 700;
@@ -324,7 +325,7 @@ img {
     color: #f1f3f8;
   }
 }
-.next, .previous {
+.pag-next, .pag-previous {
   display: block;
   width: 95%;
   text-align: center;

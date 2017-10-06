@@ -77,7 +77,7 @@ mixin drpDwn(obj)
           a(href="#", class= obj.subA.class)= val
           
 //- ---------------------Side-Nav
-//- in main.j in controller paste in a func :
+//- in main.js in controller paste in a func :
 //- lib.toggle2Css(el,'slide-nav-forward','slide-nav-backward'); el here is #side-nav
 //- khasso iswlni wach kin chi submenu o ina index dial li ghnhot had submenu
 //- var obj={
@@ -128,11 +128,11 @@ mixin media(obj)
       
 //- ----------------------Pagination
 //- nav.table.center.row
-//-   a.previous.page-numbers.page-numbers-design(href="#")= "< Previous"
-//-   span.page-numbers.current 1
+//-   a.pag-previous.pag-numbers(href="#")= "< Previous"
+//-   span.pag-numbers.current 1
 //-   -var i=2;
 //-   +loop(5)
-//-     a.page-numbers.page-numbers-design(href="#")= i
+//-     a.pag-numbers.pag-numbers-design(href="#")= i
 //-     -i++;
-//-   a.page-numbers.page-numbers-design(href="#")= "..."
-//-   a.next.page-numbers.page-numbers-design(href="#")= "Next >"
+//-   a.pag-numbers(href="#")= "..."
+//-   a.pag-next.pag-numbers(href="#")= "Next >"
