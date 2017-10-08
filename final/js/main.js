@@ -1,16 +1,3 @@
-if (!Array.prototype.indexOf) {
-// Array.prototype.indexOf
-Array.prototype.indexOf = function indexOf(searchElement) {
-	for (var array = this, index = 0, length = array.length; index < length; ++index) {
-		if (array[index] === searchElement) {
-			return index;
-		}
-	}
-
-	return -1;
-};
-
-}
 if (typeof Date !== "undefined" && !Date.now) {
 // Date.now
 Date.now = function now() {
@@ -48,82 +35,92 @@ var l = console.log,
         el['on' + eventWithoutOn] = fn;
       }
     },
-
-    //Css
-    itContainsCSS: function (el, clasParentObjName, css) {
-      if (el.classList) {
-        return data[clasParentObjName].classlist.contains(css);
-      } else {
-        if (data[clasParentObjName].classname.indexOf(css) === -1) {
-          return false;
-        } else {
-          return true;
+    //Data
+    updateData: function (nameOfData, value) {
+      data[nameOfData] = value;
+    },
+    top: function (el) {
+      return el.getBoundingClientRect().top + lib.getWindowScrollY();
+    },
+    //Layout
+    getWindowScrollY: function () {
+      return w.scrollY || w.pageYOffset || d.body.scrollTop;
+    },
+    getOffsetHeight: function (el) {
+      return el.offsetHeight || el.getBoundingClientRect().height || lib.CSSPropertyNumber(el, 'height');
+    },
+    CSSPropertyNumber: function (el, CSSProperty) {
+      return Number(w.getComputedStyle(el)[CSSProperty].replace('px', ''));
+    },
+    isItAppears: function (baseName) {
+      return data.scrollTop >= data[baseName + 'Distance'];
+    },
+    //Animation
+    animationMonitor: function (distancesArrayName) {
+      data[distancesArrayName].sort(function (a, b) {
+        return a.distance - b.distance;
+      });
+      lib.addEvent(w, 'scroll', function () {
+        if (data[distancesArrayName][0] && lib.isItAppears(data[distancesArrayName][0].basename)) {
+          data[distancesArrayName][0].fn();
+          data[distancesArrayName].shift();
+          //if it doesn't work make a var that hold the index
+          //and i++ when .fn() done
         }
-      }
+      });
     },
-    addCss: function (el, css, storeClasInDataOrNot, clasParentObjName) {
-      if (el.classList) {
-        el.classList.add(css);
-      } else {
-        el.className += ' ' + css;
+    registerForMonitor: function (distancesArrayName /*optional*/ , baseName, fn) {
+      if (typeof data[distancesArrayName] !== "object") {
+        data[distancesArrayName] = [];
       }
-      if (storeClasInDataOrNot) {
-        controller.updateCss(el, clasParentObjName);
-      }
+      data[distancesArrayName].push({
+        basename: baseName,
+        distance: data[baseName + 'Distance'],
+        fn: fn
+      });
+    }, //el must be prepaired for anim
+    prepareElForAnimation: function (el, baseName, percentageOfHeight /*optional*/ ) {
+      var per = percentageOfHeight || 0.5;
+      lib.updateData(baseName + 'Top', lib.top(el));
+      lib.updateData(baseName + 'Height', lib.getOffsetHeight(el));
+      lib.updateData(baseName + 'Distance', data[baseName + 'Top'] + (data[baseName + 'Height'] * per) - (window.innerHeight + (data.scrollTop || 0)));
     },
-    removeCss: function (el, css, storeClasInDataOrNot, clasParentObjName) {
-      if (el.classList) {
-        el.classList.remove(css);
-      } else {
-        el.className.replace(' ' + css, '');
-      }
-      if (storeClasInDataOrNot) {
-        controller.updateCss(el, clasParentObjName);
-      }
-    },
-    updateCss: function (el, clasParentObjName) {
-      if (!data[clasParentObjName]) {
-        data[clasParentObjName] = {
-          classname: el.className,
-          classlist: el.classList
+    whichActionEvent: function (action /*either animation or transition*/ ) {
+      var t, el = document.body,
+        transitions = {
+          'transition': 'transitionend',
+          'OTransition': 'oTransitionEnd',
+          'MozTransition': 'transitionend',
+          'WebkitTransition': 'webkitTransitionEnd'
+        },
+        animations = {
+          'animation': 'animationend',
+          'OAnimation': 'oAnimationEnd',
+          'MozAnimation': 'animationend',
+          'WebkitAnimation': 'webkitAnimationEnd'
         };
-      } else {
-        data[clasParentObjName].classlist = el.classList;
-        data[clasParentObjName].classname = el.className;
-      }
-    },
-    hasClass: function (el, css) {
-      if (el.classList) {
-        return el.classList.contains(css);
-      } else {
-        if (el.className.indexOf(css) === -1) {
-          return false;
-        } else {
-          return true;
-        }
-      }
-    },
-    toggle2Css: function (el, css1, css2) {
-      if (lib.hasClass(el, css1)) {
-        el.className = el.className.replace(css1, css2);
-      } else if (lib.hasClass(el, css2)) {
-        el.className = el.className.replace(css2, css1);
-      } else {
-        el.className += ' ' + css1;
-      }
-    },
-    toggleCss: function (el, css) {
-      if (el.classList) {
-        el.classList.toggle(css);
-      } else {
-        if (el.className.indexOf(css) === -1) {
-          el.className += ' ' + css;
-        } else {
-          el.className = el.className.replace(' ' + css, '');
-        }
-      }
-    },
 
+      if (action === 'animation') {
+        for (t in animations) {
+          if (el.style[t] !== undefined) {
+            data[action + 'Event'] = animations[t];
+            return animations[t];
+          }
+        }
+      } else {
+        for (t in transitions) {
+          if (el.style[t] !== undefined) {
+            data[action + 'Event'] = transitions[t];
+            return transitions[t];
+          }
+        }
+      }
+    },
+    onActionEnd: function (elem, action, fn, cb) {
+      var actionEvent = data[action + 'Event'] || lib.whichActionEvent();
+      lib.addEvent(elem, actionEvent, fn(elem));
+      cb(elem);
+    },
     //Snipets
     loop: function (limit, stepTime, fn) {
       var i = -1,
@@ -136,7 +133,6 @@ var l = console.log,
           }
         }, stepTime);
     },
-
     //Optimization
     now: Date.now || function () {
       return new Date().getTime();
@@ -203,7 +199,6 @@ var l = console.log,
         return result;
       };
     },
-
     //Ready
     ready: function (fn) {
       if (d.addEventListener) {
@@ -221,6 +216,10 @@ var l = console.log,
 var data = {};
 var controller = {};
 var view = {
-  init: function () {}
+  init: function () {
+    lib.addEvent(w, 'scroll', function () {
+      lib.updateData('scrollTop', lib.getWindowScrollY());
+    });
+  }
 };
 lib.ready(view.init);

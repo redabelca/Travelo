@@ -280,7 +280,7 @@ p {
   font-smoothing: antialiased;
   text-rendering: optimizeLegibility; }
 
-.border {
+.bor {
   border: 1px solid; }
 
 .right {
@@ -590,6 +590,3 @@ img {
 @keyframes countdown {
   to {
     stroke-dashoffset: 628px; } }
-
-body {
-  height: 2000px; }

@@ -25,16 +25,7 @@ var lib = {
       el['on' + eventWithoutOn] = fn;
     }
   },
-
   //Menu
-  menuLinksHeightFx: function (menu) {
-    if (data.windowWidth > data.bk) {
-      menu.style.height = 'auto';
-      data.isMenuSlidedDown = 1;
-    } else {
-      data.isMenuSlidedDown = 0;
-    }
-  },
   giveSpaceToMenuAfterFix: function (el) {
     if (!data.menuPlaceSize) {
       data.menuPlaceSize = lib.CSSPropertyNumber(el.previousElementSibling, 'margin-bottom') + lib.getOffsetHeight(el) + lib.CSSPropertyNumber(el, 'margin-bottom');
@@ -46,7 +37,6 @@ var lib = {
   },
   //these both last functions can be merged
   //actually alot of funcs here can b mrgd
-
   //Css
   itContainsCSS: function (el, clasParentObjName, css) {
     if (el.classList) {
@@ -121,7 +111,6 @@ var lib = {
       }
     }
   },
-
   //Layout
   getWindowScrollY: function () {
     return w.scrollY || w.pageYOffset || d.body.scrollTop;
@@ -132,30 +121,16 @@ var lib = {
   CSSPropertyNumber: function (el, CSSProperty) {
     return Number(w.getComputedStyle(el)[CSSProperty].replace('px', ''));
   },
-  distanceToWatchOnScroll: function (baseName, percentageOfHeight /*optional*/ ) {
-    var per = percentageOfHeight || 0.5;
-    data[baseName + 'Distance'] = data[baseName + 'Top'] + (data[baseName + 'Height'] / per) - data.windowHeight;
-  },
   isItAppears: function (baseName) {
-      return data.scrollTop >= data[baseName + 'Distance'];
+    return data.scrollTop >= data[baseName + 'Distance'];
   },
-  isHisTopAppears: function (basename) {
-    return data.scrollTop >= data[basename + 'Top'] - data.windowHeight;
-  },
-  prepareElForAnimation: function (el, baseName, percentageOfHeight /*optional*/ ) {
-    var per = percentageOfHeight || 0.5;
-    controller.updateData(baseName + 'Top', lib.top(el));
-    controller.updateData(baseName + 'Height', lib.getOffsetHeight(el));
-    controller.distanceToWatchOnScroll(baseName, per);
-  },
-
   //Animation
   animationMonitor: function (distancesArrayName) {
     data[distancesArrayName].sort(function (a, b) {
       return a.distance - b.distance;
     });
     lib.addEvent(w, 'scroll', function () {
-      if (lib.isItAppears(data[distancesArrayName][0].basename)) {
+      if (data[distancesArrayName][0] && lib.isItAppears(data[distancesArrayName][0].basename)) {
         data[distancesArrayName][0].fn();
         data[distancesArrayName].shift();
         //if it doesn't work make a var that hold the index
@@ -173,6 +148,12 @@ var lib = {
       fn: fn
     });
   }, //el must be prepaired for anim
+  prepareElForAnimation: function (el, baseName, percentageOfHeight /*optional*/ ) {
+    var per = percentageOfHeight || 0.5;
+    lib.updateData(baseName + 'Top', lib.top(el));
+    lib.updateData(baseName + 'Height', lib.getOffsetHeight(el));
+    lib.updateData(baseName + 'Distance', data[baseName + 'Top'] + (data[baseName + 'Height'] * per) - (window.innerHeight + (data.scrollTop || 0)));
+  },
   whichActionEvent: function (action /*either animation or transition*/ ) {
     var t, el = document.body,
       transitions = {
@@ -188,7 +169,7 @@ var lib = {
         'WebkitAnimation': 'webkitAnimationEnd'
       };
 
-    if (action == 'animation') {
+    if (action === 'animation') {
       for (t in animations) {
         if (el.style[t] !== undefined) {
           data[action + 'Event'] = animations[t];
@@ -209,7 +190,6 @@ var lib = {
     lib.addEvent(elem, actionEvent, fn(elem));
     cb(elem);
   },
-
   //Data
   updateData: function (nameOfData, value) {
     data[nameOfData] = value;
@@ -217,7 +197,6 @@ var lib = {
   top: function (el) {
     return el.getBoundingClientRect().top + lib.getWindowScrollY();
   },
-
   //Snipets
   circleInCSS: function (step, startAngle, r) {
     var percentageStep = 100 / step,
@@ -255,7 +234,25 @@ var lib = {
         }
       }, stepTime);
   },
-
+  asyncScript: function (src, cb) {
+    var s,
+      r,
+      t;
+    r = false;
+    s = document.createElement('script');
+    s.type = 'text/javascript';
+    s.async = true;
+    s.src = src;
+    s.onload = s.onreadystatechange = function () {
+      //console.log( this.readyState ); //uncomment this line to see which ready states are called.
+      if (!r && (!this.readyState || this.readyState === 'complete')) {
+        r = true;
+        cb && cb();
+      }
+    };
+    t = document.getElementsByTagName('script')[0];
+    t.parentNode.insertBefore(s, t);
+  },
   //Optimization
   now: Date.now || function () {
     return new Date().getTime();
@@ -322,7 +319,6 @@ var lib = {
       return result;
     };
   },
-
   //Ready
   ready: function (fn) {
     if (document.addEventListener) {

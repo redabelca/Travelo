@@ -34,6 +34,7 @@ gulp.task('default', () => {
   });
   //scss
   gulp.watch(paths.base + 'scss/**/*.scss', ['sass']);
+  gulp.watch('./beta/scss/jsEffect.scss', ['jsSass']);
   //js
   gulp.watch(paths.base + 'js/*.js', ['js']);
 
@@ -47,8 +48,17 @@ gulp.task('sass', () => {
   if (!uncss) {
     uncss = r('gulp-uncss');
   }
-  l('sass and uncss loaded !');
   gulp.src('./beta/scss/style.scss')
+    .pipe(sass().on('error', sass.logError))
+    .pipe(gulp.dest('./final/styles'))
+    .pipe(browserSync.stream());
+});
+gulp.task('jsSass', () => {
+  if (!sass) {
+    sass = r('gulp-sass');
+  }
+  l('sass loaded !');
+  gulp.src('./beta/scss/jsEffect.scss')
     .pipe(sass().on('error', sass.logError))
     .pipe(gulp.dest('./final/styles'))
     .pipe(browserSync.stream());
