@@ -190,6 +190,7 @@ var lib = {
     lib.addEvent(elem, actionEvent, fn(elem));
     cb(elem);
   },
+
   //Data
   updateData: function (nameOfData, value) {
     data[nameOfData] = value;

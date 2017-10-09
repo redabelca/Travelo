@@ -84,35 +84,9 @@ img {
   font-size: $ms0;
   border-radius: 100%;
 }
-//hero header
-.header-inner-center {
-  bottom: 10%;
-  width: 100%;
-  padding: 0 $ms2;
-}
 @media screen and (min-width:480px) {
   .header-inner-center {
     bottom: 30%;
-  }
-}
-//centering known height and width element like icon
-@mixin center($w, $h) {
-  height: $w;
-  width: $h;
-  top: 50%;
-  margin-top: -($h/2);
-  left: 50%;
-  margin-left: -($w/2);
-} //when it's abs
-//simple Header
-.inner-header {
-  width: 95%;
-  padding: 0 $ms2;
-}
-@media screen and (min-width:1024px) {
-  .inner-header {
-    width: 70%;
-    padding: 0 $ms7;
   }
 }
 //Wrap Class
@@ -259,8 +233,7 @@ img {
   height: 60px;
   width: 60px;
   padding: 0 14px;
-  cursor: pointer;
-  //must be abs and the ul.row must be rel
+  cursor: pointer; //must be abs and the ul.row must be rel
   &-child {
     margin-top: 11px;
   }
@@ -373,5 +346,38 @@ $line-length:2*3.14*$r;
 @keyframes countdown {
   to {
     stroke-dashoffset: $line-length;
+  }
+}
+//---------------Stars---------
+//.star-ctn //.stars.rel
+@function multiShadows($n, $size) {
+  $value:'#{random($size)}px #{random($size)}px #dfe6b6';
+  @for $i from 0 through $n {
+    $value: '#{$value} ,#{random($size)}px #{random($size)}px #dfe6b6';
+  }
+  @return unquote($value)
+}
+@keyframes down {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(1500px);
+  }
+}
+.star {
+  &-ctn {
+    height: 100vh;
+    background: linear-gradient(#0d2334, #214c72);
+    overflow: hidden;
+  }
+  &s {
+    top: -1400px;
+    height: 3px;
+    width: 3px;
+    border-radius: 100%;
+    background: #d3dd9b;
+    box-shadow: multiShadows(1000, 2000);
+    animation: down 120s linear infinite;
   }
 }
