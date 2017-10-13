@@ -9,34 +9,9 @@
   float: left;
   width: 100%;
 }
-
-//smallest width 320px and minus scrollbar 310px
-//biggest number of breakpoints used in sites is 5 bk
-//three main bk 480 / 1024
-
-/*
-1024
-1280
-1360
-1366
-1440
-1600
-1680
-1920
-2560*/
-
-//phones
-
-/*
-320
-360
-480
-375
-768*/
-
+$v:8.33%;
 //grid 12 clm
 @mixin rwd-min() {
-  $v: 8.33%;
   .clm-1-min {
     width: $v;
   }
@@ -76,7 +51,6 @@
 }
 
 @mixin rwd-mdm() {
-  $v: 8.33%;
   .clm-1-mdm {
     width: $v;
   }
@@ -116,7 +90,6 @@
 }
 
 @mixin rwd() {
-  $v: 8.33%;
   .clm-1 {
     width: $v;
   }
@@ -156,7 +129,6 @@
 }
 
 @mixin rwd-l() {
-  $v: 8.33%;
   .clm-1-l {
     width: $v;
   }
@@ -196,7 +168,6 @@
 }
 
 @mixin rwd-xl() {
-  $v: 8.33%;
   .clm-1-xl {
     width: $v;
   }

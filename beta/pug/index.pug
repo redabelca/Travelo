@@ -2,7 +2,23 @@ include _mixins
 doctype html
 html(lang='')
   include head
-    link(href="../final/styles/style.css" type="text/css" rel="stylesheet")
+    link(href="./final/styles/style.css" type="text/css" rel="stylesheet")
   body
     main
-    script(src='../final/js/main.js')
+      -var i=0;
+      +loop(5)
+        .card
+          a(href="#")
+            img.img.card-img(src="beta/img/"+card.img[i]+"-300.jpeg")
+          .card-txt-ctn.center
+            h6.card-title= card.title[i]
+            p.card-txt= card.txt[i]
+            a(href="#").btn.btn_medium.card-btn= card.btn[i]
+            -i++;
+    script(src='./final/js/main.js')
+-var card={
+-img:[],
+-title:[],
+-txt:[],
+-btn:[]
+-}

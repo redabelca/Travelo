@@ -197,10 +197,10 @@ img {
 }
 //----------Btn-----------
 .btn {
-  display: inline-block;
   padding: $ms-2 $ms-1;
   font-weight: bold;
   transition: all .3s;
+  display: inline-block;
   &_small {
     padding: $ms0 $ms1;
   }
@@ -285,7 +285,8 @@ img {
   }
 }
 //--------------------Pagination
-.pag-numbers {
+.pag{
+  &-numbers{
   float: left;
   padding: $ms-2;
   font-weight: 700;
@@ -293,15 +294,12 @@ img {
   border-radius: 4px;
   transition: all .7s;
   text-shadow: 1px 1px 4px #1d455d;
-  &-design {
-    background: #5a70c8;
-    color: #f1f3f8;
   }
-}
-.pag-next, .pag-previous {
+  &-next, &-previous {
   display: block;
   width: 95%;
   text-align: center;
+}
 }
 .current {
   border: {
@@ -314,7 +312,7 @@ img {
   border-radius:4px;
 }
 @media screen and (min-width:480px) {
-  .next, .previous {
+  .pag-next, .pag-previous {
     width: auto;
   }
 }
@@ -377,7 +375,7 @@ $line-length:2*3.14*$r;
     width: 3px;
     border-radius: 100%;
     background: #d3dd9b;
-    box-shadow: multiShadows(1000, 2000);
+    //box-shadow: multiShadows(1000, 2000);
     animation: down 120s linear infinite;
   }
 }

@@ -56,8 +56,6 @@ var l = console.log,
         if (data[distancesArrayName][0] && lib.isItAppears(data[distancesArrayName][0].basename)) {
           data[distancesArrayName][0].fn();
           data[distancesArrayName].shift();
-          //if it doesn't work make a var that hold the index
-          //and i++ when .fn() done
         }
       });
     },
@@ -204,10 +202,10 @@ var l = console.log,
       }
     }
   };
-
-var data = {};
-var controller = {};
-var view = {
+  
+  var data = {};
+  var controller = {};
+  var view = {
   init: function () {
     lib.addEvent(w, 'scroll', function () {
       lib.updateData('scrollTop', lib.getWindowScrollY());

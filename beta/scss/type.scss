@@ -1,4 +1,24 @@
 @import 'vars';
+
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../../beta/fonts/roboto-regular.woff2')format('woff2');
+}
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 500;
+  src: url('../../beta/fonts/roboto-medium.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 700;
+  src: url('../../beta/fonts/roboto-bold.woff2') format('woff2');
+}
+
 html {
   font-size: 16px;
   font-family: sans-serif;
@@ -17,7 +37,6 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "Raleway", "Helvetica", "Tahoma", "Verdana", sans-serif;
   margin: 16px 0 19.2px;
 }
 h1 {
@@ -60,5 +79,3 @@ p {
   line-height: 24.8px;
   margin-bottom: 19.2px;
 }
-
-/*# sourceMappingURL=type.css.map */

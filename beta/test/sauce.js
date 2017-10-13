@@ -1,9 +1,11 @@
 var l = console.log,
   r = require,
+  {
+    exec
+  } = r('child_process'),
   wd = r('selenium-webdriver'),
   fs = r('fs'),
   mkdirp = r('mkdirp'),
-  request = r('request'),
   getDirName = r('path').dirname,
   username = "wlad",
   accessKey = "6d46c450-71c8-455a-a844-894b3524cd15",
@@ -46,22 +48,25 @@ var l = console.log,
       'safari': ['10.0']
     }
   },
-  i, current = [];
+  i, current = [],
+  jobId;
 
-function writeFileSync(path, contents, typeOfData, cb) {
-  mkdirp(getDirName(path), function (err) {
+function writeFileSync(path, contents, cb, typeOfData) {
+  //if (!fs.existsSync(getDirName(path))) {
+  mkdirp(getDirName(path), (err) => {
     if (err) return cb(err);
-    fs.writeFileSync(path, contents, typeOfData, cb);
+    fs.writeFileSync(path, contents, typeOfData);
+    cb && cb();
   });
+  //}
 }
-
 function loop(limit, stepTime, fn, cb) {
   var i = -1,
     inter = setInterval(function () {
       i++;
       if (i >= limit) {
         clearInterval(inter);
-        cb(i);
+        cb && cb(i);
       } else {
         fn(i);
       }
@@ -80,7 +85,7 @@ for (var platform in combination) {
 }
 
 function test(iOftest) {
-  !current[iOftest] && l('----------------END------------------');
+  !current[iOftest] && l('end');
   var args = {
       browserName: current[iOftest].b,
       platform: current[iOftest].p,
@@ -98,46 +103,47 @@ function test(iOftest) {
       writeFileSync('OS/' + args.platform + '/' + args.browserName + '/v' + args.version + '/errors.json', JSON.stringify(logs));
     }, reason => {});
   driver.wait(until.elementLocated(By.css('body'))).then(() => {
-    l('found');
+    driver.executeScript("var div=document.createElement('div');div.className='for-test';div.innerHTML=Math.ceil(document.body.scrollHeight/window.innerHeight);document.body.appendChild(div);");
   });
-
-  driver.executeScript("var div=document.createElement('div');div.className='for-test';div.innerHTML=Math.ceil(document.body.scrollHeight/window.innerHeight);document.body.appendChild(div);");
 
   //VIDEO
   driver.findElement(By.className('for-test')).getText().then(txt => {
-    loop(Number(txt)+1, 800, () => {
-      driver.executeScript("window.scrollBy(0,(window.innerHeight-100))");
+    loop(Number(txt) + 1, 10, () => {
+      //driver.executeScript("window.scrollBy(0,(window.innerHeight-100))");
     }, () => {
       driver.executeScript("window.scrollTo(0,0)")
         .then(() => {
-          
-        //UR SCRIPT HERE
-        
-        }).then(driver.quit());
+
+          //UR SCRIPT HERE
+
+          driver.session_.then(data => {
+            jobId = data.id_;
+          });
+        }).then(driver.quit()).then(() => {
+          var assetsName = {
+              "sauce-log": "log.json",
+              "selenium-log": "selenium-server.log",
+              "video": "video.flv"
+            },
+            assetName;
+          setTimeout(() => {
+            writeFileSync('OS/' + args.platform + '/' + args.browserName + '/v' + args.version + '/dir.dir', '', () => {
+              for (assetName in assetsName) {
+                exec('"C:/Program Files (x86)/Git/bin/sh.exe" --login -i -c "curl -u ' + username + ':' + accessKey + ' -O https://saucelabs.com/rest/v1/' + username + '/jobs/' + jobId + '/assets/' + assetsName[assetName] + '"', {
+                  cwd: 'OS/' + args.platform + '/' + args.browserName + '/v' + args.version
+                }, (err, stdout, stderr) => {
+                  err && l(err);
+                  stdout && l(stdout);
+                  stderr && l(stderr);
+                });
+              }
+            });
+          }, 10000);
+        });
     });
   });
 }
-
+test(2);
 /*
-loop(current.length,1000,(i)=>{wd.promise.createFlow(()=> {test(i);l('Test number : '+i);} );});
-
-
-        .then(() => {
-          driver.session_.then(data => {
-            l(current.length);
-            request({
-              uri: 'https://saucelabs.com/rest/v1/'+username+'/jobs/'+data.id_+'/assets',
-'https://saucelabs.com/rest/v1/' + username + '/jobs?limit=' + current.length,
-  gzip: true,
-  'auth': {
-    'user': username,
-    'pass': accessKey
-  }
-},
-function (er, res, body) {
-  er && l(er);
-  l(JSON.parse(body).length);
-  //writeFileSync('OS/' + args.platform + '/' + args.browserName + '/v' + args.version + '/v.flv',body);
-});
-});
-});*/
+PARALLEL wd.promise.createFlow(()=> {test(i);l('Test number : '+i);});
+*/

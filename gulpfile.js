@@ -41,7 +41,7 @@ gulp.task('default', () => {
       if (!sass) {
         sass = r('gulp-sass');
       }
-      gulp.src(e.path)
+      gulp.src([e.path,paths.base+'scss/style.scss'])
         .pipe(sass().on('error', sass.logError))
         .pipe(gulp.dest(paths.dest + 'styles'))
         .pipe(browserSync.stream());
@@ -52,34 +52,8 @@ gulp.task('default', () => {
 
   gulp.watch(['index.html']).on('change', browserSync.reload);
 });
-//--------------------------------------
 gulp.task('js', () => {
-  /*if (!concat) {
-    concat = r('gulp-concat');
-  }
-  if (!order) {
-    order = r('gulp-order');
-  }
-  if (!autopolyfiller) {
-    autopolyfiller = r('gulp-autopolyfiller');
-  }
-  if (!merge) {
-    merge = r('event-stream').merge;
-    l('all loaded');
-  }
-  if (!plumber) {
-    plumber = r('gulp-plumber');
-  }*/
-  let all = gulp.src(paths.base + 'js/main.js')
-  /*let polyfills = all.pipe(autopolyfiller('poly.js', {
-      browsers: ['last 10 versions', 'iOS >= 6']
-    }));
-  merge(polyfills, all)
-    .pipe(order([
-            'poly.js',
-            'main.js'
-        ]))
-    .pipe(concat('main.js'))*/
+  gulp.src(paths.base + 'js/main.js')
     .pipe(gulp.dest(paths.dest + 'js'))
     .pipe(browserSync.stream());
 });
@@ -125,16 +99,42 @@ gulp.task("imgmin", () => {
       .pipe(gulp.dest("./beta/img"));
   });
 });
-//---------------------------------------
+//--------------------------------------
 gulp.task('uglify', () => {
   if (!uglify) {
     uglify = r('gulp-uglify');
+  }
+  if (!concat) {
+    concat = r('gulp-concat');
   }
   if (!rename) {
     rename = r("gulp-rename");
     l('loaded');
   }
-  gulp.src(paths.dest + 'js/main.js')
+  if (!order) {
+    order = r('gulp-order');
+  }
+  if (!autopolyfiller) {
+    autopolyfiller = r('gulp-autopolyfiller');
+  }
+  if (!merge) {
+    merge = r('event-stream').merge;
+    l('all loaded');
+  }
+  if (!plumber) {
+    plumber = r('gulp-plumber');
+  }
+  let all=gulp.src(paths.dest + 'js/main.js');
+  let polyfills = all
+  .pipe(autopolyfiller('poly.js', {
+      browsers: ['last 10 versions', 'iOS >= 6']
+    }));
+  merge(polyfills, all)
+    .pipe(order([
+            'poly.js',
+            'main.js'
+        ]))
+    .pipe(concat('main.js'))
     .pipe(uglify())
     .pipe(rename('main.min.js'))
     .pipe(gulp.dest(paths.dest + 'js'))
@@ -162,7 +162,7 @@ gulp.task('finalCss', () => {
   gulp.src('./beta/scss/style.scss')
     .pipe(sass().on('error', sass.logError))
     .pipe(uncss({
-      html: [paths.base + '*.html']
+      html: [paths.base + 'index.html']
     }))
     .pipe(gulp.dest(paths.dest + 'styles'));
   setTimeout(() => {
