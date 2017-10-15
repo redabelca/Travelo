@@ -21,17 +21,12 @@ var l = console.log,
     },
     'Windows 8.1': {
       'internet explorer': ['11.0'],
-      'firefox': ['54.0'],
-    },
-    'Windows 8': {
-      'firefox': ['54.0'],
     },
     'Windows 7': {
       'opera': ['12.12']
     },
     'Windows XP': {
       'chrome': ['49.0'],
-      'firefox': ['54.0'],
       'opera': ['12.12']
     },
     'Linux': {
@@ -44,7 +39,6 @@ var l = console.log,
       'firefox': ['54.0']
     },
     'macOS 10.12': {
-      'firefox': ['54.0'],
       'safari': ['10.0']
     }
   },
@@ -109,7 +103,7 @@ function test(iOftest) {
   //VIDEO
   driver.findElement(By.className('for-test')).getText().then(txt => {
     loop(Number(txt) + 1, 10, () => {
-      //driver.executeScript("window.scrollBy(0,(window.innerHeight-100))");
+      driver.executeScript("window.scrollBy(0,(window.innerHeight-100))");
     }, () => {
       driver.executeScript("window.scrollTo(0,0)")
         .then(() => {
@@ -127,7 +121,8 @@ function test(iOftest) {
             },
             assetName;
           setTimeout(() => {
-            writeFileSync('OS/' + args.platform + '/' + args.browserName + '/v' + args.version + '/dir.dir', '', () => {
+            mkdirp(getDirName('OS/' + args.platform + '/' + args.browserName + '/v' + args.version), (er) => {
+              if(er){l(er); return;}
               for (assetName in assetsName) {
                 exec('"C:/Program Files (x86)/Git/bin/sh.exe" --login -i -c "curl -u ' + username + ':' + accessKey + ' -O https://saucelabs.com/rest/v1/' + username + '/jobs/' + jobId + '/assets/' + assetsName[assetName] + '"', {
                   cwd: 'OS/' + args.platform + '/' + args.browserName + '/v' + args.version

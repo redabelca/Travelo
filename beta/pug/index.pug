@@ -5,20 +5,13 @@ html(lang='')
     link(href="./final/styles/style.css" type="text/css" rel="stylesheet")
   body
     main
-      -var i=0;
-      +loop(5)
-        .card
-          a(href="#")
-            img.img.card-img(src="beta/img/"+card.img[i]+"-300.jpeg")
-          .card-txt-ctn.center
-            h6.card-title= card.title[i]
-            p.card-txt= card.txt[i]
-            a(href="#").btn.btn_medium.card-btn= card.btn[i]
-            -i++;
+      .card.card-hover
+        a(href="#")
+          img.img.card-img(src= "beta/img/charles-magnuson-218083-300.jpg")
+        .card-txt-ctn.center
+          h6.card-title Core Features
+          p.card-txt your website by giving it a professional look. Install with just a single click. Features can be combined at will.
+          a(href="#").btn.btn_medium.card-btn Install
+          
+      h1.inset-text-shadow Reda Is Going To Open
     script(src='./final/js/main.js')
--var card={
--img:[],
--title:[],
--txt:[],
--btn:[]
--}

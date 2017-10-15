@@ -16,7 +16,7 @@ gulp.task('default', () => {
     },
     open:false
   });
-  gulp.watch(paths.base + 'pug/*', e => {
+  gulp.watch(paths.base + 'pug/**/*', e => {
     if (e.type === 'added' || e.type === 'changed') {
       l(e.path + ' ' + e.type);
       if (!plumber) {
@@ -26,7 +26,7 @@ gulp.task('default', () => {
         pug = r('gulp-pug');
       }
 
-      gulp.src([e.path, './beta/pug/index.pug'])
+      gulp.src([/*e.path,*/ './beta/pug/index.pug'])
         .pipe(plumber())
         .pipe(pug({
           pretty: true
@@ -36,7 +36,7 @@ gulp.task('default', () => {
     }
   });
   //scss
-  gulp.watch(paths.base + 'scss/*', e => {
+  gulp.watch(paths.base + 'scss/**/*', e => {
     if (e.type === 'added' || e.type === 'changed') {
       if (!sass) {
         sass = r('gulp-sass');
@@ -63,7 +63,7 @@ gulp.task('svgmin', () => {
     .pipe(svgmin())
     .pipe(gulp.dest('./beta/img'));
 });
-gulp.task("imgmin", () => {
+gulp.task('imgmin', () => {
   //makhasekch tbqa tpromptini dirict dir task l ga3 les sizes dial wp
   if (!svgmin) {
     svgmin = r('gulp-svgmin');
@@ -165,7 +165,8 @@ gulp.task('finalCss', () => {
       html: [paths.base + 'index.html']
     }))
     .pipe(gulp.dest(paths.dest + 'styles'));
-  setTimeout(() => {
+    gulp.watch(paths.dest+'styles/style.css',e => {
+      l(e.path+' '+e.type);
     gulp.src([paths.dest + 'styles/normalize.css', paths.dest + 'styles/type.css', paths.dest + 'styles/jsEffect.css', paths.dest + 'styles/style.css'])
       .pipe(concatCss('style.min.css'))
       .pipe(combineMq({
@@ -182,7 +183,7 @@ gulp.task('finalCss', () => {
       }))
       .pipe(gulp.dest(paths.dest + 'styles'))
       .pipe(browserSync.stream());
-  }, 8000);
+  });
 });
 gulp.task('critical', () => {
   if (!critical) {

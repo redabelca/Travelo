@@ -1,39 +1,14 @@
 @import 'vars', 'menu-model', 'rwd-float', 'beta/scss/normalize', 'beta/scss/type', 'mixins';
 
-body{
+body {
   background: $c18;
 }
-.card{
-  $br-radius:7px;
-  border-radius: $br-radius;
-  width:300px;
-  background: $c20;
-  box-shadow: -1px 4px 12px $c10;
-  margin:$ms2 $ms0;
-  display: inline-block;
-  &-img{
-    border-top-left-radius: $br-radius;
-    border-top-right-radius: $br-radius;
-  }
-  &-txt-ctn{
-    width:80%;
-    margin-top: $ms4;
-  }
-  &-title{
-    color:$c6;
-    font-weight: 700;
-  }
-  &-txt{
-    color:$c8;
-    font-weight: 500;
-  }
-  &-btn{
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-    border-radius:7px;
-    color:#387023;
-    transform: translate(-$ms2,-$ms-3);
-  }
+
+.inset-text-shadow{
+  background-color: #565656;
+  color: transparent;
+  text-shadow: 0px 0px 0px rgba(255,255,255,0.5);
+  -webkit-background-clip: text;
 }
 
 @media screen and (min-width:320px) {}

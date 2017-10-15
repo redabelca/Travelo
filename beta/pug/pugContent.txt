@@ -1,5 +1,5 @@
 MENU
-products - portfolio - blog - features - purchase - items
+'products' , 'portfolio' , 'blog' , 'features' , 'purchase' , 'items'
 
 H1
 Pre-Build Home Demos

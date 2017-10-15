@@ -225,7 +225,8 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", "Helvetica", "Tahoma", "Verdana", sans-serif;
   margin: 0;
   padding: 0;
-  color: #262626; }
+  color: #262626;
+  font-weight: 500; }
 
 h1,
 h2,
@@ -233,7 +234,8 @@ h3,
 h4,
 h5,
 h6 {
-  margin: 16px 0 19.2px; }
+  margin: 16px 0 19.2px;
+  font-weight: 700; }
 
 h1 {
   font-size: 47.776px; }
@@ -593,16 +595,16 @@ img {
   background: #d3dd9b;
   animation: down 120s linear infinite; }
 
-body {
-  background: #e6e6e6; }
-
 .card {
   border-radius: 7px;
   width: 300px;
   background: white;
-  box-shadow: -1px 4px 12px gray;
+  box-shadow: -2px 4px 12px gray;
   margin: 23.04px 16px;
-  display: inline-block; }
+  display: inline-block;
+  vertical-align: top;
+  transition: all .2s;
+  transition-timing-function: ease-in-out; }
   .card-img {
     border-top-left-radius: 7px;
     border-top-right-radius: 7px; }
@@ -621,3 +623,16 @@ body {
     border-radius: 7px;
     color: #387023;
     transform: translate(-23.04px, -9.259px); }
+  .card.card-hover:hover {
+    transform: translate(0, -7px);
+    opacity: .9;
+    box-shadow: -5px 11px 14px gray; }
+
+body {
+  background: #e6e6e6; }
+
+.inset-text-shadow {
+  background-color: #565656;
+  color: transparent;
+  text-shadow: 0px 0px 0px rgba(255, 255, 255, 0.5);
+  -webkit-background-clip: text; }

@@ -63,7 +63,7 @@ var lib = {
     if (el.classList) {
       el.classList.remove(css);
     } else {
-      el.className.replace(' ' + css, '');
+      el.className.replace(css, '');
     }
     if (storeClasInDataOrNot) {
       controller.updateCss(el, clasParentObjName);
@@ -107,7 +107,7 @@ var lib = {
       if (el.className.indexOf(css) === -1) {
         el.className += ' ' + css;
       } else {
-        el.className = el.className.replace(' ' + css, '');
+        el.className = el.className.replace(css, '');
       }
     }
   },
@@ -333,11 +333,3 @@ var lib = {
     }
   }
 };
-
-//Intro Animation
-/*setTimeout(function () {
-  el.className += ' ' + 'fade-out';
-}, 4000);
-setTimeout(function () {
-el.parentElement.removeChild(el);
-}, 6000);*/
