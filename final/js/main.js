@@ -281,9 +281,11 @@ var data = {};
 var controller = {};
 var view = {
   init: function () {
+    lib.updateData('scrollTop', lib.getWindowScrollY());
     lib.addEvent(w, 'scroll', function () {
       lib.updateData('scrollTop', lib.getWindowScrollY());
     });
+    lib.addEvent(w, 'resize', function () {});
   }
 };
 lib.ready(view.init);

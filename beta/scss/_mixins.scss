@@ -285,21 +285,21 @@ img {
   }
 }
 //--------------------Pagination
-.pag{
-  &-numbers{
-  float: left;
-  padding: $ms-2;
-  font-weight: 700;
-  margin: 5px;
-  border-radius: 4px;
-  transition: all .7s;
-  text-shadow: 1px 1px 4px #1d455d;
+.pag {
+  &-numbers {
+    float: left;
+    padding: $ms-2;
+    font-weight: 700;
+    margin: 5px;
+    border-radius: 4px;
+    transition: all .7s;
+    text-shadow: 1px 1px 4px #1d455d;
   }
   &-next, &-previous {
-  display: block;
-  width: 95%;
-  text-align: center;
-}
+    display: block;
+    width: 95%;
+    text-align: center;
+  }
 }
 .current {
   border: {
@@ -374,49 +374,69 @@ $line-length:2*3.14*$r;
     height: 3px;
     width: 3px;
     border-radius: 100%;
-    background: #d3dd9b;
-    //box-shadow: multiShadows(1000, 2000);
+    background: #d3dd9b; //box-shadow: multiShadows(1000, 2000);
     animation: down 120s linear infinite;
   }
 }
 //---------------------Card----------
-.card{
-  $br-radius:7px;
+.card {
+  $br-radius: 7px;
   border-radius: $br-radius;
-  width:300px;
+  width: 300px;
   background: $c20;
   box-shadow: -2px 4px 12px $c10;
-  margin:$ms2 $ms0;
+  margin: $ms2 $ms0;
   display: inline-block;
   vertical-align: top;
   transition: all .2s;
   transition-timing-function: ease-in-out;
-  &-img{
+  &-img {
     border-top-left-radius: $br-radius;
     border-top-right-radius: $br-radius;
   }
-  &-txt-ctn{
-    width:80%;
+  &-txt-ctn {
+    width: 80%;
     margin-top: $ms4;
   }
-  &-title{
-    color:$c6;
+  &-title {
+    color: $c6;
     font-weight: 700;
   }
-  &-txt{
-    color:$c8;
+  &-txt {
+    color: $c8;
     font-weight: 500;
   }
-  &-btn{
+  &-btn {
     text-transform: uppercase;
     letter-spacing: 1.5px;
-    border-radius:7px;
-    color:#387023;
-    transform: translate(-$ms2,-$ms-3);
+    border-radius: 7px;
+    color: #387023;
+    transform: translate(-$ms2, -$ms-3);
   }
-  &.card-hover:hover{
-    transform: translate(0,-7px);
-    opacity:.9;
+  &.card-hover:hover {
+    transform: translate(0, -7px);
+    opacity: .9;
     box-shadow: -5px 11px 14px $c10;
   }
+}
+//--------------ripple Effect-----
+@keyframes ripple {
+  0% {
+    transform: scale(0, 0);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(40, 40);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(60, 60);
+  }
+}
+//--------------insetTextShadows-----
+.inset-text-shadow {
+  background-color: #565656;
+  color: transparent;
+  text-shadow: 0px 2px 3px rgba(255, 255, 255, 0.5);
+  -webkit-background-clip: text;
 }

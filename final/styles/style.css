@@ -628,11 +628,22 @@ img {
     opacity: .9;
     box-shadow: -5px 11px 14px gray; }
 
-body {
-  background: #e6e6e6; }
+@keyframes ripple {
+  0% {
+    transform: scale(0, 0);
+    opacity: 1; }
+  50% {
+    transform: scale(40, 40); }
+  100% {
+    opacity: 0;
+    transform: scale(60, 60); } }
 
 .inset-text-shadow {
   background-color: #565656;
   color: transparent;
-  text-shadow: 0px 0px 0px rgba(255, 255, 255, 0.5);
+  text-shadow: 0px 2px 3px rgba(255, 255, 255, 0.5);
   -webkit-background-clip: text; }
+
+body, main {
+  background: #e6e6e6;
+  height: 1000px; }
