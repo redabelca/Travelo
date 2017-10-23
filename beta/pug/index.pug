@@ -4,15 +4,24 @@ html(lang='')
   include head
     link(href="./final/styles/style.css" type="text/css" rel="stylesheet")
   body
-    main.bor
-      .card
-        //a(href="#")
-        //  img.img.card-img
-        //.card-txt-ctn.center
-        //  h6.card-title
-        //  p.card-txt
-        //  a(href="#").btn.btn_medium.card-btn
-          
-        .product-info
-        
+    -function I(i){return i%2==0?'left':'right'}
+    -var i=0;
+    main.row
+      .line
+        .line-long
+        .line-strong-place
+          +loop(5)
+            .line-hfra(class= I(i++))
+        .line-skew
+        .line-base
+          +loop(3)
+            .line-base-bar.center
+        .line-skew-end
+        .line-end
+
+      .prise
+        .prise-khett-khl
+        .prise-circle
+          .prise-circle-small.prise-circle-small_1
+          .prise-circle-small.prise-circle-small_2
     script(src='./final/js/main.js')

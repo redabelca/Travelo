@@ -39,7 +39,7 @@ var l = console.log,
       return w.scrollY || w.pageYOffset || d.body.scrollTop;
     },
     getOffsetHeight: function (el) {
-      return el.offsetHeight || el.getBoundingClientRect().height || lib.CSSPropertyNumber(el, 'height');
+      return el.offsetHeight || el.scrollHeight || el.getBoundingClientRect().height;
     },
     CSSPropertyNumber: function (el, CSSProperty) {
       return Number(w.getComputedStyle(el)[CSSProperty].replace('px', ''));
@@ -143,11 +143,10 @@ var l = console.log,
         fn: fn
       });
     }, //el must be prepaired for anim
-    prepareElForAnimation: function (el, baseName, percentageOfHeight /*optional*/ ) {
-      var per = percentageOfHeight || 0.5;
+    prepareElForAnimation: function (el, baseName, percentOfHeight /*optional*/ ) {
       lib.updateData(baseName + 'Top', lib.top(el));
       lib.updateData(baseName + 'Height', lib.getOffsetHeight(el));
-      lib.updateData(baseName + 'Distance', data[baseName + 'Top'] + (data[baseName + 'Height'] * per) - (window.innerHeight + (data.scrollTop || 0)));
+      lib.updateData(baseName + 'Distance', data[baseName + 'Top'] + (data[baseName + 'Height'] * (percentOfHeight || 0)) - (window.innerHeight + data.scrollTop));
     },
     whichActionEvent: function (action /*either animation or transition*/ ) {
       var t, el = document.body,
@@ -285,7 +284,14 @@ var view = {
     lib.addEvent(w, 'scroll', function () {
       lib.updateData('scrollTop', lib.getWindowScrollY());
     });
-    lib.addEvent(w, 'resize', function () {});
+    lib.addEvent(d.body, 'click', function () {
+      lib.addCss(lib.getClass('flipCard')[0],'flipCard_flip');
+      var current=lib.getClass('flipCard-img-current')[0];
+      var imgs=lib.getClass('img');
+      lib.addCss(current,'flipCard-img-away');
+      lib.addCss(current.nextElementSibling,'flipCard-img-current');
+      lib.removeCss(current,'flipCard-img-current');
+    });
   }
 };
 lib.ready(view.init);

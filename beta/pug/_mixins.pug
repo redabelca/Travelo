@@ -1,6 +1,6 @@
-mixin loop(limit)
-  -var a=0,l=limit;
-  -for (;a<l;a++){
+mixin loop(l)
+  -var i=0;
+  -while(i++<l){
     block
   -}
 
@@ -46,35 +46,6 @@ mixin menu(obj)
           +loop(3)
             span.humb-spn.block
           
-//- -------------------dropDown--
-//- mazal improvments here khass i3tini wach kin chi li 3ndha submenu ola lla and khasso i3tini lista dial a content
-//- var obj={
-//-   subLi:{
-//-     arr:[],
-//-     class:''
-//-   },
-//-   li:{
-//-     class:''
-//-     },
-//-   a:{
-//-     class:'',
-//-     val:''
-//-     },
-//-   subUl:{
-//-     class:''
-//-    },
-//-   subA:{
-//-     class:''
-//-     }
-//- }
-mixin drpDwn(obj)
-  li.drp(class= obj.li.class)
-    a(href="#",class= obj.a.class)= obj.a.val
-    ul(class= obj.subUl.class)
-      each val in obj.subLi.arr
-        li(class= obj.subLi.class)
-          a(href="#", class= obj.subA.class)= val
-          
 //- ---------------------Side-Nav
 //- in main.js in controller paste in a func :
 //- lib.toggle2Css(el,'slide-nav-forward','slide-nav-backward'); el here is #side-nav
@@ -109,22 +80,12 @@ mixin sideNav(obj)
           a.side-a(class= obj.a.class,href="#")= val
 
 //- -----------------------media
-//- var obj={
-//-   item:{
-//-     clas:''
-//-    },
-//-    img:{
-//-      imgClass:'',
-//-      src:''
-//-    }
-//-  }
-mixin media(obj)
-  .row(class= obj['item']['clas'])
-    .media-img.left
-      img.img(class= obj['img']['imgClass'], src= obj['img']['src'])
-    .media-txt.right
-      block
-      
+//- .row
+//-   .media-img.left
+//-     img.img(src="")
+//-   .media-txt.right
+//-     ur txt here
+
 //- ----------------------Pagination
 //- nav.table.center.row
 //-   a.pag-previous.pag-numbers(href="#")= "< Previous"

@@ -11,9 +11,9 @@ var lib = {
   },
   getClass: function (clas) {
     if (d.getElementsByClassName) {
-      return d.getElementsByClassName(clas);
+      return d.getElementsByClassName(clas)[0];
     } else {
-      return d.querySelectorAll('.' + clas);
+      return d.querySelector('.' + clas);
     }
   },
   addEvent: function (el, eventWithoutOn, fn) {
@@ -116,7 +116,7 @@ var lib = {
     return w.scrollY || w.pageYOffset || d.body.scrollTop;
   },
   getOffsetHeight: function (el) {
-    return el.offsetHeight || el.getBoundingClientRect().height || lib.CSSPropertyNumber(el, 'height');
+    return el.offsetHeight || el.scrollHeight || el.getBoundingClientRect().height;
   },
   CSSPropertyNumber: function (el, CSSProperty) {
     return Number(w.getComputedStyle(el)[CSSProperty].replace('px', ''));
@@ -148,11 +148,10 @@ var lib = {
       fn: fn
     });
   }, //el must be prepaired for anim
-  prepareElForAnimation: function (el, baseName, percentageOfHeight /*optional*/ ) {
-    var per = percentageOfHeight || 0.5;
+  prepareElForAnimation: function (el, baseName, percentOfHeight /*optional*/ ) {
     lib.updateData(baseName + 'Top', lib.top(el));
     lib.updateData(baseName + 'Height', lib.getOffsetHeight(el));
-    lib.updateData(baseName + 'Distance', data[baseName + 'Top'] + (data[baseName + 'Height'] * per) - (window.innerHeight + (data.scrollTop || 0)));
+    lib.updateData(baseName + 'Distance', data[baseName + 'Top'] + (data[baseName + 'Height'] * (percentOfHeight || 0)) - (window.innerHeight + data.scrollTop));
   },
   whichActionEvent: function (action /*either animation or transition*/ ) {
     var t, el = document.body,

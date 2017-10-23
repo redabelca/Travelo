@@ -2,7 +2,7 @@
 let r = require,
   gulp = r('gulp'),
   browserSync = r('browser-sync').create(),
-  plumber, rename, pug, sass, autoprefixer, uncss, csso, combineMq, concatCss, uglify, concat, order, autopolyfiller, merge, svgmin, imgmin, imageResize, l = console.log,
+  plumber, rename,pug, sass, autoprefixer, uncss, csso, combineMq, concatCss, uglify, concat, order, autopolyfiller, merge, svgmin, imgmin, imageResize, l = console.log,
   critical,
   paths = {
     base: 'beta/',
@@ -100,6 +100,12 @@ gulp.task('imgmin', () => {
   });
 });
 //--------------------------------------
+gulp.task('defer', function() {
+  var defer=r('gulp-defer');
+  gulp.src(paths.base+'index.html')
+   .pipe(defer())
+   .pipe(gulp.dest(paths.dest));
+});
 gulp.task('uglify', () => {
   if (!uglify) {
     uglify = r('gulp-uglify');
