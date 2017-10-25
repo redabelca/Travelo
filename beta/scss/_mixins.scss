@@ -1,331 +1,347 @@
 *, *:after, *:before {
-  box-sizing: border-box;
-  font-smoothing: antialiased;
-  text-rendering: optimizeLegibility;
+    box-sizing: border-box;
+    font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
 }
 //Border
 .bor {
-  border: 1px solid;
+    border: 1px solid;
 }
 .right {
-  float: right;
+    float: right;
 }
 .left {
-  float: left;
+    float: left;
 }
 .abs {
-  position: absolute;
+    position: absolute;
 }
 .rel {
-  position: relative;
+    position: relative;
 }
 .fixed {
-  position: fixed;
+    position: fixed;
 }
 .inline {
-  display: inline-block;
+    display: inline-block;
 }
 .block {
-  display: block;
+    display: block;
 }
 .table {
-  display: table;
+    display: table;
 }
 .none {
-  display: none;
+    display: none;
 }
 .op1 {
-  opacity: 1;
+    opacity: 1;
 }
 .op0 {
-  opacity: 0;
+    opacity: 0;
 }
 .txt_center {
-  text-align: center;
+    text-align: center;
 }
 .center {
-  margin-left: auto;
-  margin-right: auto;
+    margin-left: auto;
+    margin-right: auto;
 }
 //--------MIXINS
-@mixin s($w,$h){
-  width:$w;height:$h;
+@mixin s($w, $h) {
+    width: $w;
+    height: $h;
 }
-@mixin shadow($x,$y,$b,$a){
-  box-shadow:$x $y $b rgba(0,0,0,$a);
+@mixin shadow($x, $y, $b, $a) {
+    box-shadow: $x $y $b rgba(0, 0, 0, $a);
 }
-@mixin center(){
-  top:50%;left:50%;
-  transform: translate(-50%,50%);
+@mixin center() {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 50%);
+}
+@function ms($n) {
+    $size: 16px;
+    @if $n>0 {
+      @for $i from 1 through $n {
+        $size: $size*1.618;
+      }
+    }
+   @if $n<0 {
+       @for $i from -1 through $n {
+           $size: $size/1.618;
+       }
+   }
+    @return $size;
 }
 //clm padding
 .clm_pad {
-  padding: $ms-2 $ms1;
+    padding: $ms-2 $ms1;
 }
 //background to be centered
 .bg-center {
-  background-position: 50% 50%;
-  background-repeat: no-repeat;
-  background-size: cover;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 .blue-gradient {
-  background: radial-gradient(farthest-corner at 100% 100%, #070c36, #010113);
+    background: radial-gradient(farthest-corner at 100% 100%, #070c36, #010113);
 }
 //Imgs
 img {
-  vertical-align: bottom;
+    vertical-align: bottom;
 }
 .img {
-  max-width: 100%;
-  width: 100%;
-  height: auto;
-  margin: 0 auto;
-  display: block;
+    max-width: 100%;
+    width: 100%;
+    height: auto;
+    margin: 0 auto;
+    display: block;
 }
 //section padding for top and bottom
 .section_pad {
-  padding-top: $ms7;
-  padding-bottom: $ms8;
+    padding-top: $ms7;
+    padding-bottom: $ms8;
 }
 //rounded icon
 .rounded-icon {
-  height: 30px;
-  width: 30px;
-  color: $c19;
-  font-size: $ms0;
-  border-radius: 100%;
+    height: 30px;
+    width: 30px;
+    color: $c19;
+    font-size: $ms0;
+    border-radius: 100%;
 }
 @media screen and (min-width:480px) {
-  .header-inner-center {
-    bottom: 30%;
-  }
+    .header-inner-center {
+        bottom: 30%;
+    }
 }
 //Wrap Class
 .wrap_70 {
-  width: 80%;
+    width: 80%;
 }
 @media screen and (min-width:480px) {
-  .wrap_70 {
-    width: 70%;
-  }
+    .wrap_70 {
+        width: 70%;
+    }
 }
 .wrap_75 {
-  width: 85%;
+    width: 85%;
 }
 @media screen and (min-width:480px) {
-  .wrap_75 {
-    width: 75%;
-  }
+    .wrap_75 {
+        width: 75%;
+    }
 }
 .wrap_80 {
-  width: 97%;
+    width: 97%;
 }
 @media screen and (min-width:480px) {
-  .wrap_80 {
-    width: 80%;
-  }
+    .wrap_80 {
+        width: 80%;
+    }
 }
 .wrap_85 {
-  width: 100%;
+    width: 100%;
 }
 @media screen and (min-width:480px) {
-  .wrap_85 {
-    width: 85%;
-  }
+    .wrap_85 {
+        width: 85%;
+    }
 }
 .wrap_90 {
-  width: 95%;
+    width: 95%;
 }
 @media screen and (min-width:480px) {
-  .wrap_90 {
-    width: 85%;
-  }
+    .wrap_90 {
+        width: 85%;
+    }
 }
 //margin-bottom
 .margin {
-  &_btm_2 {
-    margin-bottom: $ms2;
-  }
-  &_btm_3 {
-    margin-bottom: $ms3;
-  }
-  &_btm_4 {
-    margin-bottom: $ms4;
-  }
-  &_btm_5 {
-    margin-bottom: $ms5;
-  }
-  &_btm_6 {
-    margin-bottom: $ms6;
-  }
-  &_btm_7 {
-    margin-bottom: $ms7;
-  }
-  &_btm_8 {
-    margin-bottom: $ms8;
-  }
-  &_btm_9 {
-    margin-bottom: $ms9;
-  }
-  &_btm_10 {
-    margin-bottom: $ms10;
-  }
-  &_btm_11 {
-    margin-bottom: $ms11;
-  }
+    &_btm_2 {
+        margin-bottom: $ms2;
+    }
+    &_btm_3 {
+        margin-bottom: $ms3;
+    }
+    &_btm_4 {
+        margin-bottom: $ms4;
+    }
+    &_btm_5 {
+        margin-bottom: $ms5;
+    }
+    &_btm_6 {
+        margin-bottom: $ms6;
+    }
+    &_btm_7 {
+        margin-bottom: $ms7;
+    }
+    &_btm_8 {
+        margin-bottom: $ms8;
+    }
+    &_btm_9 {
+        margin-bottom: $ms9;
+    }
+    &_btm_10 {
+        margin-bottom: $ms10;
+    }
+    &_btm_11 {
+        margin-bottom: $ms11;
+    }
 }
 //media
 .media-img {
-  width: 85px;
-  height: 85px;
-  margin-top: $ms4;
+    width: 85px;
+    height: 85px;
+    margin-top: $ms4;
 }
 .media-txt {
-  width: 65%;
-  padding: $ms-1;
+    width: 65%;
+    padding: $ms-1;
 }
 @media screen and (min-width:480px) {
-  .media-img {
-    width: 134px;
-    height: 135px;
-  }
+    .media-img {
+        width: 134px;
+        height: 135px;
+    }
 }
 @media screen and (min-width:768px) {
-  .media-img {
-    width: 150px;
-    height: 150px;
-    margin-top: $ms3;
-    margin-left: $ms5;
-  }
+    .media-img {
+        width: 150px;
+        height: 150px;
+        margin-top: $ms3;
+        margin-left: $ms5;
+    }
 }
 @media screen and (min-width:1024px) {
-  .media-img {
-    width: 100px;
-    height: 100px;
-    margin-top: $ms4;
-    margin-left: 0;
-  }
+    .media-img {
+        width: 100px;
+        height: 100px;
+        margin-top: $ms4;
+        margin-left: 0;
+    }
 }
 //----------Btn-----------
 .btn {
-  padding: $ms-2 $ms-1;
-  font-weight: bold;
-  transition: all .3s;
-  display: inline-block;
-  &_small {
-    padding: $ms0 $ms1;
-  }
-  &_medium {
-    padding: $ms1 $ms2;
-  }
-  &_big {
-    padding: $ms2 $ms3;
-  }
+    padding: $ms-2 $ms-1;
+    font-weight: bold;
+    transition: all .3s;
+    display: inline-block;
+    &_small {
+        padding: $ms0 $ms1;
+    }
+    &_medium {
+        padding: $ms1 $ms2;
+    }
+    &_big {
+        padding: $ms2 $ms3;
+    }
 }
 //---------MENU---------
 //in li
 .menu_center {
-  display: block;
-  text-align: center;
+    display: block;
+    text-align: center;
 }
 //in a
 .menu-anchor {
-  padding: $ms0;
+    padding: $ms0;
 }
 .menu-links {
-  width: 100%;
-  display: none;
-  overflow: hidden;
-  transition: all .7s;
+    width: 100%;
+    display: none;
+    overflow: hidden;
+    transition: all .7s;
 }
 .humb {
-  top: 4px;
-  right: 4px;
-  height: 60px;
-  width: 60px;
-  padding: 0 14px;
-  cursor: pointer; //must be abs and the ul.row must be rel
-  &-child {
-    margin-top: 11px;
-  }
-  &-spn {
-    height: 5px;
-    margin-bottom: 5px;
-    border-radius: 5px;
-  }
+    top: 4px;
+    right: 4px;
+    height: 60px;
+    width: 60px;
+    padding: 0 14px;
+    cursor: pointer; //must be abs and the ul.row must be rel
+    &-child {
+        margin-top: 11px;
+    }
+    &-spn {
+        height: 5px;
+        margin-bottom: 5px;
+        border-radius: 5px;
+    }
 }
 @media screen and (min-width:1024px) {
-  .humb {
-    display: none;
-  }
-  .menu_center {
-    display: inline-block;
-  }
-  .menu-links {
-    display: inline-block;
-  }
+    .humb {
+        display: none;
+    }
+    .menu_center {
+        display: inline-block;
+    }
+    .menu-links {
+        display: inline-block;
+    }
 }
 //------------------Side-Nav
 .side {
-  &-nav {
-    background: $c3;
-    width: 250px;
-    height: 100%;
-    overflow-y: auto;
-    overflow-x: hidden;
-  }
-  &-title {
-    padding: $ms2;
-    color: $c17;
-    text-shadow: 1px 1px 1px $c20;
-    font-size: $ms2;
-  }
-  &-a {
-    color: $c13;
-    font-family: 'Roboto';
-    font-weight: 400;
-    font-size: 17px;
-    padding: $ms0+5px;
-    box-shadow: 0 5px 3px -5px $c10;
-  }
-  &-a:hover {
-    transform: translateX(10px);
-    font-family: 20px;
-    box-shadow: 0px 1px 3px 0px $c10;
-    color: $c20;
-  }
+    &-nav {
+        background: $c3;
+        width: 250px;
+        height: 100%;
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
+    &-title {
+        padding: $ms2;
+        color: $c17;
+        text-shadow: 1px 1px 1px $c20;
+        font-size: $ms2;
+    }
+    &-a {
+        color: $c13;
+        font-family: 'Roboto';
+        font-weight: 400;
+        font-size: 17px;
+        padding: $ms0+5px;
+        box-shadow: 0 5px 3px -5px $c10;
+    }
+    &-a:hover {
+        transform: translateX(10px);
+        font-family: 20px;
+        box-shadow: 0px 1px 3px 0px $c10;
+        color: $c20;
+    }
 }
 //--------------------Pagination
 .pag {
-  &-numbers {
-    float: left;
-    padding: $ms-2;
-    font-weight: 700;
-    margin: 5px;
-    border-radius: 4px;
-    transition: all .7s;
-    text-shadow: 1px 1px 4px #1d455d;
-  }
-  &-next, &-previous {
-    display: block;
-    width: 95%;
-    text-align: center;
-  }
+    &-numbers {
+        float: left;
+        padding: $ms-2;
+        font-weight: 700;
+        margin: 5px;
+        border-radius: 4px;
+        transition: all .7s;
+        text-shadow: 1px 1px 4px #1d455d;
+    }
+    &-next, &-previous {
+        display: block;
+        width: 95%;
+        text-align: center;
+    }
 }
 .current {
-  border: {
-    top: none;
-    left: none;
-    right: none;
-    bottom: 5px solid #5a70c8;
-  }
-  padding-bottom:$ms-5;
-  border-radius:4px;
+    border: {
+        top: none;
+        left: none;
+        right: none;
+        bottom: 5px solid #5a70c8;
+    }
+    padding-bottom:$ms-5;
+    border-radius:4px;
 }
 @media screen and (min-width:480px) {
-  .pag-next, .pag-previous {
-    width: auto;
-  }
+    .pag-next, .pag-previous {
+        width: auto;
+    }
 }
 //---------SVG CIRCULAR LPROGRESS-------
 //TO BE MIXIN ::::::::::::::::::::::::::::::::
@@ -335,119 +351,119 @@ $width:202px;
 $r:100px;
 $line-length:2*3.14*$r;
 .circle {
-  width: $height;
-  height: $width;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  margin-left: -($height/2);
-  margin-top: -($width/2);
+    width: $height;
+    height: $width;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -($height/2);
+    margin-top: -($width/2);
 } //<svg>
 .circle circle {
-  stroke-dasharray: $line-length;
-  stroke-dashoffset: 0px;
-  stroke-linecap: round;
-  stroke-width: 2px;
-  stroke: white;
-  fill: none;
-  animation: countdown 5s linear 5 forwards;
+    stroke-dasharray: $line-length;
+    stroke-dashoffset: 0px;
+    stroke-linecap: round;
+    stroke-width: 2px;
+    stroke: white;
+    fill: none;
+    animation: countdown 5s linear 5 forwards;
 } // <circle>
 @keyframes countdown {
-  to {
-    stroke-dashoffset: $line-length;
-  }
+    to {
+        stroke-dashoffset: $line-length;
+    }
 }
 //---------------Stars---------
 //.star-ctn //.stars.rel
 @function multiShadows($n, $size) {
-  $value:'#{random($size)}px #{random($size)}px #dfe6b6';
-  @for $i from 0 through $n {
-    $value: '#{$value} ,#{random($size)}px #{random($size)}px #dfe6b6';
-  }
-  @return unquote($value)
+    $value:'#{random($size)}px #{random($size)}px #dfe6b6';
+    @for $i from 0 through $n {
+        $value: '#{$value} ,#{random($size)}px #{random($size)}px #dfe6b6';
+    }
+    @return unquote($value)
 }
 @keyframes down {
-  from {
-    transform: translateY(0);
-  }
-  to {
-    transform: translateY(1500px);
-  }
+    from {
+        transform: translateY(0);
+    }
+    to {
+        transform: translateY(1500px);
+    }
 }
 .star {
-  &-ctn {
-    height: 100vh;
-    background: linear-gradient(#0d2334, #214c72);
-    overflow: hidden;
-  }
-  &s {
-    top: -1400px;
-    height: 3px;
-    width: 3px;
-    border-radius: 100%;
-    background: #d3dd9b; //box-shadow: multiShadows(1000, 2000);
-    animation: down 120s linear infinite;
-  }
+    &-ctn {
+        height: 100vh;
+        background: linear-gradient(#0d2334, #214c72);
+        overflow: hidden;
+    }
+    &s {
+        top: -1400px;
+        height: 3px;
+        width: 3px;
+        border-radius: 100%;
+        background: #d3dd9b; //box-shadow: multiShadows(1000, 2000);
+        animation: down 120s linear infinite;
+    }
 }
 //---------------------Card----------
 .card {
-  $br-radius: 7px;
-  border-radius: $br-radius;
-  width: 300px;
-  background: $c20;
-  box-shadow: -2px 4px 12px $c10;
-  margin: $ms2 $ms0;
-  display: inline-block;
-  vertical-align: top;
-  transition: all .2s;
-  transition-timing-function: ease-in-out;
-  &-img {
-    border-top-left-radius: $br-radius;
-    border-top-right-radius: $br-radius;
-  }
-  &-txt-ctn {
-    width: 80%;
-    margin-top: $ms4;
-  }
-  &-title {
-    color: $c6;
-    font-weight: 700;
-  }
-  &-txt {
-    color: $c8;
-    font-weight: 500;
-  }
-  &-btn {
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-    border-radius: 7px;
-    color: #387023;
-    transform: translate(-$ms2, -$ms-3);
-  }
-  &.card-hover:hover {
-    transform: translate(0, -7px);
-    opacity: .9;
-    box-shadow: -5px 11px 14px $c10;
-  }
+    $br-radius: 7px;
+    border-radius: $br-radius;
+    width: 300px;
+    background: $c20;
+    box-shadow: -2px 4px 12px $c10;
+    margin: $ms2 $ms0;
+    display: inline-block;
+    vertical-align: top;
+    transition: all .2s;
+    transition-timing-function: ease-in-out;
+    &-img {
+        border-top-left-radius: $br-radius;
+        border-top-right-radius: $br-radius;
+    }
+    &-txt-ctn {
+        width: 80%;
+        margin-top: $ms4;
+    }
+    &-title {
+        color: $c6;
+        font-weight: 700;
+    }
+    &-txt {
+        color: $c8;
+        font-weight: 500;
+    }
+    &-btn {
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+        border-radius: 7px;
+        color: #387023;
+        transform: translate(-$ms2, -$ms-3);
+    }
+    &.card-hover:hover {
+        transform: translate(0, -7px);
+        opacity: .9;
+        box-shadow: -5px 11px 14px $c10;
+    }
 }
 //--------------ripple Effect-----
 @keyframes ripple {
-  0% {
-    transform: scale(0, 0);
-    opacity: 1;
-  }
-  50% {
-    transform: scale(40, 40);
-  }
-  100% {
-    opacity: 0;
-    transform: scale(60, 60);
-  }
+    0% {
+        transform: scale(0, 0);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(40, 40);
+    }
+    100% {
+        opacity: 0;
+        transform: scale(60, 60);
+    }
 }
 //--------------insetTextShadows-----
 .inset-text-shadow {
-  background-color: #565656;
-  color: transparent;
-  text-shadow: 0px 2px 3px rgba(255, 255, 255, 0.5);
-  -webkit-background-clip: text;
+    background-color: #565656;
+    color: transparent;
+    text-shadow: 0px 2px 3px rgba(255, 255, 255, 0.5);
+    background-clip: text;
 }

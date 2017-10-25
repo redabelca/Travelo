@@ -7,8 +7,8 @@ var l = console.log,
   fs = r('fs'),
   mkdirp = r('mkdirp'),
   getDirName = r('path').dirname,
-  username = "wlad",
-  accessKey = "6d46c450-71c8-455a-a844-894b3524cd15",
+  username = "baybe",
+  accessKey = "33931ceb-2e60-4b12-8a20-cfb5d1df342f",
   By = wd.By,
   until = wd.until,
   prefs = new wd.logging.Preferences().setLevel(wd.logging.Type.BROWSER, wd.logging.Level.SEVERE),
@@ -26,12 +26,9 @@ var l = console.log,
       'opera': ['12.12']
     },
     'Windows XP': {
-      'chrome': ['49.0'],
       'opera': ['12.12']
     },
     'Linux': {
-      'chrome': ['48.0'],
-      'firefox': ['54.0'],
       'opera': ['12.15']
     },
     'OS X 10.8': {
@@ -79,7 +76,6 @@ for (var platform in combination) {
 }
 
 function test(iOftest) {
-  !current[iOftest] && l('end');
   var args = {
       browserName: current[iOftest].b,
       platform: current[iOftest].p,
@@ -91,17 +87,17 @@ function test(iOftest) {
   usingServer("http://" + username + ":" + accessKey + "@ondemand.saucelabs.com:80/wd/hub").build();
 
   //LOG ERRORS
-  driver.get("https://redabelca.github.io/First/")
-    .then(() => driver.manage().logs().get(wd.logging.Type.BROWSER), reason => {})
+  driver.get("https://redabelca.github.io/First/").then(()=>{driver.quit()});
+    /*.then(() => driver.manage().logs().get(wd.logging.Type.BROWSER), reason => {});
     .then(logs => {
       writeFileSync('OS/' + args.platform + '/' + args.browserName + '/v' + args.version + '/errors.json', JSON.stringify(logs));
     }, reason => {});
   driver.wait(until.elementLocated(By.css('body'))).then(() => {
     driver.executeScript("var div=document.createElement('div');div.className='for-test';div.innerHTML=Math.ceil(document.body.scrollHeight/window.innerHeight);document.body.appendChild(div);");
-  });
+  });*/
 
   //VIDEO
-  driver.findElement(By.className('for-test')).getText().then(txt => {
+  /*driver.findElement(By.className('for-test')).getText().then(txt => {
     loop(Number(txt) + 1, 10, () => {
       driver.executeScript("window.scrollBy(0,(window.innerHeight-100))");
     }, () => {
@@ -136,9 +132,11 @@ function test(iOftest) {
           }, 10000);
         });
     });
-  });
+  });*/
 }
-test(2);
+for(i=0;i<current.length;i++){
+  test(i);
+}
 /*
 PARALLEL wd.promise.createFlow(()=> {test(i);l('Test number : '+i);});
 */

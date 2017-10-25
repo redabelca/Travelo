@@ -35,7 +35,6 @@ for (platform in combination) {
 }
 
 function test(iOftest) {
-  !current[iOftest] && l('\n\n ENNNNNNNNNND \n\n');
   var args = {
       browserName: current[iOftest].b,
       platformName: current[iOftest].p,

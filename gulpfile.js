@@ -100,7 +100,7 @@ gulp.task('imgmin', () => {
   });
 });
 //--------------------------------------
-gulp.task('defer', function() {
+gulp.task('defer', ()=>{
   var defer=r('gulp-defer');
   gulp.src(paths.base+'index.html')
    .pipe(defer())

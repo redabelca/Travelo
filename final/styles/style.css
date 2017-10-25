@@ -228,54 +228,36 @@ body {
   color: #262626;
   font-weight: 500; }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  margin: 16px 0 19.2px;
-  font-weight: 700; }
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+  margin-bottom: 0.5rem;
+  margin-top: 0;
+  font-family: inherit;
+  font-weight: 700;
+  line-height: 1.1;
+  color: inherit; }
 
-h1 {
-  font-size: 47.776px; }
+h1, .h1 {
+  font-size: 2.5rem; }
 
-h2 {
-  font-size: 39.813px; }
+h2, .h2 {
+  font-size: 2rem; }
 
-h3 {
-  font-size: 33.178px; }
+h3, .h3 {
+  font-size: 1.75rem; }
 
-h4 {
-  font-size: 27.648px; }
+h4, .h4 {
+  font-size: 1.5rem; }
 
-h5 {
-  font-size: 23.04px; }
+h5, .h5 {
+  font-size: 1.25rem; }
 
-h6 {
-  font-size: 19.2px; }
-
-h1.small {
-  font-size: 43.7945px; }
-
-h2.small {
-  font-size: 40.477px; }
-
-h3.small {
-  font-size: 33.7305px; }
-
-h4.small {
-  font-size: 28.109px; }
-
-h5.small {
-  font-size: 23.424px; }
-
-h6.small {
-  font-size: 17px; }
+h6, .h6 {
+  font-size: 1rem; }
 
 p {
-  line-height: 24.8px;
-  margin-bottom: 19.2px; }
+  margin-top: 0;
+  margin-bottom: 1rem;
+  line-height: 24.8px; }
 
 *, *:after, *:before {
   box-sizing: border-box;
@@ -642,12 +624,13 @@ img {
   background-color: #565656;
   color: transparent;
   text-shadow: 0px 2px 3px rgba(255, 255, 255, 0.5);
-  -webkit-background-clip: text; }
+  background-clip: text; }
 
 body {
   background: #d9d9d9;
   overflow-x: hidden;
-  background: #d3ba2a; }
+  background: #d3ba2a;
+  font-size: 3.77733px; }
 
 .prise {
   height: 300px;
