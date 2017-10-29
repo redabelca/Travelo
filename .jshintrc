@@ -8,6 +8,6 @@
     // Environments - Let JSHint know about pre-defined global variables
     "browser": true,        // Browser globals, e.g. `window`, `document`
     "esversion": 6,
-    "esnext":true,
+    //"esnext":true,
     "node":true
 }

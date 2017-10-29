@@ -63,15 +63,15 @@
 @function ms($n) {
     $size: 16px;
     @if $n>0 {
-      @for $i from 1 through $n {
-        $size: $size*1.618;
-      }
+        @for $i from 1 through $n {
+            $size: $size*1.618;
+        }
     }
-   @if $n<0 {
-       @for $i from -1 through $n {
-           $size: $size/1.618;
-       }
-   }
+    @if $n<0 {
+        @for $i from -1 through $n {
+            $size: $size/1.618;
+        }
+    }
     @return $size;
 }
 //clm padding

@@ -3,81 +3,42 @@ mixin loop(l)
   -while(i++<l){
     block
   -}
-
 -function bk(imgUrl,centerOpacity,sidesOpacity){
   - var x=centerOpacity||0.46,y=sidesOpacity||0.88;
   -return 'background-image:radial-gradient(circle at 50% 50%,rgba(0,0,0,'+x+'),rgba(0,0,0,'+y+'))'+', url(\''+imgUrl+'\');';
 -}
+mixin cssLink(url)
+  link(href= url type="text/css" rel="stylesheet")
 
-//- ---------------------------MENU
-//- var obj={
-//-   nav:{
-//-     marginbottomClass:''
-//-   },
-//-   home:{
-//-     clas:'',
-//-     iconclas:''
-//-   },
-//-   links:{
-//-     linksArray:[],
-//-     liClass:''
-//-    },
-//-   classOfLast:''
-//- }
-mixin menu(obj)
-  nav#menu(class= obj.nav.marginbottomClass)
-    ul.row.relative
+//- mixin menu(obj)
+//-   nav#menu(class= obj.nav.marginbottomClass)
+//-     ul.row.relative
   
-      li.left
-        a(class= obj.home.clas, href="#")
-          i.icon(class= obj.home.iconClas)
+//-       li.left
+//-         a(class= obj.home.clas, href="#")
+//-           i.icon(class= obj.home.iconClas)
 
-      .menu-links.right
-        each val in obj.links.linksArray
-          li.menu_center(class= obj.links.liClass)
-            a.menu-anchor(href="#")= val
+//-       .menu-links.right
+//-         each val in obj.links.linksArray
+//-           li.menu_center(class= obj.links.liClass)
+//-             a.menu-anchor(href="#")= val
 
-        li.menu_center
-          a.menu-anchor(href="#")
-            i.icon(class= obj.classOfLast)
+//-         li.menu_center
+//-           a.menu-anchor(href="#")
+//-             i.icon(class= obj.classOfLast)
 
-      .humb.absolute#humb
-        .humb-child
-          +loop(3)
-            span.humb-spn.block
-          
-//- ---------------------Side-Nav
-//- in main.js in controller paste in a func :
-//- lib.toggle2Css(el,'slide-nav-forward','slide-nav-backward'); el here is #side-nav
-//- khasso iswlni wach kin chi submenu o ina index dial li ghnhot had submenu
-//- var obj={
-//-   menu:{
-//-     txt:[]
-//-   }
-//-   nav:{
-//-     class:''
-//-   },
-//-   title:{
-//-     class:'',
-//-     txt:''
-//-   },
-//-   ul:{
-//-     class:''
-//-    },
-//-   li:{
-//-     class:''
-//-     },
-//-   a:{
-//-     class:''
-//-     }
-//- }
-mixin sideNav(obj)
-  nav.side-nav.slide-nav-backward.fixed(class= obj.nav.class)#side-nav
-    span.side-title.txt_center(class= obj.title.class)= obj.title.txt
-    ul(class= obj.ul.class)
-      each val in obj.menu.txt
-        li.side-li.block(class= obj.li.class)
-          a.side-a(class= obj.a.class,href="#")= val
+//-       .humb.absolute#humb
+//-         .humb-child
+//-           +loop(3)
+//-             span.humb-spn.block
+
+//- mixin sideNav(obj)
+//-   nav.side-nav.slide-nav-backward.fixed(class= obj.nav.class)#side-nav
+//-     span.side-title.txt_center(class= obj.title.class)= obj.title.txt
+//-     ul(class= obj.ul.class)
+//-       each val in obj.menu.txt
+//-         li.side-li.block(class= obj.li.class)
+//-           a.side-a(class= obj.a.class,href="#")= val
 
 //- -----------------------media
 //- .row
