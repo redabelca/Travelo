@@ -1,7 +1,11 @@
 include _mixins
 doctype html
 html(lang='')
-  include head
+  include components/head
+    <!--defer-->
     +cssLink('./final/styles/style.css')
+    <!--enddefer-->
   body
+    <!--defer-->
     script(src='./final/js/main.js')
+    <!--defer-->
