@@ -1,14 +1,56 @@
 ul {
-  padding: 0;
-  margin: 0;
-  li {
-    display: inline-block;
-    a {
-      transition: all .7s;
-      display: block;
-      width: 100%;
-      height: 100%;
-      text-decoration: none;
+    padding: 0;
+    margin: 0;
+    li {
+        display: inline-block;
+        a {
+            transition: all .7s;
+            display: block;
+            width: 100%;
+            height: 100%;
+            text-decoration: none;
+        }
     }
-  }
+}
+//in li
+.menu_center {
+    display: block;
+    text-align: center;
+}
+//in a
+.menu-anchor {
+    padding: ms(0);
+    &-links {
+        width: 100%;
+        display: none;
+        overflow: hidden;
+        transition: all .7s;
+    }
+}
+.humb {
+    top: 4px;
+    right: 4px;
+    height: 60px;
+    width: 60px;
+    padding: 0 14px;
+    cursor: pointer; //must be abs and the ul.row must be rel
+    &-child {
+        margin-top: 11px;
+    }
+    &-spn {
+        height: 5px;
+        margin-bottom: 5px;
+        border-radius: 5px;
+    }
+}
+@media screen and (min-width:1024px) {
+    .humb {
+        display: none;
+    }
+    .menu_center {
+        display: inline-block;
+    }
+    .menu-links {
+        display: inline-block;
+    }
 }

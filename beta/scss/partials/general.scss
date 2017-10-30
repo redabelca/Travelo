@@ -1,0 +1,71 @@
+//General
+.bor {
+  border: 1px solid;
+}
+.right {
+  float: right;
+}
+.left {
+  float: left;
+}
+.abs {
+  position: absolute;
+}
+.rel {
+  position: relative;
+}
+.fixed {
+  position: fixed;
+}
+.inline {
+  display: inline-block;
+}
+.block {
+  display: block;
+}
+.table {
+  display: table;
+}
+.txt_center {
+  text-align: center;
+}
+.center {
+  margin-left: auto;
+  margin-right: auto;
+}
+.none {
+  display: none;
+}
+.op1 {
+  opacity: 1;
+}
+.op0 {
+  opacity: 0;
+}
+.bg-center {
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.blue-gradient {
+  background: radial-gradient(farthest-corner at 100% 100%, #070c36, #010113);
+}
+.img {
+  vertical-align: bottom;
+  max-width: 100%;
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+  display: block;
+}
+.section_pad {
+  padding-top: ms(3);
+  padding-bottom: ms(8);
+}
+.rounded-icon {
+  height: 30px;
+  width: 30px;
+  color: c(240);
+  font-size: ms(0);
+  border-radius: 100%;
+}

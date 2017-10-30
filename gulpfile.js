@@ -48,7 +48,7 @@ gulp.task('default', () => {
     }
   });
   //js
-  gulp.watch(paths.base + 'js/**/*.js', ['js']);
+  gulp.watch(paths.base + 'js/**/*', ['js']);
 
   gulp.watch(['index.html']).on('change', browserSync.reload);
 });

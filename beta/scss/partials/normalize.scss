@@ -1,3 +1,8 @@
+*, *:after, *:before {
+  box-sizing: border-box;
+  font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
 article,
 aside,
 details,

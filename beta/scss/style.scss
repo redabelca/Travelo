@@ -1,19 +1,19 @@
-@import 'partials/vars', 'partials/rwd-float', 'partials/normalize', 'partials/type', 'partials/mixins', 'components/menu';
-body {
-    background: $c19;
-    overflow-x: hidden;
-}
+@import 'partials/normalize', 'partials/type' ,'partials/mixins';
+//@import ;
+
+
+
 @media screen and (min-width:320px) {}
-@media screen and (min-width:360px) {}
-@media screen and (min-width:375px) {}
-@media screen and (min-width:480px) {}
-@media screen and (min-width:768px) {}
-@media screen and (min-width:1024px) {}
-@media screen and (min-width:1280px) {}
-@media screen and (min-width:1360px) {}
-@media screen and (min-width:1366px) {}
-@media screen and (min-width:1440px) {}
-@media screen and (min-width:1600px) {}
-@media screen and (min-width:1680px) {}
-@media screen and (min-width:1920px) {}
-@media screen and (min-width:2560px) {}
+  @media screen and (min-width:360px) {}
+  @media screen and (min-width:375px) {}
+  @media screen and (min-width:480px) {}
+  @media screen and (min-width:768px) {}
+  @media screen and (min-width:1024px) {}
+  @media screen and (min-width:1280px) {}
+  @media screen and (min-width:1360px) {}
+  @media screen and (min-width:1366px) {}
+  @media screen and (min-width:1440px) {}
+  @media screen and (min-width:1600px) {}
+  @media screen and (min-width:1680px) {}
+  @media screen and (min-width:1920px) {}
+  @media screen and (min-width:2560px) {}
