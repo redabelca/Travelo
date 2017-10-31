@@ -1,0 +1,29 @@
+@mixin s($w, $h) {
+  width: $w;
+  height: $h;
+}
+@mixin shadow($x, $y, $b, $a) {
+  box-shadow: $x $y $b rgba(0, 0, 0, $a);
+}
+@mixin center() {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, 50%);
+}
+@function ms($n) {
+  $size: 16px;
+  @if $n>0 {
+    @for $i from 1 through $n {
+      $size: $size*1.618;
+    }
+  }
+  @if $n<0 {
+    @for $i from -1 through $n {
+      $size: $size/1.618;
+    }
+  }
+  @return $size;
+}
+@function c($n) {
+  @return rgb($n, $n, $n);
+}

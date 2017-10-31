@@ -182,7 +182,6 @@ gulp.task('finalCss', () => {
   });
 });
 gulp.task('build', ['uglify', 'finalCss']);
-
 gulp.task('defer', () => {
   gulp.src(paths.base + 'index.html')
     .pipe(r('gulp-defer')())
