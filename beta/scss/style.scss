@@ -1,7 +1,14 @@
-@import 'partials/normalize', 'partials/type' ,'partials/mixins';
-//@import ;
+@import 'partials/normalize', 'partials/type' ,'partials/mixins';//,'partials/general';
 
-
+.box{
+  margin:ms(5) auto;
+  @for $i from 1 through 10 {
+    "&-#{$i}"{
+      background: rgb(random(100),random(100),random(100));
+      @include s(unquote("#{random(200)}px"),unquote("#{random(200)}px"));
+    }
+  }
+}
 
 @media screen and (min-width:320px) {}
   @media screen and (min-width:360px) {}

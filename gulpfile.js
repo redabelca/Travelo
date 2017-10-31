@@ -2,8 +2,7 @@
 let r = require,
   gulp = r('gulp'),
   browserSync = r('browser-sync').create(),
-  plumber, rename,pug, sass, autoprefixer, uncss, csso, combineMq, concatCss, uglify, concat, order, autopolyfiller, merge, svgmin, imgmin, imageResize, l = console.log,
-  critical,
+  plumber, rename, pug, sass, autoprefixer, uncss, csso, combineMq, concatCss, uglify, concat, order, autopolyfiller, merge, svgmin, imgmin, imageResize, l = console.log,
   paths = {
     base: 'beta/',
     dest: 'final/'
@@ -13,8 +12,7 @@ gulp.task('default', () => {
     server: {
       baseDir: "./",
       index: "beta/index.html"
-    },
-    open:false
+    } //,open:false
   });
   gulp.watch(paths.base + 'pug/**/*', e => {
     if (e.type === 'added' || e.type === 'changed') {
@@ -26,7 +24,7 @@ gulp.task('default', () => {
         pug = r('gulp-pug');
       }
 
-      gulp.src([/*e.path,*/ './beta/pug/index.pug'])
+      gulp.src([e.path, './beta/pug/index.pug'])
         .pipe(plumber())
         .pipe(pug({
           pretty: true
@@ -41,7 +39,7 @@ gulp.task('default', () => {
       if (!sass) {
         sass = r('gulp-sass');
       }
-      gulp.src([e.path,paths.base+'scss/style.scss'])
+      gulp.src([e.path, paths.base + 'scss/style.scss'])
         .pipe(sass().on('error', sass.logError))
         .pipe(gulp.dest(paths.dest + 'styles'))
         .pipe(browserSync.stream());
@@ -100,12 +98,6 @@ gulp.task('imgmin', () => {
   });
 });
 //--------------------------------------
-gulp.task('defer', ()=>{
-  var defer=r('gulp-defer');
-  gulp.src(paths.base+'index.html')
-   .pipe(defer())
-   .pipe(gulp.dest(paths.dest));
-});
 gulp.task('uglify', () => {
   if (!uglify) {
     uglify = r('gulp-uglify');
@@ -130,9 +122,9 @@ gulp.task('uglify', () => {
   if (!plumber) {
     plumber = r('gulp-plumber');
   }
-  let all=gulp.src(paths.dest + 'js/main.js');
+  let all = gulp.src(paths.dest + 'js/main.js');
   let polyfills = all
-  .pipe(autopolyfiller('poly.js', {
+    .pipe(autopolyfiller('poly.js', {
       browsers: ['last 10 versions', 'iOS >= 6']
     }));
   merge(polyfills, all)
@@ -143,8 +135,7 @@ gulp.task('uglify', () => {
     .pipe(concat('main.js'))
     .pipe(uglify())
     .pipe(rename('main.min.js'))
-    .pipe(gulp.dest(paths.dest + 'js'))
-    .pipe(browserSync.stream());
+    .pipe(gulp.dest(paths.dest + 'js'));
 });
 gulp.task('finalCss', () => {
   if (!autoprefixer) {
@@ -171,9 +162,8 @@ gulp.task('finalCss', () => {
       html: [paths.base + 'index.html']
     }))
     .pipe(gulp.dest(paths.dest + 'styles'));
-    gulp.watch(paths.dest+'styles/style.css',e => {
-      l(e.path+' '+e.type);
-    gulp.src([paths.dest + 'styles/normalize.css', paths.dest + 'styles/type.css', paths.dest + 'styles/jsEffect.css', paths.dest + 'styles/style.css'])
+  gulp.watch(paths.dest + 'styles/style.css', e => {
+    gulp.src([paths.dest + 'styles/normalize.css', paths.dest + 'styles/type.css', paths.dest + 'styles/effects.css', paths.dest + 'styles/style.css'])
       .pipe(concatCss('style.min.css'))
       .pipe(combineMq({
         beautify: true
@@ -187,33 +177,36 @@ gulp.task('finalCss', () => {
         cascade: false,
         remove: false
       }))
-      .pipe(gulp.dest(paths.dest + 'styles'))
-      .pipe(browserSync.stream());
+      .pipe(gulp.dest(paths.dest + 'styles'));
+    l('end finalCss');
   });
 });
-gulp.task('critical', () => {
-  if (!critical) {
-    critical = r('critical');
-  }
-  critical.generate({
-    inline: true,
-    base: './',
-    src: 'beta/index.html',
-    dest: 'final/index-critical.html',
-    dimensions: [
-      {
-        width: 320,
-        height: 480
-      }, {
-        width: 768,
-        height: 1024
-      }, {
-        width: 1280,
-        height: 960
-    }],
-    minify: true,
-    extract: false,
-    ignore: ['font-face']
-  });
+gulp.task('build', ['uglify', 'finalCss']);
+
+gulp.task('defer', () => {
+  gulp.src(paths.base + 'index.html')
+    .pipe(r('gulp-defer')())
+    .pipe(gulp.dest(paths.base));
+  setTimeout(() => {
+    r('critical').generate({
+      inline: true,
+      base: './',
+      src: 'beta/index.html',
+      dest: 'final/index-critical.html',
+      dimensions: [
+        {
+          width: 320,
+          height: 480
+        }, {
+          width: 768,
+          height: 1024
+        }, {
+          width: 1280,
+          height: 960
+      }],
+      minify: true,
+      extract: false,
+      ignore: ['font-face']
+    });
+  }, 2000);
 });
-gulp.task('build', ['uglify', 'finalCss', 'critical']);
