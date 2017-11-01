@@ -23,7 +23,6 @@ gulp.task('default', () => {
       if (!pug) {
         pug = r('gulp-pug');
       }
-
       gulp.src([e.path, './beta/pug/index.pug'])
         .pipe(plumber())
         .pipe(pug({

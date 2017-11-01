@@ -24,23 +24,23 @@
     "gulp-csso": "^3.0.0",
     "gulp-defer": "^1.1.2",
     "gulp-image-resize": "^0.12.0",
-    "gulp-imagemin": "^3.3.0",
+    "gulp-imagemin": "^3.4.0",
     "gulp-order": "^1.1.1",
     "gulp-plumber": "^1.1.0",
     "gulp-pug": "^3.3.0",
     "gulp-rename": "^1.2.2",
-    "gulp-sass": "^3.1.0",
     "gulp-svgo": "^1.0.3",
     "gulp-sync": "^0.1.4",
     "gulp-uglify": "^3.0.0",
     "gulp-uncss": "^1.0.6",
     "gulp-unused": "^0.2.1",
     "prompt": "^1.0.0",
-    "pug": "^2.0.0-rc.2",
+    "pug": "^2.0.0-rc.4",
     "videofy": "0.0.2"
   },
   "dependencies": {
     "google-closure-compiler": "^20170521.0.0",
+    "gulp-sass": "^3.1.0",
     "gulp-unused": "^0.2.1",
     "psi": "^3.0.0"
   }

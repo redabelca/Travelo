@@ -1,0 +1,17 @@
+//- -----------------------Nav
+nav#menu
+  ul.row.relative
+    li.left
+      a(href="")
+        i.icon(class= obj.home.iconClas)
+    .menu-links.right
+      each val in obj.links.linksArray
+        li.menu_center
+          a.menu-anchor
+      li.menu_center
+        a.menu-anchor(href="#")
+          i.icon
+    .humb.abs
+      .humb-child
+        +loop(3)
+          span.humb-spn

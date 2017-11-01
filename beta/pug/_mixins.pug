@@ -1,6 +1,5 @@
 mixin loop(l)
-  -var i=0;
-  -while(i++<l){
+  -var i=0;while(i++<l){
     block
   -}
 -function bk(imgUrl,centerOpacity,sidesOpacity){
@@ -9,56 +8,3 @@ mixin loop(l)
 -}
 mixin cssLink(url)
   link(href= url type="text/css" rel="stylesheet")
-
-//- -----------------------Nav
-  //-nav#menu(class= obj.nav.marginbottomClass)
-  //-  ul.row.relative
-  //-    li.left
-  //-      a(class= obj.home.clas, href="#")
-  //-        i.icon(class= obj.home.iconClas)
-  //-    .menu-links.right
-  //-      each val in obj.links.linksArray
-  //-        li.menu_center(class= obj.links.liClass)
-  //-          a.menu-anchor(href="#")= val
-  //-      li.menu_center
-  //-        a.menu-anchor(href="#")
-  //-          i.icon(class= obj.classOfLast)
-  //-    .humb.absolute#humb
-  //-      .humb-child
-  //-        +loop(3)
-  //-          span.humb-spn.blo
-
-//- ---------------------slideNav
-  //-nav.side-nav.slide-nav-backward.fixed(class= obj.nav.class)#side-nav
-  //-  span.side-title.txt_center(class= obj.title.class)= obj.title.txt
-  //-  ul(class= obj.ul.class)
-  //-    each val in obj.menu.txt
-  //-      li.side-li.block(class= obj.li.class)
-  //-        a.side-a(class= obj.a.class,href="#")= val
-
-//- -----------------------media
-  //- .row
-  //-   .media-img.left
-  //-     img.img(src="")
-  //-   .media-txt.right
-  //-     ur txt here
-
-//- ----------------------Pagination
-  //- nav.table.center.row
-  //-   a.pag-previous.pag-numbers(href="#")= "< Previous"
-  //-   span.pag-numbers.current 1
-  //-   -var i=2;
-  //-   +loop(5)
-  //-     a.pag-numbers.pag-numbers-design(href="#")= i
-  //-     -i++;
-  //-   a.pag-numbers(href="#")= "..."
-  //-   a.pag-next.pag-numbers(href="#")= "Next >"
-
-//- ----------------------Card
-  //- .card.card-hover
-  //-   a(href="#")
-  //-     img.img.card-img(src= "beta/img/-300.jpg")
-  //-   .card-txt-ctn.center
-  //-     h6.card-title= 
-  //-     p.card-txt= 
-  //-     a(href="#").btn.btn_medium.card-btn
