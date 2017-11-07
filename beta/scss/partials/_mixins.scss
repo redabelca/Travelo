@@ -25,5 +25,5 @@
   @return $size;
 }
 @function c($n) {
-  @return rgb($n, $n, $n);
+    @return rgb($n, $n, $n);
 }

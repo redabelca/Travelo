@@ -1,6 +1,8 @@
 @import 'partials/normalize', 'partials/type' ,'partials/mixins','partials/readyCss';
+$main_hue:220;
+$second_hue:41;
 
-
+@import 'components/menu/_travelo-side-nav';
 
 @media screen and (min-width:320px) {}
   @media screen and (min-width:360px) {}

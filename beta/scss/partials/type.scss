@@ -16,6 +16,20 @@
     font-weight: 700;
     src: url('../../beta/fonts/roboto-bold.woff2') format('woff2');
 }
+
+@font-face {
+    font-family: 'Noto';
+    font-style: normal;
+    font-weight: 400;
+    src: url('../../beta/fonts/noto-400.woff2') format('woff2');
+}
+@font-face {
+    font-family: 'Noto';
+    font-style: normal;
+    font-weight: 700;
+    src: url('../../beta/fonts/noto-700.woff2') format('woff2');
+}
+
 html {
     font-size: 16px;
     font-family: sans-serif;

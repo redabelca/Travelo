@@ -3,8 +3,11 @@ doctype html
 html(lang='')
   include components/head
     +cssLink('../final/styles/style.css')
+    +cssLink('../beta/fonts/fontello/css/fontello.css')
   body
     main
+      include components/menu/_travelo-side-nav
     <!--defer-->
     script(src='../final/js/main.js')
     <!--enddefer-->
+    script(src='../final/js/test-bundle.js')

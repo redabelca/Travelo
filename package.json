@@ -13,8 +13,6 @@
   "license": "ISC",
   "devDependencies": {
     "browser-sync": "^2.18.12",
-    "ffmpeg": "0.0.4",
-    "gulp": "^3.9.1",
     "gulp-autopolyfiller": "^1.2.1",
     "gulp-autoprefixer": "^4.0.0",
     "gulp-combine-mq": "^0.4.0",
@@ -30,18 +28,19 @@
     "gulp-pug": "^3.3.0",
     "gulp-rename": "^1.2.2",
     "gulp-svgo": "^1.0.3",
-    "gulp-sync": "^0.1.4",
     "gulp-uglify": "^3.0.0",
     "gulp-uncss": "^1.0.6",
     "gulp-unused": "^0.2.1",
-    "prompt": "^1.0.0",
     "pug": "^2.0.0-rc.4",
     "videofy": "0.0.2"
   },
   "dependencies": {
-    "google-closure-compiler": "^20170521.0.0",
+    "gulp": "github:gulpjs/gulp#4.0",
+    "gulp-cli": "^1.4.0",
     "gulp-sass": "^3.1.0",
+    "gulp-typescript": "^3.2.3",
     "gulp-unused": "^0.2.1",
-    "psi": "^3.0.0"
+    "ts-loader": "^3.1.1",
+    "typescript": "^2.6.1"
   }
 }

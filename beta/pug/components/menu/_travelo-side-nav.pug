@@ -1,0 +1,15 @@
+include ../../_mixins
+-let navItems=['products' , 'portfolio' , 'blog' , 'features' , 'purchase' , 'items'],i=0;
+.sideNav
+  .sideNav-title.txt_center
+    h1 Travelo
+    .sideNav-close-btn.txt_center
+      span X
+  .sideNav-bar.center
+  .sideNav-items
+    +loop(5)
+      a(href= i).sideNav-a.block= navItems[++i]||'add'
+  .sideNav-social
+    -let icons=['twitter','facebook','gplus'];i=0;
+    +loop(3)
+      span.sideNav-social-icon(class= `icon-${icons[i++]}`)
