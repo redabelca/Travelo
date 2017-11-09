@@ -43,7 +43,8 @@ template {
 
 a {
   background-color: transparent;
-  text-decoration: none; }
+  text-decoration: none;
+  cursor: pointer; }
 
 a:active,
 a:hover {
@@ -251,6 +252,199 @@ p {
   margin-bottom: 1rem;
   line-height: 24.8px; }
 
+body {
+  height: 2000px; }
+
+ul {
+  padding: 0;
+  margin: 0;
+  list-style: none; }
+  ul li {
+    display: block; }
+    ul li a {
+      display: block;
+      width: 100%;
+      height: 100%;
+      text-decoration: none; }
+
+.bg-black-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  display: none;
+  width: 100%;
+  height: 100%;
+  background: rgba(250, 250, 250, 0); }
+
+.sideNav {
+  width: 80%;
+  width: 80vw;
+  height: 100%;
+  height: 100vh;
+  background: linear-gradient(60deg, #364d7d, #0b1d41);
+  color: rgba(255, 255, 255, 0.8);
+  position: fixed;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  transform: translateX(-120%);
+  transition: all .3s ease-out; }
+  .sideNav-title {
+    padding: 25.888px;
+    position: relative; }
+    .sideNav-title h1 {
+      font-weight: 100; }
+  .sideNav-bar {
+    height: 2px;
+    width: 80%;
+    background: rgba(94, 125, 186, 0.4);
+    transform: translateY(-10px); }
+  .sideNav-close-btn {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    top: 2px;
+    left: 100%;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    background: rgba(204, 3, 0, 0.8);
+    transition: all .3s ease-out;
+    cursor: pointer; }
+    .sideNav-close-btn span {
+      font-size: 20px;
+      transform: translateY(30%); }
+    .sideNav-close-btn:hover, .sideNav-close-btn:focus {
+      transform: scale(1.2) translate(2px, 2px); }
+  .sideNav-a {
+    font-size: 18px;
+    padding: 16.75471px 41.88678px;
+    color: rgba(255, 255, 255, 0.65);
+    transition: all .2s ease-in-out; }
+    .sideNav-a:hover, .sideNav-a:focus {
+      color: rgba(255, 255, 255, 0.95);
+      transform: translate(11px); }
+  .sideNav-sub-ul {
+    padding-left: 16px;
+    display: none; }
+  .sideNav-items {
+    height: 70%;
+    height: 70vh;
+    overflow-y: auto;
+    overflow-x: hidden; }
+    .sideNav-items-li {
+      transform: translate(-30px);
+      transition: all .3s ease-out; }
+  .sideNav-social {
+    position: absolute;
+    bottom: 0;
+    height: 70px;
+    width: 100%;
+    display: none;
+    justify-content: center;
+    align-items: center; }
+    .sideNav-social-icon {
+      width: 20px;
+      height: 20px;
+      border-radius: 100%;
+      background: rgba(250, 250, 250, 0.4);
+      margin: 0 6.11171px;
+      font-size: 14px;
+      color: #203560;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      transition: all .3s ease-in-out; }
+      .sideNav-social-icon:hover, .sideNav-social-icon:focus {
+        background: rgba(250, 250, 250, 0.6);
+        transform: scale(1.5); }
+
+@media screen and (min-width: 375px) {
+  .sideNav {
+    width: 280px; }
+    .sideNav-bar {
+      width: 75%;
+      transform: translateY(-12px); }
+    .sideNav-a {
+      padding: 18.21165px 41.88678px; } }
+
+@media screen and (min-height: 550px) {
+  .sideNav-social {
+    display: flex; } }
+
+.box {
+  width: 100px;
+  height: 100px;
+  background: #cdcdcd;
+  margin: 10px;
+  display: inline-block;
+  cursor: pointer; }
+
+header {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  height: 480px;
+  height: 100vh; }
+
+.header-nav {
+  display: flex;
+  justify-content: space-between; }
+  .header-nav-logo {
+    padding: 16px;
+    font-size: 25.888px;
+    font-weight: 700; }
+  .header-nav-humb {
+    width: 40px;
+    height: 40px;
+    margin: auto 9.88875px;
+    padding: 4px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around; }
+    .header-nav-humb-bar {
+      background: #f0f0f0;
+      height: 5px;
+      border-radius: 5px; }
+
+.header-center {
+  margin: 0 auto;
+  padding: 16px 5px; }
+  .header-center h1, .header-center h5 {
+    font-family: 'Noto';
+    font-weight: 400;
+    margin-bottom: 16px; }
+
+.header-btm {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 50px; }
+  .header-btm-cpright h6 {
+    font-size: 12px;
+    margin: 0 6.11171px; }
+  .header-btm-social {
+    display: flex; }
+    .header-btm-social-icon {
+      width: 25px;
+      height: 25px;
+      border-radius: 100%;
+      background: rgba(220, 220, 220, 0.8);
+      margin: 0 6.11171px;
+      font-size: 14px;
+      color: rgba(32, 53, 96, 0.7);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      transition: all .2s ease-in-out; }
+      .header-btm-social-icon:hover, .header-btm-social-icon:focus {
+        background: rgba(200, 200, 200, 0.9);
+        transform: scale(1.5); }
+
 .bor {
   border: 1px solid; }
 
@@ -320,73 +514,3 @@ p {
   color: #f0f0f0;
   font-size: 16px;
   border-radius: 100%; }
-
-body {
-  height: 1000px; }
-
-.sideNav {
-  width: 90%;
-  width: 80vw;
-  height: 100%;
-  height: 100vh;
-  background: linear-gradient(60deg, #364d7d, #0b1d41);
-  color: rgba(255, 255, 255, 0.8);
-  position: fixed; }
-  .sideNav-title {
-    padding: 25.888px;
-    position: relative; }
-    .sideNav-title h1 {
-      font-weight: 100; }
-  .sideNav-bar {
-    height: 2px;
-    width: 80%;
-    background: rgba(94, 125, 186, 0.4);
-    transform: translateY(-10px); }
-  .sideNav-close-btn {
-    position: absolute;
-    width: 40px;
-    height: 40px;
-    top: 2px;
-    left: 100%;
-    border-top-right-radius: 5px;
-    border-bottom-right-radius: 5px;
-    background: rgba(204, 3, 0, 0.8);
-    cursor: pointer; }
-    .sideNav-close-btn span {
-      font-size: 20px;
-      transform: translateY(30%); }
-  .sideNav-a {
-    font-size: 18px;
-    padding: 16.75471px 41.88678px;
-    transition: all .5s;
-    color: rgba(255, 255, 255, 0.65); }
-  .sideNav-items {
-    height: 72vh;
-    overflow: auto; }
-  .sideNav-social {
-    bottom: 0;
-    height: 50px;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center; }
-    .sideNav-social-icon {
-      width: 20px;
-      height: 20px;
-      border-radius: 100%;
-      background: rgba(250, 250, 250, 0.4);
-      margin: 0 6.11171px;
-      font-size: 14px;
-      color: #203560;
-      display: flex;
-      justify-content: center;
-      align-items: center; }
-
-@media screen and (min-width: 375px) {
-  .sideNav {
-    width: 280px; }
-    .sideNav-bar {
-      width: 75%;
-      transform: translateY(-12px); }
-    .sideNav-a {
-      padding: 18.21165px 41.88678px; } }

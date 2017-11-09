@@ -41,6 +41,7 @@ gulp.task('default', () => {
       sass = r('gulp-sass');
     }
     l(p);
+    gulp.src(p).pipe(sass().on('error', sass.logError)).pipe(gulp.dest(paths.dest + 'styles')).pipe(browserSync.stream());
     setTimeout(() => gulp.src(paths.base + 'scss/style.scss').pipe(sass().on('error', sass.logError)).pipe(gulp.dest(paths.dest + 'styles')).pipe(browserSync.stream()), 500);
   });
   //js
@@ -49,12 +50,11 @@ gulp.task('default', () => {
     exec(`webpack`, (err, stdout, stderr) => {err && l(err);
       stdout && l(stdout);
       stderr && l(stderr);
+      l('Reloading');browserSync.reload();
     });
   });
   //gulp.watch('index.html').on('change', browserSync.reload());
 });
-
-
 //--------------------------------------
 gulp.task('svgmin', () => {
   gulp.src('./beta/img/**/*.svg')

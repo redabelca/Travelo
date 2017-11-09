@@ -1,0 +1,73 @@
+header {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  @include s(100%, 480px);
+  height: 100vh;
+}
+.header {
+  &-nav {
+    display: flex;
+    justify-content: space-between; //color:rgba(255,255,255,.85);
+    &-logo {
+      padding: ms(0);
+      font-size: ms(1);
+      font-weight: 700;
+    }
+    &-humb {
+      @include s(40px, 40px);
+      margin: auto ms(-1);
+      padding: 4px;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      &-bar {
+        background: c(240);
+        height: 5px;
+        border-radius: 5px;
+      }
+    }
+  }
+  &-center {
+    margin: 0 auto;
+    padding: ms(0) 5px;
+    h1, h5 {
+      font-family: 'Noto';
+      font-weight: 400;
+      margin-bottom: ms(0);
+    }
+  }
+  &-btm {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height:50px;
+    &-cpright {
+      h6{
+        font-size: 12px;
+        margin:0 ms(-2);
+      }
+    }
+    &-social {
+      display: flex;
+      &-icon {
+        @include s(25px, 25px);
+        border-radius: 100%;
+        background: rgba(220, 220, 220, .8);
+        margin: 0 ms(-2);
+        font-size: 14px;
+        color: hsla($main_color, 50%, 25%,.7);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        transition: all .2s ease-in-out;
+        &:hover, &:focus {
+          background: rgba(200, 200, 200, .9);
+          transform: scale(1.5);
+        }
+      }
+    }
+  }
+}

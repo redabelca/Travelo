@@ -1,0 +1,16 @@
+header
+  .header-nav
+    .header-nav-logo Travelo
+    .header-nav-humb
+      +loop(3)
+        span.header-nav-humb-bar#humb
+  .header-center.txt_center
+    h1 Travelo
+    h5 let's Backpack and Enjoy.
+  .header-btm
+    .header-btm-cpright
+      h6 Travelo &copy; All right reserved 2017.
+    .header-btm-social
+      -i=0;
+      +loop(3)
+        a.header-btm-social-icon(class= `icon-${icons[i++]}`, href="#")

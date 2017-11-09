@@ -1,14 +1,17 @@
+import { data } from "./data";
+//Layout
+export function getWindowScrollY() {
+  return window.scrollY || window.pageYOffset || document.body.scrollTop;
+}
 
-  //Layout
-  getWindowScrollY: function () {
-    return w.scrollY || w.pageYOffset || d.body.scrollTop;
-  },
-  getOffsetHeight: function (el: HTMLElement) {
-    return el.offsetHeight || el.scrollHeight || el.getBoundingClientRect().height;
-  },
-  CSSPropertyNumber: function (el: HTMLElement, CSSProperty) {
-    return Number(w.getComputedStyle(el)[CSSProperty].replace('px', ''));
-  },
-  isItAppears: function (baseName) {
-    return data.scrollTop >= data[baseName + 'Distance'];
-  },
+export function getOffsetHeight(el: HTMLElement) {
+  return el.offsetHeight || el.scrollHeight || el.getBoundingClientRect().height;
+}
+
+export function CSSPropertyNumber(el: HTMLElement, CSSProperty: string) {
+  return Number(window.getComputedStyle(el)[CSSProperty].replace('px', ''));
+}
+
+export function isItAppears(baseName: string) {
+  return data.scrollTop >= data[baseName + 'Distance'];
+}

@@ -1,9 +1,13 @@
-@import 'partials/normalize', 'partials/type' ,'partials/mixins','partials/readyCss';
-$main_hue:220;
-$second_hue:41;
+@import 'partials/normalize', 'partials/type' ,'partials/mixins';
+
+body{
+  height: 2000px;
+}
 
 @import 'components/menu/_travelo-side-nav';
+@import 'components/_travelo-header';
 
+@import 'partials/readyCss';
 @media screen and (min-width:320px) {}
   @media screen and (min-width:360px) {}
   @media screen and (min-width:375px) {}

@@ -1,21 +1,22 @@
-((l, al, d, w) => {
-  var data = {};
-  var controller = {};
-  var view = {
-    init: function () {
-      lib.updateData('scrollTop', lib.getWindowScrollY());
-      lib.addEvent(w, 'scroll', function () {
-        lib.updateData('scrollTop', lib.getWindowScrollY());
-      });
-      lib.addEvent(d.body, 'click', function () {
-        lib.addCss(lib.getClass('flipCard')[0], 'flipCard_flip');
-        var current = lib.getClass('flipCard-img-current')[0];
-        var imgs = lib.getClass('img');
-        lib.addCss(current, 'flipCard-img-away');
-        lib.addCss(current.nextElementSibling, 'flipCard-img-current');
-        lib.removeCss(current, 'flipCard-img-current');
-      });
-    }
-  };
-  lib.ready(view.init);
-})(console.log, alert, d, w)
+//Partials
+import { updateData } from "./partials/data";
+import { getWindowScrollY } from "./partials/_layout";
+import { addEvent } from "./partials/_DOM";
+import { ready } from "./partials/_ready";
+
+//Components
+import { menu } from "./components/menu/_travelo-side-nav";
+
+((w) => {
+  function init() {
+    updateData('scrollTop', getWindowScrollY());
+    addEvent(w, 'scroll', () => {
+      updateData('scrollTop', getWindowScrollY());
+    });
+
+    //Menu
+    menu();
+    
+  }
+  ready(init);
+})(window);
