@@ -1,7 +1,19 @@
 {
   "compilerOptions": {
     "sourceMap": false,
-    "noImplicitAny":false
-    //"noEmitOnError":true
-  }
+    "noImplicitAny":false,
+    //"noEmit": true,
+    "diagnostics": true
+  },
+  "exclude": [
+      "node_modules",
+      "final",
+      "wp",
+      "wp-template",
+      "beta/fonts",
+      "beta/img",
+      "beta/pug",
+      "beta/scss",
+      "beta/test"
+  ]
 }

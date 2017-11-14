@@ -47,25 +47,27 @@ gulp.task('default', () => {
   //js
   gulp.watch(`${paths.base}js/**/*`).on('change', p => {
     l(p);
-    exec(`webpack`, (err, stdout, stderr) => {err && l(err);
+    exec(`webpack`, (err, stdout, stderr) => {
+      err && l(err);
       stdout && l(stdout);
       stderr && l(stderr);
-      l('Reloading');browserSync.reload();
+      l('Reloading');
+      browserSync.reload();
     });
   });
   //gulp.watch('index.html').on('change', browserSync.reload());
 });
 //--------------------------------------
 gulp.task('svgmin', () => {
+  if (!svgmin) {
+    svgmin = r('gulp-svgmin');
+  }
   gulp.src('./beta/img/**/*.svg')
     .pipe(svgmin())
     .pipe(gulp.dest('./beta/img'));
 });
-gulp.task('imgmin', () => {
+gulp.task('imgmin', (d) => {
   //makhasekch tbqa tpromptini dirict dir task l ga3 les sizes dial wp
-  if (!svgmin) {
-    svgmin = r('gulp-svgmin');
-  }
   if (!rename) {
     rename = r('gulp-rename');
   }
@@ -95,6 +97,7 @@ gulp.task('imgmin', () => {
         verbose: true,
       }))
       .pipe(gulp.dest("./beta/img"));
+      d();
   });
 });
 //--------------------------------------

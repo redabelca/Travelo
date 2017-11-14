@@ -1,40 +1,39 @@
-import {data ,updateData,top} from "./data";
+import { data, updateData, top } from "./data";
 import { addEvent } from "./_DOM";
 import { isItAppears, getOffsetHeight } from "./_layout";
+import { throttle } from "../partials/_optimization";
 
 //Animation
-function animationMonitor(distancesArrayName) {
-  data[distancesArrayName].sort(function (a, b) {
-    return a.distance - b.distance;
-  });
-  addEvent(window, 'scroll', function () {
-    if (data[distancesArrayName][0] && isItAppears(data[distancesArrayName][0].basename)) {
-      data[distancesArrayName][0].fn();
-      data[distancesArrayName].shift();
-      //if it doesn't work make a var that hold the index
-      //and i++ when .fn() done
-    }
-  });
+export function prepareElForAnimation(el: Element, baseName, percentOfHeight?: number) {
+  updateData(baseName + 'Top', top(el));
+  updateData(baseName + 'Height', getOffsetHeight(el));
+  updateData(baseName + 'Distance', data[baseName + 'Top'] + (data[baseName + 'Height'] * (percentOfHeight || 0)) - (window.innerHeight + data.scrollTop));
 }
 
-function registerForMonitor(distancesArrayName, baseName, fn) {
-  if (typeof data[distancesArrayName] !== "object") {
-    data[distancesArrayName] = [];
+export function registerForMonitor(baseName, fn) {
+  if (typeof data['distancesArray'] !== "object") {
+    data['distancesArray'] = [];
   }
-  data[distancesArrayName].push({
+  data['distancesArray'].push({
     basename: baseName,
     distance: data[baseName + 'Distance'],
     fn: fn
   });
 } //el must be prepaired for anim
 
-function prepareElForAnimation(el: HTMLElement, baseName, percentOfHeight ? : number) {
-  updateData(baseName + 'Top', top(el));
-  updateData(baseName + 'Height', getOffsetHeight(el));
-  updateData(baseName + 'Distance', data[baseName + 'Top'] + (data[baseName + 'Height'] * (percentOfHeight || 0)) - (window.innerHeight + data.scrollTop));
+export function triggerAnimationMonitor() {
+  data['distancesArray'].sort((a, b)=>{
+    return a.distance - b.distance;
+  });
+  addEvent(window, 'scroll', throttle(() => {
+    if (data['distancesArray'][0] && isItAppears(data['distancesArray'][0].basename)) {
+      data['distancesArray'][0].fn();
+      data['distancesArray'].shift();
+    }
+  }, 300));
 }
 
-function whichActionEvent(action?:string /*either animation or transition*/ ) {
+export function whichActionEvent(action: string /*either animation or transition*/) {
   var t, el = document.body,
     transitions = {
       'transition': 'transitionend',
@@ -66,8 +65,8 @@ function whichActionEvent(action?:string /*either animation or transition*/ ) {
   }
 }
 
-function onActionEnd(elem: HTMLElement, action, fn, cb) {
-  var actionEvent = data[action + 'Event'] || whichActionEvent();
+export function onActionEnd(elem: Element, action, fn, cb?) {
+  var actionEvent = data[action + 'Event'] || whichActionEvent(action);
   addEvent(elem, actionEvent, fn(elem));
   cb(elem);
 }

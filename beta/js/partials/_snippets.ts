@@ -1,4 +1,7 @@
 //Snipets
+
+export let t=setTimeout;
+
 export function circleInCSS(step: number, startAngle: number, r: number) {
   var percentageStep = 100 / step,
     i = percentageStep,

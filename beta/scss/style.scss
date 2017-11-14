@@ -1,7 +1,7 @@
 @import 'partials/normalize', 'partials/type' ,'partials/mixins';
-
+@import 'partials/colors';
 body{
-  height: 2000px;
+  height: 5000px;
 }
 
 @import 'components/menu/_travelo-side-nav';

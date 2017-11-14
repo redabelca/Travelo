@@ -4,10 +4,11 @@
   position: fixed;
   top: 0;
   left: 0;
+  opacity: 0;
   z-index: 1;
   display:none;
   @include s(100%, 100%);
-  background: rgba(250, 250, 250, 0);
+  background: rgba(0, 0, 0, .5);
 }
 .sideNav {
   width: 80%;

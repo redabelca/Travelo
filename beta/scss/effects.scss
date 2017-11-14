@@ -1,12 +1,44 @@
+@import 'partials/colors';
 .bg-black-screen_show {
   display: block;
-  animation: dim 1.5s ease-in-out forwards;
+  animation: dim .7s ease-in-out forwards;
 }
 @keyframes dim{
   100%{
-    background: rgba(0, 0, 0, .5);
+    opacity: 1;
   }
 }
 .translate-0{
   transform: translate(0);
+}
+
+.top_show{
+  transform: scale(1);
+  z-index: 0;
+}
+
+.humb_afterScroll {
+  position: fixed;
+  transform: scale(0);
+  z-index:-1;
+  background: hsl($main-color, 90%, 20%);
+  border-radius: 100%;
+  border: none;
+  padding:8px;
+  right:0;
+  margin:20px;
+  opacity: 0;
+  bottom:60px;
+  .header-nav-humb-bar{
+    background:hsl($main-color, 90%, 95%);
+  }
+  &:hover, &:focus{
+    opacity:.9;
+    transform: scale(1.2);
+  }
+}
+.humb_show{
+  transform: scale(1.1);
+  z-index:0;
+  opacity: .7;
 }

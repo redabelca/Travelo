@@ -1,6 +1,6 @@
 import { data } from "./data";
 //Css
-export function itContainsCSS(el: HTMLElement, clasParentObjName:string, css) {
+export function itContainsCSS(el: any, clasParentObjName:string, css) {
   if (el.classList) {
     return data[clasParentObjName].classlist.contains(css);
   } else {
@@ -12,41 +12,23 @@ export function itContainsCSS(el: HTMLElement, clasParentObjName:string, css) {
   }
 }
 
-export function addCss(el: HTMLElement, css, storeClasInDataOrNot, clasParentObjName) {
+export function addCss(el: any, css:string) {
   if (el.classList) {
     el.classList.add(css);
   } else {
     el.className += ' ' + css;
   }
-  if (storeClasInDataOrNot) {
-    updateCss(el, clasParentObjName);
-  }
 }
 
-export function removeCss(el: HTMLElement, css, storeClasInDataOrNot, clasParentObjName) {
+export function removeCss(el: any, css:string) {
   if (el.classList) {
     el.classList.remove(css);
   } else {
     el.className.replace(css, '');
   }
-  if (storeClasInDataOrNot) {
-    updateCss(el, clasParentObjName);
-  }
 }
 
-export function updateCss(el: HTMLElement, clasParentObjName) {
-  if (!data[clasParentObjName]) {
-    data[clasParentObjName] = {
-      classname: el.className,
-      classlist: el.classList
-    };
-  } else {
-    data[clasParentObjName].classlist = el.classList;
-    data[clasParentObjName].classname = el.className;
-  }
-}
-
-export function hasClass(el: HTMLElement, css) {
+export function hasClass(el: any, css) {
   if (el.classList) {
     return el.classList.contains(css);
   } else {

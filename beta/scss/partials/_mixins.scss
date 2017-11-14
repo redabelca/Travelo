@@ -22,7 +22,7 @@
       $size: $size/1.618;
     }
   }
-  @return $size;
+  @return floor($size);
 }
 @function c($n) {
     @return rgb($n, $n, $n);
