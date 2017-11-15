@@ -1,4 +1,5 @@
 "use strict";
+//Linux hada
 let r = require,
   gulp = r('gulp'),
   {
