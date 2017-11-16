@@ -1,5 +1,4 @@
 "use strict";
-//Linux hada
 let r = require,
   gulp = r('gulp'),
   {
@@ -52,7 +51,7 @@ gulp.task('default', () => {
       err && l(err);
       stdout && l(stdout);
       stderr && l(stderr);
-      l('Reloading');
+      l('Reloading------------------');
       browserSync.reload();
     });
   });
