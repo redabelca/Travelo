@@ -27,3 +27,6 @@
 @function c($n) {
     @return rgb($n, $n, $n);
 }
+@function ca($n,$a) {
+    @return rgba($n, $n, $n,$a);
+}

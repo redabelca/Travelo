@@ -1,11 +1,16 @@
 @import 'partials/normalize', 'partials/type' ,'partials/mixins';
 @import 'partials/colors';
+
 body{
-  height: 5000px;
+  height: 1000px;
+  background: hsla($main-color, 90%, 10%, .16);
 }
 
 @import 'components/menu/_travelo-side-nav';
 @import 'components/_travelo-header';
+@import 'components/_travelo-widget';
+@import 'components/_travelo-index-post';
+
 
 @import 'partials/readyCss';
 @media screen and (min-width:320px) {}

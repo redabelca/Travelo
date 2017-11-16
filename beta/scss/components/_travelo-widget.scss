@@ -1,0 +1,60 @@
+.sidebar{
+  //rmv when finished, this will be inside of a row with posts in the left
+  width:320px;
+  position: absolute;
+  height:80vh;
+  top:ms(2);
+  right: ms(1);
+  //---------
+  padding: ms(1);
+  &-widget{
+    border-radius: 10px;
+    overflow: hidden;
+    &-title{
+      background: hsla($main-color,70%,50%,.9);
+      color: ca(255,.85);
+      padding: ms(1)/2 ms(1);
+      margin-bottom: 0;
+      font-weight:400;
+      font-family: 'Noto';
+    }
+  }
+}
+.widget-content{
+  background: c(250);
+  padding:ms(1) ms(0);
+}
+.widget-search {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  &-field {
+    padding: ms(-1);
+    font: {
+      size: 19px;
+      family: 'Roboto';
+    }
+    flex:3;
+    width:150px;
+    outline: none;
+    border:none;
+    color:hsl($second-color, 70%, 30%);
+    background:hsla($second-color,70%,50%,.3);
+    border-radius: 5px;
+    width:10px;
+    transition: all .4s;
+    box-shadow: 0 0 0 0 c(255);
+    &:hover, &:focus {
+      box-shadow: 0 0 5px 2px hsl($main_color,70%,80%);
+    }
+  }
+  &-submitBtn{
+    flex:1;
+    padding:ms(0)-6px 0;
+    background: hsl($second_color, 70%, 45%);
+    border: none;
+    border-radius: 7px;
+    margin-left: 16px;
+    color: ca(255,.95);
+  }
+}

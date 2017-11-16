@@ -3,7 +3,14 @@
     "sourceMap": false,
     "noImplicitAny":false,
     //"noEmit": true,
-    "diagnostics": true
+    "watch": true,
+    "diagnostics": false,
+    "baseUrl": "./",
+    "paths": {
+      "*": [
+        "beta/js/*"
+      ]
+    }
   },
   "exclude": [
       "node_modules",
