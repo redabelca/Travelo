@@ -1,14 +1,24 @@
 @import 'partials/normalize', 'partials/type' ,'partials/mixins';
+@import 'partials/rwd-float';
 @import 'partials/colors';
 
 body{
-  height: 1000px;
-  background: hsla($main-color, 90%, 10%, .16);
+  background: hsla($main-color, 90%, 14%, .13);
+  color:ca(10,.8);
+}
+.clm-6-mdm{
+  padding:0;
+  @media screen and (min-width:1024px){
+    padding:ms(1) ms(1) 0;
+  }
+}
+@media screen and (min-width:1024px) {
+  @include rwd-mdm();
 }
 
-@import 'components/menu/_travelo-side-nav';
-@import 'components/_travelo-header';
-@import 'components/_travelo-widget';
+//@import 'components/menu/_travelo-side-nav';
+//@import 'components/_travelo-header';
+//@import 'components/_travelo-widget';
 @import 'components/_travelo-index-post';
 
 

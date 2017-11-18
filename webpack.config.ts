@@ -1,3 +1,4 @@
+const { CheckerPlugin } = require('awesome-typescript-loader');
 module.exports = {
     entry: require('path').resolve(__dirname,'beta/js/main.ts'),
     output: {
@@ -11,7 +12,10 @@ module.exports = {
     module: {
       rules: [
         // all files with a `.ts` or `.tsx` extension will be handled by `ts-loader`
-        { test: /\.ts?$/, loader: 'ts-loader' }
+        { test: /\.ts?$/, loader:'awesome-typescript-loader' /*'ts-loader'*/ }
       ]
-    }
+    },
+    plugins:[
+      new CheckerPlugin()
+    ]
   }
