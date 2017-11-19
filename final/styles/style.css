@@ -263,109 +263,34 @@ p {
   width: 100%; }
 
 body {
-  background: rgba(4, 25, 68, 0.13);
+  background: rgba(4, 27, 73, 0.15);
   color: rgba(10, 10, 10, 0.8); }
 
-.clm-6-mdm {
-  padding: 0; }
-  @media screen and (min-width: 1024px) {
-    .clm-6-mdm {
-      padding: 25px 25px 0; } }
-
 @media screen and (min-width: 1024px) {
-  .clm-1-mdm {
+  .clm-1 {
     width: 8.33%; }
-  .clm-2-mdm {
+  .clm-2 {
     width: 16.66%; }
-  .clm-3-mdm {
+  .clm-3 {
     width: 24.99%; }
-  .clm-4-mdm {
+  .clm-4 {
     width: 33.32%; }
-  .clm-5-mdm {
+  .clm-5 {
     width: 41.65%; }
-  .clm-6-mdm {
+  .clm-6 {
     width: 49.98%; }
-  .clm-7-mdm {
+  .clm-7 {
     width: 58.31%; }
-  .clm-8-mdm {
+  .clm-8 {
     width: 66.64%; }
-  .clm-9-mdm {
+  .clm-9 {
     width: 74.97%; }
-  .clm-10-mdm {
+  .clm-10 {
     width: 83.3%; }
-  .clm-11-mdm {
+  .clm-11 {
     width: 91.63%; }
-  .clm-12-mdm {
+  .clm-12 {
     width: 99.96%; } }
-
-.index-post {
-  border: 1px solid rgba(10, 10, 10, 0.3);
-  border-top: none;
-  width: 97%;
-  position: relative;
-  background: rgba(240, 240, 240, 0.8);
-  margin: 41px auto 0; }
-  @media screen and (min-width: 480px) {
-    .index-post {
-      width: 80%; } }
-  @media screen and (min-width: 1024px) {
-    .index-post {
-      width: 60%; } }
-  .index-post-thumb {
-    overflow: hidden;
-    display: block; }
-    .index-post-thumb .img {
-      object-fit: cover;
-      height: 250px;
-      transition: all .3s ease-in-out; }
-      .index-post-thumb .img:hover, .index-post-thumb .img:focus {
-        opacity: .85;
-        transform: scale(1.07) rotate(1deg); }
-  .index-post-readMoreBtn {
-    width: 50px;
-    height: 50px;
-    position: absolute;
-    border-radius: 100%;
-    background: #cf9417;
-    right: 9px;
-    top: 225px;
-    box-shadow: 3px 6px 9px rgba(0, 0, 0, 0.4);
-    transition: all .15s ease-in-out; }
-    .index-post-readMoreBtn:hover, .index-post-readMoreBtn:focus {
-      transform: translateY(-3px);
-      box-shadow: 3px 9px 9px rgba(0, 0, 0, 0.4); }
-  .index-post-meta {
-    display: flex;
-    padding: 0 25px; }
-  .index-post-title, .index-post-excerpt {
-    padding: 9px 25px; }
-  .index-post-title {
-    margin-top: 16px;
-    margin-bottom: 0;
-    color: rgba(27, 68, 152, 0.85); }
-
-.index-post-ctn {
-  width: 100%; }
-  @media screen and (min-width: 1024px) {
-    .index-post-ctn {
-      width: 68%; } }
-
-.meta-ctn {
-  padding: 2px 3px 9px; }
-
-.meta-txt {
-  font-size: 14px;
-  color: rgba(10, 10, 10, 0.7);
-  display: inline-block; }
-
-.custom-icon {
-  border: 1px solid #cf9417;
-  width: 20px;
-  height: 20px;
-  display: inline-block;
-  vertical-align: middle;
-  margin-right: 3px;
-  margin-left: 1px; }
 
 .bor {
   border: 1px solid; }

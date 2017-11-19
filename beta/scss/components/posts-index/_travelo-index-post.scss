@@ -6,10 +6,7 @@
   background: ca(240,.8);
   margin:ms(2) auto 0;
   @media screen and (min-width:480px) {
-    width:80%;
-  }
-  @media screen and (min-width:1024px) {
-    width:60%;
+    width:90%;
   }
   &-thumb{
     overflow: hidden;
@@ -29,7 +26,7 @@
     position: absolute;
     border-radius: 100%;
     background: hsl($second_color, 80%, 45%);
-    right: ms(-1); top:250px - 25px;
+    right: ms(1); top:250px - 30px;
     box-shadow: 3px 6px 9px ca(0,.4);
     transition: all .15s ease-in-out;
     &:hover,&:focus{

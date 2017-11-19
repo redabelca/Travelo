@@ -1,15 +1,9 @@
 .sidebar{
-  //rmv when finished, this will be inside of a row with posts in the left
-  width:320px;
-  position: absolute;
-  height:80vh;
-  top:ms(2);
-  right: ms(1);
-  //---------
-  padding: ms(1);
   &-widget{
     border-radius: 10px;
     overflow: hidden;
+    width:300px;
+    margin: ms(2) 0 0;
     &-title{
       background: hsla($main-color,70%,50%,.9);
       color: ca(255,.85);
@@ -24,6 +18,7 @@
   background: c(250);
   padding:ms(1) ms(0);
 }
+
 .widget-search {
   display: flex;
   justify-content: space-between;
@@ -39,7 +34,7 @@
     outline: none;
     border:none;
     color:hsl($second-color, 70%, 30%);
-    background:hsla($second-color,70%,50%,.3);
+    background:hsla($second-color,70%,70%,.4);
     border-radius: 5px;
     width:10px;
     transition: all .4s;

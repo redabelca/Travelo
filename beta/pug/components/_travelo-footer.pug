@@ -1,0 +1,30 @@
+-i=1;
+footer
+  .clm-3
+    h3.footer-h.footer-h_SiteTitle Travelo
+    p Always walk or take public transport… unless there is none. (Or we’re reeeally lost…) Usually eat cheap meals and fast food for at least 2 meals a day.
+  .clm-3
+    h3.footer-h Recent Posts
+    +loop(2)
+      .footer-featured-post
+        img(src=`../beta/img/${++i}.jpg`).footer-featured-post-img
+        .footer-featured-post-txt
+          .meta
+          h5= i%2==0?'How you could spend even less':'Hitchhiking down one of the highest roads in the world'
+          p= i%2==0?'Sleep in the cheapest accommodation we can find that isn’t crawling with bedbugs or covered with old vomit. Usually opt for a private double rather than dorms. We don’t like museums.':'Chilling with a friendly Armenian man in Yeghegnadzor, Armenia - Lost With Purpose Sharing some homemade bread'
+  .clm-3
+    h3.footer-h Contacts
+    .footer-contact-info
+      .icon
+      .footer-contact-info-txt
+    .footer-contact-info
+      .icon
+      .footer-contact-info-txt
+    .footer-contact-info
+      .icon
+      .footer-contact-info-txt
+  .clm-3
+    h3.footer-h News Letter
+    input.footer-email-inp(type="email", name="email")
+    h5 Follow Us
+    .social-icons

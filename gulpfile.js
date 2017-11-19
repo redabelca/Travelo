@@ -26,9 +26,7 @@ gulp.task('default', () => {
     if (!pug) {
       pug = r('gulp-pug');
     }
-    gulp.src(p).pipe(plumber()).pipe(pug({
-      pretty: true
-    })).pipe(gulp.dest(paths.base));
+    //gulp.src(p).pipe(plumber()).pipe(pug({pretty: true})).pipe(gulp.dest(paths.base));
     setTimeout(() => {
       gulp.src(paths.base + 'pug/index.pug').pipe(plumber()).pipe(pug({
         pretty: true

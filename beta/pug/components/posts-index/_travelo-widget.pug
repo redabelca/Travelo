@@ -1,7 +1,13 @@
 aside.sidebar
-  .sidebar-widget
+  .sidebar-widget.center
     h4.sidebar-widget-title Search
     .widget-content
       .widget-search
         input(type="text" placeholder="Search...").widget-search-field
         input(type="submit", value="Go").widget-search-submitBtn
+  -let titles=['Articels','Posts','Calendar'];
+  -i=0;
+  +loop(3)
+    .sidebar-widget.center
+      h4.sidebar-widget-title= titles[i++]
+      .widget-content(style= `height: ${Number((Math.random()*100).toFixed(0)) + 100}px`)
