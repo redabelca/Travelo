@@ -1,30 +1,35 @@
 -i=1;
-footer
-  .clm-3
-    h3.footer-h.footer-h_SiteTitle Travelo
+footer.row
+  .clm-3.clm-6-mdm.footer_grid
+    h4.footer-h.footer-h_SiteTitle Travelo
     p Always walk or take public transport… unless there is none. (Or we’re reeeally lost…) Usually eat cheap meals and fast food for at least 2 meals a day.
-  .clm-3
-    h3.footer-h Recent Posts
-    +loop(2)
+  .clm-3.clm-6-mdm.footer_grid
+    h4.footer-h Recent Posts
+    +loop(3)
       .footer-featured-post
         img(src=`../beta/img/${++i}.jpg`).footer-featured-post-img
         .footer-featured-post-txt
           .meta
-          h5= i%2==0?'How you could spend even less':'Hitchhiking down one of the highest roads in the world'
-          p= i%2==0?'Sleep in the cheapest accommodation we can find that isn’t crawling with bedbugs or covered with old vomit. Usually opt for a private double rather than dorms. We don’t like museums.':'Chilling with a friendly Armenian man in Yeghegnadzor, Armenia - Lost With Purpose Sharing some homemade bread'
-  .clm-3
-    h3.footer-h Contacts
+          h6= i%2==0?'How you could spend even less':'Hitchhiking down one of the highest roads'
+          p= i%2==0?'Sleep in the cheapest accommodation we can find that with old vomit. Usually opt for a private . We don’t like museums.':'Chilling with a friendly Armenian man in Yeghegnadzor'
+  .clm-3.clm-6-mdm.footer_grid
+    h4.footer-h Contacts
     .footer-contact-info
       .icon
-      .footer-contact-info-txt
+      address 27N Bd Street Bankook, NY 1700
     .footer-contact-info
       .icon
-      .footer-contact-info-txt
+      span +310-244-455
     .footer-contact-info
       .icon
-      .footer-contact-info-txt
-  .clm-3
-    h3.footer-h News Letter
-    input.footer-email-inp(type="email", name="email")
-    h5 Follow Us
-    .social-icons
+      span uremail@example.com
+    .footer-social
+      h4.footer-h Follow Us
+      .footer-social-icons
+        +loop(5)
+          .icon
+  .clm-3.clm-6-mdm.footer_grid
+    h4.footer-h Pages
+    -i=0; let menu=['products' , 'portfolio' , 'blog' , 'features' , 'purchase' , 'items']
+    +loop(menu.length)
+      a(href="#").footer-links= menu[i++]

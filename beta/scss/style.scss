@@ -1,10 +1,15 @@
 @import 'partials/normalize', 'partials/type' ,'partials/mixins';
-@import 'partials/rwd-float';
-@import 'partials/colors';
+@import 'partials/rwd-float','partials/colors';
 
 body{
-  background: hsla($main-color, 90%, 15%, .15);
-  color:ca(10,.8);
+  background: hsla($main-color, 70%, 10%, .07);
+  color:ca(10,.75);
+}
+h1,h2,h3,h4,h5,h6 {
+  color:ca(10,.85);
+}
+@media screen and (min-width:480px) {
+  @include rwd-mdm();
 }
 @media screen and (min-width:1024px) {
   @include rwd();
@@ -16,7 +21,9 @@ body{
 //@import 'components/posts-index/_travelo-index-post';
 //@import 'components/_travelo-posts-index';
 //@import 'components/_travelo-index-header';
-@import 'components/_travelo-footer';
+//@import 'components/_travelo-footer';
+//@import 'components/_travelo-last-footer';
+//@import 'components/_travelo-comment';
 
 @import 'partials/readyCss';
 @media screen and (min-width:320px) {}

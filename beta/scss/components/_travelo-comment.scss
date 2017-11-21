@@ -1,0 +1,58 @@
+.comment {
+  &-respond {
+    padding: ms(1) 0 0 ms(2);
+  }
+  &-reply-title {
+    color: hsla($main_color, 70%, 16%, .75);
+    font: {
+      family: 'Noto';
+    }
+  }
+  &-form-comment {
+    label {
+      display: block;
+      width:95%;
+      transition: all .3s ease-in-out;
+      transform: translate(15px, 50px);
+      color: hsla($main_color, 70%, 23%, .5);
+      font: {
+        family: 'Noto';
+        weight: 500;
+      }
+    }
+    textarea {
+      font-size: 17px;
+      color: hsla($main_color, 70%, 20%, .7);
+      border-radius: 10px;
+      width: 90%;
+      height: 150px;
+      outline: none;
+      padding: ms(0);
+      margin: ms(-1) 0 0;
+      box-shadow: 0 0 0 0 c(255);
+      @media screen and (min-width:480px){
+        width:450px;
+      }
+      @media screen and (min-width:768px){
+        width:500px;
+        height:180px;
+      }
+      &:hover, &:focus {
+        box-shadow: 0 0 5px 2px hsl($second_color, 80%, 70%);
+      }
+    }
+  }
+}
+.form-submit {
+  input {
+    color: c(255);
+    background: hsl($second_color, 80%, 50%);
+    transition: all .2s;
+    padding: ms(0);
+    border-radius: 50px;
+    border: none;
+    &:hover{
+      background: hsl($second_color, 80%, 60%);
+    }
+  }
+}

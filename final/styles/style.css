@@ -263,8 +263,37 @@ p {
   width: 100%; }
 
 body {
-  background: rgba(4, 27, 73, 0.15);
-  color: rgba(10, 10, 10, 0.8); }
+  background: rgba(8, 20, 43, 0.07);
+  color: rgba(10, 10, 10, 0.75); }
+
+h1, h2, h3, h4, h5, h6 {
+  color: rgba(10, 10, 10, 0.85); }
+
+@media screen and (min-width: 480px) {
+  .clm-1-mdm {
+    width: 8.33%; }
+  .clm-2-mdm {
+    width: 16.66%; }
+  .clm-3-mdm {
+    width: 24.99%; }
+  .clm-4-mdm {
+    width: 33.32%; }
+  .clm-5-mdm {
+    width: 41.65%; }
+  .clm-6-mdm {
+    width: 49.98%; }
+  .clm-7-mdm {
+    width: 58.31%; }
+  .clm-8-mdm {
+    width: 66.64%; }
+  .clm-9-mdm {
+    width: 74.97%; }
+  .clm-10-mdm {
+    width: 83.3%; }
+  .clm-11-mdm {
+    width: 91.63%; }
+  .clm-12-mdm {
+    width: 99.96%; } }
 
 @media screen and (min-width: 1024px) {
   .clm-1 {

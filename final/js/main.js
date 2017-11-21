@@ -60,7 +60,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 5);
+/******/ 	return __webpack_require__(__webpack_require__.s = 3);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -151,6 +151,60 @@ exports.rmvEvent = rmvEvent;
 "use strict";
 
 exports.__esModule = true;
+//Partials
+var data_1 = __webpack_require__(0);
+var _layout_1 = __webpack_require__(1);
+var _DOM_1 = __webpack_require__(2);
+var _ready_1 = __webpack_require__(4);
+var _optimization_1 = __webpack_require__(5);
+var _travelo_comment_1 = __webpack_require__(6);
+(function (w) {
+    function init() {
+        data_1.updateData('scrollTop', _layout_1.getWindowScrollY());
+        _DOM_1.addEvent(w, 'scroll', _optimization_1.throttle(function () {
+            data_1.updateData('scrollTop', _layout_1.getWindowScrollY());
+        }, 300));
+        //Menu
+        // menu(); 
+        //Header
+        // header();
+        //Comment
+        _travelo_comment_1.comment();
+    }
+    _ready_1.ready(init);
+})(window);
+
+
+/***/ }),
+/* 4 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+exports.__esModule = true;
+//Ready
+function ready(fn) {
+    if (document.addEventListener) {
+        document.addEventListener("DOMContentLoaded", fn);
+    }
+    else {
+        document.attachEvent("onreadystatechange", function () {
+            if (document.readyState === "interactive" || document.readyState === "complete") {
+                fn();
+            }
+        });
+    }
+}
+exports.ready = ready;
+
+
+/***/ }),
+/* 5 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+exports.__esModule = true;
 //Optimization
 var now1 = Date.now || function () {
     return new Date().getTime();
@@ -226,7 +280,28 @@ exports.debounce = debounce;
 
 
 /***/ }),
-/* 4 */
+/* 6 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+exports.__esModule = true;
+var _css_1 = __webpack_require__(7);
+var _DOM_1 = __webpack_require__(2);
+var label = _DOM_1.getEl('.comment-form-comment label'), textarea = _DOM_1.getEl('.comment-form-comment textarea');
+function comment() {
+    _DOM_1.addEvent(textarea, 'focus', add_focus);
+}
+exports.comment = comment;
+function add_focus() {
+    _css_1.addCss(label, 'label_stable');
+    setTimeout(function () { label.innerHTML += ' :'; }, 400);
+    _DOM_1.rmvEvent(textarea, 'focus', add_focus);
+}
+
+
+/***/ }),
+/* 7 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -306,265 +381,6 @@ function toggleCss(el, css) {
     }
 }
 exports.toggleCss = toggleCss;
-
-
-/***/ }),
-/* 5 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-exports.__esModule = true;
-//Partials
-var data_1 = __webpack_require__(0);
-var _layout_1 = __webpack_require__(1);
-var _DOM_1 = __webpack_require__(2);
-var _ready_1 = __webpack_require__(6);
-var _optimization_1 = __webpack_require__(3);
-//Components
-var _travelo_side_nav_1 = __webpack_require__(7);
-var _travelo_header_1 = __webpack_require__(9);
-(function (w) {
-    function init() {
-        data_1.updateData('scrollTop', _layout_1.getWindowScrollY());
-        _DOM_1.addEvent(w, 'scroll', _optimization_1.throttle(function () {
-            data_1.updateData('scrollTop', _layout_1.getWindowScrollY());
-        }, 300));
-        //Menu
-        _travelo_side_nav_1.menu();
-        //Header
-        _travelo_header_1.header();
-    }
-    _ready_1.ready(init);
-})(window);
-
-
-/***/ }),
-/* 6 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-exports.__esModule = true;
-//Ready
-function ready(fn) {
-    if (document.addEventListener) {
-        document.addEventListener("DOMContentLoaded", fn);
-    }
-    else {
-        document.attachEvent("onreadystatechange", function () {
-            if (document.readyState === "interactive" || document.readyState === "complete") {
-                fn();
-            }
-        });
-    }
-}
-exports.ready = ready;
-
-
-/***/ }),
-/* 7 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-exports.__esModule = true;
-var _DOM_1 = __webpack_require__(2);
-var _css_1 = __webpack_require__(4);
-var _snippets_1 = __webpack_require__(8);
-//sidenav slide
-var bg = _DOM_1.getEl('.bg-black-screen'), sdNv = _DOM_1.getEl('.sideNav'), sideNavLis = _DOM_1.getEl('.sideNav-items-li', true), closeBtn = _DOM_1.getEl('.sideNav-close-btn'), Eassigned = 0;
-function slideInAndOut() {
-    setTimeout(function () { _css_1.toggleCss(bg, 'bg-black-screen_show'); }, 500);
-    _css_1.toggleCss(sdNv, 'translate-0');
-    _snippets_1.loop(sideNavLis.length, 100, function (i) {
-        _css_1.toggleCss(sideNavLis[i], 'translate-0');
-        _css_1.toggle2Css(sideNavLis[i], 'op0', 'op1');
-    });
-}
-function menu() {
-    _DOM_1.addEvent(_DOM_1.getEl('.header-nav-humb'), 'click', function (e) {
-        slideInAndOut();
-        if (!Eassigned) {
-            _DOM_1.addEvent(closeBtn, 'click', slideInAndOut);
-            _DOM_1.addEvent(bg, 'click', slideInAndOut);
-            _DOM_1.addEvent(sdNv, 'click', function (e) {
-                if (e.target.tagName.toLowerCase() == 'a' && e.target.nextElementSibling) {
-                    _css_1.toggleCss(e.target.nextElementSibling, 'block');
-                }
-                else if (e.target.tagName.toLowerCase() == 'li' && e.target.querySelector('ul')) {
-                    _css_1.toggleCss(e.target.querySelector('ul'), 'block');
-                }
-            });
-            Eassigned = 1;
-        }
-    });
-}
-exports.menu = menu;
-// 
-
-
-/***/ }),
-/* 8 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-//Snipets
-exports.__esModule = true;
-exports.t = setTimeout;
-function circleInCSS(step, startAngle, r) {
-    var percentageStep = 100 / step, i = percentageStep, j = startAngle, angleStep = 360 / step, rStep = (r / step), x, y;
-    for (; i <= 100; i += percentageStep) {
-        j += angleStep;
-        r -= rStep;
-        x = Math.cos((j * Math.PI) / 180) * r;
-        y = Math.sin((j * Math.PI) / 180) * r;
-        console.log(i + '%{transform:translate(' + x.toFixed(1) + 'px,' + y.toFixed(1) + 'px);}');
-    }
-}
-exports.circleInCSS = circleInCSS;
-function startCount(number, el, time) {
-    var toAdd = time / 0.05, start = ((number - toAdd) >= 0) ? (number - toAdd) : 0, i = 0;
-    el.innerHTML = start + '%';
-    loop(toAdd, 50, function () {
-        i++;
-        el.innerHTML = (start + i) + '%';
-    });
-}
-exports.startCount = startCount;
-function loop(limit, stepTime, fn, cb) {
-    var i = -1, inter = setInterval(function () {
-        if (++i >= limit) {
-            clearInterval(inter);
-            cb && cb(i);
-        }
-        else {
-            fn(i);
-        }
-    }, stepTime);
-}
-exports.loop = loop;
-function asyncScript(src, cb) {
-    var s, r, t;
-    r = false;
-    s = document.createElement('script');
-    s.type = 'text/javascript';
-    s.async = true;
-    s.src = src;
-    s.onload = s.onreadystatechange = function () {
-        if (!r && (!this.readyState || this.readyState === 'complete')) {
-            r = true;
-            cb && cb();
-        }
-    };
-    t = document.getElementsByTagName('script')[0];
-    t.parentNode.insertBefore(s, t);
-}
-exports.asyncScript = asyncScript;
-
-
-/***/ }),
-/* 9 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-exports.__esModule = true;
-var _smooth_scroll_1 = __webpack_require__(10);
-var data_1 = __webpack_require__(0);
-var _DOM_1 = __webpack_require__(2);
-var _css_1 = __webpack_require__(4);
-var _optimization_1 = __webpack_require__(3);
-var _layout_1 = __webpack_require__(1);
-var tp = _DOM_1.getEl('#top'), menu = _DOM_1.getEl('.header-nav-humb');
-function header() {
-    _DOM_1.addEvent(tp, 'click', function () {
-        window.requestAnimationFrame(function (t) {
-            _smooth_scroll_1.loopAnimateScroll(t, data_1.data.scrollTop, 1500, 'easeInOutQuad', data_1.data.scrollTop);
-        });
-    });
-    var distanceToHeaderBtm = data_1.top(_DOM_1.getEl('.header-nav').parentElement) + _layout_1.getOffsetHeight(_DOM_1.getEl('.header-nav').parentElement), cssAdded = 0;
-    _DOM_1.addEvent(window, 'scroll', _optimization_1.throttle(function () {
-        if (data_1.data.scrollTop > distanceToHeaderBtm && !cssAdded) {
-            _css_1.addCss(menu, 'humb_afterScroll');
-            _css_1.addCss(tp, 'top_show');
-            setTimeout(function () {
-                _css_1.addCss(menu, 'humb_show');
-                cssAdded = 1;
-            }, 300);
-        }
-        else if (data_1.data.scrollTop < distanceToHeaderBtm && cssAdded) {
-            _css_1.removeCss(menu, 'humb_afterScroll');
-            _css_1.removeCss(tp, 'top_show');
-            setTimeout(function () {
-                _css_1.removeCss(menu, 'humb_show');
-                cssAdded = 0;
-            }, 300);
-        }
-    }, 600));
-}
-exports.header = header;
-
-
-/***/ }),
-/* 10 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-exports.__esModule = true;
-function easingPattern(easing, time) {
-    var pattern;
-    // Default Easing Patterns
-    if (easing === 'easeInQuad')
-        pattern = time * time; // accelerating from zero velocity
-    if (easing === 'easeOutQuad')
-        pattern = time * (2 - time); // decelerating to zero velocity
-    if (easing === 'easeInOutQuad')
-        pattern = time < 0.5 ? 2 * time * time : -1 + (4 - 2 * time) * time; // acceleration until halfway, then deceleration
-    if (easing === 'easeInCubic')
-        pattern = time * time * time; // accelerating from zero velocity
-    if (easing === 'easeOutCubic')
-        pattern = (--time) * time * time + 1; // decelerating to zero velocity
-    if (easing === 'easeInOutCubic')
-        pattern = time < 0.5 ? 4 * time * time * time : (time - 1) * (2 * time - 2) * (2 * time - 2) + 1; // acceleration until halfway, then deceleration
-    if (easing === 'easeInQuart')
-        pattern = time * time * time * time; // accelerating from zero velocity
-    if (easing === 'easeOutQuart')
-        pattern = 1 - (--time) * time * time * time; // decelerating to zero velocity
-    if (easing === 'easeInOutQuart')
-        pattern = time < 0.5 ? 8 * time * time * time * time : 1 - 8 * (--time) * time * time * time; // acceleration until halfway, then deceleration
-    if (easing === 'easeInQuint')
-        pattern = time * time * time * time * time; // accelerating from zero velocity
-    if (easing === 'easeOutQuint')
-        pattern = 1 + (--time) * time * time * time * time; // decelerating to zero velocity
-    if (easing === 'easeInOutQuint')
-        pattern = time < 0.5 ? 16 * time * time * time * time * time : 1 + 16 * (--time) * time * time * time * time; // acceleration until halfway, then deceleration
-    return pattern || time; // no easing, no acceleration
-}
-;
-var start, timeLapsed, percentage, position;
-//duration,distance how to inculde it in this function ?
-function loopAnimateScroll(timestamp, distance, duration, easing, startLocation /*,condition?:Function*/) {
-    if (!start) {
-        start = timestamp;
-    }
-    timeLapsed = parseInt(String(timestamp - start));
-    percentage = timeLapsed / duration;
-    percentage = (percentage > 1) ? 1 : percentage;
-    position = distance * easingPattern(easing, percentage);
-    window.scrollTo(0, startLocation - Math.floor(position));
-    if (position < distance) {
-        window.requestAnimationFrame(function (t) { loopAnimateScroll(t, distance, duration, easing, startLocation /*,condition*/); });
-    }
-    else {
-        timeLapsed = percentage = start = position = 0;
-    }
-}
-exports.loopAnimateScroll = loopAnimateScroll;
-;
-//need polyfills in the same github repo nit ghat telgahom 
 
 
 /***/ })

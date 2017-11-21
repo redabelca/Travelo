@@ -1,0 +1,7 @@
+section.last-footer
+  .last-footer-item
+    p!= '&copy; All Right Reserved 2017.'
+  .last-footer-item.last-footer-links
+    -i=0; let lastFooterLinks=['products' , 'portfolio' , 'blog' , 'features' , 'purchase' , 'items'];
+    +loop(lastFooterLinks.length)
+      a(href="#").last-footer-item-a= lastFooterLinks[i++]

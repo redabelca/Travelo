@@ -1,6 +1,6 @@
 import { data } from "./data";
 //Css
-export function itContainsCSS(el: any, clasParentObjName:string, css) {
+export function itContainsCSS(el: any, clasParentObjName:string, css:string) {
   if (el.classList) {
     return data[clasParentObjName].classlist.contains(css);
   } else {
@@ -28,7 +28,7 @@ export function removeCss(el: any, css:string) {
   }
 }
 
-export function hasClass(el: any, css) {
+export function hasClass(el: any, css:string) {
   if (el.classList) {
     return el.classList.contains(css);
   } else {
@@ -40,7 +40,7 @@ export function hasClass(el: any, css) {
   }
 }
 
-export function toggle2Css(el: any, css1, css2) {
+export function toggle2Css(el: any, css1:string, css2:string) {
   if (hasClass(el, css1)) {
     el.className = el.className.replace(css1, css2);
   } else if (hasClass(el, css2)) {
@@ -50,7 +50,7 @@ export function toggle2Css(el: any, css1, css2) {
   }
 }
 
-export function toggleCss(el: any, css) {
+export function toggleCss(el: any, css:string) {
   if (el.classList) {
     el.classList.toggle(css);
   } else {

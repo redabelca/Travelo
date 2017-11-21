@@ -8,6 +8,7 @@ import { throttle } from "./partials/_optimization";
 //Components
 import { menu } from "./components/menu/_travelo-side-nav";
 import { header } from "./components/_travelo-header";
+import { comment } from "./components/_travelo-comment";
 
 ((w) => {
   function init() {
@@ -17,10 +18,13 @@ import { header } from "./components/_travelo-header";
     },300) );
 
     //Menu
-    menu(); 
+    // menu(); 
 
     //Header
-    header();
+    // header();
+
+    //Comment
+    comment();
   }
   ready(init);
 })(window);

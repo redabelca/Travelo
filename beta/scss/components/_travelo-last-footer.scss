@@ -1,0 +1,31 @@
+.last-footer {
+  display: flex;
+  justify-content: space-around;
+  padding: ms(0) ms(1);
+  background: hsl($main-color, 70%, 2%);
+  color:hsla($second-color, 80%, 85%,.55);
+  @media screen and (min-width:1024px){
+    justify-content: space-between;
+  }
+  &-item {
+    font: {
+      size: 14px;
+      family: 'Noto';
+      weight:700;
+    }
+    * {
+      margin-bottom: 0;
+    }
+    &-a {
+      text-decoration: underline;
+      margin: 0 ms(1)/2;
+      color: inherit;
+    }
+  }
+  &-links{
+    display:none;
+    @media screen and (min-width:1024px){
+      display:block;
+    }
+  }
+}
