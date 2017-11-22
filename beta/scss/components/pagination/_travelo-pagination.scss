@@ -1,0 +1,48 @@
+.nav-links{
+	padding: ms(-1);
+	margin:auto;
+	width:360px;
+	@media screen and (min-width:480px){
+		width:auto;
+	}
+}
+.page-numbers {
+	text-align: center;
+	display: inline-block;
+	@include s(45px,45px);
+	font-weight: 700px;
+	margin: 5px;
+	transition: all .2s;
+	padding-top: ms(0)-3px;
+	color:hsla($main-color, 65%, 15%,.85);
+	background: hsla($main-color, 65%, 20%,.15);
+}
+a.page-numbers:hover{
+	background: hsla($main-color, 65%, 20%,.35);
+}
+.pagination{
+	display: flex;
+	.next, .previous {
+		display: block;
+		width: 100%;
+		margin-left: 0;
+		background: hsl($second-color, 85%, 47%);
+		color:c(255);
+		padding:{
+			left:ms(0);
+			right:ms(0);
+		}
+		@media screen and (min-width:480px) {
+			display: inline-block;
+			width:auto;
+		}
+		&:hover{
+			background: hsl($second-color, 85%, 40%);
+		}
+	}
+}
+.current {
+	background: hsl($second-color, 85%, 47%);
+	color:c(255);
+	border-radius: 100%;
+}

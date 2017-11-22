@@ -24,7 +24,7 @@ import { comment } from "./components/_travelo-comment";
     // header();
 
     //Comment
-    comment();
+    //comment();
   }
   ready(init);
 })(window);

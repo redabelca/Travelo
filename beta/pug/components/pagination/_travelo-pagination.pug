@@ -1,0 +1,9 @@
+nav.navigation.pagination
+  .nav-links
+    a.previous.page-numbers(href="#")!= "< Previous"
+    span.page-numbers.current 1
+    -i=2;
+    +loop(6)
+      a.page-numbers(href="#")= i++
+    a.page-numbers(href="#")= "..."
+    a.next.page-numbers(href="#")!= "Next >"
