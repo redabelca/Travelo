@@ -1,0 +1,46 @@
+.mbl {
+  background: linear-gradient(45deg, hsl($main-color, 50, 50), hsl($main-color - 30, 50, 50));
+  height: auto;
+  @media screen and (min-width: 1024px) {
+    height:380px;
+  }
+  &-img {
+    overflow: hidden;
+    height: 100%;
+    display: none;
+    @media screen and (min-width: 1024px) {
+      display:block;
+    }
+    .img {
+      //-rmv
+      width: 320px;
+      transform: translateY(50px);
+    }
+  }
+  &-description {
+    height: 100%;
+    padding: ms(1);
+    color: ca(255, .7);
+    @media screen and (min-width: 480px) {
+      padding:ms(3);
+    }
+    h1 {
+      color: ca(255, .8);
+      font-family: 'Noto';
+      font-weight: 400;
+      margin-bottom: ms(1)-5px;
+    }
+  }
+  .btn {
+    color: c(255);
+    background: hsl($second_color, 80%, 50%);
+    transition: all .2s;
+    padding: ms(0);
+    border-radius: 50px;
+    border: none;
+    display: inline-block;
+    &:hover {
+      background: hsl($second_color, 80%, 55%);
+    }
+  }
+}

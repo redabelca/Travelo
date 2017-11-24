@@ -6,7 +6,7 @@ body{
   color:ca(10,.75);
 }
 h1,h2,h3,h4,h5,h6 {
-  color:ca(10,.85);
+  color:ca(10,.8);
 }
 @media screen and (min-width:480px) {
   @include rwd-mdm();
@@ -25,6 +25,9 @@ h1,h2,h3,h4,h5,h6 {
 //@import 'components/_travelo-last-footer';
 //@import 'components/_travelo-comment';
 //@import 'components/pagination/_travelo-pagination';
+//@import 'components/_travelo-single-post';
+//@import 'components/_travelo-mobile';
+//@import 'components/_travelo-rwd';
 
 @import 'partials/readyCss';
 @media screen and (min-width:320px) {}

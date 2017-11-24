@@ -1,0 +1,61 @@
+.post-header{
+  height: auto;
+  min-height: 400px;
+  @include gradient(hsl($main-color,50%,32%),hsl($main-color,50%,50%));
+  color: ca(255,.8);
+  h1{
+    text-align: center;
+    color: inherit;
+    margin-top:ms(3);
+    @media screen and (min-width:768px) {
+      margin-top: ms(4);
+      padding:0 ms(3);
+    }
+    padding:0 ms(-1);
+  }
+  .index-post-meta{
+    margin:auto;
+    justify-content: center;
+    padding:0;
+  }
+  .meta{
+    &-txt{
+      color:ca(255,.7);
+    }
+  }
+}
+.single-post{
+  max-width: 900px;
+  padding:ms(1);
+  margin:auto;
+  @media screen and (min-width:480px) {
+    padding: ms(2);
+  }
+  &-img{
+    object-fit: cover;
+  }
+  &-title{
+    margin-top: ms(2);
+  }
+  .index-post-meta{
+    padding:0;
+  }
+  &-content{
+    margin-top: ms(1);
+    a{
+      text-decoration: underline;
+      color:hsl($main-color,50%,37%);
+    }
+    blockquote{
+      border-left:7px solid hsl($second-color,50%,50%);
+      font-style: italic;
+      line-height: 1.6;
+      padding:0 ms(0);
+      margin-left: ms(-1);
+      @media screen and (min-width:480px) {
+        margin-left: ms(1);
+        padding-left:ms(1);
+      }
+    }
+  }
+}

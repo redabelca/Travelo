@@ -38,13 +38,11 @@
   background-repeat: no-repeat;
   background-size: cover;
 }
-.blue-gradient {
-  background: radial-gradient(farthest-corner at 100% 100%, #070c36, #010113);
-}
 .img {
   vertical-align: bottom;
   max-width: 100%;
   width: 100%;
+  object-fit: cover;
   height: auto;
   margin: 0 auto;
   display: block;

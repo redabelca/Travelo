@@ -266,7 +266,7 @@ body {
   color: rgba(10, 10, 10, 0.75); }
 
 h1, h2, h3, h4, h5, h6 {
-  color: rgba(10, 10, 10, 0.85); }
+  color: rgba(10, 10, 10, 0.8); }
 
 @media screen and (min-width: 480px) {
   .clm-1-mdm {
@@ -359,13 +359,11 @@ h1, h2, h3, h4, h5, h6 {
   background-repeat: no-repeat;
   background-size: cover; }
 
-.blue-gradient {
-  background: radial-gradient(farthest-corner at 100% 100%, #070c36, #010113); }
-
 .img {
   vertical-align: bottom;
   max-width: 100%;
   width: 100%;
+  object-fit: cover;
   height: auto;
   margin: 0 auto;
   display: block; }

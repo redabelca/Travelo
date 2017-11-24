@@ -60,7 +60,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 3);
+/******/ 	return __webpack_require__(__webpack_require__.s = 2);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -116,6 +116,36 @@ exports.isItAppears = isItAppears;
 "use strict";
 
 exports.__esModule = true;
+//Partials
+var data_1 = __webpack_require__(0);
+var _layout_1 = __webpack_require__(1);
+var _DOM_1 = __webpack_require__(3);
+var _ready_1 = __webpack_require__(4);
+var _optimization_1 = __webpack_require__(5);
+(function (w) {
+    function init() {
+        data_1.updateData('scrollTop', _layout_1.getWindowScrollY());
+        _DOM_1.addEvent(w, 'scroll', _optimization_1.throttle(function () {
+            data_1.updateData('scrollTop', _layout_1.getWindowScrollY());
+        }, 300));
+        //Menu
+        // menu(); 
+        //Header
+        // header();
+        //Comment
+        //comment();
+    }
+    _ready_1.ready(init);
+})(window);
+
+
+/***/ }),
+/* 3 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+exports.__esModule = true;
 //get and Event
 function getEl(el, all) {
     return all ? document.querySelectorAll(el) : document.querySelector(el);
@@ -142,37 +172,6 @@ function rmvEvent(el, eventWithoutOn, fn) {
     }
 }
 exports.rmvEvent = rmvEvent;
-
-
-/***/ }),
-/* 3 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-exports.__esModule = true;
-//Partials
-var data_1 = __webpack_require__(0);
-var _layout_1 = __webpack_require__(1);
-var _DOM_1 = __webpack_require__(2);
-var _ready_1 = __webpack_require__(4);
-var _optimization_1 = __webpack_require__(5);
-var _travelo_comment_1 = __webpack_require__(6);
-(function (w) {
-    function init() {
-        data_1.updateData('scrollTop', _layout_1.getWindowScrollY());
-        _DOM_1.addEvent(w, 'scroll', _optimization_1.throttle(function () {
-            data_1.updateData('scrollTop', _layout_1.getWindowScrollY());
-        }, 300));
-        //Menu
-        // menu(); 
-        //Header
-        // header();
-        //Comment
-        _travelo_comment_1.comment();
-    }
-    _ready_1.ready(init);
-})(window);
 
 
 /***/ }),
@@ -277,110 +276,6 @@ function debounce(func, wait, immediate) {
     };
 }
 exports.debounce = debounce;
-
-
-/***/ }),
-/* 6 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-exports.__esModule = true;
-var _css_1 = __webpack_require__(7);
-var _DOM_1 = __webpack_require__(2);
-var label = _DOM_1.getEl('.comment-form-comment label'), textarea = _DOM_1.getEl('.comment-form-comment textarea');
-function comment() {
-    _DOM_1.addEvent(textarea, 'focus', add_focus);
-}
-exports.comment = comment;
-function add_focus() {
-    _css_1.addCss(label, 'label_stable');
-    setTimeout(function () { label.innerHTML += ' :'; }, 400);
-    _DOM_1.rmvEvent(textarea, 'focus', add_focus);
-}
-
-
-/***/ }),
-/* 7 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-exports.__esModule = true;
-var data_1 = __webpack_require__(0);
-//Css
-function itContainsCSS(el, clasParentObjName, css) {
-    if (el.classList) {
-        return data_1.data[clasParentObjName].classlist.contains(css);
-    }
-    else {
-        if (data_1.data[clasParentObjName].classname.indexOf(css) === -1) {
-            return false;
-        }
-        else {
-            return true;
-        }
-    }
-}
-exports.itContainsCSS = itContainsCSS;
-function addCss(el, css) {
-    if (el.classList) {
-        el.classList.add(css);
-    }
-    else {
-        el.className += ' ' + css;
-    }
-}
-exports.addCss = addCss;
-function removeCss(el, css) {
-    if (el.classList) {
-        el.classList.remove(css);
-    }
-    else {
-        el.className.replace(css, '');
-    }
-}
-exports.removeCss = removeCss;
-function hasClass(el, css) {
-    if (el.classList) {
-        return el.classList.contains(css);
-    }
-    else {
-        if (el.className.indexOf(css) === -1) {
-            return false;
-        }
-        else {
-            return true;
-        }
-    }
-}
-exports.hasClass = hasClass;
-function toggle2Css(el, css1, css2) {
-    if (hasClass(el, css1)) {
-        el.className = el.className.replace(css1, css2);
-    }
-    else if (hasClass(el, css2)) {
-        el.className = el.className.replace(css2, css1);
-    }
-    else {
-        alert('error in toggle2Css');
-    }
-}
-exports.toggle2Css = toggle2Css;
-function toggleCss(el, css) {
-    if (el.classList) {
-        el.classList.toggle(css);
-    }
-    else {
-        if (el.className.indexOf(css) === -1) {
-            el.className += ' ' + css;
-        }
-        else {
-            el.className = el.className.replace(css, '');
-        }
-    }
-}
-exports.toggleCss = toggleCss;
 
 
 /***/ })

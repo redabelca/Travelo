@@ -22,8 +22,11 @@
   @return floor($size);
 }
 @function c($n) {
-    @return rgb($n, $n, $n);
+  @return rgb($n, $n, $n);
 }
-@function ca($n,$a) {
-    @return rgba($n, $n, $n,$a);
+@function ca($n, $a) {
+  @return rgba($n, $n, $n, $a);
+}
+@mixin gradient($color1, $color2) {
+  background: radial-gradient(farthest-corner at 100% 100%, $color1, $color2);
 }
