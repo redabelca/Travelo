@@ -1,0 +1,36 @@
+.featuredPosts{
+  position: relative;
+  overflow: hidden;
+  .pres-intro-title{
+    color:ca(255,.85);
+  }
+  &:after{
+    content:'';
+    position: absolute;
+    top:0;left:0;
+    @include s(100%,100%);
+    z-index: -1;
+    border:{
+      bottom:240px solid transparent ;
+      left:3000px solid hsla(10*22, 50%, 35%, 1);
+    }
+  }
+  &-item{
+    margin:ms(1);
+    padding: 0;
+    background: c(255);
+    overflow: hidden;
+    text-align: left;
+    border-radius: 10px;
+    box-shadow:0 2px 40px ca(0,.4);
+    .index-post{
+      margin: 0;
+      width:100%;
+      border: none;
+      &-meta{
+        padding:0;
+        padding-left: ms(0);
+      }
+    }
+  }
+}

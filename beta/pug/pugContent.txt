@@ -8,17 +8,6 @@ Unique Product Page Layouts
 Professional Blogging With Style
 CORE FEATURES
 
-H2
--Our state-of-the-art websites will jumpstart your website by giving it a professional 
-look. Install with just a single click. Features can be combined at will.
--Fluent offers almost every layout you may need to build your dream website. You are 
-free to customize the look of pre-built layouts.
--Fluent is designed to make your life easier. Every product layout has been optimized to fit perfectly with your needs.
--Fluent offers almost every layout you may need to build your dream website. You are 
-free to customize the look of pre-built layouts
--Fluent come with a lot of features. We given to you quick list of the main features, 
-check the pages to see the features in action
-
 H6
 -RESPONSIVE
 Fully Responsive Design

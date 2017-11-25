@@ -1,0 +1,46 @@
+.scores{
+  &-circle{
+    margin-bottom: ms(1);
+  }
+  &-item{
+    position: relative;
+    margin-bottom:ms(3);
+    @media screen and (min-width:768px){
+      padding:ms(-1) ms(1);
+    }
+    @media screen and (min-width:1280px){
+      padding:ms(-1) ms(3);
+    }
+    &-title{
+      font:{
+        family: 'Noto';
+        weight:400;
+      }
+    }
+  }
+  &-percent{
+    font:{
+      weight:100;
+      size:ms(2);
+    }
+    position: absolute;
+    top:40px;
+    left:50%;
+    transform: translate(-50%);
+    @media screen and (min-width:1280px){
+      transform: translate(-40%);
+    }
+    border-bottom: 2px solid ca(0,.25);
+    padding-bottom: ms(-2);
+  }
+  &-icon{
+    background: hsl($main-color, 50, 50);
+    @include s(60px,60px);
+    position: absolute;
+    top:120px;
+    transform: translate(-50%);
+    @media screen and (min-width:1280px){
+      transform: translate(-40%);
+    }
+  }
+}

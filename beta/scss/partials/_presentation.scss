@@ -1,0 +1,16 @@
+.pres {
+  text-align: center;
+  padding:ms(3) ms(0);
+  &-intro {
+    margin-bottom: ms(3);
+    &-title {
+      font: {
+        family: 'Noto';
+        weight: 100;
+      }
+    }
+    &-subTitle {
+      font-size: ms(0)+4px;
+    }
+  }
+}

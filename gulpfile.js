@@ -1,11 +1,5 @@
 "use strict";
-let r = require,
-  gulp = r('gulp'),
-  {
-    exec
-  } = r('child_process'),
-  browserSync = r('browser-sync').create(),
-  plumber, rename, pug, sass, autoprefixer, uncss, csso, combineMq, concatCss, uglify, concat, order, autopolyfiller, merge, svgmin, imgmin, imageResize, l = console.log,
+let t=setTimeout,r = require,gulp = r('gulp'),{exec} = r('child_process'),browserSync = r('browser-sync').create(),plumber, rename, pug, sass, autoprefixer, uncss, csso, combineMq, concatCss, uglify, concat, order, autopolyfiller, merge, svgmin, imgmin, imageResize, l = console.log,
   paths = {
     base: 'beta/',
     dest: 'final/'
@@ -18,20 +12,16 @@ gulp.task('default', () => {
     },
     open: false
   });
+  let now=new Date().getSeconds();
   gulp.watch(`${paths.base}pug/**/*`).on('change', p => {
-    l(p);
     if (!plumber) {
       plumber = r('gulp-plumber');
     }
     if (!pug) {
       pug = r('gulp-pug');
     }
-    //gulp.src(p).pipe(plumber()).pipe(pug({pretty: true})).pipe(gulp.dest(paths.base));
-    setTimeout(() => {
-      gulp.src(paths.base + 'pug/index.pug').pipe(plumber()).pipe(pug({
-        pretty: true
-      })).pipe(gulp.dest(paths.base)).pipe(browserSync.stream());
-    }, 1000);
+    let reloadAllowed=new Date().getSeconds()-now>5 || new Date().getSeconds()-now<0;
+    if(reloadAllowed){l(p);gulp.src(paths.base + 'pug/index.pug').pipe(plumber()).pipe(pug({pretty: true})).pipe(gulp.dest(paths.base)).pipe(browserSync.stream()); now=new Date().getSeconds();}else{l(new Date().getSeconds()-now);}
   });
   //scss
   gulp.watch(`${paths.base}scss/**/*`).on('change', p => {
@@ -40,18 +30,22 @@ gulp.task('default', () => {
     }
     l(p);
     gulp.src(p).pipe(sass().on('error', sass.logError)).pipe(gulp.dest(paths.dest + 'styles')).pipe(browserSync.stream());
-    setTimeout(() => gulp.src(paths.base + 'scss/style.scss').pipe(sass().on('error', sass.logError)).pipe(gulp.dest(paths.dest + 'styles')).pipe(browserSync.stream()), 500);
+    t(() => gulp.src(paths.base + 'scss/style.scss').pipe(sass().on('error', sass.logError)).pipe(gulp.dest(paths.dest + 'styles')).pipe(browserSync.stream()), 500);
   });
   //js
   gulp.watch(`${paths.base}js/**/*`).on('change', p => {
     l(p);
-    exec(`webpack`, (err, stdout, stderr) => {
-      err && l(err);
-      stdout && l(stdout);
-      stderr && l(stderr);
-      l('Reloading------------------');
-      browserSync.reload();
-    });
+    let reloadAllowed=new Date().getSeconds()-now>15 || new Date().getSeconds()-now<0;
+    if(reloadAllowed){
+      exec(`webpack`, (err, stdout, stderr) => {
+        err && l(err);
+        stdout && l(stdout);
+        stderr && l(stderr);
+        l('Reloading------------------');
+        browserSync.reload();
+      });
+      now=new Date().getSeconds();
+    }else{l(new Date().getSeconds()-now);}
   });
   //gulp.watch('index.html').on('change', browserSync.reload());
 });
