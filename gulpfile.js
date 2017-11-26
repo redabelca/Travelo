@@ -33,21 +33,27 @@ gulp.task('default', () => {
     t(() => gulp.src(paths.base + 'scss/style.scss').pipe(sass().on('error', sass.logError)).pipe(gulp.dest(paths.dest + 'styles')).pipe(browserSync.stream()), 500);
   });
   //js
+  let WebpackServerDeployed=0;
   gulp.watch(`${paths.base}js/**/*`).on('change', p => {
-    l(p);
-    let reloadAllowed=new Date().getSeconds()-now>15 || new Date().getSeconds()-now<0;
-    if(reloadAllowed){
-      exec(`webpack`, (err, stdout, stderr) => {
-        err && l(err);
-        stdout && l(stdout);
-        stderr && l(stderr);
-        l('Reloading------------------');
-        browserSync.reload();
-      });
-      now=new Date().getSeconds();
-    }else{l(new Date().getSeconds()-now);}
+    !WebpackServerDeployed&&l('server started at 8080');
+    !WebpackServerDeployed&&exec(`webpack-dev-server`, (err, stdout, stderr) => {
+      err && l(err);
+      stdout && l(stdout);
+      stderr && l(stderr);
+    });
+    WebpackServerDeployed=1;
+    // let reloadAllowed=new Date().getSeconds()-now>15 || new Date().getSeconds()-now<0;
+    // if(reloadAllowed){
+    //   exec(`webpack`, (err, stdout, stderr) => {
+    //     err && l(err);
+    //     stdout && l(stdout);
+    //     stderr && l(stderr);
+    //     l('Reloading------------------');
+    //     browserSync.reload();
+    //   });
+    //   now=new Date().getSeconds();
+    // }else{l(new Date().getSeconds()-now);}
   });
-  //gulp.watch('index.html').on('change', browserSync.reload());
 });
 //--------------------------------------
 gulp.task('svgmin', () => {
