@@ -320,6 +320,17 @@ h1, h2, h3, h4, h5, h6 {
   .clm-12 {
     width: 99.96%; } }
 
+.pres {
+  text-align: center;
+  padding: 67px 16px; }
+  .pres-intro {
+    margin-bottom: 67px; }
+    .pres-intro-title {
+      font-family: 'Noto';
+      font-weight: 100; }
+    .pres-intro-subTitle {
+      font-size: 20px; }
+
 .bor {
   border: 1px solid; }
 

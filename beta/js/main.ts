@@ -16,7 +16,6 @@ import { comment } from "./components/_travelo-comment";
     addEvent(w, 'scroll', throttle(()=>{
       updateData('scrollTop', getWindowScrollY());
     },300) );
-
     //Menu
     // menu(); 
 
