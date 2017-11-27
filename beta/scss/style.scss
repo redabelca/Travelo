@@ -26,14 +26,15 @@ h1,h2,h3,h4,h5,h6 {
 //@import 'components/_travelo-comment';
 //@import 'components/pagination/_travelo-pagination';
 //@import 'components/_travelo-single-post';
-@import 'partials/presentation';
+//@import 'partials/presentation';
   //@import 'components/_travelo-mobile';
   //@import 'components/_travelo-rwd';
   //@import 'components/_circularLine','components/_travelo-scores';
   //@import 'components/_travelo-featuredPosts';
   //@import 'components/_travelo-call2Action';
   //@import 'components/_travelo-features';
-  @import 'components/_travelo-testimonials';
+  //@import 'components/_travelo-testimonials';
+//@import 'components/_travelo-about';
 
 @import 'partials/readyCss';
 @media screen and (min-width:320px) {}

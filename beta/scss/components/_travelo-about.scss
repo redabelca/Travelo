@@ -1,0 +1,48 @@
+.about{
+  text-align: center;
+  width:90%;
+  padding:ms(0) 0;
+  @media screen and (min-width:1024px){
+    width:60%;
+    padding:ms(2);
+  }
+  margin:ms(2) auto;
+  background: c(255);
+  border-radius: 20px;
+  border:1px solid ca(0,.25);
+  &-img{
+    @include s(100px,100px);
+    background: hsla($main-color,70,50,.6);
+    border-radius: 100%;
+    margin-bottom: ms(0);
+  }
+  hr{
+    margin:ms(0)+3px auto ms(-1);
+    width:ms(5);
+  }
+  &-txt{
+    padding:ms(0);
+    @media screen and (min-width:1024px){
+      padding: ms(0) ms(3)-20px 0;
+    }
+  }
+}
+.aboutSocial{
+  border:1px solid ca(0,.25);
+  text-align: center;
+  padding:ms(-1) 0;
+  width:90%;
+  @media screen and (min-width:1024px){
+    width:60%;
+  }
+  background: c(255);
+  border-radius: 10px;
+  display:flex;
+  justify-content: center;
+  .icon{
+    border-radius: 100%;
+    background: ca(0,.3);
+    @include s(40px,40px);
+    margin:0 ms(-2);
+  }
+}

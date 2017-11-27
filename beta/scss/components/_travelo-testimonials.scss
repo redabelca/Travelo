@@ -1,3 +1,39 @@
 .testimonial{
-  
+  color:ca(255,.55);
+  .clm-4{
+    @media screen and (min-width:320px){
+      padding:0 ms(1);
+    }
+  }
+  .pres-intro-title{
+    color:ca(255,.8);
+  }
+  &-item{
+    border-radius: 15px;
+    border:2px solid hsla($second-color, 80, 45, .2);
+    overflow: hidden;
+    position: relative;
+    padding:ms(2) ms(0) ms(-1) ms(2)+5px;
+    text-align: left;
+    margin-bottom: ms(1);
+    .icon{
+      @include s(45px,45px);
+      background: hsla($second-color, 70, 50, .7);
+      position: absolute;
+      top:0px;left:0px;
+    }
+    &-author{
+      display: flex;
+      .image{
+        border-radius: 100%;
+        @include s(50px,50px);
+        background: hsla($second-color, 80, 45, .6);
+        margin:auto 0;
+      }
+      cite{
+        margin:auto 0 auto ms(-1);
+        color:hsla($second-color, 80, 45, .8) ;
+      }
+    }
+  }
 }

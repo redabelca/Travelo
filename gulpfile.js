@@ -20,7 +20,7 @@ gulp.task('default', () => {
     if (!pug) {
       pug = r('gulp-pug');
     }
-    let reloadAllowed=new Date().getSeconds()-now>5 || new Date().getSeconds()-now<0;
+    let reloadAllowed=new Date().getSeconds()-now>2 || new Date().getSeconds()-now<0;
     if(reloadAllowed){l(p);gulp.src(paths.base + 'pug/index.pug').pipe(plumber()).pipe(pug({pretty: true})).pipe(gulp.dest(paths.base)).pipe(browserSync.stream()); now=new Date().getSeconds();}else{l(new Date().getSeconds()-now);}
   });
   //scss

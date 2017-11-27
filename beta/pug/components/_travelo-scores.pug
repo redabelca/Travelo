@@ -3,7 +3,7 @@ section.scores.pres
     h1.pres-intro-title!= "Rock-Solid <span style='color:hsl(220,50%,50%);'>5-Star</span> Rating"
     p.pres-intro-subTitle through 43 000+ purchases
   .row
-    -i=0;let titles=['More Bang For Your Buck!','Multilingual and Translation Ready','The7 Elements','SEO-Ready and Mobile Friendly']
+    -i=0;let titlesScores=['More Bang For Your Buck!','Multilingual and Translation Ready','The7 Elements','SEO-Ready and Mobile Friendly']
     +loop(4)
       .clm-3.clm-6-mdm
         .scores-item
@@ -11,4 +11,4 @@ section.scores.pres
             circle(r="100" cx="105" cy="105" style= `stroke-width:4px;stroke: hsl(220, 50%, 50%);`)
           span.scores-percent= `${(Math.random()*100).toFixed(0)}%`
           i.scores-icon
-          h5.scores-item-title= titles[i++]
+          h5.scores-item-title= titlesScores[i++]

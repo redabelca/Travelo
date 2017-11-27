@@ -2,9 +2,8 @@ mixin loop(l)
   -var i=0;while(i++<l){
     block
   -}
--function bk(imgUrl,centerOpacity,sidesOpacity){
-  - var x=centerOpacity||0.46,y=sidesOpacity||0.88;
-  -return 'background-image:radial-gradient(circle at 50% 50%,rgba(0,0,0,'+x+'),rgba(0,0,0,'+y+'))'+', url(\''+imgUrl+'\');';
+-function bk(imgUrl,color1,color2){
+  -return `background-image:radial-gradient(circle at 50% 50%,${color1},${color2}), url(${imgUrl});`;
 -}
 mixin cssLink(url)
   link(href= url type="text/css" rel="stylesheet")
