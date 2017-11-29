@@ -16,7 +16,7 @@
     padding:ms(2) ms(0) ms(-1) ms(2)+5px;
     text-align: left;
     margin-bottom: ms(1);
-    .icon{
+    .testimonial-icon{
       @include s(45px,45px);
       background: hsla($second-color, 70, 50, .7);
       position: absolute;

@@ -2,9 +2,6 @@
   .pres-intro{
     margin-bottom: ms(3);
   }
-  .pres-intro-subTitle{
-    color:ca(0,.7);
-  }
   &-title{
     font:{
       weight:400;
@@ -13,7 +10,7 @@
   &-item{
     padding:ms(1);
   }
-  .icon{
+  &-icon{
     @include s(140px,140px);
     background: hsla($main-color, 80, 50,.8);
     margin-bottom: ms(1)+5px;

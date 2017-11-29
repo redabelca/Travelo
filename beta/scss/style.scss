@@ -2,11 +2,11 @@
 @import 'partials/rwd-float','partials/colors';
 
 body{
-  background: hsla($main-color, 70%, 10%, .07);
-  color:ca(10,.75);
+  background: hsla($main-color, 50%, 10%, .17);
+  color:ca(5,.75);
 }
 h1,h2,h3,h4,h5,h6 {
-  color:ca(10,.8);
+  font-family: 'Noto';
 }
 @media screen and (min-width:480px) {
   @include rwd-mdm();
@@ -15,26 +15,26 @@ h1,h2,h3,h4,h5,h6 {
   @include rwd();
 }
 
-//@import 'components/menu/_travelo-side-nav';
-//@import 'components/_travelo-header';
-//@import 'components/posts-index/_travelo-widget';
-//@import 'components/posts-index/_travelo-index-post';
-//@import 'components/_travelo-posts-index';
-//@import 'components/_travelo-index-header';
-//@import 'components/_travelo-footer';
-//@import 'components/_travelo-last-footer';
-//@import 'components/_travelo-comment';
-//@import 'components/pagination/_travelo-pagination';
-//@import 'components/_travelo-single-post';
-//@import 'partials/presentation';
-  //@import 'components/_travelo-mobile';
-  //@import 'components/_travelo-rwd';
-  //@import 'components/_circularLine','components/_travelo-scores';
-  //@import 'components/_travelo-featuredPosts';
-  //@import 'components/_travelo-call2Action';
-  //@import 'components/_travelo-features';
-  //@import 'components/_travelo-testimonials';
-//@import 'components/_travelo-about';
+@import 'components/menu/_travelo-side-nav';
+@import 'components/_travelo-header';
+@import 'components/_travelo-top';
+@import 'components/posts-index/_travelo-widget';
+@import 'components/posts-index/_travelo-index-post';
+@import 'components/_travelo-posts-index';
+@import 'components/_travelo-footer';
+@import 'components/_travelo-last-footer';
+@import 'components/_travelo-comment';
+@import 'components/pagination/_travelo-pagination';
+@import 'components/_travelo-single-post';
+@import 'partials/presentation';
+  @import 'components/_travelo-mobile';
+  @import 'components/_travelo-rwd';
+  @import 'components/_travelo-featuredPosts';
+  @import 'components/_circularLine','components/_travelo-scores';
+  @import 'components/_travelo-call2Action';
+  @import 'components/_travelo-features';
+  @import 'components/_travelo-testimonials';
+@import 'components/_travelo-about';
 
 @import 'partials/readyCss';
 @media screen and (min-width:320px) {}

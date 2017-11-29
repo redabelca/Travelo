@@ -1,5 +1,5 @@
 //Partials
-import { updateData } from "./partials/data";
+import { updateData, data } from "./partials/data";
 import { getWindowScrollY } from "./partials/_layout";
 import { addEvent } from "./partials/_DOM";
 import { ready } from "./partials/_ready";
@@ -15,15 +15,16 @@ import { comment } from "./components/_travelo-comment";
     updateData('scrollTop', getWindowScrollY());
     addEvent(w, 'scroll', throttle(()=>{
       updateData('scrollTop', getWindowScrollY());
+      console.log(data);
     },300) );
     //Menu
-    // menu(); 
+    //menu();
 
     //Header
-    // header();
+    //header();
 
     //Comment
-    //comment();
+    comment();
   }
   ready(init);
 })(window);

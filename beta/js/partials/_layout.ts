@@ -12,6 +12,6 @@ export function CSSPropertyNumber(el: Element, CSSProperty: string) {
   return Number(window.getComputedStyle(el)[CSSProperty].replace('px', ''));
 }
 
-export function isItAppears(baseName: string) {
-  return data.scrollTop >= data[baseName + 'Distance'];
+export function isItAppears(distanceToWatch:number) {
+  return data.scrollTop >= distanceToWatch ;
 }

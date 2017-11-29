@@ -1,0 +1,33 @@
+.top {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  @include s(45px, 45px);
+  background: hsl($main_color, 90%, 20%);
+  opacity: .7;
+  transition: all .3s ease-in-out;
+  margin: 20px;
+  cursor: pointer;
+  border-radius: 100%;
+  transform: scale(0);
+  z-index:-1;
+  &:after, &:before {
+    content: '';
+    position: absolute;
+    @include s(15px,5px);
+    border-radius: 40px;
+    top:40%;
+    left:50%;
+    background: white;
+  }
+  &:after{
+    transform: translate(-75%) rotateZ(-45deg);
+  }
+  &:before{
+    transform: translate(-25%) rotateZ(45deg);
+  }
+  &:hover, &:focus {
+    opacity: .9;
+    transform: scale(1.1);
+  }
+}

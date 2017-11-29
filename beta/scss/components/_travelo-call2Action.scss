@@ -8,9 +8,8 @@
     padding:ms(1) ms(3);
   }
   background: linear-gradient(-45deg,hsla($main-color, 80, 50,.8),hsla($main-color + 35, 70, 50,.8));
-  color: ca(255,.75);
   &-txt{
-    color:ca(255,.8);
+    color:ca(255,.7);
     margin-bottom: ms(1);
     @media screen and (min-width:768px){
       margin:auto 0;
@@ -22,7 +21,7 @@
   }
   &-btn{
     text-align: center;
-    padding:ms(1);
+    padding:ms(0)+3px;
     margin:auto 0;
     color:c(250);
     transition: all .2s;
@@ -30,7 +29,7 @@
     &:hover{
       background: hsl($second-color, 70, 60);
     }
-    border-radius: 40px;
+    border-radius: 35px;
     font:{
       family: 'Noto';
       size:ms(0)+4px;

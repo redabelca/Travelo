@@ -7,6 +7,7 @@
     text-align: center;
     color: inherit;
     margin-top:ms(3);
+    text-shadow: 0 4px 7px ca(0,.6);
     @media screen and (min-width:768px) {
       margin-top: ms(4);
       padding:0 ms(3);
@@ -36,6 +37,11 @@
   }
   &-title{
     margin-top: ms(2);
+    margin-bottom: ms(0);
+    color:ca(0,.75);
+    font:{
+      weight:100;
+    }
   }
   .index-post-meta{
     padding:0;

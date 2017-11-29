@@ -1,36 +1,43 @@
-import { data, updateData, top } from "./data";
-import { addEvent } from "./_DOM";
+import { data, top } from "./data";
+import { addEvent, getEl } from "./_DOM";
 import { isItAppears, getOffsetHeight } from "./_layout";
 import { throttle } from "../partials/_optimization";
 
 //Animation
-export function prepareElForAnimation(el: Element, baseName, percentOfHeight?: number) {
-  updateData(baseName + 'Top', top(el));
-  updateData(baseName + 'Height', getOffsetHeight(el));
-  updateData(baseName + 'Distance', data[baseName + 'Top'] + (data[baseName + 'Height'] * (percentOfHeight || 0)) - (window.innerHeight + data.scrollTop));
-}
-
-export function registerForMonitor(baseName, fn) {
-  if (typeof data['distancesArray'] !== "object") {
-    data['distancesArray'] = [];
-  }
-  data['distancesArray'].push({
-    basename: baseName,
-    distance: data[baseName + 'Distance'],
-    fn: fn
-  });
-} //el must be prepaired for anim
-
 export function triggerAnimationMonitor() {
-  data['distancesArray'].sort((a, b)=>{
+  data['distancesArray'].sort((a, b) => {
     return a.distance - b.distance;
   });
   addEvent(window, 'scroll', throttle(() => {
-    if (data['distancesArray'][0] && isItAppears(data['distancesArray'][0].basename)) {
-      data['distancesArray'][0].fn();
+    if (data['distancesArray'][0] && isItAppears(data['distancesArray'][0].distance)) {
+      data['distancesArray'][0].fn(data['distancesArray'][0].elNode);
       data['distancesArray'].shift();
     }
-  }, 300));
+  }, 400));
+}
+
+export class animationElement {
+  elNode: any;
+  top: number;
+  height: number;
+  distance: number;
+  fn: Function;
+  constructor(elSelector: string, fn: Function, percentOfHeight?: number) {
+    this.elNode = getEl(elSelector);
+    this.top = top(this.elNode);
+    this.height = getOffsetHeight(this.elNode);
+    this.fn = fn;
+    this.distance = this.top + (this.height * (percentOfHeight || 0)) - (window.innerHeight + data.scrollTop);
+    //register animation info into an array for the monitor
+    if (typeof data['distancesArray'] !== "object") {
+      data['distancesArray'] = [];
+    }
+    data['distancesArray'].push({
+      elNode: this.elNode,
+      distance: this.distance,
+      fn: this.fn
+    });
+  }
 }
 
 export function whichActionEvent(action: string /*either animation or transition*/) {

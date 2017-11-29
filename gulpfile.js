@@ -177,7 +177,7 @@ gulp.task('finalCss', (d) => {
       debug: true
     }))
     .pipe(autoprefixer({
-      browsers: ['last 40 versions', 'iOS >= 6', 'android >= 2'],
+      browsers: ['last 40 versions', 'iOS >= 6', 'android >= 2','> 0.01%'],
       cascade: false,
       remove: false
     }))

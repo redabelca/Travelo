@@ -2,7 +2,7 @@
 	padding: ms(-1);
 	margin:auto;
 	width:360px;
-	@media screen and (min-width:480px){
+	@media screen and (min-width:768px){
 		width:auto;
 	}
 }
@@ -26,13 +26,13 @@ a.page-numbers:hover{
 		display: block;
 		width: 100%;
 		margin-left: 0;
-		background: hsl($second-color, 85%, 47%);
+		background: hsl($second-color, 85%, 40%);
 		color:c(255);
 		padding:{
 			left:ms(0);
 			right:ms(0);
 		}
-		@media screen and (min-width:480px) {
+		@media screen and (min-width:768px) {
 			display: inline-block;
 			width:auto;
 		}

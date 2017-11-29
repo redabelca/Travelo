@@ -46,10 +46,10 @@
 .form-submit {
   input {
     color: c(255);
-    background: hsl($second_color, 80%, 50%);
+    background: hsl($second_color, 85%, 45%);
     transition: all .2s;
     padding: ms(0);
-    border-radius: 50px;
+    border-radius: 40px;
     border: none;
     &:hover{
       background: hsl($second_color, 80%, 60%);

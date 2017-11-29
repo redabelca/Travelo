@@ -2,20 +2,18 @@
   &-widget{
     border-radius: 10px;
     overflow: hidden;
-    width:300px;
+    width:310px;
     margin: ms(2) 0 0;
     &-title{
       background: hsla($main-color,70%,50%,.9);
-      color: ca(255,.85);
+      color:ca(255,.8);
       padding: ms(1)/2 ms(1);
       margin-bottom: 0;
-      font-weight:400;
-      font-family: 'Noto';
     }
   }
 }
 .widget-content{
-  background: c(250);
+  background: c(255);
   padding:ms(1) ms(0);
 }
 

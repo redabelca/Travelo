@@ -1,9 +1,10 @@
 .footer{
+  color:hsla($second-color, 80%, 90%, .3);
   &_grid{
     padding:0 ms(2)/2;
     margin-bottom: ms(2);
     h5, h6{
-      color:hsla($second-color, 80%, 90%, .8);
+      color:hsla($second-color, 80%, 90%, .4);
     }
     @media screen and (min-width:1024px) {
       margin-bottom: 0;
@@ -12,7 +13,7 @@
   &-h{
     font-weight:500;
     margin-bottom: ms(1);
-    color: hsla($second-color, 80%, 90%, .75) ;
+    color: hsla($second-color, 80%, 90%, .55) ;
     &_SiteTitle{
       font:{
         family:'Noto';
@@ -59,12 +60,9 @@
 }
 
 footer{
-  padding:ms(1) 0 0 ms(1);
+  padding:ms(3) ms(0);
   background: hsl($main-color, 70%, 5%);
   color:hsla($second-color, 80%, 90%, .6);
-}
-footer{
-  margin-top:80vh;
 }
 .icon{
   @include s(40px,40px);

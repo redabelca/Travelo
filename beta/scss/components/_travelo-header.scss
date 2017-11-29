@@ -10,13 +10,13 @@ header {
   &-nav {
     display: flex;
     justify-content: space-between;
+    padding:ms(-1);
     &-logo {
       padding: ms(0);
       font-size: ms(1);
       font-weight: 700;
       margin-left: ms(-1);
       font-weight: 100;
-      font-family: 'Noto';
       color: inherit;
     }
     &-humb {
@@ -41,12 +41,11 @@ header {
     margin: 0 auto;
     padding: ms(0) 5px;
     h1, h4 {
-      font-family: 'Noto';
       font-weight: 400;
       margin-bottom: ms(0);
     }
     h1 {
-      color: hsla($second_color, 100%, 65%, .85);
+      color: hsla($second_color, 80%, 50%, .85);
     }
   }
   &-btm {
@@ -100,38 +99,5 @@ header {
         font-size: ms(4);
       }
     }
-  }
-}
-.top {
-  position: fixed;
-  bottom: 0;
-  right: 0;
-  @include s(45px, 45px);
-  background: hsl($main_color, 90%, 20%);
-  opacity: .7;
-  transition: all .3s ease-in-out;
-  margin: 20px;
-  cursor: pointer;
-  border-radius: 100%;
-  transform: scale(0);
-  z-index:-1;
-  &:after, &:before {
-    content: '';
-    position: absolute;
-    @include s(15px,5px);
-    border-radius: 40px;
-    top:40%;
-    left:50%;
-    background: white;
-  }
-  &:after{
-    transform: translate(-75%) rotateZ(-45deg);
-  }
-  &:before{
-    transform: translate(-25%) rotateZ(45deg);
-  }
-  &:hover, &:focus {
-    opacity: .9;
-    transform: scale(1.1);
   }
 }
