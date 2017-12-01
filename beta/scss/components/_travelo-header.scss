@@ -41,11 +41,19 @@ header {
     margin: 0 auto;
     padding: ms(0) 5px;
     h1, h4 {
-      font-weight: 400;
-      margin-bottom: ms(0);
+      margin-bottom: ms(-1);
+      font-weight: 100;
     }
     h1 {
-      color: hsla($second_color, 80%, 50%, .85);
+      color: hsl($second_color, 75%, 50%);
+      font-family:'Dancing Script';
+      font-size: ms(3);
+      @media screen and (min-width:375px){
+        font-size: ms(4);
+      }
+      @media screen and (min-width:768px){
+        font-size: ms(5);
+      }
     }
   }
   &-btm {
@@ -79,24 +87,6 @@ header {
         &:hover, &:focus {
           transform: scale(1.5);
         }
-      }
-    }
-  }
-}
-@media screen and (min-width:375px) {
-  .header {
-    &-center {
-      h1 {
-        font-size: ms(3);
-      }
-    }
-  }
-}
-@media screen and (min-width:768px) {
-  .header {
-    &-center {
-      h1 {
-        font-size: ms(4);
       }
     }
   }

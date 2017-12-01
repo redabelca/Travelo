@@ -208,6 +208,12 @@ table {
   font-weight: 700;
   src: url("../../final/fonts/noto-700.woff2") format("woff2"); }
 
+@font-face {
+  font-family: 'Dancing Script';
+  font-style: normal;
+  font-weight: 400;
+  src: local("Dancing Script Regular"), local("DancingScript-Regular"), url("../../final/fonts/DancingScript.woff2") format("woff2"); }
+
 html {
   font-size: 16px;
   font-family: sans-serif;
@@ -480,10 +486,18 @@ header {
   margin: 0 auto;
   padding: 16px 5px; }
   .header-center h1, .header-center h4 {
-    font-weight: 400;
-    margin-bottom: 16px; }
+    margin-bottom: 9px;
+    font-weight: 100; }
   .header-center h1 {
-    color: rgba(230, 165, 26, 0.85); }
+    color: #dfa320;
+    font-family: 'Dancing Script';
+    font-size: 67px; }
+    @media screen and (min-width: 375px) {
+      .header-center h1 {
+        font-size: 109px; } }
+    @media screen and (min-width: 768px) {
+      .header-center h1 {
+        font-size: 177px; } }
 
 .header-btm {
   display: flex;
@@ -514,14 +528,6 @@ header {
       transition: all 100ms ease-in-out; }
       .header-btm-social-icon:hover, .header-btm-social-icon:focus {
         transform: scale(1.5); }
-
-@media screen and (min-width: 375px) {
-  .header-center h1 {
-    font-size: 67px; } }
-
-@media screen and (min-width: 768px) {
-  .header-center h1 {
-    font-size: 109px; } }
 
 .top {
   position: fixed;
