@@ -1,13 +1,18 @@
 @import 'partials/normalize', 'partials/type' ,'partials/mixins';
 @import 'partials/rwd-float','partials/colors';
-
+*::selection{
+  color:ca(255,.7);
+  background-color:hsl($second_color,80,50);
+}
+// Font & Color
 body{
-  background: hsla($main-color, 50%, 10%, .17);
+  background: hsla($main-color, 50%, 10%, .12);
   color:ca(5,.75);
 }
 h1,h2,h3,h4,h5,h6 {
   font-family: 'Noto';
 }
+// Grid
 @media screen and (min-width:480px) {
   @include rwd-mdm();
 }

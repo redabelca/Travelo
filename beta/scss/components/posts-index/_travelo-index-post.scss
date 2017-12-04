@@ -18,21 +18,6 @@
     overflow: hidden;
     background: black;
     display: block;
-    position: relative;
-    &::after{
-      content: '>';
-      color:ca(255,.7);
-      position: absolute;
-      top:50%;left:50%;
-      visibility: hidden;
-      top:calc(50% - 25px);left:calc(50% - 25px);
-      // visibility: hidden;
-      @include s(50px,50px);
-      text-align: center;
-      padding-top: 12px;
-      border-radius: 100%;
-      border:2px solid;
-    }
     .img{
       height: 250px;
       transition: all .3s ease-in-out;
@@ -57,6 +42,7 @@
     transition: all .15s ease-in-out;
     &:hover,&:focus{
       transform: translateY(-3px);
+      background: hsl($second_color, 80%, 50%);
       box-shadow: 3px 9px 9px ca(0,.4);
     }
   }

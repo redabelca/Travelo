@@ -267,8 +267,12 @@ p {
   float: left;
   width: 100%; }
 
+*::selection {
+  color: rgba(255, 255, 255, 0.7);
+  background-color: #e6a51a; }
+
 body {
-  background: rgba(13, 21, 38, 0.17);
+  background: rgba(13, 21, 38, 0.12);
   color: rgba(5, 5, 5, 0.75); }
 
 h1, h2, h3, h4, h5, h6 {
@@ -463,7 +467,9 @@ header {
     font-size: 25px;
     font-weight: 700;
     margin-left: 9px;
-    font-weight: 100;
+    font-weight: 700;
+    font-family: 'Dancing Script';
+    font-size: 35px;
     color: inherit; }
   .header-nav-humb {
     width: 40px;
@@ -622,23 +628,7 @@ header {
   .index-post-thumb {
     overflow: hidden;
     background: black;
-    display: block;
-    position: relative; }
-    .index-post-thumb::after {
-      content: '>';
-      color: rgba(255, 255, 255, 0.7);
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      visibility: hidden;
-      top: calc(50% - 25px);
-      left: calc(50% - 25px);
-      width: 50px;
-      height: 50px;
-      text-align: center;
-      padding-top: 12px;
-      border-radius: 100%;
-      border: 2px solid; }
+    display: block; }
     .index-post-thumb .img {
       height: 250px;
       transition: all .3s ease-in-out; }
@@ -659,6 +649,7 @@ header {
     transition: all .15s ease-in-out; }
     .index-post-readMoreBtn:hover, .index-post-readMoreBtn:focus {
       transform: translateY(-3px);
+      background: #e6a51a;
       box-shadow: 3px 9px 9px rgba(0, 0, 0, 0.4); }
   .index-post-meta {
     display: flex;
@@ -931,7 +922,7 @@ a.page-numbers:hover {
 
 .pres {
   text-align: center;
-  padding: 67px 16px; }
+  padding: 109px 16px; }
   .pres-intro {
     margin-bottom: 67px; }
     .pres-intro-title {
