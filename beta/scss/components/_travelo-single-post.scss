@@ -1,23 +1,28 @@
 .post-header{
-  height: auto;
-  min-height: 400px;
+  min-height: 500px;
+  height:80vh;
   @include gradient(hsl($main-color,50%,32%),hsl($main-color,50%,50%));
   color: ca(255,.8);
   h1{
     text-align: center;
-    color: inherit;
     margin-top:ms(3);
-    text-shadow: 0 4px 7px ca(0,.6);
+    padding:0 ms(-1);
+    text-shadow: 0 2px 7px ca(0,.6);
     @media screen and (min-width:768px) {
-      margin-top: ms(4);
+      margin-top: ms(4)+ms(0);
       padding:0 ms(3);
     }
-    padding:0 ms(-1);
+    @media screen and (min-width:1024px) {
+      padding:0 ms(5);
+    }
   }
   .index-post-meta{
     margin:auto;
     justify-content: center;
     padding:0;
+  }
+  .index-post-icon{
+    color:hsla($second-color,90%,60%,.9);
   }
   .meta{
     &-txt{
@@ -32,8 +37,13 @@
   @media screen and (min-width:480px) {
     padding: ms(2);
   }
+  .index-post-meta{
+    margin-bottom: ms(2);
+    padding:0;
+  }
   &-img{
     object-fit: cover;
+    margin-bottom: ms(2);
   }
   &-title{
     margin-top: ms(2);
@@ -41,10 +51,8 @@
     color:ca(0,.75);
     font:{
       weight:100;
+      size:3.2rem;
     }
-  }
-  .index-post-meta{
-    padding:0;
   }
   &-content{
     margin-top: ms(1);

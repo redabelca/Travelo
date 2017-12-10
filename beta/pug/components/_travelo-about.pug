@@ -1,10 +1,11 @@
 .about
-  .about-img.center
+  img(src="../final/img/author.jpg", alt="").about-img.center
   h5 Jack Reacher
   p Author
   hr
   .about-txt
-    p THIS THEME is a Technology, Web Hosting and WHMCS WordPress Theme, designed for All kinds of Technology, Domain and Hosting Business. WHMCS Integration and Fully Compatible with WHMCS Bridge. Also included WHMCS Template separately based on WHMCS v7.2.2.
+    p Just another Dutchie. Extrovert with introverted tendencies. Some say I'm lazy, I say I'm masterfully inactive.
 .aboutSocial.center
-  +loop(6)
-    a.aboutSocial-icon
+  -let aboutIcons=['twitter','gplus','facebook','pinterest'],socialColor=['#26d4f9','hsl(1,80%,50%)','#1952a9','hsl(5,80%,50%)'];i=0;
+  +loop(aboutIcons.length)
+    a(class= `icon-${aboutIcons[i]}`,style= `background:${socialColor[i++]}`).aboutSocial-icon

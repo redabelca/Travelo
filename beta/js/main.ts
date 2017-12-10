@@ -12,16 +12,17 @@ import { comment } from "./components/_travelo-comment";
 
 ((w) => {
   function init() {
+    //General
     updateData('scrollTop', getWindowScrollY());
     addEvent(w, 'scroll', throttle(()=>{
       updateData('scrollTop', getWindowScrollY());
-      console.log(data);
     },300) );
+
     //Menu
-    //menu();
+    menu();
 
     //Header
-    //header();
+    header();
 
     //Comment
     comment();

@@ -5,7 +5,9 @@ const label = getEl('.comment-form-comment label'),
   textarea = getEl('.comment-form-comment textarea');
 
 export function comment() {
-  addEvent(textarea,'focus',add_focus);
+  if(textarea){
+    addEvent(textarea,'focus',add_focus);
+  }
 }
 
 function add_focus(){

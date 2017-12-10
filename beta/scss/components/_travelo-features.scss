@@ -1,19 +1,20 @@
 .features{
   .pres-intro{
-    margin-bottom: ms(3);
-  }
-  &-title{
-    font:{
-      weight:400;
-    }
+    margin-bottom: ms(4);
   }
   &-item{
     padding:ms(1);
+    h4{
+      text-transform: capitalize;
+    }
   }
   &-icon{
-    @include s(140px,140px);
-    background: hsla($main-color, 80, 50,.8);
-    margin-bottom: ms(1)+5px;
-    border-radius: 100%;
+    &:before{
+      font-size: ms(3);
+      margin:0;
+    }
+    display: block;
+    color: hsla($main-color, 80, 50,.8);
+    margin-bottom: ms(2)-5px;
   }
 }

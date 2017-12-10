@@ -1,9 +1,9 @@
 section.scores.pres
   .pres-intro
-    h1.pres-intro-title!= "Rock-Solid <span style='color:hsl(220,50%,50%);'>5-Star</span> Rating"
-    p.pres-intro-subTitle through 43 000+ purchases
+    h1.pres-intro-title!= "High Performance To Get <span style='color:hsl(220,50%,50%);'>loved</span> by <span style='color:hsl(220,50%,50%);'>Google</span>"
+    p.pres-intro-subTitle Loads 5x faster on mobile.
   .row
-    -i=0;let titlesScores=['More Bang For Your Buck!','Multilingual and Translation Ready','The7 Elements','SEO-Ready and Mobile Friendly']
+    -i=0;
     +loop(4)
       .clm-3.clm-6-mdm
         .scores-item
@@ -11,4 +11,3 @@ section.scores.pres
             circle(r="100" cx="105" cy="105" style= `stroke-width:4px;stroke: hsl(220, 50%, 50%);`)
           span.scores-percent= `${(Math.random()*100).toFixed(0)}%`
           i.scores-icon
-          h5.scores-item-title= titlesScores[i++]

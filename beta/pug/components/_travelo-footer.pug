@@ -1,13 +1,14 @@
--i=1;
+-i=0;
 footer.row
   .clm-3.clm-6-mdm.footer_grid
     h4.footer-h.footer-h_SiteTitle Travelo
-    p Always walk or take public transport… unless there is none. (Or we’re reeeally lost…) Usually eat cheap meals and fast food for at least 2 meals a day.
+    p Easy, Simple and Beautifull.
   .clm-3.clm-6-mdm.footer_grid
     h4.footer-h Recent Posts
     +loop(3)
       .footer-featured-post
-        img(src=`../final/img/${++i}.jpg`).footer-featured-post-img
+        img(src=`../final/img/${i+13}.jpg`).footer-featured-post-img
+        -i++
         .footer-featured-post-txt
           .meta
           h6= i%2==0?'How you could spend even less':'Hitchhiking down one of the highest roads'
@@ -15,19 +16,14 @@ footer.row
   .clm-3.clm-6-mdm.footer_grid
     h4.footer-h Contacts
     .footer-contact-info
-      .icon
-      address 27N Bd Street Bankook, NY 1700
+      i.icon-location-1
+      address Apple St, New York, NY 10012
     .footer-contact-info
-      .icon
-      span +310-244-455
+      i.icon-mobile
+      span +123-555-1313
     .footer-contact-info
-      .icon
-      span uremail@example.com
-    .footer-social
-      h4.footer-h Follow Us
-      .footer-social-icons
-        +loop(5)
-          .icon
+      i.icon-mail-alt
+      span adminemail@example.com
   .clm-3.clm-6-mdm.footer_grid
     h4.footer-h Pages
     -i=0; let menu=['products' , 'portfolio' , 'blog' , 'features' , 'purchase' , 'items']

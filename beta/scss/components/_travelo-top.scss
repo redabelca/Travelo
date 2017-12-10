@@ -3,8 +3,8 @@
   bottom: 0;
   right: 0;
   @include s(45px, 45px);
-  background: hsl($main_color, 90%, 20%);
-  opacity: .7;
+  background: hsl($main_color, 90%, 35%);
+  opacity: .6;
   transition: all .3s ease-in-out;
   margin: 20px;
   cursor: pointer;

@@ -1,4 +1,4 @@
--let navItems=['products' , 'portfolio' , 'blog' , 'features' , 'purchase' , 'items'];i=0;
+-let navItems=['pages' , 'about' , 'blog'];i=0;
 .bg-black-screen
 .sideNav
   .sideNav-title.txt_center
@@ -7,14 +7,15 @@
   .sideNav-bar.center
   ul.sideNav-items
     li.sideNav-items-li.op0
-      a.sideNav-a Open
+      a.sideNav-a Home
       ul.sideNav-sub-ul
-        +loop(5)
+        +loop(2)
           li
-            a(href='/').sideNav-a add
-    +loop(5)
+            a(href='/').sideNav-a= navItems[i++]
+      -i=0;
+    +loop(navItems.length)
       li.sideNav-items-li.op0
-        a(href='/').sideNav-a= navItems[++i]||'add'
+        a(href='/').sideNav-a= navItems[i++]
   .sideNav-social
     -let icons=['twitter','facebook','gplus'];i=0;
     +loop(3)

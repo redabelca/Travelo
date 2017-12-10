@@ -1,6 +1,9 @@
 .rwd{
   color:ca(255,.7);
-  h1{
-    color:ca(255, .8);
+  img{
+    width:85%;
+    @media screen and (min-width:500px){
+      width:500px;
+    }
   }
 }

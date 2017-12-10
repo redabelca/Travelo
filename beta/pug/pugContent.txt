@@ -1,63 +1,357 @@
-MENU
+﻿MENU
 'products' , 'portfolio' , 'blog' , 'features' , 'purchase' , 'items'
 
-H1
-Pre-Build Home Demos
-Flexible Shop Layouts
-Unique Product Page Layouts
-Professional Blogging With Style
-CORE FEATURES
+AUTHOR
+Sebastiaan
+Just another Dutchie. Extrovert with introverted tendencies. Some say I'm lazy, I say I'm masterfully inactive.
 
-H6
--RESPONSIVE
-Fully Responsive Design
--FULL COMPATIBLE
-Woocommerce Platform Compatible
--PRODUCT VIDEO
-Product With Video Player Included
--AJAX SUPPORT
-Powerful Ajax Support
--INSTAGRAM
-Experience Trend Shopping On Instagram
--QUICK VIEW
-Beautiful Quick View Popup Design
--ONE CLICK INSTALL
-All Contents Imported With Just One Click
--SEO OPTIMIZED
-Topping The Rank For Search Result
+CONTACT :
+Apple St, New York, NY 10012, USA Phone: +123-456-7890 Mailus@brilliantteam.com
 
+TESTIMONIALS :
+“I just wanted to share a quick note and let you know that you guys do a really good job. I’m glad I decided to work with you. It’s really great how easy your websites are to update and manage. I never have any problem at all. My new site is so much faster and easier to work with than my old site. It used to take me an hour or more to update a page and I would still sometimes screw things up. Now it’s almost like having a designer right here with me. I just choose the page, make the change and click save. It’s so simple. Thanks, guys!”
+“You made it so simple. My new site is so much faster and easier to work with than my old site. I just choose the page, make the change and click save. Thanks, guys!”
+Brilliant has helped us to just have better handle on everything in our business – to actually make decisions and move forward to grow, thank you brilliant for this service.
+
+article.single-post-content
+  <p>We’ve all seasoned the wearisome, perennial looking out once making an attempt to book the most cost effective attainable flights to any given destination. With endless search engines and regularly unsteady costs, the approach to sparing flight booking is overwhelming. Here’s some key tips which will prevent time, frustration and most significantly cash once booking your next flight.</p>
+  a(href="http://google.com") Google
+  p Don’t miss our different guides on the way to notice Airline Mistake Fares and the way to urge Free Extended Layovers to Hack One Trip Into Two!</p><p>1. Keep your searches high secret</p><p>You’re not crazy for thinking that a flight worth has modified when looking out it a couple of times in your browser. supported the cookies in your browser, flight costs do increase once a specific route is repeatedly searched, because the web site needs to scare you into booking the flight quickly before costs get even higher. continuously rummage around for flights in concealed or non-public browsing mode to visualize all-time low costs.</p><p>In Google Chrome or hunting expedition, concealed is enabled by touch Command (or “Control” if victimisation PC), Shift, “N”. For Mozilla Firefox or web mortal, hit Command (or “Control” if employing a PC), Shift, “P”. this can open a replacement browser window wherever your data isn't half-tracked, so not inflating costs as you search. Note: if you’re victimisation Associate in Nursing older version of OS X, open hunting expedition then click “Safari” within the menu bar, and choose “Private Browsing”.</p><p>Your cookies ar reset whenever you re-open Associate in Nursing concealed window. thus if you would like to begin with a tabula rasa for every flight search (so your previous searches aren’t “remembered”, doubtless inflating costs), shut all of your concealed windows, open a replacement one, and so perform your flight search.</p><p>2. Use the most effective flight search engines</p><blockquote>All search engines have inflated flight prices as a part of taking a cut from the airlines. Some search engines (e.g. Expedia) systematically inflate abundant on top of others (listed below). It pays to familiarize yourself with sites that provide the most effective costs.</blockquote>
+
+MARKETING
+h1 {themeName} is THE theme that will help you
+h3 creating pro-grade sites without ever touching a code.
+btn Create a Website with {themeName}
+
+h1 Other Features
+h3 learn more about {themeName}
+  -Rock-Solid 5-Star Rating
+  -through 43 000+ purchases
+  -More Bang For Your Buck!
+  -$100+ worth premium plugins included
+  -Multilingual & Translation Ready
+  -Already translated into 10+ languages
+  -{themeName} Elements
+  -Extend your site with portfolio, photo galleries, team (and more!)
+  -SEO-Ready & Mobile Friendly
+  -(certified by Google)
+
+h1 Discover the world of {themeName}
+p the world of creating pro-grade websites without writing a single line of code!
+btn Get My Copy of The7
+
+Why MagPlus? – An Overview
+When you are thinking about turning your hobby into your profession, none of us want to compromise in quality. Online blogging is currently one of the most hyped easy career. With the perfect website, your path will be easier. One may wonder why they should choose MagPlus over all the other WordPress theme for their own use. Let’s start off with few of the mentionable features:
+Quick Install and Setup – As we all hate anything that is slow, we came up with such a feature where you won’t have to wait for installation. Very quick and easy installation. Quickly install the theme in WordPress or via FTP. Proper Documentation is also available for installation and setup. Get your website theme in your hand in a glance.
+Smart and Powerful Advertisement – MagPlus has a very fast Mega menu solution that can be enabled via WordPress native menu screen and you can font awesome icons to any menu elements.
+Template Builder – Our customers have endless possibility to make layout as they want, we do have included pre ready made 40+ template to add block of shortcodes to page, just drag and drop. See in action
+Mega Menu and Menu Icons – Using Visual Composer and our built-in brilliant advertisement locations, you can put your advertisement anywhere in your website.
+Fully Translation Ready – Our theme is fully translation ready and perfectly WPML compatible along with a powerful language switcher on the sub header.
+Layout and Slider Combinations – MagPlus offers over 300 layers and sliders combination only to stylize it the way you like. The layers and sliders are unique from each other and of course it is customizable.
+WordPress Customizer – The Customizer is a framework for live-previewing any change to WordPress. It provides a simple and consistent interface for users to customize various aspects of their theme and their site, from colors and layouts to widgets, menus, and more.
+Fully Responsive – Almost every new client these days wants a mobile version of their website. It’s practically essential after all: one design for the BlackBerry, another for the iPhone, the iPad, netbook, Kindle and all screen resolutions must be compatible, too. So, don’t be worry about obtaining these sets of features, we do already have included in Magazine. Let’s test it.
+Review System – MagPlus has a built-in review system that allows the readers or viewers to give reviews for your review type articles.
+Library Homepage – Creating a perfect homepage expresses everything you need to know about the website in the first glance. Homepage shows our inner style. That’s why we gave you the option to choose from our various options to customize your homepage with your own sense of style that leaves the perfect impression.
+Google Font – Along with huge variations of layout and sliders, MagPlus offers more than 500 Google fonts. Hundreds of free, open source fonts from google and they are really fast in rendering also.
+Blog Layout – MagPlus offers chic and tasteful blog layout with different type of blog post formats like image, slider, gallery, video and quote. Now you can totally fall in love with your own website.
+Speed Optimize – This WordPress theme is optimized for speed with careful attention to clean and structured code. It helps improve conversation rates.
+Header and Navigation Style – MagPlus has various beautiful header and navigation options available just to match your taste. Choose the one that screams your personality.
+Typography – It’s the small details that make a project shine. Solid typography, well-crafted with attention and care is one of them. A harmonious visual rhythm, typographic subtleties like soft caps, margin outdents or the correct use of hyphens and dashes; there are a lot of things that add up to it. So, we do have included all google font sets just to make easy and useful, you can adjust color, size, line-height and so on.
+Cool Readymade Layouts – For you to create beautiful website as desired, we have included lots of page layouts in the MagPlus theme. Design your website with blog, videos and other contents.
+Social Sharing – It has the template setting for social sharing. We tested to make sure it is a smart website that you own. Make sure who loves your content, they can share it with their friends through social media.
+Page/Post Customization – With MagPlus you can easily customize your specific page or post on the top of the default theme settings in case if you want to emphasis any page/post or need different style for your overall website.
+Unlimited Colors – To make color changes easy, we have implemented color picker in theme settings. You can choose your desired colors visually and by hash code and RGB code also wherever required. No plainer, boring website.
+Unlimited Sidebars – Another mentionable feature of MagPlus is, it allows you to add unlimited sidebars as per your requirement and assign many numbers of your choice of widgets to them. Amazingly, you can even switch the placement of the sidebars wherever you want to very easily.
+HD Video and Details Documentation – We have made sufficient videos with detailed information and documentation to make our users aware about all the parts of our theme. In addition there are many how-to videos available for fast understanding.
+5 Start Quick and Responsive Support – We love our customers and would always do our level best for their satisfaction. Customer’s satisfaction is our growth. We have our highly experienced team of technical experts who try their best to respond within one business day. Our motto is to give our customers satisfactory, helpful and polite answers.
+Shortcodes – Magazine includes tons of shortcodes to make endless layout. With Magazine, we’ve built 33 shortcodes, allowing you to build virtually any layout your mind can imagine. All shortcodes are included via a custom built plugin. Included shortcodes are as follows:
+
+About Us
+Blockquote
+Blog Masonry
+Button
+Category Block
+Custom Ads
+Divider
+Featured Blog
+Gallery Showcase
+GIF Showcase
+Hand Picked Blog
+Image Block
+Newsletter
+Post Card
+Post Grid
+Post Grid Series
+Post Movie
+Post Video Playlist
+Progress Bar Rating
+Recent News
+Section Heading
+Slider Content
+Space
+Special Text
+Tabs
+Video Block
+Weekly Top 5 Blog
+Weekly Top 7 Blog
+Post Gallery/Video
+Youtube Video Playlist
+Text Block
+Post Format – Magazine has rich set of custom post format, manage your blog posts with various custom post format. Here are few post format:
+Standard
+Video
+Gallery
+Audio
+Review
+Quote
+Quiz
+
+- Page with Slideshow Full width
+- Page with slideshow sidebar
+- Page with Slideshow
+- Page with sidebar
+- Full width Page
+- Home Default (with Slideshow)
+- Home – Only Blog
+- Home – Featured Posts
+- Home Fullwidth
+- STANDARD POST
+- GALLERY POST
+- VIDEO POST
+- AUDIO POST
+
+Loads 5x faster on mobile.
+Responsive & SEO optimized.
+Get loved by GOOGLE
+Smaller file size & less query request.
+Super responsive, looks lovely on every device.
+Place ads via shortocdes, almost anywhere.
+Supports Google AMP — improve Google SERPs.
+
+300+ Creative Designs
+High Performance
+Optimized for SEO
+
+LIVE CUSTOMIZATION
+No more complicated settings and unclear admin panels, Albedo theme developed for WordPress Live Customizer and Visual Composer Front-End Page Builder.
+300+ DESIGN CONCEPTS
+Albedo theme contains 300+ design concepts packed in 8 awesome skins, and crafted for any purpose. New demos coming soon!
+100+ CONTENT ELEMENTS
+Are ready to use, and each of them has additional styles and customization options.
+HIGH PERFORMANCE
+Developed for speed: Theme supports PHP7, Caching, CDN and contains additional optimization tools.
+PLUGINS COMPATIBILITY
+17 popular plugins are officially tested and 100% compatible with this theme. Premium plugins are included in the theme’s price.
+EFFECTS & ANIMATIONS
+Albedo theme comes with a lot of modern configurable effects and canvas animations inside.
+MULTI & ONE PAGE WEBSITES
+Muti-pages, one-page, full-screen websites can be created with Albedo theme. Check our demos!
+WOOCOMMERCE
+Start selling any kind of products, it 100% compatible with most popular eCommerce plugin.
+UNLIMITED POSSIBILITIES
+Choose one of available concepts, combine all of available shortcodes and customize absolutely everything in few clicks.
+FOR ANY DEVICE
+Fully responsive, it looks great on any mobile device or desktop.
+SEO FRIENDLY
+Albedo theme supports all most-popular SEO plugins and it’s code optimized for search engines.
+IT SPEAKS IN YOUR LANGUAGE
+The theme 100% supports Right-to-left (RTL) direction and popular multi language plugins.
+FRIENDLY SUPPORT
+We provide 5 stars support for all of our customers. We speak in English, Russian, Ukrainian languages.
+REGULAR UPDATES
+All further updates, new features, skins and improves are free for you. Forever.
+CODEX STANDARDS
+Theme developed using Unyson Framework and WordPress Codex standards
+CUSTOMIZATION SERVICE
+
+100% Responsive
+Built on Bootstrap
+Visual Composer
+Detailed Documentation
+Custom shortcodes
+Post Formats support
+Theme Options Panel
+Custom Widgets
+Google Maps integration
+Working Contact Form (Contact Form 7 Plugin)
+Google Web Fonts
+One Click Demo Install
+Unique Design
+Easy To Use & Customize
+
+- Revolution Slider
+- 6 Home Page and Blog Layouts
+- Retina ready display
+- 100% responsive to work smoothly on any device and mobile phones, tablet and desktop
+- 3 blog post types: Standard Post, Gallery Post, Video Post
+- 6 gallery types: Full-Width Gallery, Boxed Gallery, Instagram Feed Gallery, Video Gallery, Full-Width Gallery 2 and Boxed Gallery 2
+- Essential Grid plugin
+- Lightning fast loading speed
+- Unlimited color options
+- Google Web Fonts
+- SEO optimized
+- Full-Width Page with Slideshow and Sidebar Page with Slideshow
+- Your custom logo and favicon
+- Fresh and neat design
+- CSS3 Features and Animations
+- Well-written and detailed documentation
+- Built with readability in mind
 P
 THIS THEME is a Technology, Web Hosting and WHMCS WordPress Theme, designed for All kinds of Technology, Domain and Hosting Business. WHMCS Integration and Fully Compatible with WHMCS Bridge. Also included WHMCS Template separately based on WHMCS v7.2.2. The theme has all the required functionality for a hosting services company, including domain search and registration functionality with WHMCS. Fancy pricing tables let you display hosting prices for different server configurations and hosting packages. If you need to create a website for a hosting company, a technology blog or a software review blog, Hosting Business Technology WP Theme is a great choice.
 -Hostlab ideal for web hosting, business, multi purpose, domain sale websites, online business, personal blogs and similar sites. 
 We built this theme on Visual Composer, a very convenient drag-n-drop PageBuilder for WordPress. It should provide you with the smoothest experience while creating your website with our theme. The WordPress theme is responsive, you can view it also in the mobile/tablets devices and it looks very in more devices.
 -Simply is One Page App Landing WordPress Theme with modern, and clean design suitable for app marketing websites. Theme is fully editable and powerful admin panel. You can easily change everything easily with visual composer
 
-AUTHOR
-Sebastiaan
-Just another Dutchie. Extrovert with introverted tendencies. Some say I'm lazy, I say I'm masterfully inactive.
+BOO - WP Theme :
+Meet Boo, the most powerful website builder ever. It’s easy and fast. Let’s explore the magic behind Boo that allows your dream site to come true.
+Boo gives you the ability to create any design in minutes without touching a single line of code. It is ridiculously easy to add any template and customise it with Live Website Builder. Import your favourite templates with a single click from filterable categories, and customise them further as much as you desire. Add a portfolio to showcase your work, set up an online shop to sell your products, or promote your business with service boxes.
+You can mix and match over 200 modular templates created by the world’s leading designers. It is the most versatile template collection ever built. Literally, within minutes, you can create your unique website. It’s by far the fastest and easiest way to achieve your dream site.
+Build any site you can imagine with no coding skills. Sky is the limit!
 
-MARKETING
-h1 The7 is THE theme that will help you
-h3 creating pro-grade sites without ever touching a code.
-btn Create a Website with The7
-
-h1 Other Features
-h3 learn more about The7
-  -Rock-Solid 5-Star Rating
-  -through 43 000+ purchases
-
-  -More Bang For Your Buck!
-  -$100+ worth premium plugins included
-
-  -Multilingual & Translation Ready
-  -Already translated into 10+ languages
-
-  -The7 Elements
-  -Extend your site with portfolio, photo galleries, team (and more!)
-
-  -SEO-Ready & Mobile Friendly
-  -(certified by Google)
-
-h1 Discover the world of The7
-p the world of creating pro-grade websites without writing a single line of code!
-btn Get My Copy of The7
+JANNAH NEWS - WP Theme :
+3 Powerful Reasons to Chose Jannah
+More than a year in development by experienced web design company, TieLabs, the team behind the No 1 Selling News Theme Sahifa
+Real world features like ‘Select & Share’ native GIF Support and Web-based Push Notifications.
+Mobile Navigation for today’s modern devices PLUS powerhouse AJAX Mega Menus built in.
+Online Publishing Reimagined for WordPress
+Jannah takes a fresh look at the world of desktop publishing in today’s modern age of content marketing and flips it on its head with a stunning design, fresh layout options, modern sharing options and integration of most popular extensions for WordPress for maximum flexibility.
+Responsive for Today’s Modern Devices
+Of course, Jannah has a fully responsive design that not only adapts to all of today’s modern devices but responds to the most up to date mobile devices for swipeable content.
+It also appears to think for you with intelligent menu features that adapt to the user’s device to ensure they have the best, most seamless experience possible while consuming your content.
+AMP
+Fully compatible with the Accelerated Mobile Pages (AMP) Project, so your content is mobile-optimized content and loads FAST, everywhere.
+SEO Optimized
+Jannah has the goods when it comes to SEO too, with Articles and Reviews Schema to support snippet views from longer articles.
+Optimized with full support for the super popular Yoast Plugin so you can get more visitors from Google and BING Search, plus HTML SEO support so Search engines can pick up ranking signals from specific HTML elements, as well as SEO Rich Snippet support for add-ons like Reviews, Ratings, and Photos.
+High Performance, Blazing Speeds
+Did someone say ‘Need for Speed?”
+Jannah has taken speed up a notch with several advanced developments behind the scenes to give you truly blazing page load speeds and website performance in general.
+Lazy Load – Means images load when the user requires it.
+Minified Version for JS – works the same as jquery.js but is smaller in size for your production website.
+Minified CSS Resources – removes the spacing, indentation, newlines, and comments.
+Built-in Cache to reduce DB Queries.
+Compatabile with the popular cache plugin WP Super Cache.
+bbPress Integration
+The industry best practice forum software for WordPress by the creators of WordPress. This means you can rest assured you can easily setup discussion forums inside your WP site easily.
+It’s easy to moderate, fast and clean and is managed from the one central account and features a One-Click install.
+Pre-Skinned Demos
+Go Dark, or keep it Light and fluffy – Jannah has you covered with easy to update Skins with Light, Dark and everything in between skins ready.
+Almost 1,000 Font Options
+With over 800 Google Fonts and +150 FontFace.me fonts included in Jannah, you will be sure to find the one that suits.
+Nothing to update or install, everything included under the hood.
+GIF Support
+Who doesn’t love a good GIF meme?
+Fundamental to the success of large viral sites today, GIFs play a huge part in consumer content and you need to be able to support it natively, no messing around, no extensions or plugins needed.
+Jannah supports GIF images natively for a superb end-user experience.
+Customizable Layouts
+Go crazy with a custom layout!
+Bordered, Fullwidth, Boxed, Masonry or straight up One Column. Layouts are the foundation of how your site is going to look and having a flexible system to move it around and see how it fits with your content is crucial.
+Jump-To Contents
+Adding hotspots to your content so users can Jump-To a specific point in long-form content is a great way to aid navigation.
+Ajax Mega Menus
+A really hot menu is key with a large site filled with tons of top notch content. A good menu should entice users to stick around, look at other pages and feel like they know where they are at all times.
+With our Ajax powered mega-menus leave no stone unturned with a dynamic range of exciting menu options that are sure to exceed your expectations.
+Mobile Navigation
+Stand out from the crowd with a beautifully styled, customizable mobile navigation for your new site. Available off-canvas you can modify backgrounds to be Solid Color, Gradients or Images. Set the color and enable/disable Social Icons and the Search Form.
+Select and Share
+This is a really neat feature we know you are going to love. With Jannah and ‘Select and Share’, the end user is in control of the share function.
+All they need to do is highlight the copy or key point they want to Share, and Jannah automatically recognizes this as the Social Media share function with a pop-up model that shows the sharing options you have enabled. Boom!
+Email Marketing
+Build your email distribution list!
+Everyone knows that your email list is your most powerful marketing tool in today’s environment, so Jannah has a complete integration with the industry standard tools including MailChimp and Feedburner.
+Capture leads, build your list and the world is your oyster!
+Parallax Effects & Video Backgrounds
+A beautifully constructed Landing Page, Homepage or CTA should engage and motivate into action. A great way to do this is with a live feel – backgrounds that scroll with content or make use of a full page background for dramatic effect.
+One Click Import with Demo Content
+With over 20 fresh demo builds ready to roll out, and always more being developed, Jannah has a fully featured web design ready for you.
+Find a demo that highlights your look and feels the best, then use our One-Click Demo Import feature to get your design setup nice and simple. From there you simply need to update with your own content and customize to your heart’s desire.
+Save More with Bundled Premium Plugins
+Most of the extraordinary features with Jannah are available straight out of the box, but to take things up a notch, we have bundled your purchase with a ton of extra value with the following Premium Plugins.
+Taqyeem – Save $22
+InstaNOW – Save $15
+Taqyeem Addons – Save $20
+Dedicated Advertiser Space
+What good is putting all this effort into a top-notch content marketing site, blog or news site without being able to monetize? Nu-uh, not on today’s web baby.
+That’s why Jannah is not only optimized for WooCommerce for all of your eCommerce needs, but there are specific pre-defined spaces for Ads!
+Reserve spots for partners or affiliates or sell a full page takeover to the highest bidder. With the most common ad block sizes built in all you need to do is copy your AdSense code over and bam! Jannah takes care of the rest.
+Unique BuddyPress Design
+Take it up a notch with a fully integrated social media community or network built in with a slick BuddyPress Design for that sticky user experience.
+Built into the Jannah template so it looks just like the rest of your design, you can even choose to add Notifications into your menu for that real-time social feel that keeps users coming back for more.
+20+ Pre-made Demos
+Our demos are more than just a skin – with over 20 to chose from each demo is a fully functional website with Pages, Menu structures and Demo Content designed to take the hard workout of establishing your site.
+Chose a demo and install with one-click simplicity, update with your own content then sit back and reap the rewards. With styles that include Automotive, Hotels, Pets, School, News, Sports, Video and Fashion we are sure you are going to find something you love.
+Unlimited Header Styles
+There’s nothing quite like a good Header. Jannah helps bring out the bold in you with complex layouts rooted in graphic design principles. Take your design to the next level with a myriad of different header styles that are limited only by your imagination.
+Instagram Widget
+Instagram is one of the most popular social media photo sharing websites today. Being able to integrate your website with your newsfeed of awesome content from Instagram is key to a successful news, blog, magazine or fashion website.
+With Jannah’s Instagram widget you can select from different layouts to suit your needs, simply add your handle, select your style and tell Jannah where to place it, no coding required.
+Amazing Page Builder
+Jannah includes a built-in drag and drop page builder which helps you to customize your design in blocks and the simplicity of drag and drop.
+Building unique layouts is definitely a hot design topic of recent years, recognizing this Jannah proudly offers a unique Page Builder built in. With stacks of cool blocks to get you started, you can add the power Ajax Filters and Pagination to your site for the ultimate in speed and user experience.
+All from the familiarity of the WordPress Dashboard. How good is that?
+Powerful & Easy to Use Theme Options
+You are going to LOVE the TieLabs Theme Options panel in Jannah. So comprehensive yet simple to use you maintain full control over your design choices within a simple WordPress environment while making sophisticated changes with the ease of a click.
+Styling, Typography, Share Buttons, Sidebars and so much more is all available to tinker with from the power of the Theme Options Panel in Jannah.
+Translation Ready
+Fully prepared for translation to any language using po & mo files, also you can translate the theme easily via the built-in Translation panel.
+Jannah is Fully Compatible With the WPML Multilingual Plugin so you can Create Multilingual Websites
+Stunning Video Playlists
+Building Video Playlists for users is a great way to reduce your Bounce Rate and keep visitors longer. It’s that simple and fully integrated into the backend of Jannah.
+Rack em up and offer a beautifully fluid block with a scrolling list that is easy to access, intuitive to use and your users never have to leave your site again.
+Animated Weather Widget
+A gorgeous feature we are really proud of at TieLabs and unique to Jannah is our real-time Animated Weather Widget. Just like the familiar experience of a mobile experience, let your users set up a location and display real-time weather for the day and week ahead.
+Web Notifications
+Web Push notifications allow your users to opt-in to timely updates from your website. Really give that compelling reason to stick around with Live Notifications! It’s another great feature built into Jannah that is going to have you squealing for me. This is a marketers dream!
+Custom Widgets
+Sometimes setting up your required Widgets is just a tedious necessity, which is why we took the tedium out of Jannah for you with a series of ready-to-go custom widgets, which we know are going to tick all of your boxes.
+All styled to sit beautifully inside of the design you stipulate.
+Select from 12 Social Counters, Social Widgets and Post Lists Widgets to create that irresistible homepage design you have been dreaming of.
+Social Counters – show all important Subscribers, Facebook Fans, Twitter Followers and more with Jannah’s built in Social Counter Widget
+Social Widgets – Subscribers, Instagram, SoundCloud, Flickr, Google+, Dribble, Facebook and much more to complete your digital ecosystem
+Post List Widgets – show Recent content, Most Viewed Content, Popular Posts and more with a specific widget fit for duty.
+Advanced Ecommerce with WooCommerce Extended
+Whether you need something complex with Smart Filters to help users dig deep into a huge catalog of fashion and accessories, or something simple that looks incredibly elegant on mobile, Jannah has you covered.
+Designed and developed with WooCommerce at its heart so you can take full advantage of the complex extended functionality it offers, you can rest assured that every choice you make along the way is going to work perfectly, just as it was intended.
+Build your shop with confidence and Jannah by your side.
+Features List
+AMP integration
+WooCommerce integration
+bbPress integration
+BuddyPress integration
+Multiple Skins
+Over 20+ demos
+One Click Demo Install
+Over 800+ Google Fonts
+Over 150+ FontFace Fonts
+Unlimited Footer Layouts
+Unlimited Headers Layouts
+Lifetime Free Updates
+Jump-To Content
+Multiple Content Layouts
+Monetization
+Mega Menus
+Amazing Page Builder
+Responsive Design
+RTL
+WPML Multilingual Plugin Compatible
+Built-in Translation Panel
+Animated Weather Widgets
+GIF Support
+Bundled Premium Plugins
+BuddyPress Design
+Instagram Widget
+Stunning Video Playlists
+Web Notifications
+Responsive Google AdSense
+Dark Skin
+Schema SEO Rich Snippet Microdata
+Sticky Navigation Menu
+Supports Multiple page post
+Custom Categories Logo, Colors and Background
+Sticky Sidebars
+Unlimited sidebar
+Breadcrumb Navigation
+Customizable OFF-canvas Mobile Navigation
+Ajax Live Search
+45+ Pre-Defined Background Patterns
+Built In Custom Widgets

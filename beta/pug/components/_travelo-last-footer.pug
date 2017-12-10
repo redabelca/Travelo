@@ -1,6 +1,6 @@
 section.last-footer
   .last-footer-item
-    p!= '&copy; All Right Reserved 2017.'
+    p!= `Travelo &copy; Copyright ${new Date().getFullYear()}.`
   .last-footer-item.last-footer-links
     -i=0; let lastFooterLinks=['products' , 'portfolio' , 'blog' , 'features' , 'purchase' , 'items'];
     +loop(lastFooterLinks.length)

@@ -1,12 +1,13 @@
-section.testimonial.pres.bg-center(style= bk('../final/img/5.jpg','hsla(41,70%,4%,.85)','hsla(41,70%,4%,.85)'))
+section.testimonial.pres.bg-center(style= bk('../final/img/12.jpg','hsla(41,70%,4%,.8)','hsla(41,70%,4%,.8)'))
   .pres-intro
-    h1.pres-intro-title!= "Why do people <span style='color:hsl(41,70%,45%);'>love</span> Us"
+    h1.pres-intro-title!= "Why do people <span style='color:hsl(41,70%,45%);'>love</span> Travelo"
   .row
+    -cite=['John Betiz','Rino Tania','Jack Crobb'],i=0; let testimonialItemP=['You made it so simple. My new site is so much faster and easier to work with than my old site. I just choose the page, make the change and click save. Thanks, guys!','Travelo has helped us to just have better handle on everything in our business – to actually make decisions and move forward to grow, thank you for this service.','Now it’s almost like having a designer right here with me. I just choose the page, make the change and click save. It’s so simple. Thanks, guys!'];
     +loop(3)
       .clm-4
         .testimonial-item
-          .testimonial-icon
-          p.testimonial-item-p We built this theme on Visual Composer, a very convenient drag-n-drop PageBuilder for WordPress.Simply is One Page App Landing WordPress.
+          i.testimonial-icon.icon-quote-left
+          p.testimonial-item-p= testimonialItemP[i]
           .testimonial-item-author
-            .image
-            cite - John Betiz -
+            img(src= `../final/img/face${i+3==4?6:i+3}.jpg`, alt="").img
+            cite= cite[i++]

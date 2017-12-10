@@ -37,7 +37,11 @@ a.page-numbers:hover{
 			width:auto;
 		}
 		&:hover{
-			background: hsl($second-color, 85%, 40%);
+			background: hsl($second-color, 85%, 50%);
+		}
+		i{
+			color:inherit;
+			font-size:14px;
 		}
 	}
 }

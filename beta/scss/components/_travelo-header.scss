@@ -4,7 +4,7 @@ header {
   justify-content: space-between;
   @include s(100%, 480px);
   height: 100vh;
-  color: rgba(255, 255, 255, .7);
+  color: ca(255,.9);
 }
 .header {
   &-nav {
@@ -45,6 +45,7 @@ header {
     h1, h4 {
       margin-bottom: ms(-1);
       font-weight: 100;
+      color:inherit;
     }
     h1 {
       color: hsl($second_color, 75%, 50%);
@@ -77,10 +78,10 @@ header {
       &-icon {
         @include s(25px, 25px);
         border-radius: 100%;
-        background: hsla($main_color, 50%, 85%, .7);
+        background: hsla($main_color, 50%, 80%, .7);
         margin: 0 ms(-2);
         font-size: 14px;
-        color: hsla($main_color, 50%, 15%, .9);
+        color: hsl($second_color, 50%, 15%);
         display: flex;
         justify-content: center;
         align-items: center;

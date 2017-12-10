@@ -13,12 +13,12 @@
   &-h{
     font-weight:500;
     margin-bottom: ms(1);
-    color: hsla($second-color, 80%, 90%, .55) ;
+    color: hsla($second-color, 80%, 90%, .75) ;
     &_SiteTitle{
       font:{
-        family:'Noto';
+        family:'Dancing Script';
         weight:100;
-        size:3rem;
+        size:5rem;
       }
     }
   }
@@ -40,6 +40,12 @@
   &-contact-info{
     display:flex;
     margin-bottom: ms(0);
+    i{
+      margin-right: ms(-2);
+      font-size:ms(1);
+      color:hsla($second-color, 90%, 60%, .7);
+      transform: translateY(-6px);
+    }
   }
   &-social{
     &-icons{
@@ -63,11 +69,4 @@ footer{
   padding:ms(3) ms(0);
   background: hsl($main-color, 70%, 5%);
   color:hsla($second-color, 80%, 90%, .6);
-}
-.icon{
-  @include s(40px,40px);
-  border-radius: 100%;
-  border:1px solid hsla($second-color, 80%, 50%, .9);
-  margin-right: ms(1)/2;
-  transform: translateY(-20%);
 }

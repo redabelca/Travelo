@@ -1,7 +1,7 @@
 .index-post{
   border:1px solid ca(10,.3);
   border-top: none;
-  width: 97%;
+  width: 98%;
   position: relative;
   background: ca(255,.8);
   margin:ms(3) auto 0;
@@ -10,9 +10,8 @@
   @media screen and (min-width:480px) {
     width:480px;
   }
-  
   @media screen and (min-width:768px) {
-    width:700px;
+    width:600px;
   }
   &-thumb{
     overflow: hidden;
@@ -40,6 +39,12 @@
     right: ms(1); top:250px - 30px;
     box-shadow: 3px 6px 9px ca(0,.4);
     transition: all .15s ease-in-out;
+    padding-left: ms(0)-4px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    font-size:ms(1)-4px;
+    color:ca(255,.8);
     &:hover,&:focus{
       transform: translateY(-3px);
       background: hsl($second_color, 80%, 50%);
@@ -48,12 +53,14 @@
   }
   &-meta{
     display:flex;
-    padding: 0 ms(1);
+    flex-wrap: wrap;
+    padding-left: ms(1);
   }
   &-title, &-excerpt{
     padding:ms(-1) ms(1);
   }
   &-title{
+    text-transform: capitalize;
     margin-top:ms(0);
     margin-bottom: 0;
     color: hsla($main-color, 50%, 7%,.75);
@@ -66,17 +73,12 @@
   }
 }
 .meta-ctn{
-  padding: ms(-4) ms(-3) ms(-1);
+  padding: ms(-3) ms(-1) ms(-2) 0;
 }
 .meta-txt{
   font-size: 14px;
   color:ca(10,.7);
 }
-.custom-icon{
-  border:1px solid hsl($second_color, 80%, 45%);
-  @include s(20px,20px);
-  display: inline-block;
-  vertical-align: middle;
-  margin-right: ms(-3);
-  margin-left: ms(-5);
+.index-post-icon{
+  color: hsl($second_color, 90%, 35%);
 }

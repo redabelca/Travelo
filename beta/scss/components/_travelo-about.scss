@@ -12,18 +12,17 @@
   border:1px solid ca(0,.25);
   &-img{
     @include s(100px,100px);
-    background: hsla($main-color,70,50,.6);
     border-radius: 100%;
     margin-bottom: ms(0);
   }
   hr{
-    margin:ms(0)+3px auto ms(-1);
+    margin:ms(-1) auto;
     width:ms(5);
   }
   &-txt{
     padding:ms(0);
     @media screen and (min-width:1024px){
-      padding: ms(0) ms(3)-20px 0;
+      padding: ms(0) ms(3) 0;
     }
   }
 }
@@ -42,8 +41,9 @@
   margin-bottom: ms(3);
   &-icon{
     border-radius: 100%;
-    background: ca(0,.3);
+    color:ca(255,.9);
     @include s(35px,35px);
     margin:0 ms(-2);
+    padding-top: ms(-1);
   }
 }

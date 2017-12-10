@@ -5,7 +5,7 @@
   padding:ms(1) ms(-1);
   @media screen and (min-width:480px){
     flex-direction: row;
-    padding:ms(1) ms(3);
+    padding:ms(2) ms(3);
   }
   background: linear-gradient(-45deg,hsla($main-color, 80, 50,.8),hsla($main-color + 35, 70, 50,.8));
   &-txt{

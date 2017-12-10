@@ -1,4 +1,4 @@
-@import 'partials/colors','_menu';
+@import '_menu';
 
 .bg-black-screen {
   position: fixed;
@@ -29,6 +29,7 @@
     h1 {
       color:inherit;
       font-weight: 100;
+      font-family: 'Dancing Script';
     }
   }
   &-bar {
@@ -60,7 +61,7 @@
     transition: all .2s ease-in-out;
     &:hover, &:focus {
       color: rgba(255, 255, 255, .95);
-      transform: translate(11px);
+      transform: translate(6px);
     }
   }
   &-sub-ul {

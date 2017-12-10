@@ -2,7 +2,7 @@
   position: relative;
   overflow: hidden;
   .pres-intro-title{
-    color:ca(255,.75);
+    color:ca(255,.85);
   }
   &:after{
     content:'';
@@ -11,18 +11,25 @@
     @include s(100%,100%);
     z-index: -1;
     border:{
-      bottom:240px solid transparent ;
+      bottom:300px solid transparent ;
       left:3000px solid hsla(10*22, 50%, 35%, 1);
     }
   }
   &-item{
-    margin:ms(1);
+    margin:ms(1) 0;
+    @media screen and (min-width:600px){
+      margin:ms(1) auto;
+      width:500px;
+    }
+    @media screen and (min-width:1024px){
+      width:auto;
+      margin:ms(0);
+    }
     padding: 0;
     background: c(255);
-    overflow: hidden;
     text-align: left;
     border-radius: 10px;
-    box-shadow:0 2px 40px ca(0,.4);
+    box-shadow:0 4px 25px ca(0,.5);
     .index-post{
       margin: 0;
       width:100%;

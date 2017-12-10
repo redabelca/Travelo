@@ -1,9 +1,10 @@
 nav.navigation.pagination
   .nav-links
-    a.previous.page-numbers(href="#")!= "< Previous"
+    a.previous.page-numbers(href="#")!= `<i class="icon-left-open"></i> Previous`
     span.page-numbers.current 1
     -i=2;
     +loop(6)
       a.page-numbers(href="#")= i++
     a.page-numbers(href="#")= "..."
-    a.next.page-numbers(href="#")!= "Next >"
+    a.next.page-numbers(href="#")!= "Next "
+      i.icon-right-open

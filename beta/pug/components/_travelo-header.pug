@@ -1,4 +1,4 @@
-header(style= bk('../final/img/1.jpg','hsla(221,50%,2%,.5)','hsla(221,50%,2%,.6)')).bg-center
+header(style= bk('../final/img/37.jpg','hsla(221,50%,15%,.7)','hsla(221,50%,15%,.8)')).bg-center
   .header-nav
     a(href="./").header-nav-logo Travelo
     .header-nav-humb
@@ -6,10 +6,10 @@ header(style= bk('../final/img/1.jpg','hsla(221,50%,2%,.5)','hsla(221,50%,2%,.6)
         span.header-nav-humb-bar
   .header-center.txt_center
     h1 Travelo
-    h4 let's Backpack and Enjoy.
+    h4 Easy, Simple and Unique.
   .header-btm
     .header-btm-cpright
-      h6 Travelo &copy; All right reserved 2017.
+      h6!= `Travelo &copy; Copyright ${new Date().getFullYear()}.`
     .header-btm-social
       -i=0;
       +loop(3)

@@ -9,12 +9,14 @@ let tp=getEl('#top'),
 menu=getEl('.header-nav-humb');
 
 export function header() {
-  addEvent(tp, 'click', () => {
-    window.requestAnimationFrame(t => {
-      loopAnimateScroll(t, data.scrollTop, 1500, 'easeInOutQuad', data.scrollTop);
+  if(tp){
+    addEvent(tp, 'click', () => {
+      window.requestAnimationFrame(t => {
+        loopAnimateScroll(t, data.scrollTop, 1500, 'easeInOutQuad', data.scrollTop);
+      });
     });
-  });
-
+  }
+if(menu){
   let distanceToHeaderBtm=top(getEl('.header-nav').parentElement)+getOffsetHeight(getEl('.header-nav').parentElement),cssAdded=0;
   addEvent(window, 'scroll', throttle(() => {
     if (data.scrollTop > distanceToHeaderBtm && !cssAdded) {
@@ -33,4 +35,5 @@ export function header() {
       }, 300);
     }
   }, 600));
+}
 }
