@@ -1,13 +1,74 @@
-aside.sidebar
-  .sidebar-widget.center
-    h4.sidebar-widget-title Search
-    .widget-content
-      .widget-search
-        input(type="text" placeholder="Search...").widget-search-field
-        input(type="submit", value="Go").widget-search-submitBtn
-  -let titles=['Articels','Posts','Calendar'];
-  -i=0;
-  +loop(3)
-    .sidebar-widget.center
-      h4.sidebar-widget-title= titles[i++]
-      .widget-content(style= `height: ${Number((Math.random()*100).toFixed(0)) + 100}px`)
+aside.sidebar.sidebar-singlePost
+  li.widget.widget_search
+    form(role="search", method="get", id="searchform", class="searchform",action="")
+      div
+        input(type="text")
+        input(type="submit", value="Search")
+  li.widget.widget_calendar
+    h2.widgettitle Calendar
+    .calendar_wrap
+      table#wp-calendar
+        caption December 2017
+        thead
+          <tr>
+            <th scope="col" title="Monday">M</th>
+            <th scope="col" title="Tuesday">T</th>
+            <th scope="col" title="Wednesday">W</th>
+            <th scope="col" title="Thursday">T</th>
+            <th scope="col" title="Friday">F</th>
+            <th scope="col" title="Saturday">S</th>
+            <th scope="col" title="Sunday">S</th>
+          </tr>
+        tfoot
+          <tr>
+            <td colspan="3" id="prev"><a href="2017/09/">« Sep</a></td>
+            <td class="pad">&nbsp;</td>
+            <td colspan="3" id="next" class="pad">&nbsp;</td>
+          </tr>
+        tbody
+          <tr>
+            <td colspan="4" class="pad">&nbsp;</td><td>1</td><td>2</td><td>3</td>
+          </tr>
+          <tr>
+            <td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td><td id="today">10</td>
+          </tr>
+          <tr>
+            <td>11</td><td>12</td><td>13</td><td>14</td><td>15</td><td>16</td><td>17</td>
+          </tr>
+          <tr>
+            <td>18</td><td>19</td><td>20</td><td>21</td><td>22</td><td>23</td><td>24</td>
+          </tr>
+          <tr>
+            <td>25</td><td>26</td><td>27</td><td>28</td><td>29</td><td>30</td><td>31</td>
+          </tr>
+  li.widget.widget_archive
+    h2.widgettitle Archives
+    ul
+      li
+        <a href="2017/09/">September 2017</a>&nbsp;(1)
+      <li><a href="2017/05/">May 2017</a>&nbsp;(5)</li>
+  li.widget.widget_categories
+    h2.widgettitle Categories
+    ul
+      <li class="cat-item cat-item-3"><a href="cars/">Cars</a>
+      </li>
+      <li class="cat-item cat-item-4"><a href="health/">Health</a>
+      </li>
+  li.widget.widget_recent_entries
+    h2.widgettitle Recent
+    ul
+      li
+        a(href="how-to-book-the-cheapest-flight-possible-to-anywhere/") How to Book the Cheapest Flight Possible to Anywhere
+        span.post-date September 4, 2017
+      li
+        a(href="good-eyes-health/") Good Eyes Health
+        span.post-date May 17, 2017
+      li
+        a(href="best-health-leader-marocain-en-equipement-medico-chirurgical/") Best Health, leader marocain en équipement médico-chirurgical.
+        span.post-date May 17, 2017
+      li
+        a(href="the-uks-most-economical-cars-2017/") The UK’s most economical cars 2017
+        span.post-date May 15, 2017
+      li
+        a(href="cheapest-cars-to-insure/") Cheapest cars to insure
+        span.post-date May 15, 2017

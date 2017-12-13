@@ -1,0 +1,49 @@
+.index-postGrid{
+  width:99%;
+  @media screen and (min-width:480px){
+    width:95%;
+  }
+}
+.index-postGrid-ctn{
+  max-width:1300px;
+  margin: ms(4) 0;
+}
+.index-postGrid-h{
+  text-align:center;
+  position: relative;
+  font-family: 'Dancing Script';
+  @media screen and (min-width:480px){
+    font-size: 3.5rem;
+  }
+  font-size: 2.5rem;
+  max-width:320px;
+  color: hsl($main-color, 50, 40);
+  &:after,&:before{
+    position: absolute;
+    content:'';
+    background: linear-gradient(-45deg,hsl($main-color, 50, 50),hsl($main-color, 50, 80));
+    height:7px;
+    width:50px;
+    @media screen and (min-width:480px){
+      width:100px;
+    }
+    top:65%;
+  }
+  &:after{
+    background: linear-gradient(45deg,hsl($main-color, 50, 50),hsl($main-color, 50, 80));
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    right:-0px;
+    @media screen and (min-width:480px){
+      right:-60px;
+    }
+  }
+  &:before{
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    left:-0px;
+    @media screen and (min-width:480px){
+      left:-60px;
+    }
+  }
+}

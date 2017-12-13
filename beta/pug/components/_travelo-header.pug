@@ -11,6 +11,6 @@ header(style= bk('../final/img/37.jpg','hsla(221,50%,15%,.7)','hsla(221,50%,15%,
     .header-btm-cpright
       h6!= `Travelo &copy; Copyright ${new Date().getFullYear()}.`
     .header-btm-social
-      -i=0;
+      -i=0;let icons=['twitter','gplus','facebook','pinterest'];
       +loop(3)
         a.header-btm-social-icon(class= `icon-${icons[i++]}`, href="#")

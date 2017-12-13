@@ -1,19 +1,26 @@
 @import 'partials/normalize', 'partials/type' ,'partials/mixins';
 @import 'partials/rwd-float','partials/colors';
+//Screen Reader
+.screen-reader-text{
+  transform: scale(0);
+  font-size: .5px;
+  visibility: hidden;
+}
+//Selection Color
 *::selection{
   color:ca(255,.7);
   background-color:hsl($second_color,80,50);
 }
 // Font & Color
 body{
-  background: hsla($main-color, 50%, 10%, .12);
+  background: hsla($main-color, 50%, 10%, .14);
   color:ca(5,.75);
 }
 h1,h2,h3,h4,h5,h6 {
   font-family: 'Noto';
 }
 // Grid
-@media screen and (min-width:480px) {
+@media screen and (min-width:768px) {
   @include rwd-mdm();
 }
 @media screen and (min-width:1024px) {
@@ -23,9 +30,15 @@ h1,h2,h3,h4,h5,h6 {
 @import 'components/menu/_travelo-side-nav';
 @import 'components/_travelo-header';
 @import 'components/_travelo-top';
+
 @import 'components/posts-index/_travelo-widget';
-@import 'components/posts-index/_travelo-index-post';
-@import 'components/_travelo-posts-index';
+@import 'components/posts-index/_travelo-excerpt-post';
+@import 'components/_travelo-posts-indexWithSidebar';
+@import 'components/_travelo-posts-indexGrid';
+@import 'components/_travelo-posts-indexInlined';
+@import 'components/_travelo-posts-indexGridWithSidebar';
+@import 'components/_travelo-posts-indexInlinedWithSidebar';
+
 @import 'components/_travelo-footer';
 @import 'components/_travelo-last-footer';
 @import 'components/_travelo-comment';

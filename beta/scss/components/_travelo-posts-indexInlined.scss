@@ -1,0 +1,27 @@
+.index-postInlined{
+  @media screen and (min-width:600px){
+    width:580px;
+  }
+  @media screen and (min-width:768px){
+    width:95%;
+    max-width:800px;
+    display: flex;
+    border-radius: 5px;
+    border-left:none;
+    .index-post-thumb{
+      flex:1;
+      max-height: 350px;
+    }
+    .index-postInlined-txt{
+      flex:1.5;
+    }
+    .img{
+      height:100%;
+    }
+    .index-post-readMoreBtn{
+      top:auto;
+      bottom:10px;
+      right:10px;
+    }
+  }
+}

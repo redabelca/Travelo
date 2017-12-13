@@ -19,7 +19,6 @@ gulp.task('default', () => {
     },
     open: false
   });
-  let now = new Date().getSeconds();
   gulp.watch(`${paths.base}pug/**/*`).on('change', p => {
     if (!plumber) {
       plumber = r('gulp-plumber');
@@ -27,16 +26,9 @@ gulp.task('default', () => {
     if (!pug) {
       pug = r('gulp-pug');
     }
-    let reloadAllowed = new Date().getSeconds() - now > 1 || new Date().getSeconds() - now < 0;
-    if (reloadAllowed) {
-      l(p);
       gulp.src(paths.base + 'pug/index.pug').pipe(plumber()).pipe(pug({
         pretty: true
       })).pipe(gulp.dest(paths.base)).pipe(browserSync.stream());
-      now = new Date().getSeconds();
-    } else {
-      l(new Date().getSeconds() - now);
-    }
   });
   //scss
   gulp.watch(`${paths.base}scss/**/*`).on('change', p => {
@@ -57,20 +49,18 @@ gulp.task('default', () => {
       stderr && l(stderr);
     });
     WebpackServerDeployed = 1;
-    // let reloadAllowed=new Date().getSeconds()-now>15 || new Date().getSeconds()-now<0;
-    // if(reloadAllowed){
-    //   exec(`webpack`, (err, stdout, stderr) => {
-    //     err && l(err);
-    //     stdout && l(stdout);
-    //     stderr && l(stderr);
-    //     l('Reloading------------------');
-    //     browserSync.reload();
-    //   });
-    //   now=new Date().getSeconds();
-    // }else{l(new Date().getSeconds()-now);}
   });
 });
 //--------------------------------------
+gulp.task('pug',()=>{
+    if (!plumber) {
+      plumber = r('gulp-plumber');
+    }
+    if (!pug) {
+      pug = r('gulp-pug');
+    }
+    gulp.src(paths.base + 'pug/**/*.pug').pipe(plumber()).pipe(pug({pretty: true})).pipe(gulp.dest(paths.base)).pipe(browserSync.stream());
+});
 gulp.task('svgmin', () => {
   if (!svgmin) {
     svgmin = r('gulp-svgmin');

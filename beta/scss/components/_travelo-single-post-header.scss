@@ -1,0 +1,32 @@
+.post-header{
+  min-height: 500px;
+  height:80vh;
+  @include gradient(hsl($main-color + 50,50%,60%),hsl($main-color,50%,35%));
+  color: ca(255,.8);
+  h1{
+    text-align: center;
+    margin-top:ms(4)-5px;
+    padding:0 ms(-1);
+    text-shadow: 0 2px 7px ca(0,.6);
+    @media screen and (min-width:768px) {
+      margin-top: ms(4)+ms(0);
+      padding:0 ms(3);
+    }
+    @media screen and (min-width:1024px) {
+      padding:0 ms(5);
+    }
+  }
+  .index-post-meta{
+    margin:auto;
+    justify-content: center;
+    padding:0;
+  }
+  .index-post-icon{
+    color:hsla($second-color,90%,60%,.9);
+  }
+  .meta{
+    &-txt{
+      color:ca(255,.7);
+    }
+  }
+}

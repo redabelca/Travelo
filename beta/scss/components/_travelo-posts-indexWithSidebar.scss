@@ -1,0 +1,15 @@
+.posts-index{
+  max-width: 1440px;
+  margin: ms(2) auto ms(3);
+}
+.post-index_gridPadding{
+  padding:0;
+  @media screen and (min-width:1024px){
+    padding:ms(0) ms(-1);
+  }
+}
+.clm-8.posts-index_gridPadding{
+  @media screen and (min-width:1024px){
+    padding-left:ms(1)+ms(0);
+  }
+}
