@@ -2,7 +2,7 @@ header {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  @include s(100%, 480px);
+  @include s(100%, 500px);
   height: 100vh;
   color: ca(255,.9);
 }

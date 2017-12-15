@@ -17,6 +17,6 @@
       li.sideNav-items-li.op0
         a(href='/').sideNav-a= navItems[i++]
   .sideNav-social
-    -let icons=['twitter','facebook','gplus'];i=0;
+    -var icons=['twitter','facebook','gplus'];i=0;
     +loop(3)
       a.sideNav-social-icon(class= `icon-${icons[i++]}`, href="#")

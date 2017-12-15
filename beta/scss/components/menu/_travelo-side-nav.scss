@@ -8,7 +8,7 @@
   z-index: 1;
   display:none;
   @include s(100%, 100%);
-  background: rgba(0, 0, 0, .5);
+  background: ca(0,.9);
 }
 .sideNav {
   width: 80%;

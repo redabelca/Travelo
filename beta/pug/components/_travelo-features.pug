@@ -2,10 +2,10 @@ section.features.pres
   .pres-intro
     h1.pres-intro-title!= 'More <span style="color:hsl(41,85%,40%);">Features</span>'
     p.pres-intro-subTitle Learn more about Travelo
-  -let h3s=['Fully Responsive','Optimized for SEO','Unique Design','Unlimited Color options'],p=['looks lovely on every device','Loads 5x faster','Fresh and neat design','Creating unlimited unique themes'];i=0;let featuresIcons=['flaticon-responsive-symbol-with-a-widescreen-monitor-a-cellphone-and-a-tablet','flaticon-seo-performance-marketing-graphic','flaticon-painter-palette','flaticon-drop-silhouette']
+  -var h3s=['Fully Responsive','Optimized for SEO','Unique Design','Unlimited Color options'],p=['looks lovely on every device','Loads 5x faster','Fresh and neat design','Creating unlimited unique themes'];i=0;let featuresIcons=['flaticon-responsive-symbol-with-a-widescreen-monitor-a-cellphone-and-a-tablet','flaticon-seo-performance-marketing-graphic','flaticon-painter-palette','flaticon-drop-silhouette']
   .row
     +loop(4)
-      .clm-3.clm-6-mdm.features-item
+      .clm-3.clm-6-mdm.features-item.features_anim
         i.features-icon.center(class= featuresIcons[i])
         h4= h3s[i]
         p.features-p= p[i++]

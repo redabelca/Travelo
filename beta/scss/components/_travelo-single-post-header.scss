@@ -1,7 +1,6 @@
 .post-header{
-  min-height: 500px;
+  height: 500px;
   height:80vh;
-  @include gradient(hsl($main-color + 50,50%,60%),hsl($main-color,50%,35%));
   color: ca(255,.8);
   h1{
     text-align: center;

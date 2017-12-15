@@ -1,6 +1,8 @@
 .rwd{
   color:ca(255,.7);
-  img{
+  .img{
+    transition:all 3s ease-in-out;
+    opacity:1;
     width:85%;
     @media screen and (min-width:500px){
       width:500px;

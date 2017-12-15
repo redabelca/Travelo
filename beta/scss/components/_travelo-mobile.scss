@@ -1,26 +1,32 @@
 .mbl {
-  background: linear-gradient(45deg, hsl($main-color, 50, 50), hsl($main-color - 30, 50, 50));
   height: auto;
+  overflow: hidden;
   @media screen and (min-width: 1024px) {
-    height:420px;
+    height:550px;
   }
   &-img {
-    overflow: hidden;
-    height: 100%;
+    width: 360px;
+    transform: translateY(30px);
+    opacity: 1;
     display: none;
     @media screen and (min-width: 1024px) {
       display:block;
     }
-    .img {
-      //-rmv
-      width: 320px;
-      transform: translateY(50px);
+    position: relative;
+    iframe{
+      width:328px;
+      height:460px;
+      top:64px;
+      left:18px;
+      position: absolute;
+      overflow: auto;
     }
   }
   &-description {
+    transform: translate(0);
+    opacity:1;
     height: 100%;
     padding: ms(1);
-    color: ca(255, .7);
     @media screen and (min-width: 480px) {
       padding:ms(3);
     }
@@ -40,5 +46,10 @@
     &:hover {
       background: hsl($second_color, 80%, 55%);
     }
+  }
+  &-description, .clm-6:nth-child(2){
+    transition:all .7s ease-in-out;
+    opacity:1;
+    transform: translate(0);
   }
 }

@@ -59,7 +59,7 @@ gulp.task('pug',()=>{
     if (!pug) {
       pug = r('gulp-pug');
     }
-    gulp.src(paths.base + 'pug/**/*.pug').pipe(plumber()).pipe(pug({pretty: true})).pipe(gulp.dest(paths.base)).pipe(browserSync.stream());
+    gulp.src(paths.base + 'pug/*.pug').pipe(plumber()).pipe(pug({pretty: true})).pipe(gulp.dest(paths.base)).pipe(browserSync.stream());
 });
 gulp.task('svgmin', () => {
   if (!svgmin) {

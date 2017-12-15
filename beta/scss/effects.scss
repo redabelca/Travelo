@@ -11,6 +11,12 @@
 .translate-0{
   transform: translate(0);
 }
+.op0{
+  opacity:0;
+}
+.op1{
+  opacity:1;
+}
 
 .top_show{
   transform: scale(1);
@@ -52,4 +58,55 @@
       weight: 700;
     }
   }
+}
+
+@for $i from 1 through 3 {
+  .featuredPosts-item_anim:nth-child(#{$i}){
+    opacity: 0;
+    @if $i==1 {
+      transform: translate(100%) scale(.5);
+    }
+    @if $i==2 {
+      transform: scale(.5);
+    }
+    @if $i==3 {
+      transform: translate(-100%) scale(.5);
+    }
+  }
+}
+@keyframes bounce {
+  87% {
+    transform: scale(1.07);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+.features_anim{
+  transform: scale(0);
+  opacity: 0;
+}
+.features_anim_bubble{
+  animation: bounce .4s ease-in-out forwards;
+}
+.rwd .rwd_anim{
+  opacity:0;
+}
+@for $i from 1 through 2 {
+  .mbl .mbl_anim:nth-child(#{$i}){
+    opacity: 0;
+    @if $i==1 {
+      transform: translate(-50%);
+    }
+    @if $i==2 {
+      transform: translate(50%);
+    }
+  }
+}
+.c2a_anim{
+  opacity: 0;
+}
+.c2a_anim_bubble{
+  animation: bounce .7s ease-in-out forwards;
 }

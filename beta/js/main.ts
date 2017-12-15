@@ -9,6 +9,8 @@ import { throttle } from "./partials/_optimization";
 import { menu } from "./components/menu/_travelo-side-nav";
 import { header } from "./components/_travelo-header";
 import { comment } from "./components/_travelo-comment";
+import { presentation } from "./components/_travelo-presentation";
+import { triggerAnimationMonitor } from "./partials/_animation";
 
 ((w) => {
   function init() {
@@ -17,15 +19,17 @@ import { comment } from "./components/_travelo-comment";
     addEvent(w, 'scroll', throttle(()=>{
       updateData('scrollTop', getWindowScrollY());
     },300));
-
     //Menu
     menu();
-
     //Header
     header();
-
     //Comment
     comment();
+    //Presentation
+    setTimeout(()=>{
+      presentation();
+      triggerAnimationMonitor();
+    },600);
   }
   ready(init);
 })(window);

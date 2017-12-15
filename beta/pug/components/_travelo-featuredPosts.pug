@@ -2,9 +2,9 @@ section.featuredPosts.pres
   .pres-intro
     h1.pres-intro-title!= 'Featured Posts'
   .row
-    -i=0;h3s=['Keep your searches top secret','Travel the world with the lowest budget','the top 5 wonderfull places to visit'];
+    -i=0;var h3s=['Keep your searches top secret','Travel the world with the lowest budget','the top 5 wonderfull places to visit'];
     +loop(3)
-      .clm-4
+      .clm-4.featuredPosts-item_anim
         .featuredPosts-item
           article.index-post
             a(href="#").index-post-thumb

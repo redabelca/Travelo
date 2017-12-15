@@ -22,12 +22,12 @@ export class animationElement {
   height: number;
   distance: number;
   fn: Function;
-  constructor(elSelector: string, fn: Function, percentOfHeight?: number) {
+  constructor(elSelector: string, fn: Function, percentOfHeight=0) {
     this.elNode = getEl(elSelector);
     this.top = top(this.elNode);
     this.height = getOffsetHeight(this.elNode);
     this.fn = fn;
-    this.distance = this.top + (this.height * (percentOfHeight || 0)) - (window.innerHeight + data.scrollTop);
+    this.distance = this.top + (this.height * percentOfHeight) - (window.innerHeight + data.scrollTop);
     //register animation info into an array for the monitor
     if (typeof data['distancesArray'] !== "object") {
       data['distancesArray'] = [];
@@ -41,7 +41,7 @@ export class animationElement {
 }
 
 export function whichActionEvent(action: string /*either animation or transition*/) {
-  var t, el = document.body,
+  let t, el = document.body,
     transitions = {
       'transition': 'transitionend',
       'OTransition': 'oTransitionEnd',
@@ -58,22 +58,18 @@ export function whichActionEvent(action: string /*either animation or transition
   if (action === 'animation') {
     for (t in animations) {
       if (el.style[t] !== undefined) {
-        data[action + 'Event'] = animations[t];
         return animations[t];
       }
     }
   } else {
     for (t in transitions) {
       if (el.style[t] !== undefined) {
-        data[action + 'Event'] = transitions[t];
         return transitions[t];
       }
     }
   }
 }
 
-export function onActionEnd(elem: Element, action, fn, cb?) {
-  var actionEvent = data[action + 'Event'] || whichActionEvent(action);
-  addEvent(elem, actionEvent, fn(elem));
-  cb(elem);
+export function onActionEnd(el: Element, action:string, fn: Function) {
+  addEvent(el, whichActionEvent(action), fn );
 }

@@ -26,7 +26,6 @@
       margin:ms(0);
     }
     padding: 0;
-    background: c(255);
     text-align: left;
     border-radius: 10px;
     box-shadow:0 4px 25px ca(0,.5);
@@ -39,5 +38,10 @@
         padding-left: ms(0);
       }
     }
+  }
+  .clm-4{
+    transition: all 1s ease-in-out;
+    transform: translate(0) scale(1);
+    opacity:1;
   }
 }
