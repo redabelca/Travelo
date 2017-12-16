@@ -1,0 +1,62 @@
+.menu2{
+  background:hsla($main-color,80,50,.8);
+  position: relative;
+  &-ul{
+    margin-right: ms(0);
+    transform-origin: top;
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    width:100%;
+    background:hsl($main-color,80,50);
+    top:60px;
+    left:0;
+    @media screen and (min-width:1024px){
+      background:transparent;
+      position: static;
+      display: flex;
+      flex-direction: row;
+      width:auto;
+    }
+  }
+  a{
+    padding:ms(0) ms(0)+5px;
+    color:ca(255,.8);
+    text-transform: capitalize;
+  }
+  li{
+    position: relative;
+    transition: all .5s ease-in-out;
+    text-align: center;
+    @media screen and (min-width:1024px){
+      text-align: left;
+    }
+    ul{
+      background: hsla($main-color,50,30,.9);
+      width:100%;
+      @media screen and (min-width:1024px){
+        width:150%;
+      }
+      left:0;
+      display: none;
+      opacity:0;
+      position: absolute;
+    }
+    &:hover,&:focus{
+      background: hsl($main-color,50,10);
+    }
+    &:hover > ul, &:focus > ul{
+      display: block;
+      animation: dim .5s ease-in-out forwards;
+    }
+  }
+  &-humb{
+    color:c(255);
+    span{
+      background: c(255);
+    }
+    @media screen and (min-width:1024px){
+      display: none;
+    }
+  }
+}

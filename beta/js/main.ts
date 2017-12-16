@@ -7,6 +7,7 @@ import { throttle } from "./partials/_optimization";
 
 //Components
 import { menu } from "./components/menu/_travelo-side-nav";
+import { menu2 } from "./components/_travelo-menu2";
 import { header } from "./components/_travelo-header";
 import { comment } from "./components/_travelo-comment";
 import { presentation } from "./components/_travelo-presentation";
@@ -21,6 +22,7 @@ import { triggerAnimationMonitor } from "./partials/_animation";
     },300));
     //Menu
     menu();
+    menu2();
     //Header
     header();
     //Comment

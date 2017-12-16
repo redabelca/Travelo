@@ -7,11 +7,11 @@
         +loop(postInlinedH.length)
             article.index-postInlined.index-post.index-postGrid
               a(href="#").index-post-thumb
-                img(src= `../final/img/${i+6==6?i+10:i+6}.jpg`, alt="").img
+                img(src= `../final/img/${i+6==6?(i++)+10:(i++)+6}.jpg`, alt="").img
               a(href="#").index-post-readMoreBtn.icon-right-open
               .index-postInlined-txt
                 a(href="#")
-                  h3.index-post-title= postInlinedH[i++]
+                  h3.index-post-title= postInlinedH[i%2==0?0:1]
                 .index-post-meta
                   .meta-ctn
                     i.index-post-icon.icon-comment
@@ -24,6 +24,5 @@
                     span.meta-txt by James Broth
                 .index-post-excerpt
                   p We’ve all seasoned the wearisome, perennial looking out once making an attempt to book the most cost effective attainable flights to any given destination. With endless search engines .
-        -i=0;
   .clm-4.post-index_gridPadding
     include posts-index/_travelo-widget

@@ -49,6 +49,19 @@
   opacity: .6;
 }
 
+.menu2Ul_show{
+  display:flex;
+  animation: scl .2s ease-in-out forwards;
+}
+@keyframes scl{
+  from{
+    transform: scaleY(0);
+  }
+  to{
+    transform: scaleY(1);
+  }
+}
+
 .comment-form-comment{
   .label_stable{
     color: hsla($main_color, 70%, 23%, .8);

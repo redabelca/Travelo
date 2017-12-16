@@ -15,7 +15,7 @@ gulp.task('default', () => {
   browserSync.init({
     server: {
       baseDir: "./",
-      index: "beta/index.html"
+      index: "final/index.html"
     },
     open: false
   });
@@ -26,9 +26,7 @@ gulp.task('default', () => {
     if (!pug) {
       pug = r('gulp-pug');
     }
-      gulp.src(paths.base + 'pug/index.pug').pipe(plumber()).pipe(pug({
-        pretty: true
-      })).pipe(gulp.dest(paths.base)).pipe(browserSync.stream());
+    gulp.src(paths.base + 'pug/index.pug').pipe(plumber()).pipe(pug({pretty: true})).pipe(gulp.dest(paths.dest)).pipe(browserSync.stream());
   });
   //scss
   gulp.watch(`${paths.base}scss/**/*`).on('change', p => {
@@ -59,7 +57,7 @@ gulp.task('pug',()=>{
     if (!pug) {
       pug = r('gulp-pug');
     }
-    gulp.src(paths.base + 'pug/*.pug').pipe(plumber()).pipe(pug({pretty: true})).pipe(gulp.dest(paths.base)).pipe(browserSync.stream());
+    gulp.src(paths.base + 'pug/*.pug').pipe(plumber()).pipe(pug({pretty: true})).pipe(gulp.dest(paths.final)).pipe(browserSync.stream());
 });
 gulp.task('svgmin', () => {
   if (!svgmin) {
@@ -168,7 +166,7 @@ gulp.task('unCss', (d) => {
   d();
 });
 gulp.task('finalCss', (d) => {
-  gulp.src([paths.dest + 'styles/normalize.css', paths.dest + 'styles/type.css', paths.dest + 'styles/effects.css', paths.dest + 'styles/style.css'])
+  gulp.src([paths.dest + 'styles/normalize.css', paths.dest + 'styles/type.css', paths.dest + 'styles/style.css', paths.dest + 'styles/effects.css', paths.dest + 'fonts/**/*.css'])
     .pipe(concatCss('style.min.css'))
     .pipe(combineMq({
       beautify: true

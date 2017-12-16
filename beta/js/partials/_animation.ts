@@ -5,6 +5,7 @@ import { throttle } from "../partials/_optimization";
 
 //Animation
 export function triggerAnimationMonitor() {
+  if(!data['distancesArray']) return ;
   data['distancesArray'].sort((a, b) => {
     return a.distance - b.distance;
   });

@@ -1,0 +1,14 @@
+nav.menu2.header-nav
+  .menu2-logo
+    a(href="./").header-nav-logo Travelo
+  ul.menu2-ul
+    +loop(3)
+      li
+        a(href="#") Home
+        ul
+          +loop(8)
+            li
+              a(href="#") Home
+  .header-nav-humb.menu2-humb#menu2-humb
+    +loop(3)
+      span.header-nav-humb-bar
