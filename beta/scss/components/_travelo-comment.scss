@@ -5,7 +5,7 @@
   &-reply-title {
     color: hsla($main_color, 70%, 16%, .75);
     font: {
-      family: 'Noto';
+      family: 'Noto Sans';
     }
   }
   &-form-comment {
@@ -16,7 +16,7 @@
       transform: translate(15px, 50px);
       color: hsla($main_color, 70%, 23%, .5);
       font: {
-        family: 'Noto';
+        family: 'Noto Sans';
         weight: 500;
       }
     }
