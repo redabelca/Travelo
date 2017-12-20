@@ -2,9 +2,9 @@
   "compilerOptions": {
     "sourceMap": false,
     "noImplicitAny": false,
-    //"noEmit": true,
+    // "noEmit": true,
     "watch": true,
-    "diagnostics": false,
+    "diagnostics": true,
     "baseUrl": "./",
     "paths": {
       "*": [
@@ -18,10 +18,5 @@
       "beta/pug",
       "beta/scss",
       "beta/test"
-  ],
-  "awesomeTypescriptLoaderOptions": {
-    "transpileOnly":true,
-    "useCache":true,
-    "cacheDirectory":"./"
-  }
+  ]
 }

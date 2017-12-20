@@ -20,7 +20,7 @@ import { triggerAnimationMonitor } from "./partials/_animation";
     addEvent(w, 'scroll', throttle(()=>{
       updateData('scrollTop', getWindowScrollY());
     },300));
-    //Menu
+    // Menu
     menu();
     menu2();
     //Header

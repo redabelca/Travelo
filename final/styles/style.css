@@ -796,7 +796,9 @@ footer {
         display: block; } }
 
 .comment-respond {
-  padding: 25px 0 0 41px; }
+  padding-left: 41px;
+  margin: auto;
+  max-width: 800px; }
 
 .comment-reply-title {
   color: rgba(12, 31, 69, 0.75);
@@ -823,10 +825,10 @@ footer {
   box-shadow: 0 0 0 0 white; }
   @media screen and (min-width: 480px) {
     .comment-form-comment textarea {
-      width: 450px; } }
+      width: 400px; } }
   @media screen and (min-width: 768px) {
     .comment-form-comment textarea {
-      width: 500px;
+      width: 600px;
       height: 180px; } }
   .comment-form-comment textarea:hover, .comment-form-comment textarea:focus {
     box-shadow: 0 0 5px 2px #f0c975; }
@@ -889,31 +891,6 @@ a.page-numbers:hover {
   color: white;
   border-radius: 100%; }
 
-.post-header {
-  height: 500px;
-  height: 80vh;
-  color: rgba(255, 255, 255, 0.8); }
-  .post-header h1 {
-    text-align: center;
-    margin-top: 104px;
-    padding: 0 9px;
-    text-shadow: 0 2px 7px rgba(0, 0, 0, 0.6); }
-    @media screen and (min-width: 768px) {
-      .post-header h1 {
-        margin-top: 125px;
-        padding: 0 67px; } }
-    @media screen and (min-width: 1024px) {
-      .post-header h1 {
-        padding: 0 177px; } }
-  .post-header .index-post-meta {
-    margin: auto;
-    justify-content: center;
-    padding: 0; }
-  .post-header .index-post-icon {
-    color: rgba(245, 187, 61, 0.9); }
-  .post-header .meta-txt {
-    color: rgba(255, 255, 255, 0.7); }
-
 .single-post {
   max-width: 900px;
   padding: 25px;
@@ -935,6 +912,7 @@ a.page-numbers:hover {
     font-size: 3.2rem; }
   .single-post-content {
     margin-top: 25px;
+    margin-bottom: 67px;
     font-size: 17px; }
     .single-post-content p:first-child::first-letter {
       font-size: 25px; }
@@ -951,6 +929,39 @@ a.page-numbers:hover {
         .single-post-content blockquote {
           margin-left: 25px;
           padding-left: 25px; } }
+
+.aboutBtm {
+  display: flex;
+  width: 90%;
+  padding: 16px;
+  max-width: 700px;
+  background: white;
+  border-radius: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.22); }
+  @media screen and (min-width: 1024px) {
+    .aboutBtm {
+      padding: 25px; } }
+  .aboutBtm-img {
+    width: 80px;
+    height: 80px;
+    border-radius: 100%; }
+    @media screen and (min-width: 480px) {
+      .aboutBtm-img {
+        width: 100px;
+        height: 100px;
+        margin-top: 16px; } }
+  .aboutBtm hr {
+    display: none;
+    width: 109px;
+    margin: 0; }
+    @media screen and (min-width: 1024px) {
+      .aboutBtm hr {
+        display: block; } }
+  .aboutBtm-txt {
+    padding: 0 9px; }
+    @media screen and (min-width: 480px) {
+      .aboutBtm-txt {
+        padding: 25px; } }
 
 .pres {
   text-align: center;

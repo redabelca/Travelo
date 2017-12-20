@@ -1,5 +1,5 @@
 //get and Event
-export function getEl(el: string,all?: boolean) {
+export function getEl (el: string,all?: boolean):any {
   return all?document.querySelectorAll(el):document.querySelector(el);
 }
 

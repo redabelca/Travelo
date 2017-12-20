@@ -1,10 +1,6 @@
 "use strict";
-let t = setTimeout,
-  r = require,
+let r = require,
   gulp = r('gulp'),
-  {
-    exec
-  } = r('child_process'),
   browserSync = r('browser-sync').create(),
   plumber, rename, pug, sass, autoprefixer, uncss, csso, combineMq, uglify, concat, order, autopolyfiller, merge, svgmin, imgmin, imageResize, l = console.log,
   paths = {
@@ -42,12 +38,8 @@ gulp.task('default', () => {
   //js
   let WebpackServerDeployed = 0;
   gulp.watch(`${paths.base}js/**/*`).on('change', p => {
+    !WebpackServerDeployed && r('child_process').exec(`webpack-dev-server`, {stdio:'inherit'});
     !WebpackServerDeployed && l('server started at 8080');
-    !WebpackServerDeployed && exec(`webpack-dev-server`, (err, stdout, stderr) => {
-      err && l(err);
-      stdout && l(stdout);
-      stderr && l(stderr);
-    });
     WebpackServerDeployed = 1;
   });
 });
@@ -59,7 +51,7 @@ gulp.task('pug',d=>{
     if (!pug) {
       pug = r('gulp-pug');
     }
-    gulp.src(paths.base + 'pug/*.pug').pipe(plumber()).pipe(pug({pretty: true})).pipe(gulp.dest(paths.dest)).pipe(browserSync.stream()).on('finish',()=>{d()});
+    gulp.src(paths.base + 'pug/*.pug').pipe(plumber()).pipe(pug({pretty: true})).pipe(gulp.dest(paths.dest)).on('finish',()=>{browserSync.stream();d();});
 });
 gulp.task('sass',d=>{
   if (!sass) {
@@ -129,6 +121,7 @@ gulp.task('uglify', d=>{
   if (!plumber) {
     plumber = r('gulp-plumber');
   }
+  r('child_process').execSync('webpack -p',{stdio:'inherit'});
   let all = gulp.src(paths.dest + 'js/main.js');
   let polyfills = all
     .pipe(autopolyfiller('poly.js', {
@@ -187,7 +180,7 @@ gulp.task('finalCss', d=>{
     .pipe(gulp.dest(paths.dest + 'styles')).on('finish',()=>{d();});
 });
 gulp.task('defer', d=>{
-  gulp.src(paths.dest + 'index.html')
+  gulp.src(paths.dest + 'index-critical.html')
     .pipe(r('gulp-defer')())
     .pipe(gulp.dest(paths.dest)).on('finish',()=>{d();});
 });
@@ -212,6 +205,6 @@ gulp.task('critical',d=>{
       extract: false,
       ignore: ['font-face']
     });
-    d();  
+    d();
 });
-gulp.task('build',gulp.series('unCss', 'finalCss', 'uglify'));
+gulp.task('build',gulp.series('pug','sass','unCss', 'finalCss', 'uglify'));
