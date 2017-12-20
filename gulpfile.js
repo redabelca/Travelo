@@ -42,10 +42,13 @@ gulp.task('default', () => {
   //js
   let WebpackServerDeployed = 0;
   gulp.watch(`${paths.base}js/**/*`).on('change', p => {
-    !WebpackServerDeployed && l('\nserver started at 8080\n');
-    !WebpackServerDeployed && exec(`webpack-dev-server`, () => {});
-    !WebpackServerDeployed && WebpackServerDeployed = 1;
-    l('\np\n');
+    !WebpackServerDeployed && l('server started at 8080');
+    !WebpackServerDeployed && exec(`webpack-dev-server`, (err, stdout, stderr) => {
+      err && l(err);
+      stdout && l(stdout);
+      stderr && l(stderr);
+    });
+    WebpackServerDeployed = 1;
   });
 });
 //--------------------------------------

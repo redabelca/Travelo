@@ -32,7 +32,6 @@
     "gulp-uglify": "^3.0.0",
     "gulp-uncss": "^1.0.6",
     "gulp-unused": "^0.2.1",
-    "psi": "^3.0.0",
     "pug": "^2.0.0-rc.4",
     "videofy": "0.0.2"
   },
