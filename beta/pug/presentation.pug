@@ -1,0 +1,25 @@
+include _mixins
+-let i=0;
+doctype html
+html(lang='')
+  include components/head
+    +cssLink('../final/fonts/fontello/css/fontello.css')
+    +cssLink('../final/fonts/flaticon/font/flaticon.css')
+    +cssLink('../final/styles/style.css')
+  body
+    main
+      include components/menu/_travelo-side-nav
+      include components/_travelo-header
+      include components/_travelo-top
+      include components/_travelo-featuredPosts
+      include components/_travelo-features
+      include components/_travelo-rwd
+      include components/_travelo-mobile
+      include components/_travelo-testimonials
+      include components/_travelo-call2Action
+      include components/_travelo-footer
+      include components/_travelo-last-footer
+    <!--defer-->
+    script(src='../final/js/main.js', async)
+    script(src='../main.js', async)
+    <!--enddefer-->
