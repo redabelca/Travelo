@@ -15,11 +15,12 @@ import { triggerAnimationMonitor } from "./partials/_animation";
 
 ((w) => {
   function init() {
+    let t=setTimeout;
     //General
     updateData('scrollTop', getWindowScrollY());
     addEvent(w, 'scroll', throttle(()=>{
       updateData('scrollTop', getWindowScrollY());
-    },300));
+    },200));
     // Menu
     menu();
     menu2();
@@ -28,10 +29,10 @@ import { triggerAnimationMonitor } from "./partials/_animation";
     //Comment
     comment();
     //Presentation
-    setTimeout(()=>{
+    t(()=>{
       presentation();
-      triggerAnimationMonitor();
-    },600);
+      t(()=>{triggerAnimationMonitor();},200);
+    },200);
   }
   ready(init);
 })(window);

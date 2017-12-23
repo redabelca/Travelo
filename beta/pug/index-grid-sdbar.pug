@@ -5,7 +5,7 @@ html(lang='')
   include components/head
     +cssLink('../final/fonts/fontello/css/fontello.css')
     +cssLink('../final/fonts/flaticon/font/flaticon.css')
-    +cssLink('../final/styles/style.css')
+    +cssLink('../final/styles/style.min.css')
   body
     main
       include components/menu/_travelo-side-nav
@@ -19,5 +19,4 @@ html(lang='')
       include components/_travelo-last-footer
     <!--defer-->
     script(src='../final/js/main.js', async)
-    script(src='../main.js', async)
     <!--enddefer-->

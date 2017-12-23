@@ -1,5 +1,5 @@
 @import 'partials/normalize', 'partials/type' ,'partials/mixins';
-@import 'partials/rwd-float','partials/colors';
+@import 'partials/rwd-float','partials/colors','components/menu/_menu';
 //Screen Reader
 .screen-reader-text{
   transform: scale(0);

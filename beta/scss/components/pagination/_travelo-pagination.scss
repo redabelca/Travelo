@@ -22,6 +22,7 @@ a.page-numbers:hover{
 }
 .pagination{
 	display: flex;
+	margin-bottom: ms(4);
 	.next, .previous {
 		display: block;
 		width: 100%;

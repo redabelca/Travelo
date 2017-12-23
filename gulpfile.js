@@ -78,12 +78,13 @@ gulp.task('imgmin', d=>{
   if (!imageResize) {
     imageResize = r('gulp-image-resize');
   }
-  gulp.src("./final/img/*.{jpg,jpeg,png}")
+  [150,300,500,800,1024,2000].map(v=>{
+    gulp.src("./final/img/*.{jpg,jpeg,png}")
     .pipe(imageResize({
-      width: 2000
+      width: v
     }))
     .pipe(rename((path) => {
-      path.basename += ``;
+      path.basename += `-${v}`;
     }))
     .pipe(imgmin({
       progressive: true,
@@ -95,6 +96,7 @@ gulp.task('imgmin', d=>{
       verbose: true,
     }))
     .pipe(gulp.dest("./final/img")).on('finish',()=>{d();});
+  });
 });
 //--------------------------------------
 gulp.task('uglify', d=>{
@@ -175,7 +177,7 @@ gulp.task('finalCss', d=>{
       cascade: false,
       remove: false
     }))
-    .pipe(concat('style.min.css'))
+    .pipe(concat('style.css'))
     .pipe(combineMq())
     .pipe(gulp.dest(paths.dest + 'styles')).on('finish',()=>{d();});
 });

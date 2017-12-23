@@ -1,3 +1,4 @@
+// -----------Last Footer-----------
 section.last-footer
   .last-footer-item
     p!= `Travelo &copy; Copyright ${new Date().getFullYear()}.`
@@ -5,3 +6,4 @@ section.last-footer
     -i=0; let lastFooterLinks=['products' , 'portfolio' , 'blog' , 'features' , 'purchase' , 'items'];
     +loop(lastFooterLinks.length)
       a(href="#").last-footer-item-a= lastFooterLinks[i++]
+// -----------Last Footer-----------

@@ -1,13 +1,14 @@
+// -----------Post List + Sdbar-----------
 .row.posts-index
   .clm-8.posts-index_gridPadding
     -i=0;var postInlinedH=['Keep your searches top secret','Travel the world with the lowest budget'];
     .index-postGrid-ctn.center
       h1.index-postGrid-h.index-postInlined-h.center Blog Posts
-      +loop(3)
+      +loop(2)
         +loop(postInlinedH.length)
             article.index-postInlined.index-post.index-postGrid
               a(href="#").index-post-thumb
-                img(src= `../final/img/${i+6==6?(i++)+10:(i++)+6}.jpg`, alt="").img
+                img(src= `../final/img/${i+6==6?(i++)+10:(i++)+6}-500.jpg`, alt="").img
               a(href="#").index-post-readMoreBtn.icon-right-open
               .index-postInlined-txt
                 a(href="#")
@@ -27,3 +28,4 @@
   .clm-4.post-index_gridPadding
     include posts-index/_travelo-widget
 include ../components/pagination/_travelo-pagination
+// -----------Post List + Sdbar-----------

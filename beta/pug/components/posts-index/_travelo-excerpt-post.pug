@@ -2,7 +2,7 @@
 +loop(postH.length)
   article.index-post
     a(href="#").index-post-thumb
-      img(src= `../final/img/${i+6==6?(i++)+10:(i++)+6}.jpg`, alt="").img
+      img(src= `../final/img/${i+6==6?i+10:i+6}-800.jpg`, alt="").img
     a(href="#").index-post-readMoreBtn.icon-right-open
     a(href="#")
       h3.index-post-title= postH[i++]

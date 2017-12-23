@@ -1,14 +1,31 @@
+// -----------Menu 2-----------
 nav.menu2.header-nav
   .menu2-logo
     a(href="./").header-nav-logo Travelo
   ul.menu2-ul
-    +loop(3)
+    -var links=['Home','About', 'Blog','Post','Features'];
+    -var linksHtml=['presentation.html','about.html', 'index-sdbar.html','single-post.html','presentation.html'];
+    -var blogLinks=['Standard','List','List + Sidebar','Grid','Grid + Sidebar'];
+    -var blogLinksHtml=['index-sdbar.html','index-inlined.html','index-inlined-sdbar.html','index-grid.html','index-grid-sdbar.html'];
+    -var postLinks=['Post','Post + Sidebar'];
+    -var postLinksHtml=['single-post.html','single-post-sdbar.html'];
+    -i=0;var j=0;
+    +loop(links.length)
       li
-        a(href="#") Home
-        ul
-          +loop(8)
-            li
-              a(href="#") Home
+        a(href= linksHtml[i])= links[i]
+        -if(i == 2)
+          -j=0;
+          ul
+            +loop(blogLinks.length)
+              li
+                a(href= blogLinksHtml[j])= blogLinks[j++]
+        -if(i++ == 3)
+          -j=0;
+          ul
+            +loop(postLinks.length)
+              li
+                a(href= postLinksHtml[j])= postLinks[j++]
   .header-nav-humb.menu2-humb#menu2-humb
     +loop(3)
       span.header-nav-humb-bar
+// -----------Menu 2-----------

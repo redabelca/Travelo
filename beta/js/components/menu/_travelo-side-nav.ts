@@ -25,9 +25,9 @@ export function menu() {
         addEvent(bg, 'click', slideInAndOut);
         addEvent(sdNv,'click',e=>{
           if(e.target.tagName.toLowerCase()=='a' && e.target.nextElementSibling){
-            toggleCss(e.target.nextElementSibling,'block');
+            e.target.nextElementSibling.style.display='block';
           }else if(e.target.tagName.toLowerCase()=='li' && e.target.querySelector('ul')){
-            toggleCss(e.target.querySelector('ul'),'block');
+            e.target.querySelector('ul').style.display='block';
           }
         });
         Eassigned = 1;

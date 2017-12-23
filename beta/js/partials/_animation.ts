@@ -5,7 +5,7 @@ import { throttle } from "../partials/_optimization";
 
 //Animation
 export function triggerAnimationMonitor() {
-  if(!data['distancesArray']) data['distancesArray']=[] ;
+  if(!data['distancesArray']) return
   data['distancesArray'].sort((a, b) => {
     return a.distance - b.distance;
   });
@@ -14,7 +14,7 @@ export function triggerAnimationMonitor() {
       data['distancesArray'][0].fn(data['distancesArray'][0].elNode);
       data['distancesArray'].shift();
     }
-  }, 400));
+  }, 300));
 }
 
 export class animationElement {
