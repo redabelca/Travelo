@@ -1,4 +1,7 @@
 @import 'partials/colors';
+.block,li .block{
+  display:block;
+}
 .bg-black-screen_show {
   display: block;
   animation: dim .7s ease-in-out forwards;

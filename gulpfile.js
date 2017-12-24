@@ -102,10 +102,6 @@ gulp.task('uglify', d=>{
     .pipe(gulp.dest(paths.dest + 'js')).on('finish',()=>{d();});
 });
 gulp.task('unCss', d=>{
-  if (!autoprefixer)  autoprefixer = r('gulp-autoprefixer');
-  if (!csso)  csso = r('gulp-csso');
-  if (!combineMq)  combineMq = r('gulp-combine-mq');
-  if (!sass)  sass = r('gulp-sass');
   if (!uncss)  uncss = r('gulp-uncss');
   gulp.src(`${paths.base}scss/style.scss`)
     .pipe(sass().on('error', sass.logError))
@@ -115,6 +111,10 @@ gulp.task('unCss', d=>{
     .pipe(gulp.dest(paths.dest + 'styles')).on('finish',()=>{d();});
 });
 gulp.task('finalCss', d=>{
+  if (!autoprefixer)  autoprefixer = r('gulp-autoprefixer');
+  if (!csso)  csso = r('gulp-csso');
+  if (!combineMq)  combineMq = r('gulp-combine-mq');
+  if (!sass)  sass = r('gulp-sass');
   if (!concat)  concat = r('gulp-concat');
   let cssFiles=[paths.dest + 'styles/partials/normalize.css', paths.dest + 'styles/partials/type.css', paths.dest + 'styles/style.css', paths.dest + 'styles/effects.css'];
   gulp.src(cssFiles)

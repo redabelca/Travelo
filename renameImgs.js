@@ -3,5 +3,5 @@ let l=console.log,r=require,fs=r('fs');
 let dir='C:/Users/redabelca/Desktop/Travelo/final/img/',files=fs.readdirSync(dir);
 
 files.map((file,i) => {
-  fs.rename(dir+file,`${dir+i}.jpg`,e=>l(e));
+  fs.renameSync(dir+file,`${dir+i}.jpg`);
 });

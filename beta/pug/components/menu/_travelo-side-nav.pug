@@ -3,8 +3,6 @@
 -var linksHtml=['presentation.html','about.html', 'index-sdbar.html','single-post.html','presentation.html'];
 -var blogLinks=['Standard','List','List + Sidebar','Grid','Grid + Sidebar'];
 -var blogLinksHtml=['index-sdbar.html','index-inlined.html','index-inlined-sdbar.html','index-grid.html','index-grid-sdbar.html'];
--var homeLinks=['Home 2','Home 3'];
--var homeLinksHtml=['home2.html','home3.html'];
 -var postLinks=['Post','Post + Sidebar'];
 -var postLinksHtml=['single-post.html','single-post-sdbar.html'];
 -i=0;var j=0;
@@ -17,12 +15,7 @@
   ul.sideNav-items
     +loop(links.length)
       li.sideNav-items-li.op0
-        a= links[i]
-        -if(i == 0)
-          ul
-            +loop(homeLinks.length)
-              li
-                a(href= homeLinksHtml[j])= homeLinks[j++]
+        a(href= (linksHtml[i]) )= links[i]
         -if(i == 2)
           -j=0;
           ul

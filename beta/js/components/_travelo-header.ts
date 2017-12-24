@@ -25,14 +25,14 @@ export function header() {
         setTimeout(() => {
           addCss(menu, 'humb_show');
           cssAdded = 1;
-        }, 300);
+        }, 50);
       } else if (data.scrollTop < distanceToHeaderBtm && cssAdded) {
         removeCss(menu, 'humb_afterScroll');
         removeCss(tp, 'top_show');
         setTimeout(() => {
           removeCss(menu, 'humb_show');
           cssAdded = 0;
-        }, 300);
+        }, 50);
       }
     }, 600));
   }

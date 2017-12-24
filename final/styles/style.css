@@ -2061,6 +2061,10 @@ a.page-numbers:hover {
   display: block;
 }
 
+.block,li .block {
+  display: block;
+}
+
 .bg-black-screen_show {
   display: block;
   -webkit-animation: dim .7s ease-in-out forwards;
