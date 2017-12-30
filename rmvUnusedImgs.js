@@ -1,4 +1,4 @@
-let l=console.log,r=require,prompt=r('prompt'),fs=r('fs'),path=r('path');
+let l=console.log,r=require,fs=r('fs'),path=r('path');
 
 //read all html files and store all srcs used
 let matchesFromHtmls=[];

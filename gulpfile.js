@@ -46,12 +46,6 @@ gulp.task('sass',d=>{
   if (!sass)  sass = r('gulp-sass');
   gulp.src(`${paths.base}scss/**/*.scss`).pipe(sass().on('error', sass.logError)).pipe(gulp.dest(paths.dest + 'styles')).pipe(browserSync.stream()).on('finish',()=>{d();});
 });
-gulp.task('svgmin', () => {
-  if (!svgmin)  svgmin = r('gulp-svgmin');
-  gulp.src('./final/img/**/*.svg')
-    .pipe(svgmin())
-    .pipe(gulp.dest('./final/img'));
-});
 gulp.task('imgmin', d=>{
   if (!rename)  rename = r('gulp-rename');
   if (!imgmin)  imgmin = r('gulp-imagemin');
@@ -118,6 +112,7 @@ gulp.task('finalCss', d=>{
   if (!concat)  concat = r('gulp-concat');
   let cssFiles=[paths.dest + 'styles/partials/normalize.css', paths.dest + 'styles/partials/type.css', paths.dest + 'styles/style.css', paths.dest + 'styles/effects.css'];
   gulp.src(cssFiles)
+    .pipe(concat('style.css'))
     .pipe(csso({
       restructure: true,
       debug: true
@@ -127,7 +122,6 @@ gulp.task('finalCss', d=>{
       cascade: false,
       remove: false
     }))
-    .pipe(concat('style.css'))
     .pipe(combineMq())
     .pipe(gulp.dest(paths.dest + 'styles')).on('finish',()=>{d();});
 });
@@ -154,7 +148,6 @@ gulp.task('critical',d=>{
           height: 960
       }],
       minify: true,
-      extract: false,
       ignore: ['font-face']
     });
     d();
