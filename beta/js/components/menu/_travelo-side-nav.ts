@@ -5,7 +5,7 @@ import { loop } from "../../partials/_snippets";
 //sidenav slide
 let bg = getEl('.bg-black-screen'),
   sdNv = getEl('.sideNav'),
-  sideNavLis=getEl('.sideNav-items-li', true),
+  sideNavLis=getEl('.sideNav-items > li', true),
   closeBtn=getEl('.sideNav-close-btn'),
   Eassigned = 0;
 function slideInAndOut() {
