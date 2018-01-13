@@ -1,6 +1,5 @@
 /node_modules/**
 /final/**/*
-/.vscode/**/*
 .jsbeautifyrc
 .jshintrc
 gulpfile.js
