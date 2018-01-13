@@ -1,8 +1,8 @@
 module.exports = {
   devServer: { inline: true },
-    entry: require('path').resolve(__dirname,'beta/js/main.ts'),
+    entry: require('path').resolve(__dirname,'beta/main.ts'),
     output: {
-        path:require('path').resolve(__dirname,'final/js'),
+        path:require('path').resolve(__dirname,'final/'),
         filename: 'main.js'
     },
     resolve: {

@@ -1,0 +1,51 @@
+@import '_travelo-single-post-header';
+/*-----------Single Post-----------*/
+.single-post{
+  max-width: 900px;
+  padding:ms(1);
+  margin:auto;
+  @media screen and (min-width:480px) {
+    padding: ms(2);
+  }
+  .index-post-meta{
+    margin-bottom: ms(2);
+    padding:0;
+  }
+  &-img{
+    object-fit: cover;
+    margin-bottom: ms(2);
+  }
+  &-title{
+    margin-top: ms(2);
+    margin-bottom: ms(0);
+    color:ca(0,.75);
+    font:{
+      weight:100;
+      size:3.2rem;
+    }
+  }
+  &-content{
+    margin-top: ms(1);
+    margin-bottom: ms(3);
+    font-size: 17px;
+    p:first-child::first-letter{
+      font-size: ms(1);
+    }
+    a{
+      text-decoration: underline;
+      color:hsl($main-color,50%,37%);
+    }
+    blockquote{
+      border-left:7px solid hsl($second-color,50%,50%);
+      font-style: italic;
+      line-height: 1.6;
+      padding:0 ms(0);
+      margin-left: ms(-1);
+      @media screen and (min-width:480px) {
+        margin-left: ms(1);
+        padding-left:ms(1);
+      }
+    }
+  }
+}
+/*-----------Single Post-----------*/

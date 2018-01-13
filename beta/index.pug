@@ -1,0 +1,43 @@
+//- placeholder imgs http://via.placeholder.com/100x100
+include partials/pug/_mixins
+-let i=0;
+doctype html
+html(lang='')
+  include partials/pug/head
+    +cssLink('../final/fonts/fontello/css/fontello.css')
+    +cssLink('../final/fonts/flaticon/font/flaticon.css')
+    +cssLink('../final/style.css')
+    +cssLink('../final/scss/effects.css')
+  body
+    main
+      include comps/menu/_travelo-side-nav
+      include comps/header/_travelo-header
+      include comps/top/_travelo-top
+      include comps/menu/_travelo-menu2
+
+      include comps/posts-indexWithSidebar/_travelo-posts-indexWithSidebar
+      include comps/posts-indexGrid/_travelo-posts-indexGrid
+      include comps/posts-indexInlined/_travelo-posts-indexInlined
+      include comps/posts-indexGridWithSidebar/_travelo-posts-indexGridWithSidebar
+      include comps/posts-indexInlinedWithSidebar/_travelo-posts-indexInlinedWithSidebar
+
+      include comps/pagination/_travelo-pagination
+      include comps/comment/_travelo-comment
+      include comps/featuredPosts/_travelo-featuredPosts
+      include comps/features/_travelo-features
+      include comps/rwd/_travelo-rwd
+      include comps/scores/_travelo-scores
+      include comps/mobile/_travelo-mobile
+      include comps/testimonials/_travelo-testimonials
+      include comps/c2a/_travelo-call2Action
+      include comps/about/_travelo-about
+      include comps/single-post/_travelo-single-post-header
+      include comps/single-post/_travelo-single-post
+      include comps/single-post/_travelo-single-post-withSidebar
+      include comps/aboutBtm/_travelo-aboutBtm
+      include comps/footer/_travelo-footer
+      include comps/last-footer/_travelo-last-footer
+    <!--defer-->
+    script(src='../final/main.js', async)
+    script(src='../main.js', async)
+    <!--enddefer-->

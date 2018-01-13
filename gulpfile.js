@@ -15,22 +15,20 @@ gulp.task('default', () => {
     },
     open: false
   });
-  gulp.watch(`${paths.base}pug/**/*`).on('change', p => {
+  gulp.watch(`${paths.base}**/*.pug`).on('change', p => {
     if (!plumber)  plumber = r('gulp-plumber');
     if (!pug)  pug = r('gulp-pug');
-    gulp.src(paths.base + 'pug/index.pug').pipe(plumber()).pipe(pug({pretty: true})).pipe(gulp.dest(paths.dest)).pipe(browserSync.stream());
+    gulp.src(`${paths.base}index.pug`).pipe(plumber()).pipe(pug({pretty: true})).pipe(gulp.dest(paths.dest)).pipe(browserSync.stream());
   });
   //scss
-  gulp.watch(`${paths.base}scss/**/*`).on('change', p => {
-    if (!sass)  sass = r('gulp-sass');
-    l(p);
-    gulp.src(p).pipe(sass().on('error', sass.logError)).pipe(gulp.dest(paths.dest + 'styles')).pipe(browserSync.stream()).on('finish',()=>{
-      gulp.src(paths.base + 'scss/style.scss').pipe(sass().on('error', sass.logError)).pipe(gulp.dest(paths.dest + 'styles')).pipe(browserSync.stream());
-    });
+  gulp.watch(`${paths.base}**/*.scss`).on('change', p => {
+    if (!sass)  sass = r('gulp-sass'); l(p);
+    if (!concat)  concat = r('gulp-concat');
+    gulp.src(`${paths.base}style.scss`).pipe(sass().on('error', sass.logError)).pipe(gulp.dest(paths.dest)).pipe(browserSync.stream());
   });
   //js
   let WebpackServerDeployed = 0;
-  gulp.watch(`${paths.base}js/**/*`).on('change', p => {
+  gulp.watch(`${paths.base}**/*`).on('change', p => {
     !WebpackServerDeployed && r('child_process').exec(`webpack-dev-server`, {stdio:'inherit'});
     !WebpackServerDeployed && l('server started at 8080');
     WebpackServerDeployed = 1;
@@ -40,11 +38,11 @@ gulp.task('default', () => {
 gulp.task('pug',d=>{
     if (!plumber)  plumber = r('gulp-plumber');
     if (!pug)  pug = r('gulp-pug');
-    gulp.src(paths.base + 'pug/*.pug').pipe(plumber()).pipe(pug({pretty: true})).pipe(gulp.dest(paths.dest)).on('finish',()=>{browserSync.stream();d();});
+    gulp.src([`${paths.base}index.pug`,`${paths.base}pug-pages/*.pug`]).pipe(plumber()).pipe(pug({pretty: true})).pipe(gulp.dest(paths.dest)).on('finish',()=>{browserSync.stream();d();});
 });
 gulp.task('sass',d=>{
   if (!sass)  sass = r('gulp-sass');
-  gulp.src(`${paths.base}scss/**/*.scss`).pipe(sass().on('error', sass.logError)).pipe(gulp.dest(paths.dest + 'styles')).pipe(browserSync.stream()).on('finish',()=>{d();});
+  gulp.src([`${paths.base}partials/**/*.scss`,`${paths.base}style.scss`]).pipe(sass().on('error', sass.logError)).pipe(gulp.dest(paths.dest)).pipe(browserSync.stream()).on('finish',()=>{d();});
 });
 gulp.task('imgmin', d=>{
   if (!rename)  rename = r('gulp-rename');
@@ -80,29 +78,26 @@ gulp.task('uglify', d=>{
   if (!merge)  merge = r('event-stream').merge;
   if (!plumber)  plumber = r('gulp-plumber');
   r('child_process').execSync('webpack -p',{stdio:'inherit'});
-  let all = gulp.src(paths.dest + 'js/main.js');
+  let all = gulp.src(`${paths.dest}main.js`);
   let polyfills = all
     .pipe(autopolyfiller('poly.js', {
       browsers: ['last 10 versions', 'iOS >= 6']
     }));
   merge(polyfills, all)
-    .pipe(order([
-            'poly.js',
-            'main.js'
-        ]))
+    .pipe(order(['poly.js','main.js']))
     .pipe(concat('main.js'))
     .pipe(uglify())
     .pipe(rename('main.min.js'))
-    .pipe(gulp.dest(paths.dest + 'js')).on('finish',()=>{d();});
+    .pipe(gulp.dest(paths.dest)).on('finish',()=>{d();});
 });
 gulp.task('unCss', d=>{
   if (!uncss)  uncss = r('gulp-uncss');
-  gulp.src(`${paths.base}scss/style.scss`)
+  gulp.src(`${paths.base}style.scss`)
     .pipe(sass().on('error', sass.logError))
     .pipe(uncss({
       html: [paths.dest + 'index.html']
     }))
-    .pipe(gulp.dest(paths.dest + 'styles')).on('finish',()=>{d();});
+    .pipe(gulp.dest(paths.dest)).on('finish',()=>{d();});
 });
 gulp.task('finalCss', d=>{
   if (!autoprefixer)  autoprefixer = r('gulp-autoprefixer');
@@ -110,7 +105,7 @@ gulp.task('finalCss', d=>{
   if (!combineMq)  combineMq = r('gulp-combine-mq');
   if (!sass)  sass = r('gulp-sass');
   if (!concat)  concat = r('gulp-concat');
-  let cssFiles=[paths.dest + 'styles/partials/normalize.css', paths.dest + 'styles/partials/type.css', paths.dest + 'styles/style.css', paths.dest + 'styles/effects.css'];
+  let cssFiles=[`${paths.dest}partials/scss/normalize.css`, `${paths.dest}partials/scss/type.css`, `${paths.dest}style.css`, `${paths.dest}partials/scss/effects.css`];
   gulp.src(cssFiles)
     .pipe(concat('style.css'))
     .pipe(csso({
@@ -123,7 +118,7 @@ gulp.task('finalCss', d=>{
       remove: false
     }))
     .pipe(combineMq())
-    .pipe(gulp.dest(paths.dest + 'styles')).on('finish',()=>{d();});
+    .pipe(gulp.dest(paths.dest)).on('finish',()=>{d();});
 });
 gulp.task('defer', d=>{
   gulp.src(paths.dest + 'index-critical.html')

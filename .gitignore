@@ -3,11 +3,6 @@
 /.vscode/**/*
 .jsbeautifyrc
 .jshintrc
-createComp.js
-createRepo.js
 gulpfile.js
-openComp.js
-renameImgs.js
-rmvUnusedImgs.js
 tsconfig.json
 webpack.config.ts

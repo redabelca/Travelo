@@ -1,0 +1,31 @@
+// -----------Grid + Sidebar-----------
+.row.posts-index
+  .clm-8.posts-index_gridPadding
+    -i=0;var postGridH=['Keep your searches top secret','Travel the world with the lowest budget','the top 5 wonderfull places to visit'];
+    .row.index-postGrid-ctn.center
+      h1.index-postGrid-h.center Blog Posts
+      +loop(2)
+        +loop(postGridH.length)
+          .clm-6
+            article.index-post.index-postGrid.index-postGridWithSdbar
+              a(href="#").index-post-thumb
+                img(src= `../final/img/${i+6==6?(i++)+10:(i++)+6}-800.jpg`, alt="").img
+              a(href="#").index-post-readMoreBtn.icon-right-open
+              a(href="#")
+                h3.index-post-title= postGridH[i%2==0?0:1]
+              .index-post-meta
+                .meta-ctn
+                  i.index-post-icon.icon-comment
+                  span.meta-txt 5 Comments
+                .meta-ctn
+                  i.index-post-icon.icon-calendar
+                  span.meta-txt 4 Oct 17
+                .meta-ctn
+                  i.index-post-icon.icon-user
+                  span.meta-txt by James Broth
+              .index-post-excerpt
+                p We’ve all seasoned the wearisome, perennial looking out once making an attempt to book the most cost effective attainable flights to any given destination. With endless search engines and regularly unsteady costs, the approach to sparing flight booking is overwhelming. Here’s some key tips which will prevent time, frustration and most significantly cash once booking your next flight.
+  .clm-4.post-index_gridPadding
+    include ../widget/_travelo-widget
+include ../pagination/_travelo-pagination
+// -----------Grid + Sidebar-----------

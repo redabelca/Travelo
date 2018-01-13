@@ -1,0 +1,74 @@
+@import 'partials/scss/normalize', 'partials/scss/type' ,'partials/scss/mixins';
+@import 'partials/scss/rwd-float','partials/scss/colors','comps/menu/_menu';
+
+//Screen Reader
+.screen-reader-text{
+  transform: scale(0);
+  font-size: .5px;
+  visibility: hidden;
+}
+//Selection Color
+*::selection{
+  color:ca(255,.7);
+  background-color:hsl($second_color,80,50);
+}
+// Font & Color
+body{
+  background: hsla($main-color, 50%, 10%, .14);
+  color:ca(5,.75);
+}
+h1,h2,h3,h4,h5,h6 {
+  font-family: 'Noto Sans';
+}
+// Grid
+@media screen and (min-width:768px) {
+  @include rwd-mdm();
+}
+@media screen and (min-width:1024px) {
+  @include rwd();
+}
+
+@import 'comps/menu/_travelo-side-nav';
+@import 'comps/header/_travelo-header';
+@import 'comps/top/_travelo-top';
+@import 'comps/menu/_travelo-menu2';
+
+@import 'comps/widget/_travelo-widget';
+@import 'comps/excerpt-post/_travelo-excerpt-post';
+@import 'comps/posts-indexWithSidebar/_travelo-posts-indexWithSidebar';
+@import 'comps/posts-indexGrid/_travelo-posts-indexGrid';
+@import 'comps/posts-indexInlined/_travelo-posts-indexInlined';
+@import 'comps/posts-indexGridWithSidebar/_travelo-posts-indexGridWithSidebar';
+@import 'comps/posts-indexInlinedWithSidebar/_travelo-posts-indexInlinedWithSidebar';
+
+@import 'comps/footer/_travelo-footer';
+@import 'comps/last-footer/_travelo-last-footer';
+@import 'comps/comment/_travelo-comment';
+@import 'comps/pagination/_travelo-pagination';
+@import 'comps/single-post/_travelo-single-post';
+@import 'comps/aboutBtm/_travelo-aboutBtm';
+@import 'partials/scss/presentation';
+  @import 'comps/mobile/_travelo-mobile';
+  @import 'comps/rwd/_travelo-rwd';
+  @import 'comps/featuredPosts/_travelo-featuredPosts';
+  @import 'comps/circularLine','comps/scores/_travelo-scores';
+  @import 'comps/c2a/_travelo-call2Action';
+  @import 'comps/features/_travelo-features';
+  @import 'comps/testimonials/_travelo-testimonials';
+@import 'comps/about/_travelo-about';
+
+@import 'partials/scss/readyCss';
+@media screen and (min-width:320px) {}
+  @media screen and (min-width:360px) {}
+  @media screen and (min-width:375px) {}
+  @media screen and (min-width:480px) {}
+  @media screen and (min-width:768px) {}
+  @media screen and (min-width:1024px) {}
+  @media screen and (min-width:1280px) {}
+  @media screen and (min-width:1360px) {}
+  @media screen and (min-width:1366px) {}
+  @media screen and (min-width:1440px) {}
+  @media screen and (min-width:1600px) {}
+  @media screen and (min-width:1680px) {}
+  @media screen and (min-width:1920px) {}
+  @media screen and (min-width:2560px) {}
